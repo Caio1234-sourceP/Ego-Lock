@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BLUE LOCK — Evolução</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    min-height:100vh;
+    color:white;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #12345a 0%,
+            #07111e 42%,
+            #020407 100%
+        );
+}
+
+header{
+
+    background:rgba(3,9,17,.97);
+
+    border-bottom:2px solid #1683ff;
+
+    padding:17px 6%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+    box-shadow:
+        0 0 25px rgba(0,119,255,.25);
+}
+
+.logo{
+
+    font-size:28px;
+
+    font-weight:1000;
+
+    letter-spacing:4px;
+
+    color:#1683ff;
+}
+
+.logo span{
+    color:white;
+}
+
+.header-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+}
+
+.coins{
+
+    background:#101b2b;
+
+    border:1px solid #f5ca3d;
+
+    color:#ffd84c;
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    font-weight:900;
+}
+
+.back-button{
+
+    background:#17263a;
+
+    color:#dce9f7;
+
+    text-decoration:none;
+
+    padding:10px 15px;
+
+    border-radius:9px;
+
+    font-weight:900;
+
+    border:1px solid #29435e;
+
+    transition:.2s;
+}
+
+.back-button:hover{
+
+    background:#223b58;
+
+    border-color:#1683ff;
+}
+
+.container{
+
+    width:90%;
+
+    max-width:1400px;
+
+    margin:auto;
+}
+
+.hero{
+
+    text-align:center;
+
+    padding:60px 20px 35px;
+}
+
+.hero h1{
+
+    font-size:clamp(40px,7vw,75px);
+
+    font-weight:1000;
+
+    letter-spacing:5px;
+
+    color:#1683ff;
+
+    text-shadow:
+        0 0 15px #1683ff,
+        0 0 40px rgba(22,131,255,.45);
+}
+
+.hero p{
+
+    margin-top:12px;
+
+    color:#9eafc3;
+
+    font-size:17px;
+}
+
+
+/* INFORMAÇÕES */
+
+.info-box{
+
+    background:
+        linear-gradient(
+            145deg,
+            #0e1b2b,
+            #070c13
+        );
+
+    border:1px solid #27425e;
+
+    border-radius:17px;
+
+    padding:22px;
+
+    margin-bottom:30px;
+
+    text-align:center;
+}
+
+.info-box h2{
+
+    color:#4da3ff;
+
+    margin-bottom:10px;
+}
+
+.info-box p{
+
+    color:#9eafc3;
+
+    line-height:1.6;
+}
+
+
+/* CONTROLES */
+
+.controls{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-bottom:25px;
+}
+
+.filter{
+
+    background:#0b1420;
+
+    border:1px solid #2b4058;
+
+    color:#aab8c8;
+
+    padding:10px 15px;
+
+    border-radius:9px;
+
+    cursor:pointer;
+
+    font-weight:900;
+}
+
+.filter:hover{
+
+    background:#142337;
+
+    color:white;
+}
+
+.filter.active{
+
+    background:#1677ff;
+
+    border-color:#1683ff;
+
+    color:white;
+
+    box-shadow:
+        0 0 15px rgba(22,131,255,.25);
+}
+
+
+/* JOGADORES */
+
+.players-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(220px,1fr)
+        );
+
+    gap:20px;
+}
+
+.player-box{
+
+    background:
+        linear-gradient(
+            145deg,
+            #0c1623,
+            #060a10
+        );
+
+    border:1px solid #263c54;
+
+    border-radius:17px;
+
+    padding:15px;
+
+    transition:.2s;
+
+    position:relative;
+}
+
+.player-box:hover{
+
+    transform:translateY(-4px);
+
+    border-color:#1683ff;
+
+    box-shadow:
+        0 10px 30px
+        rgba(22,131,255,.14);
+}
+
+.player-box.can-evolve{
+
+    border-color:#ffca3a;
+
+    box-shadow:
+        0 0 18px
+        rgba(255,202,58,.12);
+}
+
+.player-image{
+
+    width:100%;
+
+    height:235px;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+    background:#101a27;
+
+    display:block;
+}
+
+.player-name{
+
+    font-size:17px;
+
+    font-weight:1000;
+
+    margin-top:13px;
+}
+
+.rarity{
+
+    display:inline-block;
+
+    padding:5px 9px;
+
+    border-radius:6px;
+
+    font-size:10px;
+
+    font-weight:1000;
+
+    margin-top:8px;
+}
+
+.common{
+    background:#34404c;
+}
+
+.rare{
+    background:#176bd1;
+}
+
+.epic{
+    background:#7935c7;
+}
+
+.legendary{
+    background:#b0830b;
+}
+
+.mestres{
+    background:#c33b38;
+}
+
+.newgen{
+
+    background:
+        linear-gradient(
+            90deg,
+            #8b2cff,
+            #ff2cc3
+        );
+}
+
+
+/* ESTRELAS */
+
+.stars{
+
+    color:#ffd83d;
+
+    font-size:22px;
+
+    letter-spacing:2px;
+
+    margin:10px 0;
+
+    min-height:27px;
+}
+
+.power{
+
+    color:#72b5ff;
+
+    font-size:13px;
+
+    font-weight:900;
+
+    margin-bottom:5px;
+}
+
+.value{
+
+    color:#ffd84c;
+
+    font-size:13px;
+
+    font-weight:900;
+
+    margin-bottom:13px;
+}
+
+
+/* SELEÇÃO */
+
+.select-button{
+
+    width:100%;
+
+    background:#172538;
+
+    border:1px solid #31506f;
+
+    color:#bcd0e4;
+
+    padding:11px;
+
+    border-radius:9px;
+
+    cursor:pointer;
+
+    font-weight:1000;
+
+    transition:.2s;
+}
+
+.select-button:hover{
+
+    background:#21405f;
+
+    color:white;
+}
+
+.select-button.selected{
+
+    background:#b47b0c;
+
+    border-color:#ffd33d;
+
+    color:white;
+
+    box-shadow:
+        0 0 18px
+        rgba(255,211,61,.2);
+}
+
+.select-button.disabled{
+
+    opacity:.45;
+
+    cursor:not-allowed;
+
+}
+
+
+/* PAINEL */
+
+.evolution-panel{
+
+    position:sticky;
+
+    bottom:15px;
+
+    z-index:50;
+
+    margin-top:35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #101d2e,
+            #070c13
+        );
+
+    border:2px solid #1683ff;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    box-shadow:
+        0 0 35px
+        rgba(22,131,255,.2);
+}
+
+.selected-info{
+
+    text-align:center;
+
+    margin-bottom:15px;
+
+    color:#a9bacd;
+}
+
+.selected-info strong{
+
+    color:#ffd83d;
+
+    font-size:18px;
+}
+
+.evolve-button{
+
+    width:100%;
+
+    max-width:500px;
+
+    display:block;
+
+    margin:auto;
+
+    padding:15px;
+
+    background:#1683ff;
+
+    font-size:16px;
+}
+
+.evolve-button:hover{
+
+    background:#2790ff;
+}
+
+.evolve-button:disabled{
+
+    background:#29384a;
+
+    color:#74869b;
+
+    cursor:not-allowed;
+
+    box-shadow:none;
+
+    transform:none;
+}
+
+
+/* VAZIO */
+
+.empty{
+
+    grid-column:1/-1;
+
+    text-align:center;
+
+    padding:55px 20px;
+
+    border:1px dashed #2a4058;
+
+    border-radius:15px;
+
+    color:#71849a;
+
+    line-height:1.7;
+}
+
+
+/* TOAST */
+
+.toast{
+
+    position:fixed;
+
+    bottom:25px;
+
+    right:25px;
+
+    background:#111c2b;
+
+    border:1px solid #257fff;
+
+    padding:14px 20px;
+
+    border-radius:10px;
+
+    transform:translateY(100px);
+
+    opacity:0;
+
+    transition:.3s;
+
+    z-index:500;
+
+    max-width:350px;
+}
+
+.toast.show{
+
+    transform:translateY(0);
+
+    opacity:1;
+}
+
+
+@media(max-width:700px){
+
+    header{
+
+        padding:15px 4%;
+    }
+
+    .logo{
+
+        font-size:20px;
+    }
+
+    .coins{
+
+        padding:8px 12px;
+
+        font-size:13px;
+    }
+
+    .back-button{
+
+        display:none;
+    }
+
+    .player-image{
+
+        height:260px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        BLUE <span>LOCK</span>
+    </div>
+
+    <div class="header-right">
+
+        <a
+            href="index.html"
+            class="back-button">
+            ← Vitrine
+        </a>
+
+        <div class="coins">
+            🪙 <span id="coins">0</span>
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+
+<section class="hero">
+
+    <h1>EVOLUTION</h1>
+
+    <p>
+        Transforme suas cópias em jogadores cada vez mais fortes.
+    </p>
+
+</section>
+
+
+<section class="info-box">
+
+    <h2>⭐ SISTEMA DE EVOLUÇÃO</h2>
+
+    <p>
+        Escolha <b>3 cópias do mesmo jogador</b>
+        com a mesma quantidade de estrelas.
+        Elas serão fundidas em 1 jogador com
+        <b>+1 estrela</b>.
+    </p>
+
+    <p style="margin-top:8px;">
+        ⭐ + ⭐ + ⭐ → ⭐⭐
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        ⭐⭐ + ⭐⭐ + ⭐⭐ → ⭐⭐⭐
+    </p>
+
+    <p style="margin-top:8px;color:#ffd84c;">
+        ⭐⭐⭐ é o nível máximo.
+        Quanto maior a evolução, maior o valor
+        e a força nos Duelos.
+    </p>
+
+</section>
+
+
+<div class="controls">
+
+    <button
+        class="filter active"
+        data-filter="all"
+        onclick="setFilter('all')">
+        TODOS
+    </button>
+
+    <button
+        class="filter"
+        data-filter="common"
+        onclick="setFilter('common')">
+        COMMON
+    </button>
+
+    <button
+        class="filter"
+        data-filter="rare"
+        onclick="setFilter('rare')">
+        RARE
+    </button>
+
+    <button
+        class="filter"
+        data-filter="epic"
+        onclick="setFilter('epic')">
+        EPIC
+    </button>
+
+    <button
+        class="filter"
+        data-filter="legendary"
+        onclick="setFilter('legendary')">
+        LEGENDARY
+    </button>
+
+    <button
+        class="filter"
+        data-filter="mestres"
+        onclick="setFilter('mestres')">
+        MESTRES
+    </button>
+
+    <button
+        class="filter"
+        data-filter="newgen"
+        onclick="setFilter('newgen')">
+        NEW GEN
+    </button>
+
+</div>
+
+
+<div
+    id="playerGrid"
+    class="players-grid">
+</div>
+
+
+<div class="evolution-panel">
+
+    <div
+        id="selectedInfo"
+        class="selected-info">
+        Selecione 3 jogadores iguais.
+    </div>
+
+    <button
+        id="evolveButton"
+        class="evolve-button"
+        onclick="evolvePlayers()"
+        disabled>
+        ⭐ EVOLUIR
+    </button>
+
+</div>
+
+
+</main>
+
+
+<div
+    id="toast"
+    class="toast">
+</div>
+
+
+<script>
+
+/* =========================================
+   ESTADO
+========================================= */
+
+let game =
+    JSON.parse(
+        localStorage.getItem("blueLockGame")
+    ) || {
+
+        coins:1000,
+
+        xp:0,
+
+        level:1,
+
+        inventory:[],
+
+        packsOpened:0,
+
+        missions:{
+            1:false,
+            2:false,
+            3:false
+        }
+
+    };
+
+
+let selectedPlayers=[];
+
+let currentFilter="all";
+
+
+/* =========================================
+   MIGRAÇÃO DAS CARTAS ANTIGAS
+========================================= */
+
+game.inventory.forEach(player=>{
+
+    if(
+        typeof player.stars !== "number"
+    ){
+
+        player.stars=1;
+
+    }
+
+});
+
+
+/* =========================================
+   VALORES
+========================================= */
+
+const baseValues={
+
+    common:25,
+
+    rare:75,
+
+    epic:200,
+
+    legendary:600,
+
+    mestres:1500,
+
+    newgen:5000
+
+};
+
+
+/* =========================================
+   FORÇA BASE
+========================================= */
+
+const basePower={
+
+    common:40,
+
+    rare:70,
+
+    epic:110,
+
+    legendary:170,
+
+    mestres:240,
+
+    newgen:320
+
+};
+
+
+/* =========================================
+   VALOR COM ESTRELAS
+========================================= */
+
+function getPlayerValue(player){
+
+    const base=
+        baseValues[player.rarity] || 25;
+
+    const stars=
+        player.stars || 1;
+
+    /*
+        ⭐ = 100%
+        ⭐⭐ = 200%
+        ⭐⭐⭐ = 350%
+    */
+
+    const multiplier={
+
+        1:1,
+
+        2:2,
+
+        3:3.5
+
+    }[stars] || 1;
+
+    return Math.floor(
+        base*multiplier
+    );
+
+}
+
+
+/* =========================================
+   FORÇA
+========================================= */
+
+function getPlayerPower(player){
+
+    const base=
+        basePower[player.rarity] || 40;
+
+    const stars=
+        player.stars || 1;
+
+    /*
+        Cada estrela aumenta bastante
+        a força do jogador.
+    */
+
+    const multiplier={
+
+        1:1,
+
+        2:1.45,
+
+        3:2.05
+
+    }[stars] || 1;
+
+    return Math.floor(
+        base*multiplier
+    );
+
+}
+
+
+/* =========================================
+   ESTRELAS VISUAIS
+========================================= */
+
+function getStars(stars){
+
+    return "⭐".repeat(stars);
+
+}
+
+
+/* =========================================
+   FILTRO
+========================================= */
+
+function setFilter(filter){
+
+    currentFilter=filter;
+
+    document
+        .querySelectorAll(".filter")
+        .forEach(button=>{
+
+            button.classList.toggle(
+                "active",
+                button.dataset.filter===filter
+            );
+
+        });
+
+    render();
+
+}
+
+
+/* =========================================
+   RENDER
+========================================= */
+
+function render(){
+
+    const grid=
+        document.getElementById(
+            "playerGrid"
+        );
+
+    grid.innerHTML="";
+
+    const filtered=
+        game.inventory.filter(
+            player=>
+                currentFilter==="all" ||
+                player.rarity===currentFilter
+        );
+
+
+    /*
+        Aqui NÃO agrupamos os jogadores.
+
+        Cada cópia aparece individualmente.
+        Isso permite escolher exatamente
+        quais 3 serão fundidas.
+    */
+
+    if(filtered.length===0){
+
+        grid.innerHTML=`
+
+            <div class="empty">
+
+                🎒
+
+                <br><br>
+
+                Você não possui jogadores
+                nessa categoria.
+
+            </div>
+
+        `;
+
+        updatePanel();
+
+        return;
+
+    }
+
+
+    filtered.forEach(player=>{
+
+        const index=
+            game.inventory.indexOf(player);
+
+        const stars=
+            player.stars || 1;
+
+        const isSelected=
+            selectedPlayers.includes(index);
+
+        const canEvolve=
+            stars<3;
+
+        const card=
+            document.createElement("div");
+
+        card.className="player-box";
+
+        if(isSelected){
+
+            card.classList.add(
+                "can-evolve"
+            );
+
+        }
+
+
+        card.innerHTML=`
+
+            <img
+                class="player-image"
+                src="${player.image}"
+                alt="${player.name}"
+                onerror="this.style.opacity='.25'"
+            >
+
+            <div class="player-name">
+                ${player.name}
+            </div>
+
+            <span
+                class="rarity ${player.rarity}">
+                ${player.rarity.toUpperCase()}
+            </span>
+
+            <div class="stars">
+                ${getStars(stars)}
+            </div>
+
+            <div class="power">
+                ⚡ Força: ${getPlayerPower(player)}
+            </div>
+
+            <div class="value">
+                🪙 Valor: ${getPlayerValue(player)}
+            </div>
+
+            ${
+                canEvolve
+
+                ?
+
+                `
+                <button
+                    class="select-button ${
+                        isSelected
+                        ? "selected"
+                        : ""
+                    }"
+                    onclick="selectPlayer(${index})">
+
+                    ${
+                        isSelected
+                        ? "✓ SELECIONADO"
+                        : "SELECIONAR"
+                    }
+
+                </button>
+                `
+
+                :
+
+                `
+                <button
+                    class="select-button disabled"
+                    disabled>
+
+                    ⭐⭐⭐ MÁXIMO
+
+                </button>
+                `
+            }
+
+        `;
+
+        grid.appendChild(card);
+
+    });
+
+
+    updatePanel();
+
+}
+
+
+/* =========================================
+   SELECIONAR
+========================================= */
+
+function selectPlayer(index){
+
+    const player=
+        game.inventory[index];
+
+    if(!player){
+
+        return;
+
+    }
+
+
+    const stars=
+        player.stars || 1;
+
+
+    if(stars>=3){
+
+        toast(
+            "⭐ Este jogador já está no máximo."
+        );
+
+        return;
+
+    }
+
+
+    /*
+        Se já existem jogadores selecionados,
+        obrigamos que sejam exatamente iguais.
+    */
+
+    if(selectedPlayers.length>0){
+
+        const first=
+            game.inventory[
+                selectedPlayers[0]
+            ];
+
+        if(
+            !first ||
+            first.id!==player.id ||
+            (first.stars||1)!==stars
+        ){
+
+            toast(
+                "⚠️ Selecione 3 cópias do MESMO jogador com a MESMA quantidade de estrelas."
+            );
+
+            return;
+
+        }
+
+    }
+
+
+    const alreadySelected=
+        selectedPlayers.indexOf(index);
+
+
+    if(alreadySelected!==-1){
+
+        selectedPlayers.splice(
+            alreadySelected,
+            1
+        );
+
+    }else{
+
+        if(selectedPlayers.length>=3){
+
+            toast(
+                "⚠️ Você só pode selecionar 3 jogadores."
+            );
+
+            return;
+
+        }
+
+        selectedPlayers.push(index);
+
+    }
+
+
+    render();
+
+}
+
+
+/* =========================================
+   PAINEL
+========================================= */
+
+function updatePanel(){
+
+    const info=
+        document.getElementById(
+            "selectedInfo"
+        );
+
+    const button=
+        document.getElementById(
+            "evolveButton"
+        );
+
+
+    if(selectedPlayers.length===0){
+
+        info.innerHTML=
+            "Selecione <strong>3 jogadores iguais</strong>.";
+
+        button.disabled=true;
+
+        return;
+
+    }
+
+
+    const first=
+        game.inventory[
+            selectedPlayers[0]
+        ];
+
+
+    if(!first){
+
+        selectedPlayers=[];
+
+        render();
+
+        return;
+
+    }
+
+
+    const stars=
+        first.stars || 1;
+
+
+    info.innerHTML=
+        `<strong>
+            ${selectedPlayers.length}/3
+        </strong>
+        selecionados —
+        ${first.name}
+        ${getStars(stars)}`;
+
+
+    if(selectedPlayers.length===3){
+
+        button.disabled=false;
+
+        button.textContent=
+            `⭐ EVOLUIR PARA ${getStars(stars+1)}`;
+
+    }else{
+
+        button.disabled=true;
+
+        button.textContent=
+            "⭐ EVOLUIR";
+
+    }
+
+}
+
+
+/* =========================================
+   EVOLUIR
+========================================= */
+
+function evolvePlayers(){
+
+    if(selectedPlayers.length!==3){
+
+        toast(
+            "⚠️ Selecione exatamente 3 jogadores."
+        );
+
+        return;
+
+    }
+
+
+    const selected=
+        selectedPlayers.map(
+            index=>game.inventory[index]
+        );
+
+
+    if(
+        selected.some(
+            player=>!player
+        )
+    ){
+
+        selectedPlayers=[];
+
+        render();
+
+        return;
+
+    }
+
+
+    const first=
+        selected[0];
+
+
+    const stars=
+        first.stars || 1;
+
+
+    if(stars>=3){
+
+        toast(
+            "⭐ Este jogador já está no máximo."
+        );
+
+        selectedPlayers=[];
+
+        render();
+
+        return;
+
+    }
+
+
+    /*
+        Verificação de segurança:
+        os três precisam ser exatamente
+        o mesmo jogador e mesma estrela.
+    */
+
+    const valid=
+        selected.every(
+            player=>
+                player.id===first.id &&
+                (player.stars||1)===stars
+        );
+
+
+    if(!valid){
+
+        toast(
+            "❌ Os jogadores precisam ser iguais."
+        );
+
+        selectedPlayers=[];
+
+        render();
+
+        return;
+
+    }
+
+
+    /*
+        Remover os 3.
+    */
+
+    const indexes=
+        [...selectedPlayers]
+        .sort((a,b)=>b-a);
+
+
+    indexes.forEach(index=>{
+
+        game.inventory.splice(
+            index,
+            1
+        );
+
+    });
+
+
+    /*
+        Criar a carta evoluída.
+    */
+
+    const evolved={
+
+        ...first,
+
+        stars:stars+1,
+
+        uniqueId:
+            first.id+
+            "-"+
+            Date.now()+
+            "-"+
+            Math.random()
+
+    };
+
+
+    game.inventory.push(
+        evolved
+    );
+
+
+    selectedPlayers=[];
+
+
+    /*
+        XP pela evolução.
+    */
+
+    const xpReward=
+        stars===1
+        ? 50
+        : 100;
+
+
+    game.xp+=xpReward;
+
+
+    /*
+        Subir nível se necessário.
+    */
+
+    while(
+        game.xp>=game.level*100
+    ){
+
+        game.xp-=game.level*100;
+
+        game.level++;
+
+        toast(
+            "⬆️ Nível "+
+            game.level+
+            " alcançado!"
+        );
+
+    }
+
+
+    saveGame();
+
+
+    toast(
+        "⭐ "+
+        first.name+
+        " evoluiu para "+
+        getStars(stars+1)+
+        "!"
+    );
+
+
+    render();
+
+}
+
+
+/* =========================================
+   TOAST
+========================================= */
+
+function toast(message){
+
+    const element=
+        document.getElementById(
+            "toast"
+        );
+
+    element.textContent=message;
+
+    element.classList.add("show");
+
+
+    setTimeout(()=>{
+
+        element.classList.remove(
+            "show"
+        );
+
+    },3000);
+
+}
+
+
+/* =========================================
+   SALVAR
+========================================= */
+
+function saveGame(){
+
+    localStorage.setItem(
+        "blueLockGame",
+        JSON.stringify(game)
+    );
+
+}
+
+
+/* =========================================
+   MOEDAS
+========================================= */
+
+function updateCoins(){
+
+    document.getElementById(
+        "coins"
+    ).textContent=
+        (game.coins||0)
+        .toLocaleString("pt-BR");
+
+}
+
+
+/* =========================================
+   INICIALIZAÇÃO
+========================================= */
+
+updateCoins();
+
+render();
+
+</script>
+
+</body>
+</html>
