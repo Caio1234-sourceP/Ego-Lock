@@ -1,14 +1,684 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 
 <head>
 
-<meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Blue Lock - Duelos</title>
 
-<style> *{ margin:0; padding:0; box-sizing:border-box; font-family:Arial,Helvetica,sans-serif; } body{ background: radial-gradient(circle at top,#102d49 0%,#07121e 45%,#03080d 100%); color:white; min-height:100vh; } header{ padding:22px 7%; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #18344c; background:rgba(3,10,17,.92); position:sticky; top:0; z-index:20; backdrop-filter:blur(12px); } .logo{ font-size:28px; font-weight:1000; letter-spacing:2px; color:#38bdf8; } .logo span{ color:white; } .header-right{ display:flex; align-items:center; gap:12px; } .coins{ background:#0d2234; border:1px solid #24516f; padding:10px 18px; border-radius:30px; font-weight:bold; color:#facc15; } .back-button{ text-decoration:none; background:#124e70; color:white; padding:10px 16px; border-radius:9px; font-weight:bold; } .back-button:hover{ background:#38bdf8; color:#03111c; } .container{ width:86%; max-width:1400px; margin:auto; padding:35px 0 70px; } .hero{ text-align:center; padding:25px 10px 35px; } .hero h1{ font-size:clamp(40px,6vw,68px); font-weight:1000; letter-spacing:4px; } .hero h1 span{ color:#38bdf8; } .hero p{ margin-top:12px; color:#8fa7ba; } .duel-panel{ background: radial-gradient(circle at top right,rgba(37,99,235,.16),transparent 35%), linear-gradient(145deg,#0c1f2e,#07131e); border:1px solid #24516f; border-radius:20px; padding:25px; box-shadow:0 15px 50px rgba(0,0,0,.35); } .duel-top{ display:grid; grid-template-columns:1fr auto 1fr; gap:20px; align-items:center; } .team{ background:#091724; border:1px solid #1d4059; border-radius:15px; padding:20px; } .team-title{ text-align:center; font-size:22px; font-weight:1000; margin-bottom:15px; } .team-title.player{ color:#38bdf8; } .team-title.enemy{ color:#ef4444; } .vs{ font-size:38px; font-weight:1000; color:#facc15; text-shadow:0 0 20px rgba(250,204,21,.4); } .enemy-card{ text-align:center; } .enemy-icon{ font-size:60px; margin-bottom:10px; } .enemy-name{ font-size:24px; font-weight:1000; } .enemy-power{ margin-top:8px; color:#ef4444; font-weight:bold; } .selected-players{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; } .selected-slot{ min-height:180px; border:2px dashed #29495f; border-radius:12px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:8px; color:#60798c; } .selected-slot.filled{ border-style:solid; border-color:#38bdf8; background:#071827; color:white; } .selected-slot img{ width:100%; height:120px; object-fit:cover; border-radius:8px; margin-bottom:7px; } .selected-name{ font-size:12px; font-weight:bold; } .selected-rarity{ font-size:9px; margin-top:4px; text-transform:uppercase; color:#facc15; } .duel-stats{ margin-top:25px; display:grid; grid-template-columns:repeat(3,1fr); gap:15px; } .duel-stat{ background:#081522; border:1px solid #193b53; border-radius:12px; padding:17px; text-align:center; } .duel-stat-number{ font-size:25px; font-weight:1000; color:#38bdf8; } .duel-stat-label{ color:#7893a7; font-size:11px; margin-top:5px; } .reward-box{ margin-top:20px; padding:18px; border-radius:12px; background:linear-gradient(90deg,#271b05,#17130a); border:1px solid #8b5e18; text-align:center; } .reward-box strong{ color:#facc15; font-size:24px; } .reward-box p{ color:#9caaba; font-size:12px; margin-top:5px; } .battle-button{ width:100%; margin-top:20px; padding:17px; border:none; border-radius:12px; background:linear-gradient(90deg,#1d4ed8,#2563eb,#7c3aed); color:white; font-size:17px; font-weight:1000; letter-spacing:1px; cursor:pointer; box-shadow:0 0 20px rgba(37,99,235,.2); } .battle-button:hover{ transform:translateY(-2px); box-shadow:0 0 30px rgba(59,130,246,.45); } .battle-button:disabled{ opacity:.45; cursor:not-allowed; transform:none; } .result{ text-align:center; min-height:28px; margin-top:16px; font-size:17px; font-weight:1000; } .result.win{ color:#22c55e; } .result.lose{ color:#ef4444; } .selection-title{ margin:35px 0 15px; font-size:22px; } .selection-info{ color:#8299aa; font-size:13px; margin-bottom:15px; } .inventory{ display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:15px; } .player-card{ background:#091724; border:2px solid #1c3b51; border-radius:14px; overflow:hidden; cursor:pointer; transition:.2s; } .player-card:hover{ transform:translateY(-4px); border-color:#38bdf8; } .player-card.selected{ border-color:#22c55e; box-shadow:0 0 20px rgba(34,197,94,.2); transform:translateY(-4px); } .player-card img{ width:100%; height:210px; object-fit:cover; display:block; } .player-info{ padding:11px; } .player-name{ font-weight:900; font-size:13px; margin-bottom:6px; } .rarity{ display:inline-block; padding:4px 7px; border-radius:5px; font-size:9px; font-weight:bold; text-transform:uppercase; } .common{ background:#334155; } .rare{ background:#0369a1; } .epic{ background:#7e22ce; } .legendary{ background:#b45309; } .mestres{ background:linear-gradient(90deg,#f59e0b,#fde68a,#f59e0b); color:#261500; } .newgen{ background:linear-gradient(90deg,#06b6d4,#2563eb,#9333ea); } .empty{ padding:40px; text-align:center; color:#60798c; border:1px dashed #234257; border-radius:15px; grid-column:1/-1; } .toast{ position:fixed; bottom:25px; right:25px; background:#0b1d2c; border:1px solid #2d536c; padding:14px 18px; border-radius:10px; transform:translateY(100px); opacity:0; transition:.3s; z-index:100; } .toast.show{ transform:translateY(0); opacity:1; } @media(max-width:850px){ .duel-top{ grid-template-columns:1fr; } .vs{ text-align:center; } } @media(max-width:600px){ .container{ width:92%; } .header-right{ flex-direction:column; align-items:flex-end; } .selected-players{ grid-template-columns:1fr; } .duel-stats{ grid-template-columns:1fr; } } </style>
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:
+        radial-gradient(
+            circle at top,
+            #102d49 0%,
+            #07121e 45%,
+            #03080d 100%
+        );
+
+    color:white;
+    min-height:100vh;
+}
+
+header{
+    padding:22px 7%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    border-bottom:1px solid #18344c;
+
+    background:rgba(3,10,17,.92);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:20;
+
+    backdrop-filter:blur(12px);
+}
+
+.logo{
+    font-size:28px;
+
+    font-weight:1000;
+
+    letter-spacing:2px;
+
+    color:#38bdf8;
+}
+
+.logo span{
+    color:white;
+}
+
+.header-right{
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+}
+
+.coins{
+    background:#0d2234;
+
+    border:1px solid #24516f;
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    font-weight:bold;
+
+    color:#facc15;
+}
+
+.back-button{
+    text-decoration:none;
+
+    background:#124e70;
+
+    color:white;
+
+    padding:10px 16px;
+
+    border-radius:9px;
+
+    font-weight:bold;
+}
+
+.back-button:hover{
+    background:#38bdf8;
+
+    color:#03111c;
+}
+
+.container{
+    width:86%;
+
+    max-width:1400px;
+
+    margin:auto;
+
+    padding:35px 0 70px;
+}
+
+.hero{
+    text-align:center;
+
+    padding:25px 10px 35px;
+}
+
+.hero h1{
+    font-size:clamp(40px,6vw,68px);
+
+    font-weight:1000;
+
+    letter-spacing:4px;
+}
+
+.hero h1 span{
+    color:#38bdf8;
+}
+
+.hero p{
+    margin-top:12px;
+
+    color:#8fa7ba;
+}
+
+.duel-panel{
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(37,99,235,.16),
+            transparent 35%
+        ),
+        linear-gradient(
+            145deg,
+            #0c1f2e,
+            #07131e
+        );
+
+    border:1px solid #24516f;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:
+        0 15px 50px
+        rgba(0,0,0,.35);
+}
+
+.duel-top{
+    display:grid;
+
+    grid-template-columns:
+        1fr auto 1fr;
+
+    gap:20px;
+
+    align-items:center;
+}
+
+.team{
+    background:#091724;
+
+    border:1px solid #1d4059;
+
+    border-radius:15px;
+
+    padding:20px;
+}
+
+.team-title{
+    text-align:center;
+
+    font-size:22px;
+
+    font-weight:1000;
+
+    margin-bottom:15px;
+}
+
+.team-title.player{
+    color:#38bdf8;
+}
+
+.team-title.enemy{
+    color:#ef4444;
+}
+
+.vs{
+    font-size:38px;
+
+    font-weight:1000;
+
+    color:#facc15;
+
+    text-shadow:
+        0 0 20px
+        rgba(250,204,21,.4);
+}
+
+.enemy-card{
+    text-align:center;
+}
+
+.enemy-icon{
+    font-size:60px;
+
+    margin-bottom:10px;
+}
+
+.enemy-name{
+    font-size:24px;
+
+    font-weight:1000;
+}
+
+.enemy-power{
+    margin-top:8px;
+
+    color:#ef4444;
+
+    font-weight:bold;
+}
+
+.selected-players{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:10px;
+}
+
+.selected-slot{
+    min-height:180px;
+
+    border:2px dashed #29495f;
+
+    border-radius:12px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:8px;
+
+    color:#60798c;
+}
+
+.selected-slot.filled{
+    border-style:solid;
+
+    border-color:#38bdf8;
+
+    background:#071827;
+
+    color:white;
+}
+
+.selected-slot img{
+    width:100%;
+
+    height:120px;
+
+    object-fit:cover;
+
+    border-radius:8px;
+
+    margin-bottom:7px;
+}
+
+.selected-name{
+    font-size:12px;
+
+    font-weight:bold;
+}
+
+.selected-rarity{
+    font-size:9px;
+
+    margin-top:4px;
+
+    text-transform:uppercase;
+
+    color:#facc15;
+}
+
+.duel-stats{
+    margin-top:25px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:15px;
+}
+
+.duel-stat{
+    background:#081522;
+
+    border:1px solid #193b53;
+
+    border-radius:12px;
+
+    padding:17px;
+
+    text-align:center;
+}
+
+.duel-stat-number{
+    font-size:25px;
+
+    font-weight:1000;
+
+    color:#38bdf8;
+}
+
+.duel-stat-label{
+    color:#7893a7;
+
+    font-size:11px;
+
+    margin-top:5px;
+}
+
+.reward-box{
+    margin-top:20px;
+
+    padding:18px;
+
+    border-radius:12px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #271b05,
+            #17130a
+        );
+
+    border:1px solid #8b5e18;
+
+    text-align:center;
+}
+
+.reward-box strong{
+    color:#facc15;
+
+    font-size:24px;
+}
+
+.reward-box p{
+    color:#9caaba;
+
+    font-size:12px;
+
+    margin-top:5px;
+}
+
+.battle-button{
+    width:100%;
+
+    margin-top:20px;
+
+    padding:17px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #1d4ed8,
+            #2563eb,
+            #7c3aed
+        );
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:1000;
+
+    letter-spacing:1px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 0 20px
+        rgba(37,99,235,.2);
+}
+
+.battle-button:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 0 30px
+        rgba(59,130,246,.45);
+}
+
+.battle-button:disabled{
+    opacity:.45;
+
+    cursor:not-allowed;
+
+    transform:none;
+}
+
+.result{
+    text-align:center;
+
+    min-height:28px;
+
+    margin-top:16px;
+
+    font-size:17px;
+
+    font-weight:1000;
+}
+
+.result.win{
+    color:#22c55e;
+}
+
+.result.lose{
+    color:#ef4444;
+}
+
+.selection-title{
+    margin:35px 0 15px;
+
+    font-size:22px;
+}
+
+.selection-info{
+    color:#8299aa;
+
+    font-size:13px;
+
+    margin-bottom:15px;
+}
+
+.inventory{
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(160px,1fr)
+        );
+
+    gap:15px;
+}
+
+.player-card{
+    background:#091724;
+
+    border:2px solid #1c3b51;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.player-card:hover{
+    transform:translateY(-4px);
+
+    border-color:#38bdf8;
+}
+
+.player-card.selected{
+    border-color:#22c55e;
+
+    box-shadow:
+        0 0 20px
+        rgba(34,197,94,.2);
+
+    transform:translateY(-4px);
+}
+
+.player-card img{
+    width:100%;
+
+    height:210px;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+.player-info{
+    padding:11px;
+}
+
+.player-name{
+    font-weight:900;
+
+    font-size:13px;
+
+    margin-bottom:6px;
+}
+
+.rarity{
+    display:inline-block;
+
+    padding:4px 7px;
+
+    border-radius:5px;
+
+    font-size:9px;
+
+    font-weight:bold;
+
+    text-transform:uppercase;
+}
+
+.common{
+    background:#334155;
+}
+
+.rare{
+    background:#0369a1;
+}
+
+.epic{
+    background:#7e22ce;
+}
+
+.legendary{
+    background:#b45309;
+}
+
+.mestres{
+    background:
+        linear-gradient(
+            90deg,
+            #f59e0b,
+            #fde68a,
+            #f59e0b
+        );
+
+    color:#261500;
+}
+
+.newgen{
+    background:
+        linear-gradient(
+            90deg,
+            #06b6d4,
+            #2563eb,
+            #9333ea
+        );
+}
+
+.neo{
+    background:
+        linear-gradient(
+            90deg,
+            #ec4899,
+            #8b5cf6,
+            #22d3ee
+        );
+
+    color:white;
+
+    box-shadow:
+        0 0 15px
+        rgba(236,72,153,.35);
+}
+
+.empty{
+    padding:40px;
+
+    text-align:center;
+
+    color:#60798c;
+
+    border:1px dashed #234257;
+
+    border-radius:15px;
+
+    grid-column:1/-1;
+}
+
+.toast{
+    position:fixed;
+
+    bottom:25px;
+
+    right:25px;
+
+    background:#0b1d2c;
+
+    border:1px solid #2d536c;
+
+    padding:14px 18px;
+
+    border-radius:10px;
+
+    transform:translateY(100px);
+
+    opacity:0;
+
+    transition:.3s;
+
+    z-index:100;
+
+    max-width:350px;
+}
+
+.toast.show{
+    transform:translateY(0);
+
+    opacity:1;
+}
+
+@media(max-width:850px){
+
+    .duel-top{
+        grid-template-columns:1fr;
+    }
+
+    .vs{
+        text-align:center;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .container{
+        width:92%;
+    }
+
+    .header-right{
+        flex-direction:column;
+
+        align-items:flex-end;
+    }
+
+    .selected-players{
+        grid-template-columns:1fr;
+    }
+
+    .duel-stats{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -16,124 +686,1088 @@
 
 <header>
 
-<div class="logo"> BLUE <span>LOCK</span> </div>
+<div class="logo">
+    BLUE <span>LOCK</span>
+</div>
 
 <div class="header-right">
 
-<div class="coins"> 🪙 <span id="coins">0</span> </div>
+<div class="coins">
+    🪙 <span id="coins">0</span>
+</div>
 
-<a href="index.html" class="back-button"> ← VOLTAR </a>
+<a
+    href="index.html"
+    class="back-button">
+
+    ← VOLTAR
+
+</a>
 
 </div>
 
 </header>
 
+
 <main class="container">
 
 <section class="hero">
 
-<h1> ⚔️ <span>DUEL</span>OS </h1>
+<h1>
+    ⚔️ <span>DUEL</span>OS
+</h1>
 
-<p> Monte seu trio e enfrente adversários cada vez mais poderosos. </p>
+<p>
+    Monte seu trio e enfrente adversários cada vez mais poderosos.
+</p>
 
 </section>
+
 
 <section class="duel-panel">
 
 <div class="duel-top">
 
+
 <div class="team">
 
-<div class="team-title player"> SEU TRIO </div>
+<div class="team-title player">
+    SEU TRIO
+</div>
 
 <div class="selected-players">
 
-<div class="selected-slot" id="slot0"> <strong>1</strong> <span>Escolha um jogador</span> </div>
+<div
+    class="selected-slot"
+    id="slot0">
 
-<div class="selected-slot" id="slot1"> <strong>2</strong> <span>Escolha um jogador</span> </div>
+    <strong>1</strong>
 
-<div class="selected-slot" id="slot2"> <strong>3</strong> <span>Escolha um jogador</span> </div>
+    <span>
+        Escolha um jogador
+    </span>
+
+</div>
+
+
+<div
+    class="selected-slot"
+    id="slot1">
+
+    <strong>2</strong>
+
+    <span>
+        Escolha um jogador
+    </span>
+
+</div>
+
+
+<div
+    class="selected-slot"
+    id="slot2">
+
+    <strong>3</strong>
+
+    <span>
+        Escolha um jogador
+    </span>
 
 </div>
 
 </div>
 
-<div class="vs"> VS </div>
+</div>
+
+
+<div class="vs">
+    VS
+</div>
+
 
 <div class="team">
 
-<div class="team-title enemy"> INIMIGO </div>
+<div class="team-title enemy">
+    INIMIGO
+</div>
 
 <div class="enemy-card">
 
-<div class="enemy-icon"> 👤 </div>
+<div class="enemy-icon">
+    👤
+</div>
 
-<div class="enemy-name" id="enemyName"> ? </div>
+<div
+    class="enemy-name"
+    id="enemyName">
 
-<div class="enemy-power"> PODER: <span id="enemyPower">?</span> </div>
+    ?
+
+</div>
+
+<div class="enemy-power">
+
+    PODER:
+    <span id="enemyPower">
+        ?
+    </span>
 
 </div>
 
 </div>
 
 </div>
+
+</div>
+
 
 <div class="duel-stats">
 
 <div class="duel-stat">
 
-<div class="duel-stat-number" id="teamPower"> 0 </div>
+<div
+    class="duel-stat-number"
+    id="teamPower">
 
-<div class="duel-stat-label"> PODER DO SEU TRIO </div>
+    0
 
 </div>
+
+<div class="duel-stat-label">
+    PODER DO SEU TRIO
+</div>
+
+</div>
+
 
 <div class="duel-stat">
 
-<div class="duel-stat-number" id="winStreak"> 0 </div>
+<div
+    class="duel-stat-number"
+    id="winStreak">
 
-<div class="duel-stat-label"> VITÓRIAS CONSECUTIVAS </div>
+    0
 
 </div>
+
+<div class="duel-stat-label">
+    VITÓRIAS CONSECUTIVAS
+</div>
+
+</div>
+
 
 <div class="duel-stat">
 
-<div class="duel-stat-number" id="nextReward"> 100 </div>
+<div
+    class="duel-stat-number"
+    id="nextReward">
 
-<div class="duel-stat-label"> RECOMPENSA DA PRÓXIMA VITÓRIA </div>
+    100
 
 </div>
 
+<div class="duel-stat-label">
+    RECOMPENSA DA PRÓXIMA VITÓRIA
 </div>
+
+</div>
+
+</div>
+
 
 <div class="reward-box">
 
-<strong> 🪙 +<span id="reward">100</span> </strong>
+<strong>
+    🪙 +<span id="reward">100</span>
+</strong>
 
-<p> A recompensa aumenta a cada vitória consecutiva. </p>
+<p>
+    A recompensa aumenta a cada vitória consecutiva.
+</p>
 
 </div>
 
-<button class="battle-button" id="battleButton" onclick="startDuel()" disabled>
 
-⚔️ INICIAR DUELO
+<button
+    class="battle-button"
+    id="battleButton"
+    onclick="startDuel()"
+    disabled>
+
+    ⚔️ INICIAR DUELO
 
 </button>
 
-<div class="result" id="result"> </div>
+
+<div
+    class="result"
+    id="result">
+</div>
 
 </section>
 
-<h2 class="selection-title"> 👥 Escolha seus 3 jogadores </h2>
 
-<p class="selection-info"> Clique em três jogadores do seu inventário para formar sua equipe. </p>
+<h2 class="selection-title">
+    👥 Escolha seus 3 jogadores
+</h2>
 
-<section class="inventory" id="inventory"> </section>
+<p class="selection-info">
+    Clique em três jogadores do seu inventário para formar sua equipe.
+</p>
+
+
+<section
+    class="inventory"
+    id="inventory">
+</section>
+
 
 </main>
 
-<div class="toast" id="toast"> </div>
 
-<script> let game = JSON.parse(localStorage.getItem("blueLockGame")) || { coins:1000, xp:0, level:1, inventory:[] }; if(!game.inventory){ game.inventory=[]; } let selectedPlayers = []; let duelStreak = Number(localStorage.getItem("blueLockDuelStreak")) || 0; let currentEnemy = null; const rarityPower = { common:40, rare:80, epic:140, legendary:230, mestres:350, newgen:500 }; const enemies = [ { name:"Recruta Desconhecido", power:180 }, { name:"Atacante Promissor", power:300 }, { name:"Talento da Neo Egoist League", power:480 }, { name:"Rival de Elite", power:700 }, { name:"Monstro do Futebol", power:950 }, { name:"Gênio Imparável", power:1250 }, { name:"Demônio da Nova Geração", power:1600 } ]; function saveGame(){ localStorage.setItem( "blueLockGame", JSON.stringify(game) ); } function getPlayerPower(player){ return rarityPower[player.rarity] || 0; } function calculateTeamPower(){ return selectedPlayers.reduce( (total,player)=>{ return total + getPlayerPower(player); }, 0 ); } function getReward(){ return 100 + (duelStreak * 50); } function generateEnemy(){ const maxIndex = Math.min( enemies.length, 3 + Math.floor(duelStreak / 2) ); const available = enemies.slice(0,maxIndex); currentEnemy = available[ Math.floor( Math.random() * available.length ) ]; document.getElementById("enemyName").textContent = currentEnemy.name; document.getElementById("enemyPower").textContent = currentEnemy.power; updateUI(); } function selectPlayer(index){ const player = game.inventory[index]; if(!player){ return; } const alreadySelected = selectedPlayers.findIndex( item=>item.uniqueId === player.uniqueId ); if(alreadySelected !== -1){ selectedPlayers.splice( alreadySelected, 1 ); updateUI(); return; } if(selectedPlayers.length >= 3){ toast( "⚠️ Você já escolheu 3 jogadores." ); return; } selectedPlayers.push(player); updateUI(); } function renderInventory(){ const container = document.getElementById("inventory"); container.innerHTML=""; if(game.inventory.length === 0){ container.innerHTML = `<div class="empty"> Seu inventário está vazio.<br> Volte para a página principal e consiga jogadores. </div>`; return; } game.inventory.forEach( (player,index)=>{ const card = document.createElement("div"); card.className="player-card"; const selected = selectedPlayers.some( item=>item.uniqueId === player.uniqueId ); if(selected){ card.classList.add("selected"); } card.innerHTML = ` <img src="${player.image}" alt="${player.name}" onerror="this.style.opacity='.2';" > <div class="player-info"> <div class="player-name"> ${player.name} </div> <span class="rarity ${player.rarity}"> ${player.rarity} </span> </div> `; card.onclick = ()=>selectPlayer(index); container.appendChild(card); } ); } function renderSelectedPlayers(){ for(let i=0;i<3;i++){ const slot = document.getElementById("slot"+i); const player = selectedPlayers[i]; if(!player){ slot.className="selected-slot"; slot.innerHTML = ` <strong>${i+1}</strong> <span>Escolha um jogador</span> `; continue; } slot.className = "selected-slot filled"; slot.innerHTML = ` <img src="${player.image}" alt="${player.name}" > <div class="selected-name"> ${player.name} </div> <div class="selected-rarity"> ${player.rarity} </div> `; } } function updateUI(){ document.getElementById("coins").textContent = game.coins.toLocaleString("pt-BR"); document.getElementById("teamPower").textContent = calculateTeamPower(); document.getElementById("winStreak").textContent = duelStreak; document.getElementById("reward").textContent = getReward(); document.getElementById("nextReward").textContent = getReward(); document.getElementById("battleButton").disabled = selectedPlayers.length !== 3; renderSelectedPlayers(); renderInventory(); saveGame(); } function startDuel(){ if(selectedPlayers.length !== 3){ toast( "❌ Escolha exatamente 3 jogadores." ); return; } if(!currentEnemy){ generateEnemy(); return; } const teamPower = calculateTeamPower(); const enemyPower = currentEnemy.power; const button = document.getElementById("battleButton"); const result = document.getElementById("result"); button.disabled=true; result.className="result"; result.textContent = "⚔️ O duelo está acontecendo..."; setTimeout(()=>{ /* Pequeno fator aleatório para deixar o combate menos previsível. */ const teamRoll = teamPower * (0.85 + Math.random()*0.30); const enemyRoll = enemyPower * (0.85 + Math.random()*0.30); if(teamRoll >= enemyRoll){ const reward = getReward(); game.coins += reward; duelStreak++; result.className = "result win"; result.textContent = "🏆 VITÓRIA! +" + reward + " 🪙"; toast( "🏆 Você venceu o duelo! +" + reward + " moedas!" ); generateEnemy(); }else{ duelStreak=0; result.className = "result lose"; result.textContent = "💀 DERROTA! Sua sequência voltou para 0."; toast( "💀 Você perdeu o duelo." ); } localStorage.setItem( "blueLockDuelStreak", duelStreak ); saveGame(); updateUI(); button.disabled = selectedPlayers.length !== 3; },1000); } function toast(message){ const element = document.getElementById("toast"); element.textContent=message; element.classList.add("show"); setTimeout( ()=>{ element.classList.remove("show"); }, 2500 ); } generateEnemy(); updateUI(); </script>
+<div
+    class="toast"
+    id="toast">
+</div>
 
-</body> </html>
+
+<script>
+
+/* =========================================
+   STORAGE
+========================================= */
+
+const STORAGE_KEY = "blueLockGame";
+
+let game = null;
+
+try{
+
+    game =
+        JSON.parse(
+            localStorage.getItem(
+                STORAGE_KEY
+            )
+        );
+
+}catch(error){
+
+    game = null;
+
+}
+
+
+if(!game){
+
+    game = {
+
+        coins:1000,
+
+        xp:0,
+
+        level:1,
+
+        inventory:[]
+
+    };
+
+}
+
+
+if(!Array.isArray(game.inventory)){
+
+    game.inventory=[];
+
+}
+
+
+game.coins =
+    Number(game.coins) || 0;
+
+
+game.xp =
+    Number(game.xp) || 0;
+
+
+game.level =
+    Number(game.level) || 1;
+
+
+/* =========================================
+   MIGRAÇÃO
+========================================= */
+
+game.inventory.forEach(player=>{
+
+    if(!player.stars){
+
+        player.stars=1;
+
+    }
+
+    if(!player.uniqueId){
+
+        player.uniqueId =
+            player.id +
+            "-" +
+            Date.now() +
+            "-" +
+            Math.random()
+                .toString(36)
+                .slice(2);
+
+    }
+
+});
+
+
+function saveGame(){
+
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(game)
+    );
+
+}
+
+
+/* =========================================
+   PODER DAS RARIDADES
+========================================= */
+
+const rarityPower = {
+
+    common:40,
+
+    rare:70,
+
+    epic:110,
+
+    legendary:170,
+
+    newgen:320,
+
+    mestres:420,
+
+    neo:550
+
+};
+
+
+/* =========================================
+   MULTIPLICADOR DAS ESTRELAS
+========================================= */
+
+const starMultiplier = {
+
+    1:1,
+
+    2:1.45,
+
+    3:2.05
+
+};
+
+
+function getPlayerPower(player){
+
+    const base =
+        rarityPower[player.rarity] || 0;
+
+    const stars =
+        player.stars || 1;
+
+    const multiplier =
+        starMultiplier[stars] || 1;
+
+    return Math.round(
+        base * multiplier
+    );
+
+}
+
+
+/* =========================================
+   TRIO
+========================================= */
+
+let selectedPlayers=[];
+
+
+/* =========================================
+   SEQUÊNCIA
+========================================= */
+
+let duelStreak =
+    Number(
+        localStorage.getItem(
+            "blueLockDuelStreak"
+        )
+    ) || 0;
+
+
+/* =========================================
+   INIMIGOS
+========================================= */
+
+let currentEnemy=null;
+
+
+const enemies=[
+
+    {
+        name:"Recruta Desconhecido",
+        power:180
+    },
+
+    {
+        name:"Atacante Promissor",
+        power:300
+    },
+
+    {
+        name:"Talento da Neo Egoist League",
+        power:480
+    },
+
+    {
+        name:"Rival de Elite",
+        power:700
+    },
+
+    {
+        name:"Monstro do Futebol",
+        power:950
+    },
+
+    {
+        name:"Gênio Imparável",
+        power:1250
+    },
+
+    {
+        name:"Demônio da Nova Geração",
+        power:1600
+    }
+
+];
+
+
+/* =========================================
+   RECOMPENSA
+========================================= */
+
+function getReward(){
+
+    return 100 +
+        (duelStreak * 50);
+
+}
+
+
+/* =========================================
+   GERAR INIMIGO
+========================================= */
+
+function generateEnemy(){
+
+    const maxIndex =
+        Math.min(
+            enemies.length,
+            3 +
+            Math.floor(
+                duelStreak / 2
+            )
+        );
+
+
+    const available =
+        enemies.slice(
+            0,
+            maxIndex
+        );
+
+
+    currentEnemy =
+        available[
+            Math.floor(
+                Math.random() *
+                available.length
+            )
+        ];
+
+
+    document.getElementById(
+        "enemyName"
+    ).textContent =
+        currentEnemy.name;
+
+
+    document.getElementById(
+        "enemyPower"
+    ).textContent =
+        currentEnemy.power;
+
+
+    updateUI();
+
+}
+
+
+/* =========================================
+   SELECIONAR JOGADOR
+========================================= */
+
+function selectPlayer(index){
+
+    const player =
+        game.inventory[index];
+
+
+    if(!player){
+
+        return;
+
+    }
+
+
+    const alreadySelected =
+        selectedPlayers.findIndex(
+            item =>
+                item.uniqueId ===
+                player.uniqueId
+        );
+
+
+    if(alreadySelected !== -1){
+
+        selectedPlayers.splice(
+            alreadySelected,
+            1
+        );
+
+        updateUI();
+
+        return;
+
+    }
+
+
+    if(selectedPlayers.length >= 3){
+
+        toast(
+            "⚠️ Você já escolheu 3 jogadores."
+        );
+
+        return;
+
+    }
+
+
+    selectedPlayers.push(
+        player
+    );
+
+
+    updateUI();
+
+}
+
+
+/* =========================================
+   INVENTÁRIO
+========================================= */
+
+function renderInventory(){
+
+    const container =
+        document.getElementById(
+            "inventory"
+        );
+
+
+    container.innerHTML="";
+
+
+    if(game.inventory.length===0){
+
+        container.innerHTML=`
+
+            <div class="empty">
+
+                Seu inventário está vazio.
+
+                <br>
+
+                Volte para a página principal
+                e consiga jogadores.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    game.inventory.forEach(
+        (player,index)=>{
+
+        const card =
+            document.createElement(
+                "div"
+            );
+
+
+        card.className =
+            "player-card";
+
+
+        const selected =
+            selectedPlayers.some(
+                item =>
+                    item.uniqueId ===
+                    player.uniqueId
+            );
+
+
+        if(selected){
+
+            card.classList.add(
+                "selected"
+            );
+
+        }
+
+
+        const stars =
+            "★".repeat(
+                player.stars || 1
+            );
+
+
+        card.innerHTML=`
+
+            <img
+                src="${player.image}"
+                alt="${player.name}"
+                onerror="this.style.opacity='.2';"
+            >
+
+            <div class="player-info">
+
+                <div class="player-name">
+                    ${player.name}
+                </div>
+
+                <span
+                    class="rarity ${player.rarity}">
+                    ${player.rarity}
+                </span>
+
+                <div
+                    style="
+                        margin-top:7px;
+                        color:#38bdf8;
+                        font-size:11px;
+                        font-weight:bold;
+                    ">
+
+                    ⚡ Poder:
+                    ${getPlayerPower(player)}
+
+                </div>
+
+                <div
+                    style="
+                        margin-top:5px;
+                        color:#facc15;
+                        font-size:12px;
+                    ">
+
+                    ${stars}
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        card.onclick=()=>{
+
+            selectPlayer(index);
+
+        };
+
+
+        container.appendChild(
+            card
+        );
+
+    });
+
+}
+
+
+/* =========================================
+   TRIO SELECIONADO
+========================================= */
+
+function renderSelectedPlayers(){
+
+    for(
+        let i=0;
+        i<3;
+        i++
+    ){
+
+        const slot =
+            document.getElementById(
+                "slot"+i
+            );
+
+
+        const player =
+            selectedPlayers[i];
+
+
+        if(!player){
+
+            slot.className =
+                "selected-slot";
+
+
+            slot.innerHTML=`
+
+                <strong>
+                    ${i+1}
+                </strong>
+
+                <span>
+                    Escolha um jogador
+                </span>
+
+            `;
+
+            continue;
+
+        }
+
+
+        slot.className =
+            "selected-slot filled";
+
+
+        slot.innerHTML=`
+
+            <img
+                src="${player.image}"
+                alt="${player.name}"
+            >
+
+            <div class="selected-name">
+                ${player.name}
+            </div>
+
+            <div class="selected-rarity">
+
+                ${player.rarity}
+
+                ${"★".repeat(
+                    player.stars || 1
+                )}
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================
+   PODER DO TRIO
+========================================= */
+
+function calculateTeamPower(){
+
+    return selectedPlayers.reduce(
+        (
+            total,
+            player
+        )=>{
+
+            return total +
+                getPlayerPower(
+                    player
+                );
+
+        },
+        0
+    );
+
+}
+
+
+/* =========================================
+   UI
+========================================= */
+
+function updateUI(){
+
+    document.getElementById(
+        "coins"
+    ).textContent =
+        Number(
+            game.coins || 0
+        ).toLocaleString(
+            "pt-BR"
+        );
+
+
+    document.getElementById(
+        "teamPower"
+    ).textContent =
+        calculateTeamPower();
+
+
+    document.getElementById(
+        "winStreak"
+    ).textContent =
+        duelStreak;
+
+
+    document.getElementById(
+        "reward"
+    ).textContent =
+        getReward();
+
+
+    document.getElementById(
+        "nextReward"
+    ).textContent =
+        getReward();
+
+
+    document.getElementById(
+        "battleButton"
+    ).disabled =
+        selectedPlayers.length !== 3;
+
+
+    renderSelectedPlayers();
+
+    renderInventory();
+
+    saveGame();
+
+}
+
+
+/* =========================================
+   INICIAR DUELO
+========================================= */
+
+function startDuel(){
+
+    if(
+        selectedPlayers.length !== 3
+    ){
+
+        toast(
+            "❌ Escolha exatamente 3 jogadores."
+        );
+
+        return;
+
+    }
+
+
+    if(!currentEnemy){
+
+        generateEnemy();
+
+        return;
+
+    }
+
+
+    const teamPower =
+        calculateTeamPower();
+
+
+    const enemyPower =
+        currentEnemy.power;
+
+
+    const button =
+        document.getElementById(
+            "battleButton"
+        );
+
+
+    const result =
+        document.getElementById(
+            "result"
+        );
+
+
+    button.disabled=true;
+
+
+    result.className =
+        "result";
+
+
+    result.textContent =
+        "⚔️ O duelo está acontecendo...";
+
+
+    setTimeout(()=>{
+
+        const teamRoll =
+            teamPower *
+            (
+                .85 +
+                Math.random() *
+                .30
+            );
+
+
+        const enemyRoll =
+            enemyPower *
+            (
+                .85 +
+                Math.random() *
+                .30
+            );
+
+
+        if(
+            teamRoll >=
+            enemyRoll
+        ){
+
+            const reward =
+                getReward();
+
+
+            game.coins =
+                Number(
+                    game.coins
+                ) || 0;
+
+
+            game.coins +=
+                reward;
+
+
+            duelStreak++;
+
+
+            result.className =
+                "result win";
+
+
+            result.textContent =
+                "🏆 VITÓRIA! +" +
+                reward +
+                " 🪙";
+
+
+            toast(
+                "🏆 Você venceu o duelo! +" +
+                reward +
+                " moedas!"
+            );
+
+
+            generateEnemy();
+
+        }else{
+
+            duelStreak=0;
+
+
+            result.className =
+                "result lose";
+
+
+            result.textContent =
+                "💀 DERROTA! Sua sequência voltou para 0.";
+
+
+            toast(
+                "💀 Você perdeu o duelo."
+            );
+
+        }
+
+
+        localStorage.setItem(
+            "blueLockDuelStreak",
+            duelStreak
+        );
+
+
+        saveGame();
+
+        updateUI();
+
+
+        button.disabled =
+            selectedPlayers.length !== 3;
+
+    },1000);
+
+}
+
+
+/* =========================================
+   TOAST
+========================================= */
+
+function toast(message){
+
+    const element =
+        document.getElementById(
+            "toast"
+        );
+
+
+    element.textContent =
+        message;
+
+
+    element.classList.add(
+        "show"
+    );
+
+
+    setTimeout(()=>{
+
+        element.classList.remove(
+            "show"
+        );
+
+    },2500);
+
+}
+
+
+/* =========================================
+   INICIALIZAÇÃO
+========================================= */
+
+generateEnemy();
+
+updateUI();
+
+</script>
+
+</body>
+</html>

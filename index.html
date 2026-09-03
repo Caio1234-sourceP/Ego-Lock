@@ -1,11 +1,20 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
 <title>BLUE LOCK — Ego Rush</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -13,30 +22,63 @@
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     background:
-        radial-gradient(circle at top,#102d50 0%,#06101c 40%,#020408 100%);
+        radial-gradient(
+            circle at top,
+            #102d50 0%,
+            #06101c 40%,
+            #020408 100%
+        );
+
     color:#fff;
+
     min-height:100vh;
 }
 
 header{
-    background:rgba(3,9,17,.96);
-    border-bottom:2px solid #1683ff;
-    padding:17px 6%;
+
+    background:
+        rgba(3,9,17,.96);
+
+    border-bottom:
+        2px solid #1683ff;
+
+    padding:
+        17px 6%;
+
     display:flex;
-    justify-content:space-between;
+
+    justify-content:
+        space-between;
+
     align-items:center;
-    position:sticky;
+
+    position:
+        sticky;
+
     top:0;
+
     z-index:100;
-    box-shadow:0 0 25px rgba(0,119,255,.25);
+
+    box-shadow:
+        0 0 25px
+        rgba(0,119,255,.25);
 }
 
 .logo{
+
     font-size:28px;
+
     font-weight:1000;
+
     letter-spacing:4px;
+
     color:#1683ff;
 }
 
@@ -45,615 +87,1251 @@ header{
 }
 
 .coins{
+
     background:#101b2b;
-    border:1px solid #f5ca3d;
+
+    border:
+        1px solid #f5ca3d;
+
     color:#ffd84c;
-    padding:10px 18px;
+
+    padding:
+        10px 18px;
+
     border-radius:30px;
+
     font-weight:900;
 }
 
 .container{
+
     width:90%;
+
     max-width:1400px;
+
     margin:auto;
 }
 
 .hero{
+
     text-align:center;
-    padding:70px 20px 50px;
+
+    padding:
+        70px 20px 50px;
 }
 
 .hero h1{
-    font-size:clamp(42px,7vw,82px);
+
+    font-size:
+        clamp(42px,7vw,82px);
+
     font-weight:1000;
+
     letter-spacing:5px;
+
     text-shadow:
         0 0 15px #1683ff,
         0 0 40px rgba(22,131,255,.5);
 }
 
 .hero p{
+
     color:#9eafc3;
+
     margin-top:15px;
+
     font-size:18px;
 }
 
 .section{
+
     margin:45px 0;
 }
 
 .section-title{
+
     font-size:30px;
+
     margin-bottom:22px;
-    border-left:5px solid #1683ff;
+
+    border-left:
+        5px solid #1683ff;
+
     padding-left:14px;
 }
 
 .grid{
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(220px,1fr)
+        );
+
     gap:20px;
 }
 
 .pack{
-    background:linear-gradient(145deg,#101d2f,#070b12);
-    border:1px solid #263d58;
+
+    background:
+        linear-gradient(
+            145deg,
+            #101d2f,
+            #070b12
+        );
+
+    border:
+        1px solid #263d58;
+
     border-radius:18px;
+
     padding:24px;
+
     text-align:center;
+
     transition:.25s;
 }
 
 .pack:hover{
-    transform:translateY(-6px);
+
+    transform:
+        translateY(-6px);
+
     border-color:#1683ff;
-    box-shadow:0 10px 30px rgba(22,131,255,.22);
+
+    box-shadow:
+        0 10px 30px
+        rgba(22,131,255,.22);
 }
 
 .pack h3{
+
     font-size:23px;
+
     margin-bottom:12px;
 }
 
 .pack p{
+
     color:#93a5ba;
+
     line-height:1.6;
+
     font-size:14px;
 }
 
 .price{
+
     color:#ffd84d;
+
     font-weight:900;
+
     margin-top:12px;
 }
 
 button,
 .link-button{
+
     border:none;
+
     cursor:pointer;
+
     color:white;
+
     font-weight:900;
+
     background:#126fe8;
+
     padding:12px 18px;
+
     border-radius:10px;
+
     transition:.2s;
+
     text-decoration:none;
+
     display:inline-block;
 }
 
 button:hover,
 .link-button:hover{
-    transform:translateY(-2px);
+
+    transform:
+        translateY(-2px);
+
     background:#2388ff;
-    box-shadow:0 0 20px rgba(22,131,255,.35);
+
+    box-shadow:
+        0 0 20px
+        rgba(22,131,255,.35);
 }
 
 .pack button{
+
     width:100%;
+
     margin-top:18px;
 }
 
 /* AÇÕES */
 
 .actions{
+
     display:flex;
+
     flex-wrap:wrap;
+
     gap:12px;
 }
 
 /* JOGOS */
 
 .games-grid{
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(300px,1fr)
+        );
+
     gap:22px;
 }
 
 .game{
+
     background:#08111d;
-    border:1px solid #203a56;
+
+    border:
+        1px solid #203a56;
+
     border-radius:18px;
+
     padding:22px;
+
     overflow:hidden;
 }
 
 .game h3{
+
     color:#4da3ff;
+
     margin-bottom:9px;
 }
 
 .game p{
+
     color:#9eafc3;
+
     font-size:14px;
+
     line-height:1.5;
+
     margin-bottom:15px;
 }
 
 /* KAISER */
 
 .kaiser-track{
+
     height:34px;
+
     background:#111b29;
+
     border-radius:20px;
+
     position:relative;
+
     overflow:hidden;
-    border:1px solid #30455f;
+
+    border:
+        1px solid #30455f;
 }
 
 .kaiser-zone{
+
     position:absolute;
+
     height:100%;
+
     width:18%;
+
+    left:40%;
+
     background:#19c66b;
-    box-shadow:0 0 18px #19c66b;
+
+    box-shadow:
+        0 0 18px #19c66b;
+
     border-radius:20px;
+
+    transition:none;
 }
 
 .kaiser-marker{
+
     position:absolute;
+
     width:5px;
+
     height:100%;
+
+    left:0%;
+
     background:#ffd83d;
-    box-shadow:0 0 12px #ffd83d;
+
+    box-shadow:
+        0 0 12px #ffd83d;
+
+    z-index:2;
 }
 
 /* REFLEX */
 
 .reflex-area{
+
     height:180px;
+
     background:#050a11;
-    border:1px solid #263a51;
+
+    border:
+        1px solid #263a51;
+
     border-radius:15px;
+
     position:relative;
+
     overflow:hidden;
+
     margin-bottom:12px;
 }
 
 .reflex-target{
+
     width:45px;
+
     height:45px;
+
     border-radius:50%;
+
     background:#1683ff;
+
     border:4px solid white;
+
     position:absolute;
+
     display:none;
+
     cursor:pointer;
-    box-shadow:0 0 25px #1683ff;
+
+    box-shadow:
+        0 0 25px #1683ff;
 }
 
 /* EGO RUSH */
 
 .ego-rush-area{
+
     height:180px;
+
     background:
-        radial-gradient(circle,#102c4b 0%,#050a11 70%);
-    border:1px solid #238bff;
+        radial-gradient(
+            circle,
+            #102c4b 0%,
+            #050a11 70%
+        );
+
+    border:
+        1px solid #238bff;
+
     border-radius:15px;
+
     position:relative;
+
     overflow:hidden;
+
     margin-bottom:12px;
+
     box-shadow:
-        inset 0 0 25px rgba(22,131,255,.12);
+        inset 0 0 25px
+        rgba(22,131,255,.12);
 }
 
 .ego-rush-target{
+
     width:54px;
+
     height:54px;
+
     border-radius:50%;
+
     background:#1683ff;
-    border:4px solid white;
+
+    border:
+        4px solid white;
+
     position:absolute;
+
     display:none;
+
     cursor:pointer;
+
     box-shadow:
         0 0 12px #1683ff,
         0 0 30px rgba(22,131,255,.8);
-    animation:egoPulse .7s infinite alternate;
+
+    animation:
+        egoPulse .7s infinite alternate;
 }
 
 @keyframes egoPulse{
+
     from{
+
         transform:scale(.88);
-        box-shadow:0 0 10px #1683ff;
+
+        box-shadow:
+            0 0 10px #1683ff;
     }
 
     to{
+
         transform:scale(1.08);
-        box-shadow:0 0 35px #1683ff;
+
+        box-shadow:
+            0 0 35px #1683ff;
     }
 }
 
 .ego-rush-title{
+
     color:#ffdf45 !important;
 }
 
 /* SLOTS */
 
 .slot-machine{
+
     display:flex;
+
     justify-content:center;
+
     gap:10px;
+
     margin:20px 0;
 }
 
 .slot{
+
     width:65px;
+
     height:65px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     background:#111c2c;
-    border:2px solid #35516e;
+
+    border:
+        2px solid #35516e;
+
     border-radius:12px;
+
     font-size:32px;
 }
 
 .slot-button{
+
     background:#7c25e8;
 }
 
 .slot-button:hover{
+
     background:#923cff;
 }
 
 /* NEW GEN */
 
 .newgen-box{
-    background:linear-gradient(145deg,#160c25,#080b13);
-    border:1px solid #9b44ff;
-    box-shadow:0 0 30px rgba(155,68,255,.12);
+
+    background:
+        linear-gradient(
+            145deg,
+            #160c25,
+            #080b13
+        );
+
+    border:
+        1px solid #9b44ff;
+
+    box-shadow:
+        0 0 30px
+        rgba(155,68,255,.12);
+
     border-radius:18px;
+
     padding:25px;
 }
 
 .legendary-selector{
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(160px,1fr)
+        );
+
     gap:12px;
+
     margin:20px 0;
 }
 
 .select-player{
-    border:1px solid #374b61;
+
+    border:
+        1px solid #374b61;
+
     background:#0d1622;
+
     padding:12px;
+
     border-radius:10px;
+
     cursor:pointer;
+
     transition:.2s;
 }
 
 .select-player.selected{
+
     border-color:#ffcc38;
+
     background:#29200a;
-    box-shadow:0 0 15px rgba(255,204,56,.2);
+
+    box-shadow:
+        0 0 15px
+        rgba(255,204,56,.2);
 }
 
 .select-player small{
+
     display:block;
+
     color:#91a3b7;
+
     margin-top:5px;
 }
 
 /* INVENTÁRIO */
 
 .inventory-controls{
+
     display:flex;
+
     flex-wrap:wrap;
+
     gap:10px;
+
     margin-bottom:18px;
 }
 
 .filter-btn{
+
     background:#0b1420;
-    border:1px solid #2b4058;
+
+    border:
+        1px solid #2b4058;
+
     color:#aab8c8;
+
     padding:10px 15px;
+
     border-radius:9px;
 }
 
 .filter-btn.active{
+
     background:#1677ff;
+
     border-color:#1683ff;
+
     color:white;
-    box-shadow:0 0 15px rgba(22,131,255,.25);
+
+    box-shadow:
+        0 0 15px
+        rgba(22,131,255,.25);
 }
 
 .inventory-info{
+
     color:#8fa3ba;
+
     margin-bottom:18px;
+
     font-size:14px;
 }
 
 .inventory-grid{
+
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(180px,1fr)
+        );
+
     gap:16px;
 }
 
 .player-card{
+
     background:#0b131e;
-    border:1px solid #24384e;
+
+    border:
+        1px solid #24384e;
+
     border-radius:15px;
+
     overflow:hidden;
+
     transition:.2s;
+
+    position:relative;
 }
 
 .player-card:hover{
-    transform:translateY(-4px);
+
+    transform:
+        translateY(-4px);
+
+    border-color:#397fc4;
 }
 
 .player-card img{
+
     width:100%;
+
     height:210px;
+
     object-fit:cover;
+
     display:block;
+
     background:#101a27;
 }
 
 .player-info{
+
     padding:13px;
 }
 
 .player-name{
+
     font-weight:900;
+
     font-size:15px;
+
     margin-bottom:8px;
 }
 
 .rarity{
+
     display:inline-block;
+
     padding:5px 9px;
+
     border-radius:6px;
+
     font-size:11px;
+
     font-weight:900;
+
     margin-bottom:10px;
 }
 
 .common{
+
     background:#34404c;
 }
 
 .rare{
+
     background:#176bd1;
 }
 
 .epic{
+
     background:#7935c7;
 }
 
 .legendary{
+
     background:#b0830b;
 }
 
 .mestres{
+
     background:#c33b38;
 }
 
 .newgen{
-    background:linear-gradient(90deg,#8b2cff,#ff2cc3);
+
+    background:
+        linear-gradient(
+            90deg,
+            #8b2cff,
+            #ff2cc3
+        );
+}
+
+.neo{
+
+    background:
+        linear-gradient(
+            90deg,
+            #00c6ff,
+            #0066ff,
+            #8c2cff
+        );
+
+    box-shadow:
+        0 0 12px
+        rgba(0,174,255,.4);
+}
+
+.power-box{
+
+    margin-top:5px;
+
+    margin-bottom:8px;
+
+    padding:9px;
+
+    border-radius:9px;
+
+    background:#07101a;
+
+    border:
+        1px solid #263d54;
+}
+
+.power-label{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    font-size:11px;
+
+    color:#8ea2b8;
+
+    margin-bottom:6px;
+}
+
+.power-value{
+
+    color:#ffffff;
+
+    font-size:18px;
+
+    font-weight:1000;
+}
+
+.power-bar{
+
+    width:100%;
+
+    height:6px;
+
+    background:#182533;
+
+    border-radius:20px;
+
+    overflow:hidden;
+}
+
+.power-fill{
+
+    height:100%;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #1683ff,
+            #55b5ff
+        );
+}
+
+.neo .power-fill{
+
+    background:
+        linear-gradient(
+            90deg,
+            #00d9ff,
+            #426cff,
+            #b044ff
+        );
+}
+
+.newgen .power-fill{
+
+    background:
+        linear-gradient(
+            90deg,
+            #9c2cff,
+            #ff37d1
+        );
 }
 
 .sell-button{
+
     width:100%;
+
     margin-top:8px;
+
     background:#222d3a;
+
     color:#ff6b6b;
 }
 
 .sell-button:hover{
+
     background:#702626;
+}
+
+/* COLEÇÃO */
+
+.collection-box{
+
+    background:
+        linear-gradient(
+            145deg,
+            #0b1828,
+            #050910
+        );
+
+    border:
+        1px solid #315273;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:
+        0 0 30px
+        rgba(22,131,255,.08);
+}
+
+.collection-progress{
+
+    color:#8fa3ba;
+
+    margin-bottom:20px;
+
+    font-size:14px;
+}
+
+.collection-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(180px,1fr)
+        );
+
+    gap:16px;
+}
+
+.collection-card{
+
+    background:#0b131e;
+
+    border:
+        1px solid #24384e;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    transition:.2s;
+}
+
+.collection-card:hover{
+
+    transform:
+        translateY(-4px);
+}
+
+.collection-card.locked{
+
+    opacity:.45;
+
+    filter:grayscale(1);
+}
+
+.collection-card img{
+
+    width:100%;
+
+    height:210px;
+
+    object-fit:cover;
+
+    display:block;
+
+    background:#05090e;
+}
+
+.collection-info{
+
+    padding:13px;
+}
+
+.collection-name{
+
+    font-weight:900;
+
+    font-size:14px;
+
+    margin-bottom:7px;
+}
+
+.collection-status{
+
+    font-size:11px;
+
+    color:#8498ad;
+
+    margin-top:5px;
+}
+
+.collection-power{
+
+    margin-top:8px;
+
+    font-weight:900;
+
+    color:#4da3ff;
 }
 
 /* ESTATÍSTICAS */
 
 .stats-grid{
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(180px,1fr)
+        );
+
     gap:15px;
 }
 
 .stat{
+
     background:#0a121d;
-    border:1px solid #20364f;
+
+    border:
+        1px solid #20364f;
+
     padding:22px;
+
     border-radius:15px;
+
     text-align:center;
 }
 
 .stat strong{
+
     display:block;
+
     font-size:30px;
+
     color:#3d99ff;
+
     margin-bottom:7px;
 }
 
 .stat span{
+
     color:#93a4b8;
 }
 
 /* MISSÕES */
 
 .missions{
+
     display:grid;
+
     gap:12px;
 }
 
 .mission{
+
     background:#0a121d;
-    border:1px solid #243a52;
+
+    border:
+        1px solid #243a52;
+
     padding:18px;
+
     border-radius:13px;
+
     display:flex;
+
     justify-content:space-between;
+
     gap:15px;
+
     align-items:center;
 }
 
 .mission.completed{
+
     border-color:#22c978;
+
     background:#0b1d17;
 }
 
 .mission-info h4{
+
     margin-bottom:5px;
 }
 
 .mission-info p{
+
     color:#8fa1b5;
+
     font-size:13px;
 }
 
 .mission-reward{
+
     color:#ffd84d;
+
     font-weight:bold;
+
     white-space:nowrap;
 }
 
 /* DAILY */
 
 .daily{
-    background:linear-gradient(135deg,#111d30,#0a0f18);
-    border:1px solid #315273;
+
+    background:
+        linear-gradient(
+            135deg,
+            #111d30,
+            #0a0f18
+        );
+
+    border:
+        1px solid #315273;
+
     padding:25px;
+
     border-radius:17px;
+
     text-align:center;
 }
 
 /* MODAL */
 
 .modal{
+
     position:fixed;
+
     inset:0;
-    background:rgba(0,0,0,.78);
+
+    background:
+        rgba(0,0,0,.78);
+
     display:none;
+
     justify-content:center;
+
     align-items:center;
+
     z-index:200;
+
     padding:20px;
 }
 
 .modal.show{
+
     display:flex;
 }
 
 .modal-box{
+
     width:100%;
+
     max-width:430px;
+
     background:#0b1420;
-    border:2px solid #1677ff;
+
+    border:
+        2px solid #1677ff;
+
     border-radius:20px;
+
     padding:25px;
+
     text-align:center;
-    box-shadow:0 0 50px rgba(22,119,255,.25);
+
+    box-shadow:
+        0 0 50px
+        rgba(22,119,255,.25);
 }
 
 .modal-box img{
+
     width:180px;
+
     height:230px;
+
     object-fit:cover;
+
     border-radius:12px;
+
     margin:15px 0;
 }
 
 .modal-buttons{
+
     display:flex;
+
     gap:10px;
 }
 
 .modal-buttons button{
+
     flex:1;
 }
 
 .sell-modal{
+
     background:#762b2b;
 }
 
 .sell-modal:hover{
+
     background:#983333;
 }
 
 /* TOAST */
 
 .toast{
+
     position:fixed;
+
     bottom:25px;
+
     right:25px;
+
     background:#111c2b;
-    border:1px solid #257fff;
+
+    border:
+        1px solid #257fff;
+
     padding:14px 20px;
+
     border-radius:10px;
-    transform:translateY(100px);
+
+    transform:
+        translateY(100px);
+
     opacity:0;
+
     transition:.3s;
+
     z-index:500;
 }
 
 .toast.show{
-    transform:translateY(0);
+
+    transform:
+        translateY(0);
+
     opacity:1;
 }
 
 /* EMPTY */
 
 .empty{
+
     grid-column:1/-1;
+
     text-align:center;
+
     padding:40px;
+
     color:#75869a;
-    border:1px dashed #2a4058;
+
+    border:
+        1px dashed #2a4058;
+
     border-radius:15px;
 }
 
 @media(max-width:700px){
 
     header{
+
         padding:15px 4%;
     }
 
     .logo{
+
         font-size:20px;
     }
 
     .coins{
+
         padding:8px 12px;
+
         font-size:13px;
     }
 
     .hero{
+
         padding-top:45px;
     }
 
     .mission{
+
         flex-direction:column;
+
         align-items:flex-start;
     }
 
-    .player-card img{
+    .player-card img,
+    .collection-card img{
+
         height:240px;
     }
+
 }
+
 </style>
+
 </head>
 
 <body>
@@ -665,16 +1343,28 @@ button:hover,
     </div>
 
     <div class="coins">
-        🪙 <span id="coins">0</span>
+
+        🪙
+
+        <span id="coins">
+            0
+        </span>
+
     </div>
 
 </header>
 
+
 <main class="container">
+
+
+<!-- HERO -->
 
 <section class="hero">
 
-    <h1>ENTER THE EGO</h1>
+    <h1>
+        ENTER THE EGO
+    </h1>
 
     <p>
         Monte seu inventário, evolua seus jogadores
@@ -694,9 +1384,12 @@ button:hover,
 
     <div class="grid">
 
+
         <div class="pack">
 
-            <h3>PACK NORMAL</h3>
+            <h3>
+                PACK NORMAL
+            </h3>
 
             <p>
                 Common: 45%<br>
@@ -719,7 +1412,9 @@ button:hover,
 
         <div class="pack">
 
-            <h3>PACK ELITE</h3>
+            <h3>
+                PACK ELITE
+            </h3>
 
             <p>
                 Common: 15%<br>
@@ -742,7 +1437,9 @@ button:hover,
 
         <div class="pack">
 
-            <h3>PACK EGO</h3>
+            <h3>
+                PACK EGO
+            </h3>
 
             <p>
                 Common: 5%<br>
@@ -764,6 +1461,15 @@ button:hover,
 
     </div>
 
+    <p style="
+        color:#6e91b4;
+        font-size:12px;
+        text-align:center;
+        margin-top:15px;
+    ">
+        🌌 NEO possui uma chance secreta de aparecer em qualquer Pack.
+    </p>
+
 </section>
 
 
@@ -777,19 +1483,17 @@ button:hover,
 
     <div class="actions">
 
-       <a
+        <a
+            href="duelos.html"
+            class="link-button">
+            ⚔️ DUELOS
+        </a>
 
-    href="duelos.html"
-    class="link-button">
-    ⚔️ DUELOS
-    </a>
-
-    <a
-    
-    href="evolucao.html"
-    class="link-button">
-    ⭐ EVOLUÇÃO
-    </a>
+        <a
+            href="evolucao.html"
+            class="link-button">
+            ⭐ EVOLUÇÃO
+        </a>
 
         <button onclick="train()">
             🧠 TREINAR EGO
@@ -819,7 +1523,9 @@ button:hover,
 
         <div class="game">
 
-            <h3>👑 Kaiser Impact</h3>
+            <h3>
+                👑 Kaiser Impact
+            </h3>
 
             <p>
                 Pare o marcador dentro da área verde.
@@ -857,7 +1563,9 @@ button:hover,
 
         <div class="game">
 
-            <h3>⚡ Reflexo de Isagi</h3>
+            <h3>
+                ⚡ Reflexo de Isagi
+            </h3>
 
             <p>
                 Clique no alvo assim que ele aparecer.
@@ -898,7 +1606,7 @@ button:hover,
             <p>
                 Entre no modo Ego Rush.
                 Clique no alvo antes que ele desapareça
-                e conquiste um <b>Ego Rush Pack</b>.
+                e conquiste um Ego Rush Pack.
             </p>
 
             <div
@@ -928,7 +1636,9 @@ button:hover,
 
         <div class="game">
 
-            <h3>🎰 Sorte do Kaiser</h3>
+            <h3>
+                🎰 Sorte do Kaiser
+            </h3>
 
             <p>
                 Jogo gratuito. Gire os símbolos e receba
@@ -937,21 +1647,15 @@ button:hover,
 
             <div class="slot-machine">
 
-                <div
-                    class="slot"
-                    id="slot1">
+                <div class="slot" id="slot1">
                     ?
                 </div>
 
-                <div
-                    class="slot"
-                    id="slot2">
+                <div class="slot" id="slot2">
                     ?
                 </div>
 
-                <div
-                    class="slot"
-                    id="slot3">
+                <div class="slot" id="slot3">
                     ?
                 </div>
 
@@ -960,7 +1664,9 @@ button:hover,
             <button
                 class="slot-button"
                 onclick="spinKaiserSlots()">
+
                 GIRAR
+
             </button>
 
             <p id="slotStatus">
@@ -988,10 +1694,23 @@ button:hover,
             CRIAR JOGADOR NEW GEN
         </h3>
 
-        <p style="color:#9aaabd;margin-top:8px;line-height:1.6;">
+        <p style="
+            color:#9aaabd;
+            margin-top:8px;
+            line-height:1.6;
+        ">
+
             Selecione exatamente 3 jogadores Legendary
             do seu inventário.
+
             Eles serão trocados por 1 jogador New Gen garantido.
+
+            <br><br>
+
+            <b style="color:#ff65dc;">
+                NEW GEN possui poder superior aos MESTRES.
+            </b>
+
         </p>
 
         <div
@@ -1005,8 +1724,13 @@ button:hover,
 
         <p
             id="newGenStatus"
-            style="margin-top:15px;color:#a9b7c8;">
+            style="
+                margin-top:15px;
+                color:#a9b7c8;
+            ">
+
             0/3 selecionados.
+
         </p>
 
     </div>
@@ -1073,17 +1797,54 @@ button:hover,
             NEW GEN
         </button>
 
+        <button
+            class="filter-btn"
+            data-filter="neo"
+            onclick="setInventoryFilter('neo')">
+            NEO
+        </button>
+
     </div>
 
     <div
         id="inventoryInfo"
         class="inventory-info">
+
         Mostrando 0 jogadores.
+
     </div>
 
     <div
         id="inventory"
         class="inventory-grid">
+    </div>
+
+</section>
+
+
+<!-- COLEÇÃO -->
+
+<section class="section">
+
+    <h2 class="section-title">
+        📚 Coleção
+    </h2>
+
+    <div class="collection-box">
+
+        <p
+            id="collectionProgress"
+            class="collection-progress">
+
+            0/0 personagens descobertos.
+
+        </p>
+
+        <div
+            id="collection"
+            class="collection-grid">
+        </div>
+
     </div>
 
 </section>
@@ -1100,23 +1861,63 @@ button:hover,
     <div class="stats-grid">
 
         <div class="stat">
-            <strong id="level">1</strong>
-            <span>Nível</span>
+
+            <strong id="level">
+                1
+            </strong>
+
+            <span>
+                Nível
+            </span>
+
         </div>
 
         <div class="stat">
-            <strong id="xp">0</strong>
-            <span>XP</span>
+
+            <strong id="xp">
+                0
+            </strong>
+
+            <span>
+                XP
+            </span>
+
         </div>
 
         <div class="stat">
-            <strong id="packsOpened">0</strong>
-            <span>Packs Abertos</span>
+
+            <strong id="packsOpened">
+                0
+            </strong>
+
+            <span>
+                Packs Abertos
+            </span>
+
         </div>
 
         <div class="stat">
-            <strong id="playerCount">0</strong>
-            <span>Jogadores</span>
+
+            <strong id="playerCount">
+                0
+            </strong>
+
+            <span>
+                Jogadores
+            </span>
+
+        </div>
+
+        <div class="stat">
+
+            <strong id="collectionCount">
+                0
+            </strong>
+
+            <span>
+                Coleção
+            </span>
+
         </div>
 
     </div>
@@ -1223,8 +2024,13 @@ button:hover,
 
         <p
             id="dailyText"
-            style="margin:12px 0;color:#9aaabd;">
+            style="
+                margin:12px 0;
+                color:#9aaabd;
+            ">
+
             +250 moedas +20 XP
+
         </p>
 
         <button onclick="dailyBonus()">
@@ -1244,8 +2050,12 @@ button:hover,
 
     <button
         onclick="resetGame()"
-        style="background:#762b2b;">
+        style="
+            background:#762b2b;
+        ">
+
         🗑️ RESETAR PROGRESSO
+
     </button>
 
 </section>
@@ -1277,6 +2087,16 @@ button:hover,
             class="rarity">
         </div>
 
+        <div
+            id="modalPower"
+            style="
+                margin:10px 0;
+                font-size:20px;
+                font-weight:1000;
+                color:#4da3ff;
+            ">
+        </div>
+
         <div class="modal-buttons">
 
             <button onclick="savePlayer()">
@@ -1286,7 +2106,9 @@ button:hover,
             <button
                 class="sell-modal"
                 onclick="sellPendingPlayer()">
+
                 🪙 VENDER
+
             </button>
 
         </div>
@@ -1303,6 +2125,7 @@ button:hover,
 
 
 <script>
+
 
 /* =========================================
    JOGADORES
@@ -1437,10 +2260,10 @@ const players = [
     },
 
     {
-        id:"noah",
+        id:"noa",
         name:"Noel Noa",
         rarity:"mestres",
-        image:"images/noah.jpg"
+        image:"images/noa.jpg"
     },
 
     {
@@ -1469,6 +2292,13 @@ const players = [
         name:"Lavinho",
         rarity:"mestres",
         image:"images/lavinho.jpg"
+    },
+
+    {
+        id:"jinpachi-ego",
+        name:"Jinpachi Ego",
+        rarity:"mestres",
+        image:"images/jinpachi-ego.jpg"
     }
 
 ];
@@ -1533,11 +2363,175 @@ const newGenPlayers = [
 
 
 /* =========================================
+   NEO
+========================================= */
+
+const neoPlayers = [
+
+    {
+        id:"neo-isagi",
+        name:"NEO Isagi",
+        rarity:"neo",
+        image:"images/neo-isagi.jpg"
+    },
+
+    {
+        id:"neo-rin",
+        name:"NEO Rin",
+        rarity:"neo",
+        image:"images/neo-rin.jpg"
+    },
+
+    {
+        id:"neo-kaiser",
+        name:"NEO Kaiser",
+        rarity:"neo",
+        image:"images/neo-kaiser.jpg"
+    },
+
+    {
+        id:"neo-nanase",
+        name:"NEO Nanase",
+        rarity:"neo",
+        image:"images/nanase.jpg"
+    }
+
+];
+
+
+/* =========================================
+   TODOS OS PERSONAGENS
+========================================= */
+
+function getAllCharacters(){
+
+    return [
+
+        ...players,
+
+        ...newGenPlayers,
+
+        ...neoPlayers
+
+    ];
+
+}
+
+
+/* =========================================
+   ESCALA DE PODER
+========================================= */
+
+const characterPower = {
+
+    /* COMMON */
+
+    kunigami:55,
+    gagamaru:48,
+    tokimitsu:42,
+    aryu:45,
+
+
+    /* RARE */
+
+    isagi:90,
+    bachira:86,
+    chigiri:84,
+    aiku:82,
+    karasu:78,
+    otoya:74,
+
+
+    /* EPIC */
+
+    nagi:140,
+    barou:137,
+    hiori:125,
+    reo:120,
+
+
+    /* LEGENDARY */
+
+    rin:205,
+    kaiser:202,
+    shidou:195,
+    lorenzo:190,
+
+
+    /* MESTRES */
+
+    noa:275,
+    loki:268,
+    snuffy:260,
+    chris:250,
+    lavinho:245,
+
+    "jinpachi-ego":235,
+
+
+    /* NEW GEN */
+
+    "loki-newgen":375,
+    sae:365,
+    "kaiser-newgen":360,
+    "lorenzo-newgen":350,
+    bunny:335,
+    teddy:325,
+    hugo:315,
+
+
+    /* NEO */
+
+    "neo-kaiser":500,
+    "neo-rin":485,
+    "neo-isagi":475,
+    "neo-nanase":420
+
+};
+
+
+const defaultPower = {
+
+    common:40,
+
+    rare:75,
+
+    epic:120,
+
+    legendary:180,
+
+    mestres:250,
+
+    newgen:340,
+
+    neo:450
+
+};
+
+
+function getPlayerPower(player){
+
+    if(!player){
+        return 0;
+    }
+
+    return Math.round(
+        characterPower[player.id] ??
+        defaultPower[player.rarity] ??
+        40
+    );
+
+}
+
+
+/* =========================================
    ESTADO
 ========================================= */
 
 let game =
-JSON.parse(localStorage.getItem("blueLockGame")) || {
+JSON.parse(
+    localStorage.getItem("blueLockGame")
+) || {
 
     coins:1000,
 
@@ -1546,6 +2540,8 @@ JSON.parse(localStorage.getItem("blueLockGame")) || {
     level:1,
 
     inventory:[],
+
+    collection:[],
 
     packsOpened:0,
 
@@ -1563,19 +2559,31 @@ JSON.parse(localStorage.getItem("blueLockGame")) || {
 
     reflexLastPlay:0,
 
-    egoRushLastPlay:0,
-
-    packChallengeClaimed:false
+    egoRushLastPlay:0
 
 };
 
 
+/* =========================================
+   COMPATIBILIDADE COM SAVE ANTIGO
+========================================= */
+
+if(!game.inventory){
+    game.inventory=[];
+}
+
+if(!game.collection){
+    game.collection=[];
+}
+
 if(!game.missions){
 
     game.missions={
+
         1:false,
         2:false,
         3:false
+
     };
 
 }
@@ -1639,6 +2647,36 @@ function saveGame(){
 
 
 /* =========================================
+   REGISTRAR COLEÇÃO
+========================================= */
+
+function registerCollection(player){
+
+    if(!player){
+        return;
+    }
+
+    if(
+        !game.collection.includes(player.id)
+    ){
+
+        game.collection.push(
+            player.id
+        );
+
+        toast(
+            "📚 NOVO PERSONAGEM NA COLEÇÃO: "+
+            player.name
+        );
+
+    }
+
+    saveGame();
+
+}
+
+
+/* =========================================
    XP
 ========================================= */
 
@@ -1646,7 +2684,8 @@ function addXP(amount){
 
     game.xp+=amount;
 
-    let required=game.level*100;
+    let required=
+        game.level*100;
 
     while(game.xp>=required){
 
@@ -1659,13 +2698,16 @@ function addXP(amount){
             game.level+"!"
         );
 
-        required=game.level*100;
+        required=
+            game.level*100;
 
     }
 
     saveGame();
 
     updateUI();
+
+    checkMissions();
 
 }
 
@@ -1676,15 +2718,21 @@ function addXP(amount){
 
 function randomRarity(chances){
 
-    const roll=Math.random()*100;
+    const roll=
+        Math.random()*100;
 
     let cumulative=0;
 
-    for(const rarity in chances){
+    for(
+        const rarity in chances
+    ){
 
-        cumulative+=chances[rarity];
+        cumulative+=
+            chances[rarity];
 
-        if(roll<=cumulative){
+        if(
+            roll<=cumulative
+        ){
 
             return rarity;
 
@@ -1705,12 +2753,35 @@ function choosePlayer(rarity){
 
     const pool=
         players.filter(
-            player=>player.rarity===rarity
+            player=>
+                player.rarity===rarity
         );
+
+    if(pool.length===0){
+
+        return players[0];
+
+    }
 
     return pool[
         Math.floor(
             Math.random()*pool.length
+        )
+    ];
+
+}
+
+
+/* =========================================
+   ESCOLHER NEO
+========================================= */
+
+function chooseNeo(){
+
+    return neoPlayers[
+        Math.floor(
+            Math.random()*
+            neoPlayers.length
         )
     ];
 
@@ -1726,67 +2797,141 @@ function openPack(type){
     const packs={
 
         normal:{
+
             cost:100,
+
             chances:{
+
                 common:45,
                 rare:38,
                 epic:13,
                 legendary:3,
                 mestres:1
+
             }
+
         },
 
         elite:{
+
             cost:500,
+
             chances:{
+
                 common:15,
                 rare:38,
                 epic:30,
                 legendary:15,
                 mestres:2
+
             }
+
         },
 
         ego:{
+
             cost:1500,
+
             chances:{
+
                 common:5,
                 rare:20,
                 epic:38,
                 legendary:32,
                 mestres:5
+
             }
+
         }
 
     };
 
-    const pack=packs[type];
 
-    if(game.coins<pack.cost){
+    const pack=
+        packs[type];
 
-        toast("❌ Moedas insuficientes.");
+
+    if(
+        !pack
+    ){
+        return;
+    }
+
+
+    if(
+        game.coins<
+        pack.cost
+    ){
+
+        toast(
+            "❌ Moedas insuficientes."
+        );
 
         return;
 
     }
 
-    game.coins-=pack.cost;
 
-    const rarity=
-        randomRarity(pack.chances);
+    game.coins-=
+        pack.cost;
 
-    const player=
-        choosePlayer(rarity);
+
+    let player;
+
+
+    /*
+       NEO = 0,15%
+
+       IMPORTANTE:
+       Não existe contador de NEO.
+       Portanto o jogador pode obter
+       infinitos NEOs.
+    */
+
+    if(
+        Math.random()<
+        0.0015
+    ){
+
+        player=
+            chooseNeo();
+
+        toast(
+            "🌌 NEO DESPERTADO!"
+        );
+
+    }else{
+
+        const rarity=
+            randomRarity(
+                pack.chances
+            );
+
+        player=
+            choosePlayer(
+                rarity
+            );
+
+    }
+
 
     game.packsOpened++;
 
-    pendingPlayer=player;
+    pendingPlayer=
+        player;
+
+
+    registerCollection(
+        player
+    );
+
 
     saveGame();
 
     updateUI();
 
     checkMissions();
+
 
     showPlayerModal(
         player,
@@ -1798,32 +2943,71 @@ function openPack(type){
 
 /* =========================================
    EGO RUSH PACK
-   SOMENTE EPIC+
 ========================================= */
 
 function openEgoRushPack(){
 
     const chances={
+
         epic:55,
         legendary:35,
         mestres:10
+
     };
 
-    const rarity=
-        randomRarity(chances);
 
-    const player=
-        choosePlayer(rarity);
+    let player;
+
+
+    /*
+       Ego Rush também pode revelar NEO.
+       Chance maior que um pack comum.
+    */
+
+    if(
+        Math.random()<
+        0.005
+    ){
+
+        player=
+            chooseNeo();
+
+        toast(
+            "🌌 NEO ENCONTRADO NO EGO RUSH!"
+        );
+
+    }else{
+
+        const rarity=
+            randomRarity(
+                chances
+            );
+
+        player=
+            choosePlayer(
+                rarity
+            );
+
+    }
+
 
     game.packsOpened++;
 
-    pendingPlayer=player;
+    pendingPlayer=
+        player;
+
+
+    registerCollection(
+        player
+    );
+
 
     saveGame();
 
     updateUI();
 
     checkMissions();
+
 
     showPlayerModal(
         player,
@@ -1837,34 +3021,57 @@ function openEgoRushPack(){
    MODAL
 ========================================= */
 
-function showPlayerModal(player,title){
+function showPlayerModal(
+    player,
+    title
+){
 
     document.getElementById(
         "modalTitle"
-    ).textContent=title;
+    ).textContent=
+        title;
+
 
     document.getElementById(
         "modalImage"
-    ).src=player.image;
+    ).src=
+        player.image;
+
 
     document.getElementById(
         "modalPlayerName"
-    ).textContent=player.name;
+    ).textContent=
+        player.name;
+
 
     const rarity=
         document.getElementById(
             "modalRarity"
         );
 
+
     rarity.textContent=
-        player.rarity.toUpperCase();
+        player.rarity
+        .toUpperCase();
+
 
     rarity.className=
-        "rarity "+player.rarity;
+        "rarity "+
+        player.rarity;
+
+
+    document.getElementById(
+        "modalPower"
+    ).textContent=
+        "⚡ PODER "+
+        getPlayerPower(player);
+
 
     document.getElementById(
         "modal"
-    ).classList.add("show");
+    ).classList.add(
+        "show"
+    );
 
 }
 
@@ -1875,9 +3082,12 @@ function showPlayerModal(player,title){
 
 function savePlayer(){
 
-    if(!pendingPlayer){
+    if(
+        !pendingPlayer
+    ){
         return;
     }
+
 
     game.inventory.push({
 
@@ -1892,13 +3102,25 @@ function savePlayer(){
 
     });
 
-    const name=pendingPlayer.name;
+
+    const name=
+        pendingPlayer.name;
+
+
+    registerCollection(
+        pendingPlayer
+    );
+
 
     pendingPlayer=null;
 
+
     document.getElementById(
         "modal"
-    ).classList.remove("show");
+    ).classList.remove(
+        "show"
+    );
+
 
     saveGame();
 
@@ -1906,10 +3128,46 @@ function savePlayer(){
 
     checkMissions();
 
+
     toast(
-        "✅ "+name+
+        "✅ "+
+        name+
         " adicionado ao inventário."
     );
+
+}
+
+
+/* =========================================
+   VALORES DE VENDA
+========================================= */
+
+function getSellValue(
+    player
+){
+
+    const values={
+
+        common:25,
+
+        rare:75,
+
+        epic:200,
+
+        legendary:600,
+
+        mestres:1500,
+
+        newgen:5000,
+
+        neo:15000
+
+    };
+
+
+    return values[
+        player.rarity
+    ] || 25;
 
 }
 
@@ -1920,40 +3178,45 @@ function savePlayer(){
 
 function sellPendingPlayer(){
 
-    if(!pendingPlayer){
+    if(
+        !pendingPlayer
+    ){
         return;
     }
 
-    const values={
-
-        common:25,
-        rare:75,
-        epic:200,
-        legendary:600,
-        mestres:1500,
-        newgen:5000
-
-    };
 
     const value=
-        values[pendingPlayer.rarity]||25;
+        getSellValue(
+            pendingPlayer
+        );
 
-    const name=pendingPlayer.name;
 
-    game.coins+=value;
+    const name=
+        pendingPlayer.name;
+
+
+    game.coins+=
+        value;
+
 
     pendingPlayer=null;
 
+
     document.getElementById(
         "modal"
-    ).classList.remove("show");
+    ).classList.remove(
+        "show"
+    );
+
 
     saveGame();
 
     updateUI();
 
+
     toast(
-        "🪙 "+name+
+        "🪙 "+
+        name+
         " vendido por "+
         value+
         " moedas."
@@ -1968,41 +3231,54 @@ function sellPendingPlayer(){
 
 function sellPlayer(index){
 
-    const player=game.inventory[index];
+    const player=
+        game.inventory[index];
+
 
     if(!player){
         return;
     }
 
-    const values={
-
-        common:25,
-        rare:75,
-        epic:200,
-        legendary:600,
-        mestres:1500,
-        newgen:5000
-
-    };
 
     const value=
-        values[player.rarity]||25;
+        getSellValue(
+            player
+        );
 
-    game.coins+=value;
 
-    game.inventory.splice(index,1);
+    game.coins+=
+        value;
+
+
+    game.inventory.splice(
+        index,
+        1
+    );
+
 
     selectedLegendary=
         selectedLegendary
-        .filter(i=>i!==index)
-        .map(i=>i>index?i-1:i);
+
+        .filter(
+            i=>i!==index
+        )
+
+        .map(
+            i=>
+                i>index
+                ?i-1
+                :i
+        );
+
 
     saveGame();
 
     updateUI();
 
+
     toast(
-        "🪙 "+player.name+
+        "🪙 "+
+        player.name+
         " vendido por "+
         value+
         " moedas."
@@ -2015,20 +3291,33 @@ function sellPlayer(index){
    FILTRO
 ========================================= */
 
-function setInventoryFilter(filter){
+function setInventoryFilter(
+    filter
+){
 
-    inventoryFilter=filter;
+    inventoryFilter=
+        filter;
+
 
     document
-        .querySelectorAll(".filter-btn")
-        .forEach(button=>{
+        .querySelectorAll(
+            ".filter-btn"
+        )
+        .forEach(
+            button=>{
 
-            button.classList.toggle(
-                "active",
-                button.dataset.filter===filter
-            );
+                button.classList.toggle(
 
-        });
+                    "active",
+
+                    button.dataset.filter===
+                    filter
+
+                );
+
+            }
+        );
+
 
     renderInventory();
 
@@ -2042,73 +3331,297 @@ function setInventoryFilter(filter){
 function renderInventory(){
 
     const container=
-        document.getElementById("inventory");
+        document.getElementById(
+            "inventory"
+        );
+
 
     container.innerHTML="";
 
+
     const filtered=
-        game.inventory.filter(player=>
-            inventoryFilter==="all" ||
-            player.rarity===inventoryFilter
+        game.inventory.filter(
+            player=>
+                inventoryFilter==="all" ||
+                player.rarity===
+                inventoryFilter
         );
+
 
     document.getElementById(
         "inventoryInfo"
     ).textContent=
+
         `Mostrando ${filtered.length} de ${game.inventory.length} jogadores.`;
 
-    if(filtered.length===0){
+
+    if(
+        filtered.length===0
+    ){
 
         container.innerHTML=`
+
             <div class="empty">
-                Nenhum jogador encontrado nessa raridade.
+
+                Nenhum jogador encontrado
+                nessa raridade.
+
             </div>
+
         `;
 
         return;
 
     }
 
-    filtered.forEach(player=>{
 
-        const index=
-            game.inventory.indexOf(player);
+    filtered.forEach(
+        player=>{
 
-        const card=
-            document.createElement("div");
+            const index=
+                game.inventory.indexOf(
+                    player
+                );
 
-        card.className="player-card";
 
-        card.innerHTML=`
+            const card=
+                document.createElement(
+                    "div"
+                );
 
-            <img
-                src="${player.image}"
-                alt="${player.name}"
-                onerror="this.style.opacity='.25'"
-            >
 
-            <div class="player-info">
+            card.className=
+                "player-card";
 
-                <div class="player-name">
-                    ${player.name}
+
+            const power=
+                getPlayerPower(
+                    player
+                );
+
+
+            const powerPercent=
+                Math.min(
+                    100,
+                    (power/500)*100
+                );
+
+
+            card.innerHTML=`
+
+                <img
+                    src="${player.image}"
+                    alt="${player.name}"
+                    onerror="
+                        this.style.opacity='.25'
+                    "
+                >
+
+                <div class="player-info">
+
+                    <div class="player-name">
+
+                        ${player.name}
+
+                    </div>
+
+                    <span
+                        class="rarity ${player.rarity}">
+
+                        ${player.rarity.toUpperCase()}
+
+                    </span>
+
+                    <div class="power-box">
+
+                        <div class="power-label">
+
+                            <span>
+                                PODER
+                            </span>
+
+                            <span class="power-value">
+
+                                ${power}
+
+                            </span>
+
+                        </div>
+
+                        <div class="power-bar">
+
+                            <div
+                                class="power-fill"
+                                style="
+                                    width:${powerPercent}%;
+                                ">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="sell-button"
+                        onclick="
+                            sellPlayer(${index})
+                        ">
+
+                        🪙 VENDER
+
+                    </button>
+
                 </div>
 
-                <span class="rarity ${player.rarity}">
-                    ${player.rarity.toUpperCase()}
-                </span>
+            `;
 
-                <button
-                    class="sell-button"
-                    onclick="sellPlayer(${index})">
-                    🪙 VENDER
-                </button>
 
-            </div>
-        `;
+            container.appendChild(
+                card
+            );
 
-        container.appendChild(card);
+        }
+    );
 
-    });
+}
+
+
+/* =========================================
+   COLEÇÃO
+========================================= */
+
+function renderCollection(){
+
+    const container=
+        document.getElementById(
+            "collection"
+        );
+
+
+    container.innerHTML="";
+
+
+    const allCharacters=
+        getAllCharacters();
+
+
+    const discovered=
+        game.collection.length;
+
+
+    document.getElementById(
+        "collectionProgress"
+    ).textContent=
+
+        `${discovered}/${allCharacters.length} personagens descobertos.`;
+
+
+    document.getElementById(
+        "collectionCount"
+    ).textContent=
+        discovered;
+
+
+    allCharacters.forEach(
+        player=>{
+
+            const unlocked=
+                game.collection.includes(
+                    player.id
+                );
+
+
+            const card=
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className=
+                "collection-card"+
+                (
+                    unlocked
+                    ? ""
+                    : " locked"
+                );
+
+
+            const power=
+                getPlayerPower(
+                    player
+                );
+
+
+            card.innerHTML=`
+
+                <img
+                    src="${player.image}"
+                    alt="${player.name}"
+                    onerror="
+                        this.style.opacity='.25'
+                    "
+                >
+
+                <div class="collection-info">
+
+                    <div class="collection-name">
+
+                        ${
+                            unlocked
+                            ? player.name
+                            : "???"
+                        }
+
+                    </div>
+
+                    <span
+                        class="rarity ${player.rarity}">
+
+                        ${player.rarity.toUpperCase()}
+
+                    </span>
+
+                    ${
+                        unlocked
+
+                        ? `
+
+                            <div class="collection-power">
+
+                                ⚡ Poder ${power}
+
+                            </div>
+
+                            <div class="collection-status">
+
+                                ✅ DESCOBERTO
+
+                            </div>
+
+                          `
+
+                        : `
+
+                            <div class="collection-status">
+
+                                🔒 Ainda não obtido
+
+                            </div>
+
+                          `
+                    }
+
+                </div>
+
+            `;
+
+
+            container.appendChild(
+                card
+            );
+
+        }
+    );
 
 }
 
@@ -2119,7 +3632,9 @@ function renderInventory(){
 
 function train(){
 
-    const now=Date.now();
+    const now=
+        Date.now();
+
 
     if(
         now-game.lastTrain<
@@ -2128,8 +3643,15 @@ function train(){
 
         const remaining=
             Math.ceil(
-                (15000-(now-game.lastTrain))/1000
+                (
+                    15000-
+                    (
+                        now-
+                        game.lastTrain
+                    )
+                )/1000
             );
+
 
         toast(
             "⏳ Aguarde "+
@@ -2137,19 +3659,26 @@ function train(){
             " segundos."
         );
 
+
         return;
 
     }
 
-    game.lastTrain=now;
+
+    game.lastTrain=
+        now;
+
 
     game.coins+=25;
 
+
     addXP(5);
+
 
     saveGame();
 
     updateUI();
+
 
     toast(
         "🧠 Ego treinado! +25 moedas."
@@ -2165,9 +3694,14 @@ function train(){
 function dailyBonus(){
 
     const today=
-        new Date().toDateString();
+        new Date()
+        .toDateString();
 
-    if(game.dailyClaimed===today){
+
+    if(
+        game.dailyClaimed===
+        today
+    ){
 
         toast(
             "🎁 Bônus diário já coletado."
@@ -2177,15 +3711,21 @@ function dailyBonus(){
 
     }
 
-    game.dailyClaimed=today;
+
+    game.dailyClaimed=
+        today;
+
 
     game.coins+=250;
 
+
     addXP(20);
+
 
     saveGame();
 
     updateUI();
+
 
     toast(
         "🎁 +250 moedas e +20 XP!"
@@ -2215,6 +3755,7 @@ function checkMissions(){
 
     }
 
+
     if(
         !game.missions[2] &&
         game.inventory.length>=5
@@ -2230,6 +3771,7 @@ function checkMissions(){
 
     }
 
+
     if(
         !game.missions[3] &&
         game.level>=5
@@ -2244,6 +3786,7 @@ function checkMissions(){
         );
 
     }
+
 
     saveGame();
 
@@ -2263,46 +3806,91 @@ function renderLegendarySelector(){
             "legendarySelector"
         );
 
+
     container.innerHTML="";
+
 
     game.inventory.forEach(
         (player,index)=>{
 
-            if(player.rarity!=="legendary"){
+            if(
+                player.rarity!=="legendary"
+            ){
                 return;
             }
 
-            const div=
-                document.createElement("div");
 
-            div.className="select-player";
+            const div=
+                document.createElement(
+                    "div"
+                );
+
+
+            div.className=
+                "select-player";
+
 
             if(
-                selectedLegendary.includes(index)
+                selectedLegendary.includes(
+                    index
+                )
             ){
-                div.classList.add("selected");
+
+                div.classList.add(
+                    "selected"
+                );
+
             }
 
+
             div.innerHTML=`
-                <strong>${player.name}</strong>
-                <small>Legendary</small>
+
+                <strong>
+                    ${player.name}
+                </strong>
+
+                <small>
+                    ⚡ Poder ${getPlayerPower(player)}
+                </small>
+
+                <small>
+                    Legendary
+                </small>
+
             `;
 
+
             div.onclick=()=>{
-                toggleLegendary(index);
+
+                toggleLegendary(
+                    index
+                );
+
             };
 
-            container.appendChild(div);
+
+            container.appendChild(
+                div
+            );
 
         }
     );
 
-    if(container.innerHTML===""){
+
+    if(
+        container.innerHTML===
+        ""
+    ){
 
         container.innerHTML=`
+
             <div class="empty">
-                Você ainda não possui jogadores Legendary.
+
+                Você ainda não possui
+                jogadores Legendary.
+
             </div>
+
         `;
 
     }
@@ -2314,12 +3902,19 @@ function renderLegendarySelector(){
    TOGGLE
 ========================================= */
 
-function toggleLegendary(index){
+function toggleLegendary(
+    index
+){
 
     const position=
-        selectedLegendary.indexOf(index);
+        selectedLegendary.indexOf(
+            index
+        );
 
-    if(position>=0){
+
+    if(
+        position>=0
+    ){
 
         selectedLegendary.splice(
             position,
@@ -2328,7 +3923,9 @@ function toggleLegendary(index){
 
     }else{
 
-        if(selectedLegendary.length>=3){
+        if(
+            selectedLegendary.length>=3
+        ){
 
             toast(
                 "⚠️ Você pode selecionar somente 3."
@@ -2338,9 +3935,13 @@ function toggleLegendary(index){
 
         }
 
-        selectedLegendary.push(index);
+
+        selectedLegendary.push(
+            index
+        );
 
     }
+
 
     updateNewGenUI();
 
@@ -2355,9 +3956,11 @@ function updateNewGenUI(){
 
     renderLegendarySelector();
 
+
     document.getElementById(
         "newGenStatus"
     ).textContent=
+
         `${selectedLegendary.length}/3 selecionados.`;
 
 }
@@ -2369,7 +3972,9 @@ function updateNewGenUI(){
 
 function createNewGen(){
 
-    if(selectedLegendary.length!==3){
+    if(
+        selectedLegendary.length!==3
+    ){
 
         toast(
             "⚠️ Selecione exatamente 3 Legendary."
@@ -2379,10 +3984,13 @@ function createNewGen(){
 
     }
 
+
     const selected=
         selectedLegendary.map(
-            index=>game.inventory[index]
+            index=>
+                game.inventory[index]
         );
+
 
     if(
         selected.some(
@@ -2396,13 +4004,16 @@ function createNewGen(){
 
         updateNewGenUI();
 
+
         toast(
             "❌ Seleção inválida."
         );
 
+
         return;
 
     }
+
 
     const chosen=
         newGenPlayers[
@@ -2412,13 +4023,25 @@ function createNewGen(){
             )
         ];
 
+
     const indexes=
         [...selectedLegendary]
-        .sort((a,b)=>b-a);
+        .sort(
+            (a,b)=>b-a
+        );
 
-    indexes.forEach(index=>{
-        game.inventory.splice(index,1);
-    });
+
+    indexes.forEach(
+        index=>{
+
+            game.inventory.splice(
+                index,
+                1
+            );
+
+        }
+    );
+
 
     game.inventory.push({
 
@@ -2433,17 +4056,28 @@ function createNewGen(){
 
     });
 
+
+    registerCollection(
+        chosen
+    );
+
+
     selectedLegendary=[];
 
+
     addXP(50);
+
 
     saveGame();
 
     updateUI();
 
+
     toast(
         "💎 NEW GEN OBTIDO: "+
-        chosen.name
+        chosen.name+
+        " — Poder "+
+        getPlayerPower(chosen)
     );
 
 }
@@ -2455,69 +4089,115 @@ function createNewGen(){
 
 function moveKaiserBar(){
 
-    if(!kaiserPlaying){
+    if(
+        !kaiserPlaying
+    ){
         return;
     }
 
-    kaiserPosition+=
-        kaiserDirection*1.4;
 
-    if(kaiserPosition>=96){
+    kaiserPosition+=
+        kaiserDirection*
+        1.4;
+
+
+    if(
+        kaiserPosition>=96
+    ){
 
         kaiserPosition=96;
+
         kaiserDirection=-1;
 
     }
 
-    if(kaiserPosition<=0){
+
+    if(
+        kaiserPosition<=0
+    ){
 
         kaiserPosition=0;
+
         kaiserDirection=1;
 
     }
 
-    document.getElementById(
-        "kaiserMarker"
-    ).style.left=
-        kaiserPosition+"%";
+
+    const marker=
+        document.getElementById(
+            "kaiserMarker"
+        );
+
+
+    if(marker){
+
+        marker.style.left=
+            kaiserPosition+
+            "%";
+
+    }
 
 }
 
 
 function moveKaiserZone(){
 
-    if(!kaiserPlaying){
+    if(
+        !kaiserPlaying
+    ){
         return;
     }
 
-    kaiserZonePosition+=
-        kaiserZoneDirection*.45;
 
-    if(kaiserZonePosition>=78){
+    kaiserZonePosition+=
+        kaiserZoneDirection*
+        .45;
+
+
+    if(
+        kaiserZonePosition>=78
+    ){
 
         kaiserZonePosition=78;
+
         kaiserZoneDirection=-1;
 
     }
 
-    if(kaiserZonePosition<=0){
+
+    if(
+        kaiserZonePosition<=0
+    ){
 
         kaiserZonePosition=0;
+
         kaiserZoneDirection=1;
 
     }
 
-    document.getElementById(
-        "kaiserZone"
-    ).style.left=
-        kaiserZonePosition+"%";
+
+    const zone=
+        document.getElementById(
+            "kaiserZone"
+        );
+
+
+    if(zone){
+
+        zone.style.left=
+            kaiserZonePosition+
+            "%";
+
+    }
 
 }
 
 
 function playKaiserGame(){
 
-    const now=Date.now();
+    const now=
+        Date.now();
+
 
     if(
         now-game.kaiserLastPlay<
@@ -2526,8 +4206,15 @@ function playKaiserGame(){
 
         const remaining=
             Math.ceil(
-                (5000-(now-game.kaiserLastPlay))/1000
+                (
+                    5000-
+                    (
+                        now-
+                        game.kaiserLastPlay
+                    )
+                )/1000
             );
+
 
         toast(
             "⏳ Aguarde "+
@@ -2535,18 +4222,28 @@ function playKaiserGame(){
             "s."
         );
 
+
         return;
 
     }
 
-    game.kaiserLastPlay=now;
 
-    const marker=kaiserPosition;
+    game.kaiserLastPlay=
+        now;
 
-    const start=kaiserZonePosition;
+
+    const marker=
+        kaiserPosition;
+
+
+    const start=
+        kaiserZonePosition;
+
 
     const end=
-        kaiserZonePosition+18;
+        kaiserZonePosition+
+        18;
+
 
     if(
         marker>=start &&
@@ -2557,10 +4254,12 @@ function playKaiserGame(){
 
         addXP(15);
 
+
         document.getElementById(
             "kaiserStatus"
         ).textContent=
             "🔥 ACERTO PERFEITO!";
+
 
         toast(
             "👑 KAISER IMPACT! +100 moedas."
@@ -2575,6 +4274,7 @@ function playKaiserGame(){
 
     }
 
+
     saveGame();
 
     updateUI();
@@ -2588,7 +4288,9 @@ function playKaiserGame(){
 
 function startReflexGame(){
 
-    const now=Date.now();
+    const now=
+        Date.now();
+
 
     if(
         now-game.reflexLastPlay<
@@ -2597,8 +4299,15 @@ function startReflexGame(){
 
         const remaining=
             Math.ceil(
-                (3000-(now-game.reflexLastPlay))/1000
+                (
+                    3000-
+                    (
+                        now-
+                        game.reflexLastPlay
+                    )
+                )/1000
             );
+
 
         toast(
             "⏳ Aguarde "+
@@ -2606,94 +4315,136 @@ function startReflexGame(){
             "s."
         );
 
+
         return;
 
     }
 
-    game.reflexLastPlay=now;
+
+    game.reflexLastPlay=
+        now;
+
 
     reflexActive=true;
+
 
     const target=
         document.getElementById(
             "reflexTarget"
         );
 
+
     const area=
         document.getElementById(
             "reflexArea"
         );
 
+
     const maxX=
-        area.clientWidth-50;
+        Math.max(
+            0,
+            area.clientWidth-50
+        );
+
 
     const maxY=
-        area.clientHeight-50;
+        Math.max(
+            0,
+            area.clientHeight-50
+        );
+
 
     target.style.left=
         Math.floor(
             Math.random()*maxX
-        )+"px";
+        )+
+        "px";
+
 
     target.style.top=
         Math.floor(
             Math.random()*maxY
-        )+"px";
+        )+
+        "px";
 
-    target.style.display="block";
+
+    target.style.display=
+        "block";
+
 
     document.getElementById(
         "reflexStatus"
     ).textContent=
         "⚡ AGORA!";
 
+
     reflexTimeout=
-        setTimeout(()=>{
+        setTimeout(
+            ()=>{
 
-            if(reflexActive){
+                if(
+                    reflexActive
+                ){
 
-                reflexActive=false;
+                    reflexActive=false;
 
-                target.style.display="none";
+                    target.style.display=
+                        "none";
 
-                document.getElementById(
-                    "reflexStatus"
-                ).textContent=
-                    "❌ Você demorou demais.";
 
-            }
+                    document.getElementById(
+                        "reflexStatus"
+                    ).textContent=
+                        "❌ Você demorou demais.";
 
-        },2500);
+                }
+
+            },
+            2500
+        );
 
 }
 
 
 function hitReflexTarget(){
 
-    if(!reflexActive){
+    if(
+        !reflexActive
+    ){
         return;
     }
 
+
     reflexActive=false;
 
-    clearTimeout(reflexTimeout);
+
+    clearTimeout(
+        reflexTimeout
+    );
+
 
     document.getElementById(
         "reflexTarget"
-    ).style.display="none";
+    ).style.display=
+        "none";
+
 
     game.coins+=75;
 
+
     addXP(12);
+
 
     saveGame();
 
     updateUI();
 
+
     document.getElementById(
         "reflexStatus"
     ).textContent=
         "🎯 ACERTOU! +75 moedas";
+
 
     toast(
         "⚡ Reflexo perfeito! +75 moedas."
@@ -2708,7 +4459,9 @@ function hitReflexTarget(){
 
 function startEgoRush(){
 
-    const now=Date.now();
+    const now=
+        Date.now();
+
 
     if(
         now-game.egoRushLastPlay<
@@ -2717,8 +4470,15 @@ function startEgoRush(){
 
         const remaining=
             Math.ceil(
-                (5000-(now-game.egoRushLastPlay))/1000
+                (
+                    5000-
+                    (
+                        now-
+                        game.egoRushLastPlay
+                    )
+                )/1000
             );
+
 
         toast(
             "⏳ Aguarde "+
@@ -2726,23 +4486,30 @@ function startEgoRush(){
             "s."
         );
 
+
         return;
 
     }
 
-    game.egoRushLastPlay=now;
+
+    game.egoRushLastPlay=
+        now;
+
 
     egoRushActive=true;
+
 
     const target=
         document.getElementById(
             "egoRushTarget"
         );
 
+
     const area=
         document.getElementById(
             "egoRushArea"
         );
+
 
     const maxX=
         Math.max(
@@ -2750,86 +4517,116 @@ function startEgoRush(){
             area.clientWidth-60
         );
 
+
     const maxY=
         Math.max(
             0,
             area.clientHeight-60
         );
 
+
     target.style.left=
         Math.floor(
             Math.random()*maxX
-        )+"px";
+        )+
+        "px";
+
 
     target.style.top=
         Math.floor(
             Math.random()*maxY
-        )+"px";
+        )+
+        "px";
 
-    target.style.display="block";
+
+    target.style.display=
+        "block";
+
 
     document.getElementById(
         "egoRushStatus"
     ).textContent=
         "🔥 CLIQUE NO ALVO!";
 
+
     egoRushTimeout=
-        setTimeout(()=>{
+        setTimeout(
+            ()=>{
 
-            if(egoRushActive){
+                if(
+                    egoRushActive
+                ){
 
-                egoRushActive=false;
+                    egoRushActive=false;
 
-                target.style.display="none";
+                    target.style.display=
+                        "none";
 
-                document.getElementById(
-                    "egoRushStatus"
-                ).textContent=
-                    "❌ Ego Rush perdido. Tente novamente.";
 
-            }
+                    document.getElementById(
+                        "egoRushStatus"
+                    ).textContent=
+                        "❌ Ego Rush perdido. Tente novamente.";
 
-        },1800);
+                }
+
+            },
+            1800
+        );
 
 }
 
 
 function hitEgoRushTarget(){
 
-    if(!egoRushActive){
+    if(
+        !egoRushActive
+    ){
         return;
     }
 
+
     egoRushActive=false;
+
 
     clearTimeout(
         egoRushTimeout
     );
 
+
     document.getElementById(
         "egoRushTarget"
-    ).style.display="none";
+    ).style.display=
+        "none";
+
 
     addXP(30);
+
 
     saveGame();
 
     updateUI();
+
 
     document.getElementById(
         "egoRushStatus"
     ).textContent=
         "💎 EGO DESPERTADO! +1 PACK";
 
+
     toast(
         "🎯 Você ganhou um EGO RUSH PACK!"
     );
 
-    setTimeout(()=>{
 
-        openEgoRushPack();
+    setTimeout(
+        ()=>{
 
-    },450);
+            openEgoRushPack();
+
+        },
+        450
+    );
 
 }
 
@@ -2839,94 +4636,137 @@ function hitEgoRushTarget(){
 ========================================= */
 
 const slotSymbols=[
+
     "⚽",
     "🔥",
     "👑",
     "💙",
     "⚡",
     "🥅"
+
 ];
 
 
 function spinKaiserSlots(){
 
-    if(slotPlaying){
+    if(
+        slotPlaying
+    ){
         return;
     }
 
+
     slotPlaying=true;
+
 
     const slots=[
 
-        document.getElementById("slot1"),
+        document.getElementById(
+            "slot1"
+        ),
 
-        document.getElementById("slot2"),
+        document.getElementById(
+            "slot2"
+        ),
 
-        document.getElementById("slot3")
+        document.getElementById(
+            "slot3"
+        )
 
     ];
 
+
     let count=0;
 
+
     const interval=
-        setInterval(()=>{
+        setInterval(
+            ()=>{
 
-            slots.forEach(slot=>{
+                slots.forEach(
+                    slot=>{
 
-                slot.textContent=
-                    slotSymbols[
-                        Math.floor(
-                            Math.random()*
-                            slotSymbols.length
-                        )
-                    ];
+                        slot.textContent=
+                            slotSymbols[
+                                Math.floor(
+                                    Math.random()*
+                                    slotSymbols.length
+                                )
+                            ];
 
-            });
-
-            count++;
-
-            if(count>=12){
-
-                clearInterval(interval);
-
-                finishKaiserSlots(
-                    slots.map(
-                        slot=>slot.textContent
-                    )
+                    }
                 );
 
-            }
 
-        },80);
+                count++;
+
+
+                if(
+                    count>=12
+                ){
+
+                    clearInterval(
+                        interval
+                    );
+
+
+                    finishKaiserSlots(
+                        slots.map(
+                            slot=>
+                                slot.textContent
+                        )
+                    );
+
+                }
+
+            },
+            80
+        );
 
 }
 
 
-function finishKaiserSlots(symbols){
+function finishKaiserSlots(
+    symbols
+){
 
     slotPlaying=false;
 
+
     let reward=0;
 
+
     if(
-        symbols[0]===symbols[1] &&
-        symbols[1]===symbols[2]
+
+        symbols[0]===
+        symbols[1] &&
+
+        symbols[1]===
+        symbols[2]
+
     ){
 
         reward=250;
 
         addXP(25);
 
+
         document.getElementById(
             "slotStatus"
         ).textContent=
             "👑 TRIPLO! +250 moedas";
 
+
     }else if(
 
-        symbols[0]===symbols[1] ||
-        symbols[1]===symbols[2] ||
-        symbols[0]===symbols[2]
+        symbols[0]===
+        symbols[1] ||
+
+        symbols[1]===
+        symbols[2] ||
+
+        symbols[0]===
+        symbols[2]
 
     ){
 
@@ -2934,10 +4774,12 @@ function finishKaiserSlots(symbols){
 
         addXP(12);
 
+
         document.getElementById(
             "slotStatus"
         ).textContent=
             "🔥 DUPLO! +100 moedas";
+
 
     }else{
 
@@ -2948,9 +4790,14 @@ function finishKaiserSlots(symbols){
 
     }
 
-    if(reward>0){
 
-        game.coins+=reward;
+    if(
+        reward>0
+    ){
+
+        game.coins+=
+            reward;
+
 
         toast(
             "🎰 +"+
@@ -2959,6 +4806,7 @@ function finishKaiserSlots(symbols){
         );
 
     }
+
 
     saveGame();
 
@@ -2973,19 +4821,23 @@ function finishKaiserSlots(symbols){
 
 function updateMissions(){
 
-    [1,2,3].forEach(id=>{
+    [1,2,3].forEach(
+        id=>{
 
-        const element=
-            document.getElementById(
-                "mission"+id
+            const element=
+                document.getElementById(
+                    "mission"+
+                    id
+                );
+
+
+            element.classList.toggle(
+                "completed",
+                game.missions[id]
             );
 
-        element.classList.toggle(
-            "completed",
-            game.missions[id]
-        );
-
-    });
+        }
+    );
 
 }
 
@@ -2997,15 +4849,19 @@ function updateMissions(){
 function updateDaily(){
 
     const today=
-        new Date().toDateString();
+        new Date()
+        .toDateString();
+
 
     const text=
         document.getElementById(
             "dailyText"
         );
 
+
     if(
-        game.dailyClaimed===today
+        game.dailyClaimed===
+        today
     ){
 
         text.textContent=
@@ -3030,33 +4886,42 @@ function updateUI(){
     document.getElementById(
         "coins"
     ).textContent=
-        game.coins.toLocaleString("pt-BR");
+        game.coins.toLocaleString(
+            "pt-BR"
+        );
+
 
     document.getElementById(
         "level"
     ).textContent=
         game.level;
 
+
     document.getElementById(
         "xp"
     ).textContent=
         game.xp;
+
 
     document.getElementById(
         "packsOpened"
     ).textContent=
         game.packsOpened;
 
+
     document.getElementById(
         "playerCount"
     ).textContent=
         game.inventory.length;
+
 
     renderInventory();
 
     renderLegendarySelector();
 
     updateNewGenUI();
+
+    renderCollection();
 
     updateMissions();
 
@@ -3072,17 +4937,30 @@ function updateUI(){
 function toast(message){
 
     const element=
-        document.getElementById("toast");
+        document.getElementById(
+            "toast"
+        );
 
-    element.textContent=message;
 
-    element.classList.add("show");
+    element.textContent=
+        message;
 
-    setTimeout(()=>{
 
-        element.classList.remove("show");
+    element.classList.add(
+        "show"
+    );
 
-    },3000);
+
+    setTimeout(
+        ()=>{
+
+            element.classList.remove(
+                "show"
+            );
+
+        },
+        3000
+    );
 
 }
 
@@ -3092,14 +4970,21 @@ function toast(message){
 ========================================= */
 
 document
-    .getElementById("modal")
+    .getElementById(
+        "modal"
+    )
     .addEventListener(
         "click",
         function(event){
 
-            if(event.target===this){
+            if(
+                event.target===
+                this
+            ){
 
-                this.classList.remove("show");
+                this.classList.remove(
+                    "show"
+                );
 
             }
 
@@ -3118,13 +5003,18 @@ function resetGame(){
             "Tem certeza que deseja apagar TODO o progresso?"
         );
 
-    if(!confirmation){
+
+    if(
+        !confirmation
+    ){
         return;
     }
+
 
     localStorage.removeItem(
         "blueLockGame"
     );
+
 
     location.reload();
 
@@ -3140,6 +5030,7 @@ setInterval(
     30
 );
 
+
 setInterval(
     moveKaiserZone,
     35
@@ -3152,7 +5043,9 @@ setInterval(
 
 updateUI();
 
+
 </script>
 
 </body>
+
 </html>
