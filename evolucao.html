@@ -1,76 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
-
-<title>BLUE LOCK — Evolução</title>
+<title>Blue Lock - Evolution</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-
-    font-family:Arial,Helvetica,sans-serif;
-
-    min-height:100vh;
-
-    color:white;
-
     background:
-        radial-gradient(
-            circle at top,
-            #12345a 0%,
-            #07111e 42%,
-            #020407 100%
-        );
+        radial-gradient(circle at top,#123b5c 0%,#07131f 45%,#02070c 100%);
+    color:white;
+    min-height:100vh;
 }
 
 header{
-
-    background:rgba(3,9,17,.97);
-
-    border-bottom:2px solid #1683ff;
-
-    padding:17px 6%;
-
+    padding:22px 7%;
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
+    border-bottom:1px solid #18344c;
+    background:rgba(3,10,17,.92);
     position:sticky;
-
     top:0;
-
-    z-index:100;
-
-    box-shadow:
-        0 0 25px
-        rgba(0,119,255,.25);
+    z-index:20;
+    backdrop-filter:blur(12px);
 }
 
 .logo{
-
     font-size:28px;
-
     font-weight:1000;
-
-    letter-spacing:4px;
-
-    color:#1683ff;
+    letter-spacing:2px;
+    color:#38bdf8;
 }
 
 .logo span{
@@ -78,628 +46,280 @@ header{
 }
 
 .header-right{
-
     display:flex;
-
+    gap:10px;
     align-items:center;
-
-    gap:12px;
 }
 
 .coins{
-
-    background:#101b2b;
-
-    border:1px solid #f5ca3d;
-
-    color:#ffd84c;
-
+    background:#0d2234;
+    border:1px solid #24516f;
     padding:10px 18px;
-
     border-radius:30px;
-
-    font-weight:900;
+    color:#facc15;
+    font-weight:bold;
 }
 
 .back-button{
-
-    background:#17263a;
-
-    color:#dce9f7;
-
     text-decoration:none;
-
-    padding:10px 15px;
-
+    background:#124e70;
+    color:white;
+    padding:10px 16px;
     border-radius:9px;
-
-    font-weight:900;
-
-    border:1px solid #29435e;
-
-    transition:.2s;
+    font-weight:bold;
 }
 
 .back-button:hover{
-
-    background:#223b58;
-
-    border-color:#1683ff;
+    background:#38bdf8;
+    color:#03111c;
 }
 
 .container{
-
-    width:90%;
-
+    width:86%;
     max-width:1400px;
-
     margin:auto;
+    padding:35px 0 80px;
 }
 
 .hero{
-
     text-align:center;
-
-    padding:60px 20px 35px;
+    padding:25px 10px 35px;
 }
 
 .hero h1{
-
-    font-size:
-        clamp(
-            40px,
-            7vw,
-            75px
-        );
-
+    font-size:clamp(42px,7vw,75px);
     font-weight:1000;
-
     letter-spacing:5px;
+}
 
-    color:#1683ff;
-
-    text-shadow:
-        0 0 15px #1683ff,
-        0 0 40px
-        rgba(22,131,255,.45);
+.hero h1 span{
+    color:#38bdf8;
 }
 
 .hero p{
-
     margin-top:12px;
-
-    color:#9eafc3;
-
-    font-size:17px;
+    color:#8fa7ba;
 }
 
-
-/* =========================================
-   INFO
-========================================= */
-
-.info-box{
-
-    background:
-        linear-gradient(
-            145deg,
-            #0e1b2b,
-            #070c13
-        );
-
-    border:1px solid #27425e;
-
-    border-radius:17px;
-
-    padding:22px;
-
-    margin-bottom:30px;
-
-    text-align:center;
-}
-
-.info-box h2{
-
-    color:#4da3ff;
-
-    margin-bottom:10px;
-}
-
-.info-box p{
-
-    color:#9eafc3;
-
-    line-height:1.6;
-}
-
-
-/* =========================================
-   CONTROLES
-========================================= */
-
-.controls{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:10px;
-
+.info{
+    background:#091724;
+    border:1px solid #24516f;
+    padding:18px;
+    border-radius:14px;
+    color:#8fa7ba;
+    font-size:13px;
+    line-height:1.7;
     margin-bottom:25px;
 }
 
-.filter{
-
-    background:#0b1420;
-
-    border:1px solid #2b4058;
-
-    color:#aab8c8;
-
-    padding:10px 15px;
-
-    border-radius:9px;
-
-    cursor:pointer;
-
-    font-weight:900;
+.filters{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:20px;
 }
 
-.filter:hover{
-
-    background:#142337;
-
-    color:white;
+.filter{
+    padding:8px 12px;
+    border-radius:8px;
+    background:#091724;
+    border:1px solid #23465e;
+    color:#8fa7ba;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:10px;
 }
 
 .filter.active{
-
-    background:#1677ff;
-
-    border-color:#1683ff;
-
+    background:#1d4ed8;
     color:white;
-
-    box-shadow:
-        0 0 15px
-        rgba(22,131,255,.25);
+    border-color:#38bdf8;
 }
 
-
-/* =========================================
-   GRID
-========================================= */
-
-.players-grid{
-
+.inventory{
     display:grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fill,
-            minmax(220px,1fr)
-        );
-
-    gap:20px;
+    grid-template-columns:repeat(auto-fill,minmax(165px,1fr));
+    gap:15px;
 }
 
-.player-box{
-
-    background:
-        linear-gradient(
-            145deg,
-            #0c1623,
-            #060a10
-        );
-
-    border:1px solid #263c54;
-
-    border-radius:17px;
-
-    padding:15px;
-
+.player-card{
+    background:#091724;
+    border:2px solid #1c3b51;
+    border-radius:14px;
+    overflow:hidden;
+    cursor:pointer;
     transition:.2s;
-
-    position:relative;
 }
 
-.player-box:hover{
-
+.player-card:hover{
     transform:translateY(-4px);
-
-    border-color:#1683ff;
-
-    box-shadow:
-        0 10px 30px
-        rgba(22,131,255,.14);
+    border-color:#38bdf8;
 }
 
-.player-box.can-evolve{
-
-    border-color:#ffca3a;
-
-    box-shadow:
-        0 0 18px
-        rgba(255,202,58,.12);
+.player-card.selected{
+    border-color:#22c55e;
+    box-shadow:0 0 20px rgba(34,197,94,.2);
 }
 
-.player-image{
-
+.player-card img{
     width:100%;
-
-    height:235px;
-
+    height:210px;
     object-fit:cover;
-
-    border-radius:12px;
-
-    background:#101a27;
-
     display:block;
 }
 
+.player-info{
+    padding:11px;
+}
+
 .player-name{
-
-    font-size:17px;
-
-    font-weight:1000;
-
-    margin-top:13px;
+    font-weight:900;
+    font-size:13px;
+    margin-bottom:6px;
 }
 
 .rarity{
-
     display:inline-block;
-
-    padding:5px 9px;
-
-    border-radius:6px;
-
-    font-size:10px;
-
-    font-weight:1000;
-
-    margin-top:8px;
+    padding:4px 7px;
+    border-radius:5px;
+    font-size:9px;
+    font-weight:bold;
+    text-transform:uppercase;
 }
 
-.common{
-    background:#34404c;
-}
-
-.rare{
-    background:#176bd1;
-}
-
-.epic{
-    background:#7935c7;
-}
-
-.legendary{
-    background:#b0830b;
-}
+.common{background:#334155;}
+.rare{background:#0369a1;}
+.epic{background:#7e22ce;}
+.legendary{background:#b45309;}
 
 .mestres{
-
-    background:
-        linear-gradient(
-            90deg,
-            #f59e0b,
-            #fde68a,
-            #f59e0b
-        );
-
+    background:linear-gradient(90deg,#f59e0b,#fde68a,#f59e0b);
     color:#261500;
 }
 
 .newgen{
-
-    background:
-        linear-gradient(
-            90deg,
-            #8b2cff,
-            #2563eb,
-            #22d3ee
-        );
+    background:linear-gradient(90deg,#06b6d4,#2563eb,#9333ea);
 }
 
 .neo{
-
-    background:
-        linear-gradient(
-            90deg,
-            #ec4899,
-            #8b5cf6,
-            #22d3ee
-        );
-
-    color:white;
-
-    box-shadow:
-        0 0 18px
-        rgba(236,72,153,.35);
+    background:linear-gradient(90deg,#00e5ff,#2563eb,#9333ea,#ec4899);
 }
 
-
-/* =========================================
-   ESTRELAS
-========================================= */
+.deus{
+    background:linear-gradient(90deg,#facc15,#fff7a8,#f59e0b);
+    color:#261500;
+}
 
 .stars{
-
-    color:#ffd83d;
-
-    font-size:22px;
-
-    letter-spacing:2px;
-
-    margin:10px 0;
-
-    min-height:27px;
+    color:#facc15;
+    margin-top:6px;
+    font-size:12px;
 }
 
 .power{
-
-    color:#72b5ff;
-
-    font-size:13px;
-
-    font-weight:900;
-
-    margin-bottom:5px;
+    color:#38bdf8;
+    font-size:11px;
+    font-weight:bold;
+    margin-top:4px;
 }
 
 .value{
-
-    color:#ffd84c;
-
-    font-size:13px;
-
-    font-weight:900;
-
-    margin-bottom:13px;
+    color:#facc15;
+    font-size:11px;
+    margin-top:4px;
 }
 
-
-/* =========================================
-   SELEÇÃO
-========================================= */
-
-.select-button{
-
-    width:100%;
-
-    background:#172538;
-
-    border:1px solid #31506f;
-
-    color:#bcd0e4;
-
-    padding:11px;
-
-    border-radius:9px;
-
-    cursor:pointer;
-
-    font-weight:1000;
-
-    transition:.2s;
+.empty{
+    grid-column:1/-1;
+    padding:40px;
+    text-align:center;
+    color:#60798c;
+    border:1px dashed #234257;
+    border-radius:15px;
 }
-
-.select-button:hover{
-
-    background:#21405f;
-
-    color:white;
-}
-
-.select-button.selected{
-
-    background:#b47b0c;
-
-    border-color:#ffd33d;
-
-    color:white;
-
-    box-shadow:
-        0 0 18px
-        rgba(255,211,61,.2);
-}
-
-.select-button.disabled{
-
-    opacity:.45;
-
-    cursor:not-allowed;
-}
-
-
-/* =========================================
-   PAINEL
-========================================= */
 
 .evolution-panel{
-
     position:sticky;
-
     bottom:15px;
-
-    z-index:50;
-
-    margin-top:35px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #101d2e,
-            #070c13
-        );
-
-    border:2px solid #1683ff;
-
-    border-radius:18px;
-
+    margin-top:30px;
+    background:rgba(7,19,30,.96);
+    border:1px solid #38bdf8;
+    border-radius:17px;
     padding:20px;
-
-    box-shadow:
-        0 0 35px
-        rgba(22,131,255,.2);
+    box-shadow:0 0 40px rgba(0,0,0,.45);
+    backdrop-filter:blur(10px);
 }
 
-.selected-info{
-
-    text-align:center;
-
-    margin-bottom:15px;
-
-    color:#a9bacd;
+.evolution-panel h2{
+    color:#38bdf8;
+    margin-bottom:8px;
 }
 
-.selected-info strong{
+.evolution-info{
+    color:#8fa7ba;
+    font-size:12px;
+}
 
-    color:#ffd83d;
-
-    font-size:18px;
+.evolution-result{
+    margin-top:10px;
+    color:#facc15;
+    font-weight:bold;
 }
 
 .evolve-button{
-
     width:100%;
-
-    max-width:500px;
-
-    display:block;
-
-    margin:auto;
-
-    padding:15px;
-
-    background:#1683ff;
-
-    font-size:16px;
-}
-
-.evolve-button:hover{
-
-    background:#2790ff;
+    margin-top:15px;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(90deg,#1d4ed8,#7c3aed);
+    color:white;
+    font-weight:1000;
+    cursor:pointer;
 }
 
 .evolve-button:disabled{
-
-    background:#29384a;
-
-    color:#74869b;
-
+    opacity:.4;
     cursor:not-allowed;
-
-    box-shadow:none;
-
-    transform:none;
 }
-
-
-/* =========================================
-   VAZIO
-========================================= */
-
-.empty{
-
-    grid-column:1/-1;
-
-    text-align:center;
-
-    padding:55px 20px;
-
-    border:1px dashed #2a4058;
-
-    border-radius:15px;
-
-    color:#71849a;
-
-    line-height:1.7;
-}
-
-
-/* =========================================
-   TOAST
-========================================= */
 
 .toast{
-
     position:fixed;
-
     bottom:25px;
-
     right:25px;
-
-    background:#111c2b;
-
-    border:1px solid #257fff;
-
-    padding:14px 20px;
-
+    background:#0b1d2c;
+    border:1px solid #2d536c;
+    padding:14px 18px;
     border-radius:10px;
-
     transform:translateY(100px);
-
     opacity:0;
-
     transition:.3s;
-
-    z-index:500;
-
-    max-width:350px;
+    z-index:100;
 }
 
 .toast.show{
-
     transform:translateY(0);
-
     opacity:1;
 }
 
-
-/* =========================================
-   RESPONSIVO
-========================================= */
-
-@media(max-width:700px){
+@media(max-width:600px){
+    .container{
+        width:92%;
+    }
 
     header{
-
-        padding:15px 4%;
+        padding:16px 4%;
     }
 
-    .logo{
-
-        font-size:20px;
+    .header-right{
+        flex-direction:column;
+        align-items:flex-end;
     }
-
-    .coins{
-
-        padding:8px 12px;
-
-        font-size:13px;
-    }
-
-    .back-button{
-
-        display:none;
-    }
-
-    .player-image{
-
-        height:260px;
-    }
-
 }
-
 </style>
-
 </head>
 
-
 <body>
-
 
 <header>
 
@@ -707,1215 +327,386 @@ header{
     BLUE <span>LOCK</span>
 </div>
 
-
 <div class="header-right">
+    <div class="coins">
+        🪙 <span id="coins">0</span>
+    </div>
 
-<a
-    href="index.html"
-    class="back-button">
-
-    ← Vitrine
-
-</a>
-
-
-<div class="coins">
-
-    🪙 <span id="coins">0</span>
-
-</div>
-
+    <a href="index.html" class="back-button">
+        ← VOLTAR
+    </a>
 </div>
 
 </header>
 
-
 <main class="container">
 
-
 <section class="hero">
-
-<h1>
-    EVOLUTION
-</h1>
-
-<p>
-    Transforme suas cópias em jogadores cada vez mais fortes.
-</p>
-
+    <h1><span>EVOLU</span>TION</h1>
+    <p>Una cópias iguais e transforme seus jogadores em versões mais poderosas.</p>
 </section>
 
+<div class="info">
+    <strong>⚡ Como funciona:</strong><br>
+    Você precisa de 3 cópias do mesmo jogador com o mesmo número de estrelas.
+    A evolução aumenta o nível da carta. O máximo é ★★★.
+</div>
 
-<section class="info-box">
+<div class="filters">
+    <button class="filter active" onclick="setFilter('all',this)">TODAS</button>
+    <button class="filter" onclick="setFilter('common',this)">COMUM</button>
+    <button class="filter" onclick="setFilter('rare',this)">RARO</button>
+    <button class="filter" onclick="setFilter('epic',this)">ÉPICO</button>
+    <button class="filter" onclick="setFilter('legendary',this)">LENDÁRIO</button>
+    <button class="filter" onclick="setFilter('newgen',this)">NEW GEN</button>
+    <button class="filter" onclick="setFilter('mestres',this)">MESTRES</button>
+    <button class="filter" onclick="setFilter('neo',this)">NEO</button>
+    <button class="filter" onclick="setFilter('deus',this)">DEUS</button>
+</div>
 
-<h2>
-    ⭐ SISTEMA DE EVOLUÇÃO
-</h2>
+<section class="inventory" id="inventory"></section>
 
-<p>
+<section class="evolution-panel">
 
-    Escolha
-    <b>3 cópias do mesmo jogador</b>
-    com a mesma quantidade de estrelas.
+<h2>⚡ Evolução</h2>
 
-    Elas serão fundidas em 1 jogador com
-    <b>+1 estrela</b>.
-
+<p class="evolution-info" id="selectionInfo">
+    Selecione 3 cartas iguais.
 </p>
 
+<div class="evolution-result" id="evolutionResult">
+    Nenhuma carta selecionada.
+</div>
 
-<p style="margin-top:8px;">
-
-    ⭐ + ⭐ + ⭐ → ⭐⭐
-
-    &nbsp;&nbsp;|&nbsp;&nbsp;
-
-    ⭐⭐ + ⭐⭐ + ⭐⭐ → ⭐⭐⭐
-
-</p>
-
-
-<p
-    style="
-        margin-top:8px;
-        color:#ffd84c;
-    ">
-
-    ⭐⭐⭐ é o nível máximo.
-
-    Quanto maior a evolução,
-    maior o valor e a força nos Duelos.
-
-</p>
+<button class="evolve-button" id="evolveButton" onclick="evolveSelected()" disabled>
+    EVOLUIR CARTAS
+</button>
 
 </section>
-
-
-<div class="controls">
-
-
-<button
-    class="filter active"
-    data-filter="all"
-    onclick="setFilter('all')">
-
-    TODOS
-
-</button>
-
-
-<button
-    class="filter"
-    data-filter="common"
-    onclick="setFilter('common')">
-
-    COMMON
-
-</button>
-
-
-<button
-    class="filter"
-    data-filter="rare"
-    onclick="setFilter('rare')">
-
-    RARE
-
-</button>
-
-
-<button
-    class="filter"
-    data-filter="epic"
-    onclick="setFilter('epic')">
-
-    EPIC
-
-</button>
-
-
-<button
-    class="filter"
-    data-filter="legendary"
-    onclick="setFilter('legendary')">
-
-    LEGENDARY
-
-</button>
-
-
-<button
-    class="filter"
-    data-filter="newgen"
-    onclick="setFilter('newgen')">
-
-    NEW GEN
-
-</button>
-
-
-<button
-    class="filter"
-    data-filter="mestres"
-    onclick="setFilter('mestres')">
-
-    MESTRES
-
-</button>
-
-
-<button
-    class="filter"
-    data-filter="neo"
-    onclick="setFilter('neo')">
-
-    NEO
-
-</button>
-
-
-</div>
-
-
-<div
-    id="playerGrid"
-    class="players-grid">
-</div>
-
-
-<div class="evolution-panel">
-
-<div
-    id="selectedInfo"
-    class="selected-info">
-
-    Selecione 3 jogadores iguais.
-
-</div>
-
-
-<button
-    id="evolveButton"
-    class="evolve-button"
-    onclick="evolvePlayers()"
-    disabled>
-
-    ⭐ EVOLUIR
-
-</button>
-
-</div>
-
 
 </main>
 
-
-<div
-    id="toast"
-    class="toast">
-</div>
-
+<div class="toast" id="toast"></div>
 
 <script>
-
-/* =========================================
-   STORAGE
-========================================= */
-
-const STORAGE_KEY =
-    "blueLockGame";
-
-
-let game=null;
-
-
-try{
-
-    game =
-        JSON.parse(
-            localStorage.getItem(
-                STORAGE_KEY
-            )
-        );
-
-}catch(error){
-
-    game=null;
-
-}
-
-
-if(!game){
-
-    game={
-
-        coins:1000,
-
-        xp:0,
-
-        level:1,
-
-        inventory:[],
-
-        packsOpened:0,
-
-        missions:{
-            1:false,
-            2:false,
-            3:false
-        }
-
-    };
-
-}
-
+let game=
+JSON.parse(localStorage.getItem("blueLockGame"))||{
+    coins:1000,
+    xp:0,
+    level:1,
+    inventory:[]
+};
 
 if(!Array.isArray(game.inventory)){
-
     game.inventory=[];
-
 }
 
+game.inventory.forEach(card=>{
+    if(!card.stars) card.stars=1;
 
-game.coins =
-    Number(game.coins) || 0;
-
-
-game.xp =
-    Number(game.xp) || 0;
-
-
-game.level =
-    Number(game.level) || 1;
-
-
-/* =========================================
-   MIGRAÇÃO
-========================================= */
-
-game.inventory.forEach(player=>{
-
-    if(
-        typeof player.stars !==
-        "number"
-    ){
-
-        player.stars=1;
-
+    if(!card.uniqueId){
+        card.uniqueId=
+            card.id+"-"+Date.now()+"-"+Math.random().toString(36).slice(2);
     }
-
-
-    if(!player.uniqueId){
-
-        player.uniqueId =
-            player.id +
-            "-" +
-            Date.now() +
-            "-" +
-            Math.random()
-                .toString(36)
-                .slice(2);
-
-    }
-
 });
 
-
-/* =========================================
-   ESTADO
-========================================= */
-
-let selectedPlayers=[];
-
-let currentFilter="all";
-
-
-/* =========================================
-   VALORES
-========================================= */
+function saveGame(){
+    localStorage.setItem(
+        "blueLockGame",
+        JSON.stringify(game)
+    );
+}
 
 const baseValues={
-
     common:25,
-
     rare:75,
-
     epic:200,
-
     legendary:600,
-
     newgen:5000,
-
     mestres:8000,
-
-    neo:15000
-
+    neo:15000,
+    deus:50000
 };
-
-
-/* =========================================
-   FORÇA
-========================================= */
 
 const basePower={
-
     common:40,
-
     rare:70,
-
     epic:110,
-
     legendary:170,
-
     newgen:320,
-
     mestres:420,
-
-    neo:550
-
+    neo:550,
+    deus:800
 };
 
-
-/* =========================================
-   MULTIPLICADORES
-========================================= */
-
-const starValueMultiplier={
-
+const valueMultiplier={
     1:1,
-
     2:2,
-
     3:3.5
-
 };
 
-
-const starPowerMultiplier={
-
+const powerMultiplier={
     1:1,
-
     2:1.45,
-
     3:2.05
-
 };
 
+let selected=[];
 
-/* =========================================
-   VALOR
-========================================= */
+function getPower(card){
+    return Math.round(
+        (basePower[card.rarity]||0)*
+        (powerMultiplier[card.stars||1]||1)
+    );
+}
 
-function getPlayerValue(player){
+function getValue(card){
+    return Math.round(
+        (baseValues[card.rarity]||0)*
+        (valueMultiplier[card.stars||1]||1)
+    );
+}
 
-    const base =
-        baseValues[
-            player.rarity
-        ] || 25;
+function setFilter(filter,button){
+    document.querySelectorAll(".filter")
+        .forEach(btn=>btn.classList.remove("active"));
 
+    button.classList.add("active");
 
-    const stars =
-        player.stars || 1;
+    renderInventory(filter);
+}
 
-
-    return Math.floor(
-
-        base *
-        (
-            starValueMultiplier[
-                stars
-            ] || 1
-        )
-
+function selectCard(card){
+    const existing=selected.findIndex(
+        item=>item.uniqueId===card.uniqueId
     );
 
+    if(existing!==-1){
+        selected.splice(existing,1);
+        updateSelection();
+        renderInventory();
+        return;
+    }
+
+    if(selected.length>=3){
+        toast("⚠️ Você já selecionou 3 cartas.");
+        return;
+    }
+
+    selected.push(card);
+
+    updateSelection();
+    renderInventory();
 }
 
+function renderInventory(filter="all"){
+    const container=document.getElementById("inventory");
 
-/* =========================================
-   PODER
-========================================= */
+    container.innerHTML="";
 
-function getPlayerPower(player){
+    let list=game.inventory;
 
-    const base =
-        basePower[
-            player.rarity
-        ] || 40;
-
-
-    const stars =
-        player.stars || 1;
-
-
-    return Math.floor(
-
-        base *
-        (
-            starPowerMultiplier[
-                stars
-            ] || 1
-        )
-
-    );
-
-}
-
-
-/* =========================================
-   ESTRELAS
-========================================= */
-
-function getStars(stars){
-
-    return "⭐".repeat(
-        stars
-    );
-
-}
-
-
-/* =========================================
-   FILTRO
-========================================= */
-
-function setFilter(filter){
-
-    currentFilter =
-        filter;
-
-
-    document
-        .querySelectorAll(
-            ".filter"
-        )
-        .forEach(button=>{
-
-            button.classList.toggle(
-
-                "active",
-
-                button.dataset.filter
-                ===
-                filter
-
-            );
-
-        });
-
-
-    render();
-
-}
-
-
-/* =========================================
-   RENDER
-========================================= */
-
-function render(){
-
-    const grid =
-        document.getElementById(
-            "playerGrid"
+    if(filter!=="all"){
+        list=list.filter(
+            card=>card.rarity===filter
         );
+    }
 
-
-    grid.innerHTML="";
-
-
-    const filtered =
-        game.inventory.filter(
-
-            player =>
-
-                currentFilter ===
-                "all"
-
-                ||
-
-                player.rarity ===
-                currentFilter
-
-        );
-
-
-    if(
-        filtered.length === 0
-    ){
-
-        grid.innerHTML=`
-
+    if(list.length===0){
+        container.innerHTML=`
             <div class="empty">
-
-                🎒
-
-                <br><br>
-
-                Você não possui jogadores
-                nessa categoria.
-
+                Nenhuma carta encontrada.
             </div>
-
         `;
-
-
-        updatePanel();
-
         return;
-
     }
 
+    list.forEach(card=>{
+        const element=document.createElement("div");
 
-    filtered.forEach(
-        player=>{
-
-        const index =
-            game.inventory.indexOf(
-                player
-            );
-
-
-        const stars =
-            player.stars || 1;
-
-
-        const isSelected =
-            selectedPlayers.includes(
-                index
-            );
-
-
-        const canEvolve =
-            stars < 3;
-
-
-        const card =
-            document.createElement(
-                "div"
-            );
-
-
-        card.className =
-            "player-box";
-
-
-        if(isSelected){
-
-            card.classList.add(
-                "can-evolve"
-            );
-
-        }
-
-
-        card.innerHTML=`
-
-            <img
-                class="player-image"
-                src="${player.image}"
-                alt="${player.name}"
-                onerror="this.style.opacity='.25'"
-            >
-
-
-            <div class="player-name">
-
-                ${player.name}
-
-            </div>
-
-
-            <span
-                class="rarity ${player.rarity}">
-
-                ${player.rarity.toUpperCase()}
-
-            </span>
-
-
-            <div class="stars">
-
-                ${getStars(stars)}
-
-            </div>
-
-
-            <div class="power">
-
-                ⚡ Força:
-                ${getPlayerPower(player)}
-
-            </div>
-
-
-            <div class="value">
-
-                🪙 Valor:
-                ${getPlayerValue(player)}
-
-            </div>
-
-
-            ${
-                canEvolve
-
-                ?
-
-                `
-
-                <button
-                    class="
-                        select-button
-                        ${
-                            isSelected
-                            ? "selected"
-                            : ""
-                        }
-                    "
-                    onclick="selectPlayer(${index})">
-
-                    ${
-                        isSelected
-                        ? "✓ SELECIONADO"
-                        : "SELECIONAR"
-                    }
-
-                </button>
-
-                `
-
-                :
-
-                `
-
-                <button
-                    class="
-                        select-button
-                        disabled
-                    "
-                    disabled>
-
-                    ⭐⭐⭐ MÁXIMO
-
-                </button>
-
-                `
-
-            }
-
-        `;
-
-
-        grid.appendChild(
-            card
-        );
-
-    });
-
-
-    updatePanel();
-
-}
-
-
-/* =========================================
-   SELECIONAR
-========================================= */
-
-function selectPlayer(index){
-
-    const player =
-        game.inventory[index];
-
-
-    if(!player){
-
-        return;
-
-    }
-
-
-    const stars =
-        player.stars || 1;
-
-
-    if(stars>=3){
-
-        toast(
-            "⭐ Este jogador já está no máximo."
-        );
-
-        return;
-
-    }
-
-
-    if(
-        selectedPlayers.length > 0
-    ){
-
-        const first =
-            game.inventory[
-                selectedPlayers[0]
-            ];
-
+        element.className="player-card";
 
         if(
-
-            !first
-
-            ||
-
-            first.id !==
-            player.id
-
-            ||
-
-            (first.stars || 1)
-            !==
-            stars
-
+            selected.some(
+                item=>item.uniqueId===card.uniqueId
+            )
         ){
-
-            toast(
-
-                "⚠️ Selecione 3 cópias do MESMO jogador com a MESMA quantidade de estrelas."
-
-            );
-
-            return;
-
+            element.classList.add("selected");
         }
 
-    }
-
-
-    const alreadySelected =
-        selectedPlayers.indexOf(
-            index
-        );
-
-
-    if(
-        alreadySelected !== -1
-    ){
-
-        selectedPlayers.splice(
-            alreadySelected,
-            1
-        );
-
-    }else{
-
-        if(
-            selectedPlayers.length >= 3
-        ){
-
-            toast(
-                "⚠️ Você só pode selecionar 3 jogadores."
-            );
-
-            return;
-
-        }
-
-
-        selectedPlayers.push(
-            index
-        );
-
-    }
-
-
-    render();
-
-}
-
-
-/* =========================================
-   PAINEL
-========================================= */
-
-function updatePanel(){
-
-    const info =
-        document.getElementById(
-            "selectedInfo"
-        );
-
-
-    const button =
-        document.getElementById(
-            "evolveButton"
-        );
-
-
-    if(
-        selectedPlayers.length === 0
-    ){
-
-        info.innerHTML =
-            "Selecione <strong>3 jogadores iguais</strong>.";
-
-        button.disabled=true;
-
-        button.textContent =
-            "⭐ EVOLUIR";
-
-        return;
-
-    }
-
-
-    const first =
-        game.inventory[
-            selectedPlayers[0]
-        ];
-
-
-    if(!first){
-
-        selectedPlayers=[];
-
-        button.disabled=true;
-
-        return;
-
-    }
-
-
-    const stars =
-        first.stars || 1;
-
-
-    info.innerHTML = `
-
-        <strong>
-            ${selectedPlayers.length}/3
-        </strong>
-
-        selecionados —
-
-        ${first.name}
-
-        ${getStars(stars)}
-
-    `;
-
-
-    if(
-        selectedPlayers.length === 3
-    ){
-
-        button.disabled=false;
-
-        button.textContent =
-            `⭐ EVOLUIR PARA ${getStars(stars+1)}`;
-
-    }else{
-
-        button.disabled=true;
-
-        button.textContent =
-            "⭐ EVOLUIR";
-
-    }
-
-}
-
-
-/* =========================================
-   EVOLUIR
-========================================= */
-
-function evolvePlayers(){
-
-    if(
-        selectedPlayers.length !== 3
-    ){
-
-        toast(
-            "⚠️ Selecione exatamente 3 jogadores."
-        );
-
-        return;
-
-    }
-
-
-    const selected =
-        selectedPlayers.map(
-            index =>
-                game.inventory[index]
-        );
-
-
-    if(
-        selected.some(
-            player => !player
-        )
-    ){
-
-        selectedPlayers=[];
-
-        render();
-
-        return;
-
-    }
-
-
-    const first =
-        selected[0];
-
-
-    const stars =
-        first.stars || 1;
-
-
-    if(stars>=3){
-
-        toast(
-            "⭐ Este jogador já está no máximo."
-        );
-
-        selectedPlayers=[];
-
-        render();
-
-        return;
-
-    }
-
-
-    const valid =
-        selected.every(
-
-            player =>
-
-                player.id ===
-                first.id
-
-                &&
-
-                (player.stars || 1)
-                ===
-                stars
-
-        );
-
-
-    if(!valid){
-
-        toast(
-            "❌ Os jogadores precisam ser iguais."
-        );
-
-        selectedPlayers=[];
-
-        render();
-
-        return;
-
-    }
-
-
-    /*
-        Remove os 3 jogadores.
-    */
-
-    const indexes =
-        [...selectedPlayers]
-            .sort(
-                (a,b)=>b-a
-            );
-
-
-    indexes.forEach(
-        index=>{
-
-        game.inventory.splice(
-            index,
-            1
-        );
-
+        element.innerHTML=`
+            <img src="${card.image}" alt="${card.name}">
+
+            <div class="player-info">
+                <div class="player-name">
+                    ${card.name}
+                </div>
+
+                <span class="rarity ${card.rarity}">
+                    ${card.rarity}
+                </span>
+
+                <div class="stars">
+                    ${"★".repeat(card.stars||1)}
+                </div>
+
+                <div class="power">
+                    PODER: ${getPower(card)}
+                </div>
+
+                <div class="value">
+                    VALOR: ${getValue(card)}
+                </div>
+            </div>
+        `;
+
+        element.onclick=()=>selectCard(card);
+
+        container.appendChild(element);
     });
+}
 
+function updateSelection(){
+    const info=document.getElementById("selectionInfo");
+    const result=document.getElementById("evolutionResult");
+    const button=document.getElementById("evolveButton");
 
-    /*
-        Cria a versão evoluída.
-    */
+    if(selected.length===0){
+        info.textContent="Selecione 3 cartas iguais.";
+        result.textContent="Nenhuma carta selecionada.";
+        button.disabled=true;
+        return;
+    }
+
+    const first=selected[0];
+
+    const compatible=selected.every(card=>
+        card.id===first.id &&
+        card.stars===first.stars
+    );
+
+    info.textContent=
+        selected.length+" / 3 cartas selecionadas.";
+
+    if(!compatible){
+        result.textContent=
+            "❌ As cartas precisam ser do mesmo jogador e ter as mesmas estrelas.";
+
+        button.disabled=true;
+        return;
+    }
+
+    if(selected.length<3){
+        result.textContent=
+            "Selecione mais "+(3-selected.length)+" cópia(s).";
+
+        button.disabled=true;
+        return;
+    }
+
+    if(first.stars>=3){
+        result.textContent=
+            "⭐ Esta carta já está no máximo ★★★.";
+
+        button.disabled=true;
+        return;
+    }
+
+    result.textContent=
+        "✓ "+first.name+
+        " ★"+first.stars+
+        " → ★"+(first.stars+1);
+
+    button.disabled=false;
+}
+
+function evolveSelected(){
+    if(selected.length!==3){
+        toast("❌ Selecione exatamente 3 cartas.");
+        return;
+    }
+
+    const first=selected[0];
+
+    if(first.stars>=3){
+        toast("⭐ Esta carta já está no máximo.");
+        return;
+    }
+
+    const compatible=selected.every(card=>
+        card.id===first.id &&
+        card.stars===first.stars
+    );
+
+    if(!compatible){
+        toast("❌ As cartas precisam ser iguais.");
+        return;
+    }
+
+    const ids=selected.map(
+        card=>card.uniqueId
+    );
+
+    game.inventory=game.inventory.filter(
+        card=>!ids.includes(card.uniqueId)
+    );
 
     const evolved={
-
         ...first,
-
-        stars:
-            stars+1,
-
+        stars:first.stars+1,
         uniqueId:
-
-            first.id +
-            "-" +
-            Date.now() +
-            "-" +
-            Math.random()
-                .toString(36)
-                .slice(2)
-
+            first.id+"-"+Date.now()+"-"+Math.random().toString(36).slice(2)
     };
 
+    game.inventory.push(evolved);
 
-    game.inventory.push(
-        evolved
-    );
+    const xpReward=
+        first.stars===1 ? 50 : 100;
 
+    game.xp+=xpReward;
 
-    selectedPlayers=[];
-
-
-    /*
-        XP.
-    */
-
-    const xpReward =
-        stars === 1
-        ? 50
-        : 100;
-
-
-    game.xp +=
-        xpReward;
-
-
-    /*
-        Sistema de nível.
-    */
-
-    while(
-        game.xp >=
-        game.level * 100
-    ){
-
-        game.xp -=
-            game.level * 100;
-
-
+    while(game.xp>=game.level*100){
+        game.xp-=game.level*100;
         game.level++;
-
-
-        toast(
-
-            "⬆️ Nível " +
-            game.level +
-            " alcançado!"
-
-        );
-
     }
 
+    selected=[];
 
     saveGame();
 
-
     toast(
-
-        "⭐ " +
-        first.name +
-        " evoluiu para " +
-        getStars(stars+1) +
-        "!"
-
+        "⚡ "+first.name+
+        " evoluiu para ★"+evolved.stars+"!"
     );
 
-
-    render();
-
+    updateUI();
+    renderInventory();
+    updateSelection();
 }
 
+function updateUI(){
+    document.getElementById("coins").textContent=
+        game.coins.toLocaleString("pt-BR");
 
-/* =========================================
-   TOAST
-========================================= */
+    saveGame();
+}
 
 function toast(message){
+    const element=document.getElementById("toast");
 
-    const element =
-        document.getElementById(
-            "toast"
-        );
+    element.textContent=message;
+    element.classList.add("show");
 
+    clearTimeout(window.toastTimer);
 
-    element.textContent =
-        message;
-
-
-    element.classList.add(
-        "show"
-    );
-
-
-    setTimeout(()=>{
-
-        element.classList.remove(
-            "show"
-        );
-
-    },3000);
-
+    window.toastTimer=setTimeout(()=>{
+        element.classList.remove("show");
+    },2500);
 }
 
-
-/* =========================================
-   SALVAR
-========================================= */
-
-function saveGame(){
-
-    localStorage.setItem(
-
-        STORAGE_KEY,
-
-        JSON.stringify(game)
-
-    );
-
-}
-
-
-/* =========================================
-   MOEDAS
-========================================= */
-
-function updateCoins(){
-
-    document.getElementById(
-        "coins"
-    ).textContent =
-
-        (
-            Number(
-                game.coins
-            ) || 0
-        )
-        .toLocaleString(
-            "pt-BR"
-        );
-
-}
-
-
-/* =========================================
-   INICIALIZAÇÃO
-========================================= */
-
-saveGame();
-
-updateCoins();
-
-render();
-
+updateUI();
+renderInventory();
+updateSelection();
 </script>
 
 </body>
