@@ -1,2628 +1,2361 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BLUE LOCK — Ego Rush</title>
 
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    background:
-        radial-gradient(
-            circle at top,
-            #102d50 0%,
-            #06101c 40%,
-            #020408 100%
-        );
-
-    color:#fff;
-
-    min-height:100vh;
+font-family:Arial,Helvetica,sans-serif;
+background:radial-gradient(circle at top,#102d50 0%,#06101c 40%,#020408 100%);
+color:#fff;
+min-height:100vh
 }
 
 header{
-
-    background:
-        rgba(3,9,17,.96);
-
-    border-bottom:
-        2px solid #1683ff;
-
-    padding:
-        17px 6%;
-
-    display:flex;
-
-    justify-content:
-        space-between;
-
-    align-items:center;
-
-    position:
-        sticky;
-
-    top:0;
-
-    z-index:100;
-
-    box-shadow:
-        0 0 25px
-        rgba(0,119,255,.25);
+background:rgba(3,9,17,.96);
+border-bottom:2px solid #1683ff;
+padding:17px 6%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:100;
+box-shadow:0 0 25px rgba(0,119,255,.25)
 }
 
 .logo{
-
-    font-size:28px;
-
-    font-weight:1000;
-
-    letter-spacing:4px;
-
-    color:#1683ff;
+font-size:28px;
+font-weight:1000;
+letter-spacing:4px;
+color:#1683ff
 }
 
-.logo span{
-    color:white;
-}
+.logo span{color:white}
 
 .coins{
-
-    background:#101b2b;
-
-    border:
-        1px solid #f5ca3d;
-
-    color:#ffd84c;
-
-    padding:
-        10px 18px;
-
-    border-radius:30px;
-
-    font-weight:900;
+background:#101b2b;
+border:1px solid #f5ca3d;
+color:#ffd84c;
+padding:10px 18px;
+border-radius:30px;
+font-weight:900
 }
 
 .container{
-
-    width:90%;
-
-    max-width:1400px;
-
-    margin:auto;
+width:90%;
+max-width:1400px;
+margin:auto
 }
 
 .hero{
-
-    text-align:center;
-
-    padding:
-        70px 20px 50px;
+text-align:center;
+padding:70px 20px 50px
 }
 
 .hero h1{
-
-    font-size:
-        clamp(42px,7vw,82px);
-
-    font-weight:1000;
-
-    letter-spacing:5px;
-
-    text-shadow:
-        0 0 15px #1683ff,
-        0 0 40px rgba(22,131,255,.5);
+font-size:clamp(42px,7vw,82px);
+font-weight:1000;
+letter-spacing:5px;
+text-shadow:0 0 15px #1683ff,0 0 40px rgba(22,131,255,.5)
 }
 
 .hero p{
-
-    color:#9eafc3;
-
-    margin-top:15px;
-
-    font-size:18px;
+color:#9eafc3;
+margin-top:15px;
+font-size:18px
 }
 
 .section{
-
-    margin:45px 0;
+margin:45px 0
 }
 
 .section-title{
+font-size:30px;
+margin-bottom:22px;
+border-left:5px solid #1683ff;
+padding-left:14px
+}
 
-    font-size:30px;
-
-    margin-bottom:22px;
-
-    border-left:
-        5px solid #1683ff;
-
-    padding-left:14px;
+.section-subtitle{
+color:#8fa3ba;
+margin-top:-10px;
+margin-bottom:25px;
+line-height:1.6
 }
 
 .grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(220px,1fr)
-        );
-
-    gap:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px
 }
 
 .pack{
-
-    background:
-        linear-gradient(
-            145deg,
-            #101d2f,
-            #070b12
-        );
-
-    border:
-        1px solid #263d58;
-
-    border-radius:18px;
-
-    padding:24px;
-
-    text-align:center;
-
-    transition:.25s;
+background:linear-gradient(145deg,#101d2f,#070b12);
+border:1px solid #263d58;
+border-radius:18px;
+padding:24px;
+text-align:center;
+transition:.25s
 }
 
 .pack:hover{
-
-    transform:
-        translateY(-6px);
-
-    border-color:#1683ff;
-
-    box-shadow:
-        0 10px 30px
-        rgba(22,131,255,.22);
+transform:translateY(-6px);
+border-color:#1683ff;
+box-shadow:0 10px 30px rgba(22,131,255,.22)
 }
 
 .pack h3{
-
-    font-size:23px;
-
-    margin-bottom:12px;
+font-size:23px;
+margin-bottom:12px
 }
 
 .pack p{
-
-    color:#93a5ba;
-
-    line-height:1.6;
-
-    font-size:14px;
+color:#93a5ba;
+line-height:1.6;
+font-size:14px
 }
 
 .price{
-
-    color:#ffd84d;
-
-    font-weight:900;
-
-    margin-top:12px;
+color:#ffd84d;
+font-weight:900;
+margin-top:12px
 }
 
-button,
-.link-button{
-
-    border:none;
-
-    cursor:pointer;
-
-    color:white;
-
-    font-weight:900;
-
-    background:#126fe8;
-
-    padding:12px 18px;
-
-    border-radius:10px;
-
-    transition:.2s;
-
-    text-decoration:none;
-
-    display:inline-block;
+button,.link-button{
+border:none;
+cursor:pointer;
+color:white;
+font-weight:900;
+background:#126fe8;
+padding:12px 18px;
+border-radius:10px;
+transition:.2s;
+text-decoration:none;
+display:inline-block
 }
 
-button:hover,
-.link-button:hover{
-
-    transform:
-        translateY(-2px);
-
-    background:#2388ff;
-
-    box-shadow:
-        0 0 20px
-        rgba(22,131,255,.35);
+button:hover,.link-button:hover{
+transform:translateY(-2px);
+background:#2388ff;
+box-shadow:0 0 20px rgba(22,131,255,.35)
 }
 
 .pack button{
-
-    width:100%;
-
-    margin-top:18px;
+width:100%;
+margin-top:18px
 }
-
-/* AÇÕES */
 
 .actions{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:12px;
+display:flex;
+flex-wrap:wrap;
+gap:12px
 }
 
-/* JOGOS */
-
 .games-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(300px,1fr)
-        );
-
-    gap:22px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:22px
 }
 
 .game{
-
-    background:#08111d;
-
-    border:
-        1px solid #203a56;
-
-    border-radius:18px;
-
-    padding:22px;
-
-    overflow:hidden;
+background:#08111d;
+border:1px solid #203a56;
+border-radius:18px;
+padding:22px;
+overflow:hidden
 }
 
 .game h3{
-
-    color:#4da3ff;
-
-    margin-bottom:9px;
+color:#4da3ff;
+margin-bottom:9px
 }
 
 .game p{
-
-    color:#9eafc3;
-
-    font-size:14px;
-
-    line-height:1.5;
-
-    margin-bottom:15px;
+color:#9eafc3;
+font-size:14px;
+line-height:1.5;
+margin-bottom:15px
 }
 
-/* KAISER */
-
 .kaiser-track{
-
-    height:34px;
-
-    background:#111b29;
-
-    border-radius:20px;
-
-    position:relative;
-
-    overflow:hidden;
-
-    border:
-        1px solid #30455f;
+height:34px;
+background:#111b29;
+border-radius:20px;
+position:relative;
+overflow:hidden;
+border:1px solid #30455f
 }
 
 .kaiser-zone{
-
-    position:absolute;
-
-    height:100%;
-
-    width:18%;
-
-    left:40%;
-
-    background:#19c66b;
-
-    box-shadow:
-        0 0 18px #19c66b;
-
-    border-radius:20px;
-
-    transition:none;
+position:absolute;
+height:100%;
+width:18%;
+left:40%;
+background:#19c66b;
+box-shadow:0 0 18px #19c66b;
+border-radius:20px
 }
 
 .kaiser-marker{
-
-    position:absolute;
-
-    width:5px;
-
-    height:100%;
-
-    left:0%;
-
-    background:#ffd83d;
-
-    box-shadow:
-        0 0 12px #ffd83d;
-
-    z-index:2;
+position:absolute;
+width:5px;
+height:100%;
+left:0;
+background:#ffd83d;
+box-shadow:0 0 12px #ffd83d;
+z-index:2
 }
 
-/* REFLEX */
-
-.reflex-area{
-
-    height:180px;
-
-    background:#050a11;
-
-    border:
-        1px solid #263a51;
-
-    border-radius:15px;
-
-    position:relative;
-
-    overflow:hidden;
-
-    margin-bottom:12px;
+.reflex-area,.ego-rush-area{
+height:180px;
+background:#050a11;
+border:1px solid #263a51;
+border-radius:15px;
+position:relative;
+overflow:hidden;
+margin-bottom:12px
 }
 
 .reflex-target{
-
-    width:45px;
-
-    height:45px;
-
-    border-radius:50%;
-
-    background:#1683ff;
-
-    border:4px solid white;
-
-    position:absolute;
-
-    display:none;
-
-    cursor:pointer;
-
-    box-shadow:
-        0 0 25px #1683ff;
+width:45px;
+height:45px;
+border-radius:50%;
+background:#1683ff;
+border:4px solid white;
+position:absolute;
+display:none;
+cursor:pointer;
+box-shadow:0 0 25px #1683ff
 }
 
-/* EGO RUSH */
-
 .ego-rush-area{
-
-    height:180px;
-
-    background:
-        radial-gradient(
-            circle,
-            #102c4b 0%,
-            #050a11 70%
-        );
-
-    border:
-        1px solid #238bff;
-
-    border-radius:15px;
-
-    position:relative;
-
-    overflow:hidden;
-
-    margin-bottom:12px;
-
-    box-shadow:
-        inset 0 0 25px
-        rgba(22,131,255,.12);
+background:radial-gradient(circle,#102c4b 0%,#050a11 70%);
+border-color:#238bff
 }
 
 .ego-rush-target{
-
-    width:54px;
-
-    height:54px;
-
-    border-radius:50%;
-
-    background:#1683ff;
-
-    border:
-        4px solid white;
-
-    position:absolute;
-
-    display:none;
-
-    cursor:pointer;
-
-    box-shadow:
-        0 0 12px #1683ff,
-        0 0 30px rgba(22,131,255,.8);
-
-    animation:
-        egoPulse .7s infinite alternate;
+width:54px;
+height:54px;
+border-radius:50%;
+background:#1683ff;
+border:4px solid white;
+position:absolute;
+display:none;
+cursor:pointer;
+box-shadow:0 0 12px #1683ff,0 0 30px rgba(22,131,255,.8);
+animation:egoPulse .7s infinite alternate
 }
 
 @keyframes egoPulse{
-
-    from{
-
-        transform:scale(.88);
-
-        box-shadow:
-            0 0 10px #1683ff;
-    }
-
-    to{
-
-        transform:scale(1.08);
-
-        box-shadow:
-            0 0 35px #1683ff;
-    }
+from{transform:scale(.88)}
+to{transform:scale(1.08)}
 }
 
 .ego-rush-title{
-
-    color:#ffdf45 !important;
+color:#ffdf45!important
 }
 
-/* SLOTS */
-
 .slot-machine{
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:10px;
-
-    margin:20px 0;
+display:flex;
+justify-content:center;
+gap:10px;
+margin:20px 0
 }
 
 .slot{
-
-    width:65px;
-
-    height:65px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    background:#111c2c;
-
-    border:
-        2px solid #35516e;
-
-    border-radius:12px;
-
-    font-size:32px;
+width:65px;
+height:65px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#111c2c;
+border:2px solid #35516e;
+border-radius:12px;
+font-size:32px
 }
 
 .slot-button{
-
-    background:#7c25e8;
+background:#7c25e8
 }
 
 .slot-button:hover{
-
-    background:#923cff;
+background:#923cff
 }
 
-/* NEW GEN */
-
 .newgen-box{
-
-    background:
-        linear-gradient(
-            145deg,
-            #160c25,
-            #080b13
-        );
-
-    border:
-        1px solid #9b44ff;
-
-    box-shadow:
-        0 0 30px
-        rgba(155,68,255,.12);
-
-    border-radius:18px;
-
-    padding:25px;
+background:linear-gradient(145deg,#160c25,#080b13);
+border:1px solid #9b44ff;
+box-shadow:0 0 30px rgba(155,68,255,.12);
+border-radius:18px;
+padding:25px
 }
 
 .legendary-selector{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(160px,1fr)
-        );
-
-    gap:12px;
-
-    margin:20px 0;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:12px;
+margin:20px 0
 }
 
 .select-player{
-
-    border:
-        1px solid #374b61;
-
-    background:#0d1622;
-
-    padding:12px;
-
-    border-radius:10px;
-
-    cursor:pointer;
-
-    transition:.2s;
+border:1px solid #374b61;
+background:#0d1622;
+padding:12px;
+border-radius:10px;
+cursor:pointer;
+transition:.2s
 }
 
 .select-player.selected{
-
-    border-color:#ffcc38;
-
-    background:#29200a;
-
-    box-shadow:
-        0 0 15px
-        rgba(255,204,56,.2);
+border-color:#ffcc38;
+background:#29200a;
+box-shadow:0 0 15px rgba(255,204,56,.2)
 }
 
 .select-player small{
-
-    display:block;
-
-    color:#91a3b7;
-
-    margin-top:5px;
+display:block;
+color:#91a3b7;
+margin-top:5px
 }
 
-/* INVENTÁRIO */
-
 .inventory-controls{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:10px;
-
-    margin-bottom:18px;
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-bottom:18px
 }
 
 .filter-btn{
-
-    background:#0b1420;
-
-    border:
-        1px solid #2b4058;
-
-    color:#aab8c8;
-
-    padding:10px 15px;
-
-    border-radius:9px;
+background:#0b1420;
+border:1px solid #2b4058;
+color:#aab8c8;
+padding:10px 15px;
+border-radius:9px
 }
 
 .filter-btn.active{
-
-    background:#1677ff;
-
-    border-color:#1683ff;
-
-    color:white;
-
-    box-shadow:
-        0 0 15px
-        rgba(22,131,255,.25);
+background:#1677ff;
+border-color:#1683ff;
+color:white;
+box-shadow:0 0 15px rgba(22,131,255,.25)
 }
 
 .inventory-info{
-
-    color:#8fa3ba;
-
-    margin-bottom:18px;
-
-    font-size:14px;
+color:#8fa3ba;
+margin-bottom:18px;
+font-size:14px
 }
 
-.inventory-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fill,
-            minmax(180px,1fr)
-        );
-
-    gap:16px;
+.inventory-grid,.collection-grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+gap:16px
 }
 
-.player-card{
-
-    background:#0b131e;
-
-    border:
-        1px solid #24384e;
-
-    border-radius:15px;
-
-    overflow:hidden;
-
-    transition:.2s;
-
-    position:relative;
+.player-card,.collection-card{
+background:#0b131e;
+border:1px solid #24384e;
+border-radius:15px;
+overflow:hidden;
+transition:.2s
 }
 
-.player-card:hover{
-
-    transform:
-        translateY(-4px);
-
-    border-color:#397fc4;
+.player-card:hover,.collection-card:hover{
+transform:translateY(-4px)
 }
 
-.player-card img{
-
-    width:100%;
-
-    height:210px;
-
-    object-fit:cover;
-
-    display:block;
-
-    background:#101a27;
+.player-card img,.collection-card img{
+width:100%;
+height:210px;
+object-fit:cover;
+display:block;
+background:#101a27
 }
 
-.player-info{
-
-    padding:13px;
+.player-info,.collection-info{
+padding:13px
 }
 
-.player-name{
-
-    font-weight:900;
-
-    font-size:15px;
-
-    margin-bottom:8px;
+.player-name,.collection-name{
+font-weight:900;
+font-size:15px;
+margin-bottom:8px
 }
 
 .rarity{
-
-    display:inline-block;
-
-    padding:5px 9px;
-
-    border-radius:6px;
-
-    font-size:11px;
-
-    font-weight:900;
-
-    margin-bottom:10px;
+display:inline-block;
+padding:5px 9px;
+border-radius:6px;
+font-size:11px;
+font-weight:900;
+margin-bottom:10px
 }
 
-.common{
-
-    background:#34404c;
-}
-
-.rare{
-
-    background:#176bd1;
-}
-
-.epic{
-
-    background:#7935c7;
-}
-
-.legendary{
-
-    background:#b0830b;
-}
-
-.mestres{
-
-    background:#c33b38;
-}
+.common{background:#34404c}
+.rare{background:#176bd1}
+.epic{background:#7935c7}
+.legendary{background:#b0830b}
+.mestres{background:#c33b38}
 
 .newgen{
-
-    background:
-        linear-gradient(
-            90deg,
-            #8b2cff,
-            #ff2cc3
-        );
+background:linear-gradient(90deg,#8b2cff,#ff2cc3)
 }
 
 .neo{
+background:linear-gradient(90deg,#00c6ff,#0066ff,#8c2cff);
+box-shadow:0 0 12px rgba(0,174,255,.4)
+}
 
-    background:
-        linear-gradient(
-            90deg,
-            #00c6ff,
-            #0066ff,
-            #8c2cff
-        );
+/* =========================
+   TEAM WORLD 5
+========================= */
 
-    box-shadow:
-        0 0 12px
-        rgba(0,174,255,.4);
+.world5{
+background:
+linear-gradient(
+90deg,
+#00d9ff,
+#ffffff,
+#1683ff,
+#ffffff,
+#00d9ff
+);
+background-size:300% 100%;
+animation:world5Gradient 2s linear infinite;
+color:#06131c;
+box-shadow:
+0 0 8px #00d9ff,
+0 0 20px rgba(0,217,255,.7),
+0 0 35px rgba(22,131,255,.45);
+border:1px solid #b8f6ff
+}
+
+@keyframes world5Gradient{
+0%{background-position:0% 50%}
+100%{background-position:300% 50%}
+}
+
+.world5 .power-fill{
+background:
+linear-gradient(
+90deg,
+#ffffff,
+#00d9ff,
+#1683ff,
+#ffffff
+);
+background-size:250% 100%;
+animation:world5Power 1.5s linear infinite
+}
+
+@keyframes world5Power{
+0%{background-position:0%}
+100%{background-position:250%}
+}
+
+.world5-card{
+border-color:#00d9ff!important;
+box-shadow:
+0 0 15px rgba(0,217,255,.3),
+0 0 35px rgba(22,131,255,.12)
+}
+
+.world5-card:hover{
+box-shadow:
+0 0 25px rgba(0,217,255,.6),
+0 0 50px rgba(22,131,255,.2)
+}
+
+.world5-title{
+color:#00d9ff!important;
+text-shadow:
+0 0 10px #fff,
+0 0 25px #00d9ff
+}
+
+/* =========================
+   DEUS DO FUTEBOL
+========================= */
+
+.deus{
+background:
+linear-gradient(
+90deg,
+#fff6a0,
+#ffd21f,
+#ffffff,
+#ffb300,
+#fff6a0
+);
+background-size:300% 100%;
+animation:deusGradient 2s linear infinite;
+color:#111;
+box-shadow:
+0 0 8px #ffd21f,
+0 0 20px #fff,
+0 0 40px rgba(255,210,31,.8);
+border:1px solid #fff6a0
+}
+
+@keyframes deusGradient{
+0%{background-position:0% 50%}
+100%{background-position:300% 50%}
+}
+
+.deus .power-fill{
+background:
+linear-gradient(
+90deg,
+#fff,
+#ffd21f,
+#fff,
+#ffb300
+);
+background-size:250% 100%;
+animation:deusPower 1.5s linear infinite
+}
+
+@keyframes deusPower{
+0%{background-position:0%}
+100%{background-position:250%}
+}
+
+.deus-card{
+border-color:#ffd21f!important;
+box-shadow:
+0 0 15px rgba(255,210,31,.3),
+0 0 35px rgba(255,210,31,.12)
+}
+
+.deus-card:hover{
+box-shadow:
+0 0 25px rgba(255,210,31,.6),
+0 0 50px rgba(255,210,31,.2)
+}
+
+.deus-title{
+color:#ffd21f!important;
+text-shadow:
+0 0 10px #fff,
+0 0 25px #ffd21f
 }
 
 .power-box{
-
-    margin-top:5px;
-
-    margin-bottom:8px;
-
-    padding:9px;
-
-    border-radius:9px;
-
-    background:#07101a;
-
-    border:
-        1px solid #263d54;
+margin-top:5px;
+margin-bottom:8px;
+padding:9px;
+border-radius:9px;
+background:#07101a;
+border:1px solid #263d54
 }
 
 .power-label{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    font-size:11px;
-
-    color:#8ea2b8;
-
-    margin-bottom:6px;
+display:flex;
+justify-content:space-between;
+font-size:11px;
+color:#8ea2b8;
+margin-bottom:6px
 }
 
 .power-value{
-
-    color:#ffffff;
-
-    font-size:18px;
-
-    font-weight:1000;
+color:#fff;
+font-size:18px;
+font-weight:1000
 }
 
 .power-bar{
-
-    width:100%;
-
-    height:6px;
-
-    background:#182533;
-
-    border-radius:20px;
-
-    overflow:hidden;
+width:100%;
+height:6px;
+background:#182533;
+border-radius:20px;
+overflow:hidden
 }
 
 .power-fill{
-
-    height:100%;
-
-    border-radius:20px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #1683ff,
-            #55b5ff
-        );
+height:100%;
+border-radius:20px;
+background:linear-gradient(90deg,#1683ff,#55b5ff)
 }
 
 .neo .power-fill{
-
-    background:
-        linear-gradient(
-            90deg,
-            #00d9ff,
-            #426cff,
-            #b044ff
-        );
+background:linear-gradient(90deg,#00d9ff,#426cff,#b044ff)
 }
 
 .newgen .power-fill{
-
-    background:
-        linear-gradient(
-            90deg,
-            #9c2cff,
-            #ff37d1
-        );
+background:linear-gradient(90deg,#9c2cff,#ff37d1)
 }
 
 .sell-button{
-
-    width:100%;
-
-    margin-top:8px;
-
-    background:#222d3a;
-
-    color:#ff6b6b;
+width:100%;
+margin-top:8px;
+background:#222d3a;
+color:#ff6b6b
 }
 
 .sell-button:hover{
-
-    background:#702626;
+background:#702626
 }
 
-/* COLEÇÃO */
-
 .collection-box{
-
-    background:
-        linear-gradient(
-            145deg,
-            #0b1828,
-            #050910
-        );
-
-    border:
-        1px solid #315273;
-
-    border-radius:18px;
-
-    padding:25px;
-
-    box-shadow:
-        0 0 30px
-        rgba(22,131,255,.08);
+background:linear-gradient(145deg,#0b1828,#050910);
+border:1px solid #315273;
+border-radius:18px;
+padding:25px
 }
 
 .collection-progress{
-
-    color:#8fa3ba;
-
-    margin-bottom:20px;
-
-    font-size:14px;
-}
-
-.collection-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fill,
-            minmax(180px,1fr)
-        );
-
-    gap:16px;
-}
-
-.collection-card{
-
-    background:#0b131e;
-
-    border:
-        1px solid #24384e;
-
-    border-radius:15px;
-
-    overflow:hidden;
-
-    transition:.2s;
-}
-
-.collection-card:hover{
-
-    transform:
-        translateY(-4px);
+color:#8fa3ba;
+margin-bottom:20px;
+font-size:14px
 }
 
 .collection-card.locked{
-
-    opacity:.45;
-
-    filter:grayscale(1);
+opacity:.45;
+filter:grayscale(1)
 }
 
 .collection-card img{
-
-    width:100%;
-
-    height:210px;
-
-    object-fit:cover;
-
-    display:block;
-
-    background:#05090e;
-}
-
-.collection-info{
-
-    padding:13px;
+background:#05090e
 }
 
 .collection-name{
-
-    font-weight:900;
-
-    font-size:14px;
-
-    margin-bottom:7px;
+font-size:14px
 }
 
 .collection-status{
-
-    font-size:11px;
-
-    color:#8498ad;
-
-    margin-top:5px;
+font-size:11px;
+color:#8498ad;
+margin-top:5px
 }
 
 .collection-power{
-
-    margin-top:8px;
-
-    font-weight:900;
-
-    color:#4da3ff;
+margin-top:8px;
+font-weight:900;
+color:#4da3ff
 }
 
-/* ESTATÍSTICAS */
-
 .stats-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(180px,1fr)
-        );
-
-    gap:15px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px
 }
 
 .stat{
-
-    background:#0a121d;
-
-    border:
-        1px solid #20364f;
-
-    padding:22px;
-
-    border-radius:15px;
-
-    text-align:center;
+background:#0a121d;
+border:1px solid #20364f;
+padding:22px;
+border-radius:15px;
+text-align:center
 }
 
 .stat strong{
-
-    display:block;
-
-    font-size:30px;
-
-    color:#3d99ff;
-
-    margin-bottom:7px;
+display:block;
+font-size:30px;
+color:#3d99ff;
+margin-bottom:7px
 }
 
 .stat span{
-
-    color:#93a4b8;
+color:#93a4b8
 }
 
-/* MISSÕES */
-
 .missions{
-
-    display:grid;
-
-    gap:12px;
+display:grid;
+gap:12px
 }
 
 .mission{
-
-    background:#0a121d;
-
-    border:
-        1px solid #243a52;
-
-    padding:18px;
-
-    border-radius:13px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    gap:15px;
-
-    align-items:center;
+background:#0a121d;
+border:1px solid #243a52;
+padding:18px;
+border-radius:13px;
+display:flex;
+justify-content:space-between;
+gap:15px;
+align-items:center
 }
 
 .mission.completed{
-
-    border-color:#22c978;
-
-    background:#0b1d17;
+border-color:#22c978;
+background:#0b1d17
 }
 
 .mission-info h4{
-
-    margin-bottom:5px;
+margin-bottom:5px
 }
 
 .mission-info p{
-
-    color:#8fa1b5;
-
-    font-size:13px;
+color:#8fa1b5;
+font-size:13px
 }
 
 .mission-reward{
-
-    color:#ffd84d;
-
-    font-weight:bold;
-
-    white-space:nowrap;
+color:#ffd84d;
+font-weight:bold;
+white-space:nowrap
 }
-
-/* DAILY */
 
 .daily{
-
-    background:
-        linear-gradient(
-            135deg,
-            #111d30,
-            #0a0f18
-        );
-
-    border:
-        1px solid #315273;
-
-    padding:25px;
-
-    border-radius:17px;
-
-    text-align:center;
+background:linear-gradient(135deg,#111d30,#0a0f18);
+border:1px solid #315273;
+padding:25px;
+border-radius:17px;
+text-align:center
 }
 
-/* MODAL */
+/* =========================
+   ABERTURA AUTOMÁTICA
+========================= */
+
+.auto-pack-box{
+background:linear-gradient(145deg,#091b2d,#050910);
+border:1px solid #1683ff;
+border-radius:20px;
+padding:25px;
+box-shadow:0 0 30px rgba(22,131,255,.12)
+}
+
+.auto-controls{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+margin-top:20px
+}
+
+.auto-control label{
+display:block;
+font-size:12px;
+font-weight:900;
+color:#8fa3ba;
+margin-bottom:7px
+}
+
+.auto-control select,
+.auto-control input{
+width:100%;
+padding:13px;
+border-radius:10px;
+border:1px solid #29435e;
+background:#0b1420;
+color:white;
+outline:none
+}
+
+.auto-buttons{
+display:flex;
+gap:10px;
+margin-top:15px
+}
+
+.auto-buttons button{
+flex:1
+}
+
+.auto-stop{
+background:#762b2b!important
+}
+
+.auto-stop:hover{
+background:#983333!important
+}
+
+.auto-status{
+margin-top:18px;
+padding:13px;
+background:#07111d;
+border:1px solid #203b55;
+border-radius:10px;
+color:#9fb1c5
+}
+
+.progress-container{
+height:12px;
+background:#111c29;
+border-radius:20px;
+overflow:hidden;
+margin-top:12px;
+border:1px solid #263f59
+}
+
+.progress-bar{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#1683ff,#9b44ff);
+transition:.3s
+}
+
+.auto-result{
+margin-top:15px;
+min-height:22px;
+color:#55b5ff;
+font-weight:900
+}
+
+/* =========================
+   LOG DE ATUALIZAÇÕES
+========================= */
+
+.log-container{
+display:grid;
+gap:18px;
+position:relative
+}
+
+.log-card{
+position:relative;
+background:
+linear-gradient(
+145deg,
+rgba(12,27,45,.98),
+rgba(5,10,17,.98)
+);
+border:1px solid #243b54;
+border-radius:18px;
+padding:24px;
+overflow:hidden;
+transition:.25s
+}
+
+.log-card::before{
+content:"";
+position:absolute;
+left:0;
+top:0;
+bottom:0;
+width:4px;
+background:#1683ff;
+box-shadow:0 0 15px rgba(22,131,255,.6)
+}
+
+.log-card:hover{
+transform:translateY(-3px);
+border-color:#1683ff;
+box-shadow:0 10px 30px rgba(22,131,255,.15)
+}
+
+.log-card.important{
+border-color:#00c6ff;
+box-shadow:
+0 0 20px rgba(0,198,255,.08),
+0 10px 35px rgba(22,131,255,.08)
+}
+
+.log-card.important::before{
+background:
+linear-gradient(
+180deg,
+#00d9ff,
+#1683ff,
+#8c2cff
+);
+box-shadow:
+0 0 15px #00d9ff,
+0 0 25px rgba(22,131,255,.7)
+}
+
+.log-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:15px;
+margin-bottom:14px
+}
+
+.log-version{
+display:inline-block;
+background:#126fe8;
+border:1px solid #4da3ff;
+color:white;
+padding:6px 11px;
+border-radius:7px;
+font-size:12px;
+font-weight:1000;
+letter-spacing:1px
+}
+
+.log-card.important .log-version{
+background:
+linear-gradient(
+90deg,
+#00a8e8,
+#1683ff,
+#7935c7
+);
+border-color:#6de7ff
+}
+
+.log-date{
+font-size:12px;
+font-weight:900;
+color:#7189a2
+}
+
+.log-title{
+font-size:23px;
+font-weight:1000;
+margin-bottom:9px;
+color:#fff
+}
+
+.log-card.important .log-title{
+color:#4ddcff;
+text-shadow:0 0 15px rgba(0,198,255,.3)
+}
+
+.log-description{
+color:#9eafc3;
+font-size:14px;
+line-height:1.6;
+margin-bottom:15px
+}
+
+.log-list{
+list-style:none;
+display:grid;
+gap:8px;
+margin-bottom:17px
+}
+
+.log-list li{
+position:relative;
+padding-left:23px;
+color:#c4d0dd;
+font-size:13px;
+line-height:1.5
+}
+
+.log-list li::before{
+content:"✓";
+position:absolute;
+left:0;
+top:0;
+color:#1683ff;
+font-weight:1000
+}
+
+.log-card.important .log-list li::before{
+color:#00d9ff
+}
+
+.log-tag{
+display:inline-block;
+padding:6px 10px;
+border-radius:7px;
+background:#101e2e;
+border:1px solid #2b4965;
+color:#6eb4ff;
+font-size:10px;
+font-weight:1000;
+letter-spacing:1px
+}
+
+.log-card.important .log-tag{
+color:#00d9ff;
+border-color:#006e91;
+background:#071d29
+}
+
+/* =========================
+   REVELAÇÃO
+========================= */
+
+.pack-reveal{
+position:fixed;
+inset:0;
+z-index:400;
+display:none;
+align-items:center;
+justify-content:center;
+background:rgba(0,4,10,.94)
+}
+
+.pack-reveal.show{
+display:flex
+}
+
+.reveal-box{
+width:min(90%,430px);
+text-align:center;
+padding:35px;
+border:2px solid #1683ff;
+border-radius:25px;
+background:radial-gradient(circle,#102c4b,#050910 75%);
+box-shadow:0 0 80px rgba(22,131,255,.45);
+animation:revealIn .45s ease
+}
+
+@keyframes revealIn{
+from{
+transform:scale(.6) rotate(-4deg);
+opacity:0
+}
+to{
+transform:scale(1) rotate(0);
+opacity:1
+}
+}
+
+.reveal-title{
+font-size:30px;
+font-weight:1000;
+letter-spacing:3px;
+color:#4da3ff;
+margin-bottom:15px
+}
+
+.reveal-box img{
+width:170px;
+height:220px;
+object-fit:cover;
+border-radius:15px;
+margin:15px 0;
+border:2px solid #1683ff
+}
+
+.reveal-name{
+font-size:23px;
+font-weight:1000
+}
+
+.reveal-rarity{
+margin:12px 0
+}
+
+.reveal-power{
+font-size:20px;
+font-weight:1000;
+color:#55b5ff
+}
 
 .modal{
-
-    position:fixed;
-
-    inset:0;
-
-    background:
-        rgba(0,0,0,.78);
-
-    display:none;
-
-    justify-content:center;
-
-    align-items:center;
-
-    z-index:200;
-
-    padding:20px;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.78);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:300;
+padding:20px
 }
 
 .modal.show{
-
-    display:flex;
+display:flex
 }
 
 .modal-box{
-
-    width:100%;
-
-    max-width:430px;
-
-    background:#0b1420;
-
-    border:
-        2px solid #1677ff;
-
-    border-radius:20px;
-
-    padding:25px;
-
-    text-align:center;
-
-    box-shadow:
-        0 0 50px
-        rgba(22,119,255,.25);
+width:100%;
+max-width:430px;
+background:#0b1420;
+border:2px solid #1677ff;
+border-radius:20px;
+padding:25px;
+text-align:center;
+box-shadow:0 0 50px rgba(22,119,255,.25)
 }
 
 .modal-box img{
-
-    width:180px;
-
-    height:230px;
-
-    object-fit:cover;
-
-    border-radius:12px;
-
-    margin:15px 0;
+width:180px;
+height:230px;
+object-fit:cover;
+border-radius:12px;
+margin:15px 0
 }
 
 .modal-buttons{
-
-    display:flex;
-
-    gap:10px;
+display:flex;
+gap:10px
 }
 
 .modal-buttons button{
-
-    flex:1;
+flex:1
 }
 
 .sell-modal{
-
-    background:#762b2b;
+background:#762b2b
 }
 
 .sell-modal:hover{
-
-    background:#983333;
+background:#983333
 }
 
-/* TOAST */
-
 .toast{
-
-    position:fixed;
-
-    bottom:25px;
-
-    right:25px;
-
-    background:#111c2b;
-
-    border:
-        1px solid #257fff;
-
-    padding:14px 20px;
-
-    border-radius:10px;
-
-    transform:
-        translateY(100px);
-
-    opacity:0;
-
-    transition:.3s;
-
-    z-index:500;
+position:fixed;
+bottom:25px;
+right:25px;
+background:#111c2b;
+border:1px solid #257fff;
+padding:14px 20px;
+border-radius:10px;
+transform:translateY(100px);
+opacity:0;
+transition:.3s;
+z-index:600
 }
 
 .toast.show{
-
-    transform:
-        translateY(0);
-
-    opacity:1;
+transform:translateY(0);
+opacity:1
 }
 
-/* EMPTY */
-
 .empty{
-
-    grid-column:1/-1;
-
-    text-align:center;
-
-    padding:40px;
-
-    color:#75869a;
-
-    border:
-        1px dashed #2a4058;
-
-    border-radius:15px;
+grid-column:1/-1;
+text-align:center;
+padding:40px;
+color:#75869a;
+border:1px dashed #2a4058;
+border-radius:15px
 }
 
 @media(max-width:700px){
 
-    header{
-
-        padding:15px 4%;
-    }
-
-    .logo{
-
-        font-size:20px;
-    }
-
-    .coins{
-
-        padding:8px 12px;
-
-        font-size:13px;
-    }
-
-    .hero{
-
-        padding-top:45px;
-    }
-
-    .mission{
-
-        flex-direction:column;
-
-        align-items:flex-start;
-    }
-
-    .player-card img,
-    .collection-card img{
-
-        height:240px;
-    }
-
+header{
+padding:15px 4%
 }
 
-</style>
+.logo{
+font-size:20px
+}
 
+.coins{
+padding:8px 12px;
+font-size:13px
+}
+
+.hero{
+padding-top:45px
+}
+
+.mission{
+flex-direction:column;
+align-items:flex-start
+}
+
+.player-card img,
+.collection-card img{
+height:240px
+}
+
+.auto-controls{
+grid-template-columns:1fr
+}
+
+.auto-buttons{
+flex-direction:column
+}
+
+.log-card{
+padding:19px
+}
+
+.log-top{
+align-items:flex-start;
+flex-direction:column;
+gap:8px
+}
+
+.log-title{
+font-size:20px
+}
+
+}
+</style>
 </head>
 
 <body>
 
 <header>
 
-    <div class="logo">
-        BLUE <span>LOCK</span>
-    </div>
+<div class="logo">
+BLUE <span>LOCK</span>
+</div>
 
-    <div class="coins">
-
-        🪙
-
-        <span id="coins">
-            0
-        </span>
-
-    </div>
+<div class="coins">
+🪙 <span id="coins">0</span>
+</div>
 
 </header>
 
-
 <main class="container">
-
-
-<!-- HERO -->
 
 <section class="hero">
 
-    <h1>
-        ENTER THE EGO
-    </h1>
+<h1>ENTER THE EGO</h1>
 
-    <p>
-        Monte seu inventário, evolua seus jogadores
-        e domine o Blue Lock.
-    </p>
+<p>
+Monte seu inventário, evolua seus jogadores e domine o Blue Lock.
+</p>
 
 </section>
-
-
-<!-- PACKS -->
 
 <section class="section">
 
-    <h2 class="section-title">
-        🎴 Packs
-    </h2>
+<h2 class="section-title">
+🎴 Packs
+</h2>
 
-    <div class="grid">
+<div class="grid">
 
+<div class="pack">
 
-        <div class="pack">
+<h3>
+PACK NORMAL
+</h3>
 
-            <h3>
-                PACK NORMAL
-            </h3>
+<p>
+Common: 45%<br>
+Rare: 38%<br>
+Epic: 13%<br>
+Legendary: 3%<br>
+Mestres: 1%
+</p>
 
-            <p>
-                Common: 45%<br>
-                Rare: 38%<br>
-                Epic: 13%<br>
-                Legendary: 3%<br>
-                Mestres: 1%
-            </p>
+<div class="price">
+🪙 100
+</div>
 
-            <div class="price">
-                🪙 100
-            </div>
+<button onclick="openPack('normal')">
+ABRIR PACK
+</button>
 
-            <button onclick="openPack('normal')">
-                ABRIR PACK
-            </button>
+</div>
 
-        </div>
+<div class="pack">
 
+<h3>
+PACK ELITE
+</h3>
 
-        <div class="pack">
+<p>
+Common: 15%<br>
+Rare: 38%<br>
+Epic: 30%<br>
+Legendary: 15%<br>
+Mestres: 2%
+</p>
 
-            <h3>
-                PACK ELITE
-            </h3>
+<div class="price">
+🪙 500
+</div>
 
-            <p>
-                Common: 15%<br>
-                Rare: 38%<br>
-                Epic: 30%<br>
-                Legendary: 15%<br>
-                Mestres: 2%
-            </p>
+<button onclick="openPack('elite')">
+ABRIR PACK
+</button>
 
-            <div class="price">
-                🪙 500
-            </div>
+</div>
 
-            <button onclick="openPack('elite')">
-                ABRIR PACK
-            </button>
+<div class="pack">
 
-        </div>
+<h3>
+PACK EGO
+</h3>
 
+<p>
+Common: 5%<br>
+Rare: 20%<br>
+Epic: 38%<br>
+Legendary: 32%<br>
+Mestres: 5%
+</p>
 
-        <div class="pack">
+<div class="price">
+🪙 1.500
+</div>
 
-            <h3>
-                PACK EGO
-            </h3>
+<button onclick="openPack('ego')">
+ABRIR PACK
+</button>
 
-            <p>
-                Common: 5%<br>
-                Rare: 20%<br>
-                Epic: 38%<br>
-                Legendary: 32%<br>
-                Mestres: 5%
-            </p>
+</div>
 
-            <div class="price">
-                🪙 1.500
-            </div>
+</div>
 
-            <button onclick="openPack('ego')">
-                ABRIR PACK
-            </button>
+<p style="color:#6e91b4;font-size:12px;text-align:center;margin-top:15px">
 
-        </div>
+🌌 NEO possui uma chance secreta de aparecer em qualquer Pack.
 
-    </div>
-
-    <p style="
-        color:#6e91b4;
-        font-size:12px;
-        text-align:center;
-        margin-top:15px;
-    ">
-        🌌 NEO possui uma chance secreta de aparecer em qualquer Pack.
-    </p>
+</p>
 
 </section>
 
-
-<!-- CENTRAL -->
+<!-- =========================
+     ABERTURA AUTOMÁTICA
+========================= -->
 
 <section class="section">
 
-    <h2 class="section-title">
-        ⚡ Central de Ego
-    </h2>
+<h2 class="section-title">
+⚡ Abertura Automática
+</h2>
 
-    <div class="actions">
+<div class="auto-pack-box">
 
-        <a
-            href="duelos.html"
-            class="link-button">
-            ⚔️ DUELOS
-        </a>
+<h3>
+🔥 EGO AUTO OPEN
+</h3>
 
-        <a
-            href="evolucao.html"
-            class="link-button">
-            ⭐ EVOLUÇÃO
-        </a>
+<p style="color:#9eafc3;margin-top:8px;line-height:1.6">
 
-        <button onclick="train()">
-            🧠 TREINAR EGO
-        </button>
+Escolha um pack e a quantidade de aberturas.
+Os jogadores serão automaticamente adicionados ao seu inventário.
 
-        <button onclick="dailyBonus()">
-            🎁 BÔNUS DIÁRIO
-        </button>
+</p>
 
-    </div>
+<div class="auto-controls">
+
+<div class="auto-control">
+
+<label>
+TIPO DE PACK
+</label>
+
+<select id="autoPackType">
+
+<option value="normal">
+🎴 Pack Normal — 100 🪙
+</option>
+
+<option value="elite">
+💎 Pack Elite — 500 🪙
+</option>
+
+<option value="ego">
+🔥 Pack Ego — 1.500 🪙
+</option>
+
+</select>
+
+</div>
+
+<div class="auto-control">
+
+<label>
+QUANTIDADE
+</label>
+
+<input
+id="autoPackAmount"
+type="number"
+min="1"
+max="100"
+value="5"
+>
+
+</div>
+
+</div>
+
+<div class="auto-buttons">
+
+<button onclick="startAutoPack()">
+⚡ INICIAR ABERTURA
+</button>
+
+<button class="auto-stop" onclick="stopAutoPack()">
+⏹️ PARAR
+</button>
+
+</div>
+
+<div class="auto-status" id="autoStatus">
+Pronto para iniciar.
+</div>
+
+<div class="progress-container">
+
+<div
+class="progress-bar"
+id="autoProgress">
+</div>
+
+</div>
+
+<div class="auto-result" id="autoResult">
+</div>
+
+</div>
 
 </section>
 
-
-<!-- JOGOS -->
+<!-- =========================
+     CENTRAL DE EGO
+========================= -->
 
 <section class="section">
 
-    <h2 class="section-title">
-        🎮 Jogos
-    </h2>
+<h2 class="section-title">
+⚡ Central de Ego
+</h2>
 
-    <div class="games-grid">
+<div class="actions">
 
+<a href="duelos.html" class="link-button">
+⚔️ DUELOS
+</a>
 
-        <!-- KAISER -->
+<a href="evolucao.html" class="link-button">
+⭐ EVOLUÇÃO
+</a>
 
-        <div class="game">
+<button onclick="train()">
+🧠 TREINAR EGO
+</button>
 
-            <h3>
-                👑 Kaiser Impact
-            </h3>
+<button onclick="dailyBonus()">
+🎁 BÔNUS DIÁRIO
+</button>
 
-            <p>
-                Pare o marcador dentro da área verde.
-                Acerte para receber moedas e XP.
-            </p>
-
-            <div class="kaiser-track">
-
-                <div
-                    id="kaiserZone"
-                    class="kaiser-zone">
-                </div>
-
-                <div
-                    id="kaiserMarker"
-                    class="kaiser-marker">
-                </div>
-
-            </div>
-
-            <br>
-
-            <button onclick="playKaiserGame()">
-                CHUTAR
-            </button>
-
-            <p id="kaiserStatus">
-                Preparado.
-            </p>
-
-        </div>
-
-
-        <!-- REFLEXO -->
-
-        <div class="game">
-
-            <h3>
-                ⚡ Reflexo de Isagi
-            </h3>
-
-            <p>
-                Clique no alvo assim que ele aparecer.
-                Acerte para ganhar moedas e XP.
-            </p>
-
-            <div
-                class="reflex-area"
-                id="reflexArea">
-
-                <div
-                    id="reflexTarget"
-                    class="reflex-target"
-                    onclick="hitReflexTarget()">
-                </div>
-
-            </div>
-
-            <button onclick="startReflexGame()">
-                INICIAR
-            </button>
-
-            <p id="reflexStatus">
-                Aguarde...
-            </p>
-
-        </div>
-
-
-        <!-- EGO RUSH -->
-
-        <div class="game">
-
-            <h3 class="ego-rush-title">
-                🎯 Ego Rush
-            </h3>
-
-            <p>
-                Entre no modo Ego Rush.
-                Clique no alvo antes que ele desapareça
-                e conquiste um Ego Rush Pack.
-            </p>
-
-            <div
-                class="ego-rush-area"
-                id="egoRushArea">
-
-                <div
-                    id="egoRushTarget"
-                    class="ego-rush-target"
-                    onclick="hitEgoRushTarget()">
-                </div>
-
-            </div>
-
-            <button onclick="startEgoRush()">
-                INICIAR EGO RUSH
-            </button>
-
-            <p id="egoRushStatus">
-                Recompensa: 1 Pack — Epic ou superior.
-            </p>
-
-        </div>
-
-
-        <!-- SORTE KAISER -->
-
-        <div class="game">
-
-            <h3>
-                🎰 Sorte do Kaiser
-            </h3>
-
-            <p>
-                Jogo gratuito. Gire os símbolos e receba
-                uma recompensa virtual conforme a combinação.
-            </p>
-
-            <div class="slot-machine">
-
-                <div class="slot" id="slot1">
-                    ?
-                </div>
-
-                <div class="slot" id="slot2">
-                    ?
-                </div>
-
-                <div class="slot" id="slot3">
-                    ?
-                </div>
-
-            </div>
-
-            <button
-                class="slot-button"
-                onclick="spinKaiserSlots()">
-
-                GIRAR
-
-            </button>
-
-            <p id="slotStatus">
-                Boa sorte.
-            </p>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
-
-<!-- NEW GEN -->
+<!-- =========================
+     JOGOS
+========================= -->
 
 <section class="section">
 
-    <h2 class="section-title">
-        💎 New Gen
-    </h2>
+<h2 class="section-title">
+🎮 Jogos
+</h2>
 
-    <div class="newgen-box">
+<div class="games-grid">
 
-        <h3>
-            CRIAR JOGADOR NEW GEN
-        </h3>
+<div class="game">
 
-        <p style="
-            color:#9aaabd;
-            margin-top:8px;
-            line-height:1.6;
-        ">
+<h3>
+👑 Kaiser Impact
+</h3>
 
-            Selecione exatamente 3 jogadores Legendary
-            do seu inventário.
+<p>
+Pare o marcador dentro da área verde.
+Acerte para receber moedas e XP.
+</p>
 
-            Eles serão trocados por 1 jogador New Gen garantido.
+<div class="kaiser-track">
 
-            <br><br>
+<div
+id="kaiserZone"
+class="kaiser-zone">
+</div>
 
-            <b style="color:#ff65dc;">
-                NEW GEN possui poder superior aos MESTRES.
-            </b>
+<div
+id="kaiserMarker"
+class="kaiser-marker">
+</div>
 
-        </p>
+</div>
 
-        <div
-            id="legendarySelector"
-            class="legendary-selector">
-        </div>
+<br>
 
-        <button onclick="createNewGen()">
-            ⚡ CRIAR NEW GEN
-        </button>
+<button onclick="playKaiserGame()">
+CHUTAR
+</button>
 
-        <p
-            id="newGenStatus"
-            style="
-                margin-top:15px;
-                color:#a9b7c8;
-            ">
+<p id="kaiserStatus">
+Preparado.
+</p>
 
-            0/3 selecionados.
+</div>
 
-        </p>
+<div class="game">
 
-    </div>
+<h3>
+⚡ Reflexo de Isagi
+</h3>
+
+<p>
+Clique no alvo assim que ele aparecer.
+Acerte para ganhar moedas e XP.
+</p>
+
+<div
+class="reflex-area"
+id="reflexArea">
+
+<div
+id="reflexTarget"
+class="reflex-target"
+onclick="hitReflexTarget()">
+</div>
+
+</div>
+
+<button onclick="startReflexGame()">
+INICIAR
+</button>
+
+<p id="reflexStatus">
+Aguarde...
+</p>
+
+</div>
+
+<div class="game">
+
+<h3 class="ego-rush-title">
+🎯 Ego Rush
+</h3>
+
+<p>
+Entre no modo Ego Rush.
+Clique no alvo antes que ele desapareça
+e conquiste um Ego Rush Pack.
+</p>
+
+<div
+class="ego-rush-area"
+id="egoRushArea">
+
+<div
+id="egoRushTarget"
+class="ego-rush-target"
+onclick="hitEgoRushTarget()">
+</div>
+
+</div>
+
+<button onclick="startEgoRush()">
+INICIAR EGO RUSH
+</button>
+
+<p id="egoRushStatus">
+Recompensa: 1 Pack — Epic ou superior.
+</p>
+
+</div>
+
+<div class="game">
+
+<h3>
+🎰 Sorte do Kaiser
+</h3>
+
+<p>
+Jogo gratuito.
+Gire os símbolos e receba uma recompensa virtual.
+</p>
+
+<div class="slot-machine">
+
+<div class="slot" id="slot1">
+?
+</div>
+
+<div class="slot" id="slot2">
+?
+</div>
+
+<div class="slot" id="slot3">
+?
+</div>
+
+</div>
+
+<button
+class="slot-button"
+onclick="spinKaiserSlots()">
+GIRAR
+</button>
+
+<p id="slotStatus">
+Boa sorte.
+</p>
+
+</div>
+
+</div>
 
 </section>
 
-
-<!-- INVENTÁRIO -->
+<!-- =========================
+     NEW GEN
+========================= -->
 
 <section class="section">
 
-    <h2 class="section-title">
-        🎒 Inventário
-    </h2>
+<h2 class="section-title">
+💎 New Gen
+</h2>
 
-    <div class="inventory-controls">
+<div class="newgen-box">
 
-        <button
-            class="filter-btn active"
-            data-filter="all"
-            onclick="setInventoryFilter('all')">
-            TODOS
-        </button>
+<h3>
+CRIAR JOGADOR NEW GEN
+</h3>
 
-        <button
-            class="filter-btn"
-            data-filter="common"
-            onclick="setInventoryFilter('common')">
-            COMMON
-        </button>
+<p style="color:#9aaabd;margin-top:8px;line-height:1.6">
 
-        <button
-            class="filter-btn"
-            data-filter="rare"
-            onclick="setInventoryFilter('rare')">
-            RARE
-        </button>
+Selecione exatamente 3 jogadores Legendary do seu inventário.
+Eles serão trocados por 1 jogador New Gen garantido.
 
-        <button
-            class="filter-btn"
-            data-filter="epic"
-            onclick="setInventoryFilter('epic')">
-            EPIC
-        </button>
+<br><br>
 
-        <button
-            class="filter-btn"
-            data-filter="legendary"
-            onclick="setInventoryFilter('legendary')">
-            LEGENDARY
-        </button>
+<b style="color:#ff65dc">
+NEW GEN possui poder superior aos MESTRES.
+</b>
 
-        <button
-            class="filter-btn"
-            data-filter="mestres"
-            onclick="setInventoryFilter('mestres')">
-            MESTRES
-        </button>
+</p>
 
-        <button
-            class="filter-btn"
-            data-filter="newgen"
-            onclick="setInventoryFilter('newgen')">
-            NEW GEN
-        </button>
+<div
+id="legendarySelector"
+class="legendary-selector">
+</div>
 
-        <button
-            class="filter-btn"
-            data-filter="neo"
-            onclick="setInventoryFilter('neo')">
-            NEO
-        </button>
+<button onclick="createNewGen()">
+⚡ CRIAR NEW GEN
+</button>
 
-    </div>
+<p
+id="newGenStatus"
+style="margin-top:15px;color:#a9b7c8">
+0/3 selecionados.
+</p>
 
-    <div
-        id="inventoryInfo"
-        class="inventory-info">
-
-        Mostrando 0 jogadores.
-
-    </div>
-
-    <div
-        id="inventory"
-        class="inventory-grid">
-    </div>
+</div>
 
 </section>
 
-
-<!-- COLEÇÃO -->
+<!-- =========================
+     INVENTÁRIO
+========================= -->
 
 <section class="section">
 
-    <h2 class="section-title">
-        📚 Coleção
-    </h2>
+<h2 class="section-title">
+🎒 Inventário
+</h2>
 
-    <div class="collection-box">
+<div class="inventory-controls">
 
-        <p
-            id="collectionProgress"
-            class="collection-progress">
+<button
+class="filter-btn active"
+data-filter="all"
+onclick="setInventoryFilter('all')">
+TODOS
+</button>
 
-            0/0 personagens descobertos.
+<button
+class="filter-btn"
+data-filter="common"
+onclick="setInventoryFilter('common')">
+COMMON
+</button>
 
-        </p>
+<button
+class="filter-btn"
+data-filter="rare"
+onclick="setInventoryFilter('rare')">
+RARE
+</button>
 
-        <div
-            id="collection"
-            class="collection-grid">
-        </div>
+<button
+class="filter-btn"
+data-filter="epic"
+onclick="setInventoryFilter('epic')">
+EPIC
+</button>
 
-    </div>
+<button
+class="filter-btn"
+data-filter="legendary"
+onclick="setInventoryFilter('legendary')">
+LEGENDARY
+</button>
+
+<button
+class="filter-btn"
+data-filter="mestres"
+onclick="setInventoryFilter('mestres')">
+MESTRES
+</button>
+
+<button
+class="filter-btn"
+data-filter="world5"
+onclick="setInventoryFilter('world5')">
+WORLD 5
+</button>
+
+<button
+class="filter-btn"
+data-filter="newgen"
+onclick="setInventoryFilter('newgen')">
+NEW GEN
+</button>
+
+<button
+class="filter-btn"
+data-filter="neo"
+onclick="setInventoryFilter('neo')">
+NEO
+</button>
+
+<button
+class="filter-btn"
+data-filter="deus"
+onclick="setInventoryFilter('deus')">
+DEUS
+</button>
+
+</div>
+
+<div
+id="inventoryInfo"
+class="inventory-info">
+Mostrando 0 jogadores.
+</div>
+
+<div
+id="inventory"
+class="inventory-grid">
+</div>
 
 </section>
 
-
-<!-- ESTATÍSTICAS -->
+<!-- =========================
+     COLEÇÃO
+========================= -->
 
 <section class="section">
 
-    <h2 class="section-title">
-        📊 Estatísticas
-    </h2>
+<h2 class="section-title">
+📚 Coleção
+</h2>
 
-    <div class="stats-grid">
+<div class="collection-box">
 
-        <div class="stat">
+<p
+id="collectionProgress"
+class="collection-progress">
+0/0 personagens descobertos.
+</p>
 
-            <strong id="level">
-                1
-            </strong>
+<div
+id="collection"
+class="collection-grid">
+</div>
 
-            <span>
-                Nível
-            </span>
-
-        </div>
-
-        <div class="stat">
-
-            <strong id="xp">
-                0
-            </strong>
-
-            <span>
-                XP
-            </span>
-
-        </div>
-
-        <div class="stat">
-
-            <strong id="packsOpened">
-                0
-            </strong>
-
-            <span>
-                Packs Abertos
-            </span>
-
-        </div>
-
-        <div class="stat">
-
-            <strong id="playerCount">
-                0
-            </strong>
-
-            <span>
-                Jogadores
-            </span>
-
-        </div>
-
-        <div class="stat">
-
-            <strong id="collectionCount">
-                0
-            </strong>
-
-            <span>
-                Coleção
-            </span>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
-
-<!-- MISSÕES -->
+<!-- =========================
+     ESTATÍSTICAS
+========================= -->
 
 <section class="section">
 
-    <h2 class="section-title">
-        🎯 Missões
-    </h2>
+<h2 class="section-title">
+📊 Estatísticas
+</h2>
 
-    <div class="missions">
+<div class="stats-grid">
 
-        <div
-            id="mission1"
-            class="mission">
+<div class="stat">
+<strong id="level">
+1
+</strong>
+<span>
+Nível
+</span>
+</div>
 
-            <div class="mission-info">
+<div class="stat">
+<strong id="xp">
+0
+</strong>
+<span>
+XP
+</span>
+</div>
 
-                <h4>
-                    Primeiro Passo
-                </h4>
+<div class="stat">
+<strong id="packsOpened">
+0
+</strong>
+<span>
+Packs Abertos
+</span>
+</div>
 
-                <p>
-                    Abra 1 pack.
-                </p>
+<div class="stat">
+<strong id="playerCount">
+0
+</strong>
+<span>
+Jogadores
+</span>
+</div>
 
-            </div>
+<div class="stat">
+<strong id="collectionCount">
+0
+</strong>
+<span>
+Coleção
+</span>
+</div>
 
-            <div class="mission-reward">
-                +100 🪙
-            </div>
-
-        </div>
-
-
-        <div
-            id="mission2"
-            class="mission">
-
-            <div class="mission-info">
-
-                <h4>
-                    Collector
-                </h4>
-
-                <p>
-                    Tenha 5 jogadores.
-                </p>
-
-            </div>
-
-            <div class="mission-reward">
-                +300 🪙
-            </div>
-
-        </div>
-
-
-        <div
-            id="mission3"
-            class="mission">
-
-            <div class="mission-info">
-
-                <h4>
-                    Ego Supreme
-                </h4>
-
-                <p>
-                    Chegue ao nível 5.
-                </p>
-
-            </div>
-
-            <div class="mission-reward">
-                +500 🪙
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
-
-<!-- BÔNUS -->
+<!-- =========================
+     MISSÕES
+========================= -->
 
 <section class="section">
 
-    <h2 class="section-title">
-        🎁 Bônus Diário
-    </h2>
+<h2 class="section-title">
+🎯 Missões
+</h2>
 
-    <div class="daily">
+<div class="missions">
 
-        <h3>
-            RECOMPENSA DIÁRIA
-        </h3>
+<div
+id="mission1"
+class="mission">
 
-        <p
-            id="dailyText"
-            style="
-                margin:12px 0;
-                color:#9aaabd;
-            ">
+<div class="mission-info">
 
-            +250 moedas +20 XP
+<h4>
+Primeiro Passo
+</h4>
 
-        </p>
+<p>
+Abra 1 pack.
+</p>
 
-        <button onclick="dailyBonus()">
-            RESGATAR
-        </button>
+</div>
 
-    </div>
+<div class="mission-reward">
++100 🪙
+</div>
+
+</div>
+
+<div
+id="mission2"
+class="mission">
+
+<div class="mission-info">
+
+<h4>
+Collector
+</h4>
+
+<p>
+Tenha 5 jogadores.
+</p>
+
+</div>
+
+<div class="mission-reward">
++300 🪙
+</div>
+
+</div>
+
+<div
+id="mission3"
+class="mission">
+
+<div class="mission-info">
+
+<h4>
+Ego Supreme
+</h4>
+
+<p>
+Chegue ao nível 5.
+</p>
+
+</div>
+
+<div class="mission-reward">
++500 🪙
+</div>
+
+</div>
+
+</div>
 
 </section>
 
+<!-- =========================
+     BÔNUS DIÁRIO
+========================= -->
 
-<!-- RESET -->
+<section class="section">
+
+<h2 class="section-title">
+🎁 Bônus Diário
+</h2>
+
+<div class="daily">
+
+<h3>
+RECOMPENSA DIÁRIA
+</h3>
+
+<p
+id="dailyText"
+style="margin:12px 0;color:#9aaabd">
++250 moedas +20 XP
+</p>
+
+<button onclick="dailyBonus()">
+RESGATAR
+</button>
+
+</div>
+
+</section>
+
+<!-- =========================
+     LOG
+========================= -->
+
+<section class="section" id="log">
+
+<h2 class="section-title">
+📜 LOG DE <span>ATUALIZAÇÕES</span>
+</h2>
+
+<p class="section-subtitle">
+Confira todas as novidades, mudanças e conteúdos adicionados ao BLUE LOCK — Ego Rush.
+</p>
+
+<div
+id="logContainer"
+class="log-container">
+</div>
+
+</section>
+
+<!-- =========================
+     RESET
+========================= -->
 
 <section
-    class="section"
-    style="text-align:center;">
+class="section"
+style="text-align:center">
 
-    <button
-        onclick="resetGame()"
-        style="
-            background:#762b2b;
-        ">
+<button
+onclick="resetGame()"
+style="background:#762b2b">
 
-        🗑️ RESETAR PROGRESSO
+🗑️ RESETAR PROGRESSO
 
-    </button>
+</button>
 
 </section>
 
 </main>
 
-
-<!-- MODAL -->
+<!-- =========================
+     REVELAÇÃO AUTOMÁTICA
+========================= -->
 
 <div
-    id="modal"
-    class="modal">
+id="packReveal"
+class="pack-reveal">
 
-    <div class="modal-box">
+<div class="reveal-box">
 
-        <h2 id="modalTitle">
-            JOGADOR OBTIDO
-        </h2>
+<div
+class="reveal-title"
+id="revealTitle">
+PACK ABERTO
+</div>
 
-        <img
-            id="modalImage"
-            src=""
-            alt="Jogador">
+<img
+id="revealImage"
+src=""
+alt="Jogador">
 
-        <h3 id="modalPlayerName"></h3>
+<div
+class="reveal-name"
+id="revealName">
+</div>
 
-        <div
-            id="modalRarity"
-            class="rarity">
-        </div>
+<div
+id="revealRarity"
+class="rarity reveal-rarity">
+</div>
 
-        <div
-            id="modalPower"
-            style="
-                margin:10px 0;
-                font-size:20px;
-                font-weight:1000;
-                color:#4da3ff;
-            ">
-        </div>
-
-        <div class="modal-buttons">
-
-            <button onclick="savePlayer()">
-                💾 SALVAR
-            </button>
-
-            <button
-                class="sell-modal"
-                onclick="sellPendingPlayer()">
-
-                🪙 VENDER
-
-            </button>
-
-        </div>
-
-    </div>
+<div
+id="revealPower"
+class="reveal-power">
+</div>
 
 </div>
 
-
-<div
-    id="toast"
-    class="toast">
 </div>
 
+<!-- =========================
+     MODAL MANUAL
+========================= -->
+
+<div
+id="modal"
+class="modal">
+
+<div class="modal-box">
+
+<h2 id="modalTitle">
+JOGADOR OBTIDO
+</h2>
+
+<img
+id="modalImage"
+src=""
+alt="Jogador">
+
+<h3 id="modalPlayerName">
+</h3>
+
+<div
+id="modalRarity"
+class="rarity">
+</div>
+
+<div
+id="modalPower"
+style="
+margin:10px 0;
+font-size:20px;
+font-weight:1000;
+color:#4da3ff">
+</div>
+
+<div class="modal-buttons">
+
+<button onclick="savePlayer()">
+💾 SALVAR
+</button>
+
+<button
+class="sell-modal"
+onclick="sellPendingPlayer()">
+🪙 VENDER
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div
+id="toast"
+class="toast">
+</div>
 
 <script>
 
-
-/* =========================================
+/* =========================
    JOGADORES
-========================================= */
+========================= */
 
-const players = [
+const players=[
 
-    {
-        id:"kunigami",
-        name:"Rensuke Kunigami",
-        rarity:"common",
-        image:"images/kunigami.jpg"
-    },
+{id:"kunigami",name:"Rensuke Kunigami",rarity:"common",image:"images/kunigami.jpg"},
+{id:"gagamaru",name:"Gin Gagamaru",rarity:"common",image:"images/gagamaru.jpg"},
+{id:"tokimitsu",name:"Aoshi Tokimitsu",rarity:"common",image:"images/tokimitsu.jpg"},
+{id:"aryu",name:"Jyubei Aryu",rarity:"common",image:"images/aryu.jpg"},
 
-    {
-        id:"gagamaru",
-        name:"Gin Gagamaru",
-        rarity:"common",
-        image:"images/gagamaru.jpg"
-    },
+{id:"isagi",name:"Yoichi Isagi",rarity:"rare",image:"images/isagi.jpg"},
+{id:"bachira",name:"Meguru Bachira",rarity:"rare",image:"images/bachira.jpg"},
+{id:"chigiri",name:"Hyoma Chigiri",rarity:"rare",image:"images/chigiri.jpg"},
+{id:"aiku",name:"Oliver Aiku",rarity:"rare",image:"images/aiku.jpg"},
+{id:"karasu",name:"Tabito Karasu",rarity:"rare",image:"images/karasu.jpg"},
+{id:"otoya",name:"Eita Otoya",rarity:"rare",image:"images/otoya.jpg"},
 
-    {
-        id:"tokimitsu",
-        name:"Aoshi Tokimitsu",
-        rarity:"common",
-        image:"images/tokimitsu.jpg"
-    },
+{id:"nagi",name:"Seishiro Nagi",rarity:"epic",image:"images/nagi.jpg"},
+{id:"reo",name:"Reo Mikage",rarity:"epic",image:"images/reo.jpg"},
+{id:"hiori",name:"Yo Hiori",rarity:"epic",image:"images/hiori.jpg"},
+{id:"barou",name:"Shoei Barou",rarity:"epic",image:"images/barou.jpg"},
 
-    {
-        id:"aryu",
-        name:"Jyubei Aryu",
-        rarity:"common",
-        image:"images/aryu.jpg"
-    },
+{id:"rin",name:"Rin Itoshi",rarity:"legendary",image:"images/rin.jpg"},
+{id:"shidou",name:"Ryusei Shidou",rarity:"legendary",image:"images/shidou.jpg"},
+{id:"kaiser",name:"Michael Kaiser",rarity:"legendary",image:"images/kaiser.jpg"},
+{id:"lorenzo",name:"Don Lorenzo",rarity:"legendary",image:"images/lorenzo.jpg"},
 
-    {
-        id:"isagi",
-        name:"Yoichi Isagi",
-        rarity:"rare",
-        image:"images/isagi.jpg"
-    },
-
-    {
-        id:"bachira",
-        name:"Meguru Bachira",
-        rarity:"rare",
-        image:"images/bachira.jpg"
-    },
-
-    {
-        id:"chigiri",
-        name:"Hyoma Chigiri",
-        rarity:"rare",
-        image:"images/chigiri.jpg"
-    },
-
-    {
-        id:"aiku",
-        name:"Oliver Aiku",
-        rarity:"rare",
-        image:"images/aiku.jpg"
-    },
-
-    {
-        id:"karasu",
-        name:"Tabito Karasu",
-        rarity:"rare",
-        image:"images/karasu.jpg"
-    },
-
-    {
-        id:"otoya",
-        name:"Eita Otoya",
-        rarity:"rare",
-        image:"images/otoya.jpg"
-    },
-
-    {
-        id:"nagi",
-        name:"Seishiro Nagi",
-        rarity:"epic",
-        image:"images/nagi.jpg"
-    },
-
-    {
-        id:"reo",
-        name:"Reo Mikage",
-        rarity:"epic",
-        image:"images/reo.jpg"
-    },
-
-    {
-        id:"hiori",
-        name:"Yo Hiori",
-        rarity:"epic",
-        image:"images/hiori.jpg"
-    },
-
-    {
-        id:"barou",
-        name:"Shoei Barou",
-        rarity:"epic",
-        image:"images/barou.jpg"
-    },
-
-    {
-        id:"rin",
-        name:"Rin Itoshi",
-        rarity:"legendary",
-        image:"images/rin.jpg"
-    },
-
-    {
-        id:"shidou",
-        name:"Ryusei Shidou",
-        rarity:"legendary",
-        image:"images/shidou.jpg"
-    },
-
-    {
-        id:"kaiser",
-        name:"Michael Kaiser",
-        rarity:"legendary",
-        image:"images/kaiser.jpg"
-    },
-
-    {
-        id:"lorenzo",
-        name:"Don Lorenzo",
-        rarity:"legendary",
-        image:"images/lorenzo.jpg"
-    },
-
-    {
-        id:"noa",
-        name:"Noel Noa",
-        rarity:"mestres",
-        image:"images/noah.jpg"
-    },
-
-    {
-        id:"snuffy",
-        name:"Marc Snuffy",
-        rarity:"mestres",
-        image:"images/snuffy.jpg"
-    },
-
-    {
-        id:"loki",
-        name:"Julian Loki",
-        rarity:"mestres",
-        image:"images/loki.jpg"
-    },
-
-    {
-        id:"chris",
-        name:"Chris Prince",
-        rarity:"mestres",
-        image:"images/chris.jpg"
-    },
-
-    {
-        id:"lavinho",
-        name:"Lavinho",
-        rarity:"mestres",
-        image:"images/lavinho.jpg"
-    },
-
-    {
-        id:"jinpachi-ego",
-        name:"Jinpachi Ego",
-        rarity:"mestres",
-        image:"images/jinpachi-ego.jpg"
-    }
+{id:"noa",name:"Noel Noa",rarity:"mestres",image:"images/noah.jpg"},
+{id:"snuffy",name:"Marc Snuffy",rarity:"mestres",image:"images/snuffy.jpg"},
+{id:"loki",name:"Julian Loki",rarity:"mestres",image:"images/loki.jpg"},
+{id:"chris",name:"Chris Prince",rarity:"mestres",image:"images/chris.jpg"},
+{id:"lavinho",name:"Lavinho",rarity:"mestres",image:"images/lavinho.jpg"},
+{id:"jinpachi-ego",name:"Jinpachi Ego",rarity:"mestres",image:"images/jinpachi-ego.jpg"}
 
 ];
 
+/* =========================
+   TEAM WORLD 5
+========================= */
 
-/* =========================================
+const teamWorld5Players=[
+
+{
+id:"pablo-cavazos",
+name:"Pablo Cavazos",
+rarity:"world5",
+image:"images/pablo-cavazos.jpg"
+},
+
+{
+id:"leonardo-luna",
+name:"Leonardo Luna",
+rarity:"world5",
+image:"images/leonardo-luna.jpg"
+},
+
+{
+id:"adam-blake",
+name:"Adam Blake",
+rarity:"world5",
+image:"images/adam-blake.jpg"
+},
+
+{
+id:"dada-silva",
+name:"Dada Silva",
+rarity:"world5",
+image:"images/dada-silva.jpg"
+}
+
+];
+
+/* =========================
    NEW GEN
-========================================= */
+========================= */
 
-const newGenPlayers = [
+const newGenPlayers=[
 
-    {
-        id:"loki-newgen",
-        name:"Julian Loki",
-        rarity:"newgen",
-        image:"images/loki-newgen.jpg"
-    },
-
-    {
-        id:"sae",
-        name:"Sae Itoshi",
-        rarity:"newgen",
-        image:"images/sae.jpg"
-    },
-
-    {
-        id:"bunny",
-        name:"Bunny",
-        rarity:"newgen",
-        image:"images/bunny.jpg"
-    },
-
-    {
-        id:"kaiser-newgen",
-        name:"Michael Kaiser",
-        rarity:"newgen",
-        image:"images/kaiser-newgen.jpg"
-    },
-
-    {
-        id:"teddy",
-        name:"Teddy",
-        rarity:"newgen",
-        image:"images/teddy.jpg"
-    },
-
-    {
-        id:"lorenzo-newgen",
-        name:"Don Lorenzo",
-        rarity:"newgen",
-        image:"images/lorenzo-newgen.jpg"
-    },
-
-    {
-        id:"hugo",
-        name:"Hugo",
-        rarity:"newgen",
-        image:"images/hugo.jpg"
-    }
+{id:"loki-newgen",name:"Julian Loki",rarity:"newgen",image:"images/loki.jpg"},
+{id:"sae",name:"Sae Itoshi",rarity:"newgen",image:"images/sae.jpg"},
+{id:"bunny",name:"Bunny",rarity:"newgen",image:"images/bunny.jpg"},
+{id:"kaiser-newgen",name:"Michael Kaiser",rarity:"newgen",image:"images/kaiser.jpg"},
+{id:"teddy",name:"Teddy",rarity:"newgen",image:"images/teddy.jpg"},
+{id:"lorenzo-newgen",name:"Don Lorenzo",rarity:"newgen",image:"images/lorenzo.jpg"},
+{id:"hugo",name:"Hugo",rarity:"newgen",image:"images/hugo.jpg"}
 
 ];
 
-
-/* =========================================
+/* =========================
    NEO
-========================================= */
+========================= */
 
-const neoPlayers = [
+const neoPlayers=[
 
-    {
-        id:"neo-isagi",
-        name:"NEO Isagi",
-        rarity:"neo",
-        image:"images/neo-isagi.jpg"
-    },
-
-    {
-        id:"neo-rin",
-        name:"NEO Rin",
-        rarity:"neo",
-        image:"images/neo-rin.jpg"
-    },
-
-    {
-        id:"neo-kaiser",
-        name:"NEO Kaiser",
-        rarity:"neo",
-        image:"images/neo-kaiser.jpg"
-    },
-
-    {
-        id:"neo-nanase",
-        name:"NEO Nanase",
-        rarity:"neo",
-        image:"images/nanase.jpg"
-    }
+{id:"neo-isagi",name:"NEO Isagi",rarity:"neo",image:"images/neo-isagi.jpg"},
+{id:"neo-rin",name:"NEO Rin",rarity:"neo",image:"images/neo-rin.jpg"},
+{id:"neo-kaiser",name:"NEO Kaiser",rarity:"neo",image:"images/neo-kaiser.jpg"},
+{id:"neo-nanase",name:"NEO Nanase",rarity:"neo",image:"images/nanase.jpg"}
 
 ];
 
+/* =========================
+   DEUS DO FUTEBOL
+========================= */
 
-/* =========================================
+const deusPlayer={
+id:"deus-futebol",
+name:"DEUS DO FUTEBOL",
+rarity:"deus",
+image:"images/deus-futebol.png"
+};
+
+/* =========================
+   SAVE
+========================= */
+
+let game=
+JSON.parse(
+localStorage.getItem("blueLockGame")
+)
+||
+{
+coins:1000,
+xp:0,
+level:1,
+inventory:[],
+collection:[],
+packsOpened:0,
+
+missions:{
+1:false,
+2:false,
+3:false
+},
+
+dailyClaimed:null,
+lastTrain:0,
+kaiserLastPlay:0,
+reflexLastPlay:0,
+egoRushLastPlay:0
+};
+
+game.inventory??=[];
+game.collection??[];
+
+game.missions??={
+1:false,
+2:false,
+3:false
+};
+
+game.kaiserLastPlay??=0;
+game.reflexLastPlay??=0;
+game.egoRushLastPlay??=0;
+
+/* =========================
    TODOS OS PERSONAGENS
-========================================= */
+========================= */
 
 function getAllCharacters(){
 
-    return [
+const characters=[
 
-        ...players,
+...players,
+...teamWorld5Players,
+...newGenPlayers,
+...neoPlayers
 
-        ...newGenPlayers,
+];
 
-        ...neoPlayers
+if(game.collection.includes(deusPlayer.id)){
 
-    ];
+characters.push(deusPlayer);
 
 }
 
+return characters;
 
-/* =========================================
-   ESCALA DE PODER
-========================================= */
+}
 
-const characterPower = {
+/* =========================
+   PODER
+========================= */
 
-    /* COMMON */
+const characterPower={
 
-    kunigami:55,
-    gagamaru:48,
-    tokimitsu:42,
-    aryu:45,
+kunigami:55,
+gagamaru:48,
+tokimitsu:42,
+aryu:45,
 
+isagi:90,
+bachira:86,
+chigiri:84,
+aiku:82,
+karasu:78,
+otoya:74,
 
-    /* RARE */
+nagi:140,
+barou:137,
+hiori:125,
+reo:120,
 
-    isagi:90,
-    bachira:86,
-    chigiri:84,
-    aiku:82,
-    karasu:78,
-    otoya:74,
+rin:205,
+kaiser:202,
+shidou:195,
+lorenzo:190,
 
+noa:275,
+loki:268,
+snuffy:260,
+chris:250,
+lavinho:245,
+"jinpachi-ego":235,
 
-    /* EPIC */
+"pablo-cavazos":315,
+"leonardo-luna":325,
+"adam-blake":340,
+"dada-silva":310,
 
-    nagi:140,
-    barou:137,
-    hiori:125,
-    reo:120,
+"loki-newgen":375,
+sae:365,
+"kaiser-newgen":360,
+"lorenzo-newgen":350,
+bunny:335,
+teddy:325,
+hugo:315,
 
+"neo-kaiser":500,
+"neo-rin":485,
+"neo-isagi":475,
+"neo-nanase":420,
 
-    /* LEGENDARY */
-
-    rin:205,
-    kaiser:202,
-    shidou:195,
-    lorenzo:190,
-
-
-    /* MESTRES */
-
-    noa:275,
-    loki:268,
-    snuffy:260,
-    chris:250,
-    lavinho:245,
-
-    "jinpachi-ego":235,
-
-
-    /* NEW GEN */
-
-    "loki-newgen":375,
-    sae:365,
-    "kaiser-newgen":360,
-    "lorenzo-newgen":350,
-    bunny:335,
-    teddy:325,
-    hugo:315,
-
-
-    /* NEO */
-
-    "neo-kaiser":500,
-    "neo-rin":485,
-    "neo-isagi":475,
-    "neo-nanase":420
+"deus-futebol":1000
 
 };
 
+const defaultPower={
 
-const defaultPower = {
-
-    common:40,
-
-    rare:75,
-
-    epic:120,
-
-    legendary:180,
-
-    mestres:250,
-
-    newgen:340,
-
-    neo:450
+common:40,
+rare:75,
+epic:120,
+legendary:180,
+mestres:250,
+world5:325,
+newgen:340,
+neo:450,
+deus:1000
 
 };
-
 
 function getPlayerPower(player){
 
-    if(!player){
-        return 0;
-    }
-
-    return Math.round(
-        characterPower[player.id] ??
-        defaultPower[player.rarity] ??
-        40
-    );
-
-}
-
-
-/* =========================================
-   ESTADO
-========================================= */
-
-let game =
-JSON.parse(
-    localStorage.getItem("blueLockGame")
-) || {
-
-    coins:1000,
-
-    xp:0,
-
-    level:1,
-
-    inventory:[],
-
-    collection:[],
-
-    packsOpened:0,
-
-    missions:{
-        1:false,
-        2:false,
-        3:false
-    },
-
-    dailyClaimed:null,
-
-    lastTrain:0,
-
-    kaiserLastPlay:0,
-
-    reflexLastPlay:0,
-
-    egoRushLastPlay:0
-
-};
-
-
-/* =========================================
-   COMPATIBILIDADE COM SAVE ANTIGO
-========================================= */
-
-if(!game.inventory){
-    game.inventory=[];
-}
-
-if(!game.collection){
-    game.collection=[];
-}
-
-if(!game.missions){
-
-    game.missions={
-
-        1:false,
-        2:false,
-        3:false
-
-    };
+return player
+?
+Math.round(
+characterPower[player.id]
+??
+defaultPower[player.rarity]
+??
+40
+)
+:
+0;
 
 }
 
-if(typeof game.kaiserLastPlay==="undefined"){
-    game.kaiserLastPlay=0;
+/* =========================
+   SAVE GAME
+========================= */
+
+function saveGame(){
+
+localStorage.setItem(
+"blueLockGame",
+JSON.stringify(game)
+);
+
 }
 
-if(typeof game.reflexLastPlay==="undefined"){
-    game.reflexLastPlay=0;
-}
-
-if(typeof game.egoRushLastPlay==="undefined"){
-    game.egoRushLastPlay=0;
-}
-
-
-/* =========================================
+/* =========================
    VARIÁVEIS
-========================================= */
+========================= */
 
 let pendingPlayer=null;
 
 let kaiserPosition=0;
-
 let kaiserDirection=1;
 
 let kaiserZonePosition=40;
-
 let kaiserZoneDirection=1;
 
-let kaiserPlaying=true;
-
 let reflexActive=false;
-
 let reflexTimeout=null;
 
 let egoRushActive=false;
-
 let egoRushTimeout=null;
 
 let slotPlaying=false;
@@ -2631,2421 +2364,2391 @@ let selectedLegendary=[];
 
 let inventoryFilter="all";
 
+let autoPackActive=false;
+let autoPackTimer=null;
+let autoPackCurrent=0;
+let autoPackTotal=0;
 
-/* =========================================
-   SALVAR
-========================================= */
-
-function saveGame(){
-
-    localStorage.setItem(
-        "blueLockGame",
-        JSON.stringify(game)
-    );
-
-}
-
-
-/* =========================================
-   REGISTRAR COLEÇÃO
-========================================= */
+/* =========================
+   COLEÇÃO / XP
+========================= */
 
 function registerCollection(player){
 
-    if(!player){
-        return;
-    }
+if(!player)return;
 
-    if(
-        !game.collection.includes(player.id)
-    ){
+if(!game.collection.includes(player.id)){
 
-        game.collection.push(
-            player.id
-        );
+game.collection.push(player.id);
 
-        toast(
-            "📚 NOVO PERSONAGEM NA COLEÇÃO: "+
-            player.name
-        );
+if(player.rarity==="deus"){
 
-    }
+toast(
+"👑 DEUS DO FUTEBOL DESCOBERTO!"
+);
 
-    saveGame();
+}else if(player.rarity==="world5"){
+
+toast(
+"🌍 TEAM WORLD 5 DESCOBERTO: "+
+player.name
+);
+
+}else{
+
+toast(
+"📚 NOVO PERSONAGEM: "+
+player.name
+);
 
 }
 
+}
 
-/* =========================================
-   XP
-========================================= */
+saveGame();
+
+}
 
 function addXP(amount){
 
-    game.xp+=amount;
+game.xp+=amount;
 
-    let required=
-        game.level*100;
+let required=game.level*100;
 
-    while(game.xp>=required){
+while(game.xp>=required){
 
-        game.xp-=required;
+game.xp-=required;
 
-        game.level++;
+game.level++;
 
-        toast(
-            "⬆️ Você subiu para o nível "+
-            game.level+"!"
-        );
-
-        required=
-            game.level*100;
-
-    }
-
-    saveGame();
-
-    updateUI();
-
-    checkMissions();
-
-}
-
-
-/* =========================================
-   RARIDADE
-========================================= */
-
-function randomRarity(chances){
-
-    const roll=
-        Math.random()*100;
-
-    let cumulative=0;
-
-    for(
-        const rarity in chances
-    ){
-
-        cumulative+=
-            chances[rarity];
-
-        if(
-            roll<=cumulative
-        ){
-
-            return rarity;
-
-        }
-
-    }
-
-    return Object.keys(chances)[0];
-
-}
-
-
-/* =========================================
-   ESCOLHER JOGADOR
-========================================= */
-
-function choosePlayer(rarity){
-
-    const pool=
-        players.filter(
-            player=>
-                player.rarity===rarity
-        );
-
-    if(pool.length===0){
-
-        return players[0];
-
-    }
-
-    return pool[
-        Math.floor(
-            Math.random()*pool.length
-        )
-    ];
-
-}
-
-
-/* =========================================
-   ESCOLHER NEO
-========================================= */
-
-function chooseNeo(){
-
-    return neoPlayers[
-        Math.floor(
-            Math.random()*
-            neoPlayers.length
-        )
-    ];
-
-}
-
-
-/* =========================================
-   ABRIR PACK
-========================================= */
-
-function openPack(type){
-
-    const packs={
-
-        normal:{
-
-            cost:100,
-
-            chances:{
-
-                common:45,
-                rare:38,
-                epic:13,
-                legendary:3,
-                mestres:1
-
-            }
-
-        },
-
-        elite:{
-
-            cost:500,
-
-            chances:{
-
-                common:15,
-                rare:38,
-                epic:30,
-                legendary:15,
-                mestres:2
-
-            }
-
-        },
-
-        ego:{
-
-            cost:1500,
-
-            chances:{
-
-                common:5,
-                rare:20,
-                epic:38,
-                legendary:32,
-                mestres:5
-
-            }
-
-        }
-
-    };
-
-
-    const pack=
-        packs[type];
-
-
-    if(
-        !pack
-    ){
-        return;
-    }
-
-
-    if(
-        game.coins<
-        pack.cost
-    ){
-
-        toast(
-            "❌ Moedas insuficientes."
-        );
-
-        return;
-
-    }
-
-
-    game.coins-=
-        pack.cost;
-
-
-    let player;
-
-
-    /*
-       NEO = 0,15%
-
-       IMPORTANTE:
-       Não existe contador de NEO.
-       Portanto o jogador pode obter
-       infinitos NEOs.
-    */
-
-    if(
-        Math.random()<
-        0.0015
-    ){
-
-        player=
-            chooseNeo();
-
-        toast(
-            "🌌 NEO DESPERTADO!"
-        );
-
-    }else{
-
-        const rarity=
-            randomRarity(
-                pack.chances
-            );
-
-        player=
-            choosePlayer(
-                rarity
-            );
-
-    }
-
-
-    game.packsOpened++;
-
-    pendingPlayer=
-        player;
-
-
-    registerCollection(
-        player
-    );
-
-
-    saveGame();
-
-    updateUI();
-
-    checkMissions();
-
-
-    showPlayerModal(
-        player,
-        "JOGADOR OBTIDO"
-    );
-
-}
-
-
-/* =========================================
-   EGO RUSH PACK
-========================================= */
-
-function openEgoRushPack(){
-
-    const chances={
-
-        epic:55,
-        legendary:35,
-        mestres:10
-
-    };
-
-
-    let player;
-
-
-    /*
-       Ego Rush também pode revelar NEO.
-       Chance maior que um pack comum.
-    */
-
-    if(
-        Math.random()<
-        0.005
-    ){
-
-        player=
-            chooseNeo();
-
-        toast(
-            "🌌 NEO ENCONTRADO NO EGO RUSH!"
-        );
-
-    }else{
-
-        const rarity=
-            randomRarity(
-                chances
-            );
-
-        player=
-            choosePlayer(
-                rarity
-            );
-
-    }
-
-
-    game.packsOpened++;
-
-    pendingPlayer=
-        player;
-
-
-    registerCollection(
-        player
-    );
-
-
-    saveGame();
-
-    updateUI();
-
-    checkMissions();
-
-
-    showPlayerModal(
-        player,
-        "🎯 EGO RUSH PACK"
-    );
-
-}
-
-
-/* =========================================
-   MODAL
-========================================= */
-
-function showPlayerModal(
-    player,
-    title
-){
-
-    document.getElementById(
-        "modalTitle"
-    ).textContent=
-        title;
-
-
-    document.getElementById(
-        "modalImage"
-    ).src=
-        player.image;
-
-
-    document.getElementById(
-        "modalPlayerName"
-    ).textContent=
-        player.name;
-
-
-    const rarity=
-        document.getElementById(
-            "modalRarity"
-        );
-
-
-    rarity.textContent=
-        player.rarity
-        .toUpperCase();
-
-
-    rarity.className=
-        "rarity "+
-        player.rarity;
-
-
-    document.getElementById(
-        "modalPower"
-    ).textContent=
-        "⚡ PODER "+
-        getPlayerPower(player);
-
-
-    document.getElementById(
-        "modal"
-    ).classList.add(
-        "show"
-    );
-
-}
-
-
-/* =========================================
-   SALVAR PLAYER
-========================================= */
-
-function savePlayer(){
-
-    if(
-        !pendingPlayer
-    ){
-        return;
-    }
-
-
-    game.inventory.push({
-
-        ...pendingPlayer,
-
-        uniqueId:
-            pendingPlayer.id+
-            "-"+
-            Date.now()+
-            "-"+
-            Math.random()
-
-    });
-
-
-    const name=
-        pendingPlayer.name;
-
-
-    registerCollection(
-        pendingPlayer
-    );
-
-
-    pendingPlayer=null;
-
-
-    document.getElementById(
-        "modal"
-    ).classList.remove(
-        "show"
-    );
-
-
-    saveGame();
-
-    updateUI();
-
-    checkMissions();
-
-
-    toast(
-        "✅ "+
-        name+
-        " adicionado ao inventário."
-    );
-
-}
-
-
-/* =========================================
-   VALORES DE VENDA
-========================================= */
-
-function getSellValue(
-    player
-){
-
-    const values={
-
-        common:25,
-
-        rare:75,
-
-        epic:200,
-
-        legendary:600,
-
-        mestres:1500,
-
-        newgen:5000,
-
-        neo:15000
-
-    };
-
-
-    return values[
-        player.rarity
-    ] || 25;
-
-}
-
-
-/* =========================================
-   VENDER PENDING
-========================================= */
-
-function sellPendingPlayer(){
-
-    if(
-        !pendingPlayer
-    ){
-        return;
-    }
-
-
-    const value=
-        getSellValue(
-            pendingPlayer
-        );
-
-
-    const name=
-        pendingPlayer.name;
-
-
-    game.coins+=
-        value;
-
-
-    pendingPlayer=null;
-
-
-    document.getElementById(
-        "modal"
-    ).classList.remove(
-        "show"
-    );
-
-
-    saveGame();
-
-    updateUI();
-
-
-    toast(
-        "🪙 "+
-        name+
-        " vendido por "+
-        value+
-        " moedas."
-    );
-
-}
-
-
-/* =========================================
-   VENDER PLAYER
-========================================= */
-
-function sellPlayer(index){
-
-    const player=
-        game.inventory[index];
-
-
-    if(!player){
-        return;
-    }
-
-
-    const value=
-        getSellValue(
-            player
-        );
-
-
-    game.coins+=
-        value;
-
-
-    game.inventory.splice(
-        index,
-        1
-    );
-
-
-    selectedLegendary=
-        selectedLegendary
-
-        .filter(
-            i=>i!==index
-        )
-
-        .map(
-            i=>
-                i>index
-                ?i-1
-                :i
-        );
-
-
-    saveGame();
-
-    updateUI();
-
-
-    toast(
-        "🪙 "+
-        player.name+
-        " vendido por "+
-        value+
-        " moedas."
-    );
-
-}
-
-
-/* =========================================
-   FILTRO
-========================================= */
-
-function setInventoryFilter(
-    filter
-){
-
-    inventoryFilter=
-        filter;
-
-
-    document
-        .querySelectorAll(
-            ".filter-btn"
-        )
-        .forEach(
-            button=>{
-
-                button.classList.toggle(
-
-                    "active",
-
-                    button.dataset.filter===
-                    filter
-
-                );
-
-            }
-        );
-
-
-    renderInventory();
-
-}
-
-
-/* =========================================
-   INVENTÁRIO
-========================================= */
-
-function renderInventory(){
-
-    const container=
-        document.getElementById(
-            "inventory"
-        );
-
-
-    container.innerHTML="";
-
-
-    const filtered=
-        game.inventory.filter(
-            player=>
-                inventoryFilter==="all" ||
-                player.rarity===
-                inventoryFilter
-        );
-
-
-    document.getElementById(
-        "inventoryInfo"
-    ).textContent=
-
-        `Mostrando ${filtered.length} de ${game.inventory.length} jogadores.`;
-
-
-    if(
-        filtered.length===0
-    ){
-
-        container.innerHTML=`
-
-            <div class="empty">
-
-                Nenhum jogador encontrado
-                nessa raridade.
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    filtered.forEach(
-        player=>{
-
-            const index=
-                game.inventory.indexOf(
-                    player
-                );
-
-
-            const card=
-                document.createElement(
-                    "div"
-                );
-
-
-            card.className=
-                "player-card";
-
-
-            const power=
-                getPlayerPower(
-                    player
-                );
-
-
-            const powerPercent=
-                Math.min(
-                    100,
-                    (power/500)*100
-                );
-
-
-            card.innerHTML=`
-
-                <img
-                    src="${player.image}"
-                    alt="${player.name}"
-                    onerror="
-                        this.style.opacity='.25'
-                    "
-                >
-
-                <div class="player-info">
-
-                    <div class="player-name">
-
-                        ${player.name}
-
-                    </div>
-
-                    <span
-                        class="rarity ${player.rarity}">
-
-                        ${player.rarity.toUpperCase()}
-
-                    </span>
-
-                    <div class="power-box">
-
-                        <div class="power-label">
-
-                            <span>
-                                PODER
-                            </span>
-
-                            <span class="power-value">
-
-                                ${power}
-
-                            </span>
-
-                        </div>
-
-                        <div class="power-bar">
-
-                            <div
-                                class="power-fill"
-                                style="
-                                    width:${powerPercent}%;
-                                ">
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <button
-                        class="sell-button"
-                        onclick="
-                            sellPlayer(${index})
-                        ">
-
-                        🪙 VENDER
-
-                    </button>
-
-                </div>
-
-            `;
-
-
-            container.appendChild(
-                card
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================
-   COLEÇÃO
-========================================= */
-
-function renderCollection(){
-
-    const container=
-        document.getElementById(
-            "collection"
-        );
-
-
-    container.innerHTML="";
-
-
-    const allCharacters=
-        getAllCharacters();
-
-
-    const discovered=
-        game.collection.length;
-
-
-    document.getElementById(
-        "collectionProgress"
-    ).textContent=
-
-        `${discovered}/${allCharacters.length} personagens descobertos.`;
-
-
-    document.getElementById(
-        "collectionCount"
-    ).textContent=
-        discovered;
-
-
-    allCharacters.forEach(
-        player=>{
-
-            const unlocked=
-                game.collection.includes(
-                    player.id
-                );
-
-
-            const card=
-                document.createElement(
-                    "div"
-                );
-
-
-            card.className=
-                "collection-card"+
-                (
-                    unlocked
-                    ? ""
-                    : " locked"
-                );
-
-
-            const power=
-                getPlayerPower(
-                    player
-                );
-
-
-            card.innerHTML=`
-
-                <img
-                    src="${player.image}"
-                    alt="${player.name}"
-                    onerror="
-                        this.style.opacity='.25'
-                    "
-                >
-
-                <div class="collection-info">
-
-                    <div class="collection-name">
-
-                        ${
-                            unlocked
-                            ? player.name
-                            : "???"
-                        }
-
-                    </div>
-
-                    <span
-                        class="rarity ${player.rarity}">
-
-                        ${player.rarity.toUpperCase()}
-
-                    </span>
-
-                    ${
-                        unlocked
-
-                        ? `
-
-                            <div class="collection-power">
-
-                                ⚡ Poder ${power}
-
-                            </div>
-
-                            <div class="collection-status">
-
-                                ✅ DESCOBERTO
-
-                            </div>
-
-                          `
-
-                        : `
-
-                            <div class="collection-status">
-
-                                🔒 Ainda não obtido
-
-                            </div>
-
-                          `
-                    }
-
-                </div>
-
-            `;
-
-
-            container.appendChild(
-                card
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================
-   TREINAR
-========================================= */
-
-function train(){
-
-    const now=
-        Date.now();
-
-
-    if(
-        now-game.lastTrain<
-        15000
-    ){
-
-        const remaining=
-            Math.ceil(
-                (
-                    15000-
-                    (
-                        now-
-                        game.lastTrain
-                    )
-                )/1000
-            );
-
-
-        toast(
-            "⏳ Aguarde "+
-            remaining+
-            " segundos."
-        );
-
-
-        return;
-
-    }
-
-
-    game.lastTrain=
-        now;
-
-
-    game.coins+=25;
-
-
-    addXP(5);
-
-
-    saveGame();
-
-    updateUI();
-
-
-    toast(
-        "🧠 Ego treinado! +25 moedas."
-    );
-
-}
-
-
-/* =========================================
-   BÔNUS
-========================================= */
-
-function dailyBonus(){
-
-    const today=
-        new Date()
-        .toDateString();
-
-
-    if(
-        game.dailyClaimed===
-        today
-    ){
-
-        toast(
-            "🎁 Bônus diário já coletado."
-        );
-
-        return;
-
-    }
-
-
-    game.dailyClaimed=
-        today;
-
-
-    game.coins+=250;
-
-
-    addXP(20);
-
-
-    saveGame();
-
-    updateUI();
-
-
-    toast(
-        "🎁 +250 moedas e +20 XP!"
-    );
-
-}
-
-
-/* =========================================
-   MISSÕES
-========================================= */
-
-function checkMissions(){
-
-    if(
-        !game.missions[1] &&
-        game.packsOpened>=1
-    ){
-
-        game.missions[1]=true;
-
-        game.coins+=100;
-
-        toast(
-            "🎯 Primeiro Passo concluído! +100 moedas."
-        );
-
-    }
-
-
-    if(
-        !game.missions[2] &&
-        game.inventory.length>=5
-    ){
-
-        game.missions[2]=true;
-
-        game.coins+=300;
-
-        toast(
-            "🎯 Collector concluído! +300 moedas."
-        );
-
-    }
-
-
-    if(
-        !game.missions[3] &&
-        game.level>=5
-    ){
-
-        game.missions[3]=true;
-
-        game.coins+=500;
-
-        toast(
-            "🎯 Ego Supreme concluído! +500 moedas."
-        );
-
-    }
-
-
-    saveGame();
-
-    updateMissions();
-
-}
-
-
-/* =========================================
-   NEW GEN SELECTOR
-========================================= */
-
-function renderLegendarySelector(){
-
-    const container=
-        document.getElementById(
-            "legendarySelector"
-        );
-
-
-    container.innerHTML="";
-
-
-    game.inventory.forEach(
-        (player,index)=>{
-
-            if(
-                player.rarity!=="legendary"
-            ){
-                return;
-            }
-
-
-            const div=
-                document.createElement(
-                    "div"
-                );
-
-
-            div.className=
-                "select-player";
-
-
-            if(
-                selectedLegendary.includes(
-                    index
-                )
-            ){
-
-                div.classList.add(
-                    "selected"
-                );
-
-            }
-
-
-            div.innerHTML=`
-
-                <strong>
-                    ${player.name}
-                </strong>
-
-                <small>
-                    ⚡ Poder ${getPlayerPower(player)}
-                </small>
-
-                <small>
-                    Legendary
-                </small>
-
-            `;
-
-
-            div.onclick=()=>{
-
-                toggleLegendary(
-                    index
-                );
-
-            };
-
-
-            container.appendChild(
-                div
-            );
-
-        }
-    );
-
-
-    if(
-        container.innerHTML===
-        ""
-    ){
-
-        container.innerHTML=`
-
-            <div class="empty">
-
-                Você ainda não possui
-                jogadores Legendary.
-
-            </div>
-
-        `;
-
-    }
-
-}
-
-
-/* =========================================
-   TOGGLE
-========================================= */
-
-function toggleLegendary(
-    index
-){
-
-    const position=
-        selectedLegendary.indexOf(
-            index
-        );
-
-
-    if(
-        position>=0
-    ){
-
-        selectedLegendary.splice(
-            position,
-            1
-        );
-
-    }else{
-
-        if(
-            selectedLegendary.length>=3
-        ){
-
-            toast(
-                "⚠️ Você pode selecionar somente 3."
-            );
-
-            return;
-
-        }
-
-
-        selectedLegendary.push(
-            index
-        );
-
-    }
-
-
-    updateNewGenUI();
-
-}
-
-
-/* =========================================
-   NEW GEN UI
-========================================= */
-
-function updateNewGenUI(){
-
-    renderLegendarySelector();
-
-
-    document.getElementById(
-        "newGenStatus"
-    ).textContent=
-
-        `${selectedLegendary.length}/3 selecionados.`;
-
-}
-
-
-/* =========================================
-   CRIAR NEW GEN
-========================================= */
-
-function createNewGen(){
-
-    if(
-        selectedLegendary.length!==3
-    ){
-
-        toast(
-            "⚠️ Selecione exatamente 3 Legendary."
-        );
-
-        return;
-
-    }
-
-
-    const selected=
-        selectedLegendary.map(
-            index=>
-                game.inventory[index]
-        );
-
-
-    if(
-        selected.some(
-            player=>
-                !player ||
-                player.rarity!=="legendary"
-        )
-    ){
-
-        selectedLegendary=[];
-
-        updateNewGenUI();
-
-
-        toast(
-            "❌ Seleção inválida."
-        );
-
-
-        return;
-
-    }
-
-
-    const chosen=
-        newGenPlayers[
-            Math.floor(
-                Math.random()*
-                newGenPlayers.length
-            )
-        ];
-
-
-    const indexes=
-        [...selectedLegendary]
-        .sort(
-            (a,b)=>b-a
-        );
-
-
-    indexes.forEach(
-        index=>{
-
-            game.inventory.splice(
-                index,
-                1
-            );
-
-        }
-    );
-
-
-    game.inventory.push({
-
-        ...chosen,
-
-        uniqueId:
-            chosen.id+
-            "-"+
-            Date.now()+
-            "-"+
-            Math.random()
-
-    });
-
-
-    registerCollection(
-        chosen
-    );
-
-
-    selectedLegendary=[];
-
-
-    addXP(50);
-
-
-    saveGame();
-
-    updateUI();
-
-
-    toast(
-        "💎 NEW GEN OBTIDO: "+
-        chosen.name+
-        " — Poder "+
-        getPlayerPower(chosen)
-    );
-
-}
-
-
-/* =========================================
-   KAISER
-========================================= */
-
-function moveKaiserBar(){
-
-    if(
-        !kaiserPlaying
-    ){
-        return;
-    }
-
-
-    kaiserPosition+=
-        kaiserDirection*
-        1.4;
-
-
-    if(
-        kaiserPosition>=96
-    ){
-
-        kaiserPosition=96;
-
-        kaiserDirection=-1;
-
-    }
-
-
-    if(
-        kaiserPosition<=0
-    ){
-
-        kaiserPosition=0;
-
-        kaiserDirection=1;
-
-    }
-
-
-    const marker=
-        document.getElementById(
-            "kaiserMarker"
-        );
-
-
-    if(marker){
-
-        marker.style.left=
-            kaiserPosition+
-            "%";
-
-    }
-
-}
-
-
-function moveKaiserZone(){
-
-    if(
-        !kaiserPlaying
-    ){
-        return;
-    }
-
-
-    kaiserZonePosition+=
-        kaiserZoneDirection*
-        .45;
-
-
-    if(
-        kaiserZonePosition>=78
-    ){
-
-        kaiserZonePosition=78;
-
-        kaiserZoneDirection=-1;
-
-    }
-
-
-    if(
-        kaiserZonePosition<=0
-    ){
-
-        kaiserZonePosition=0;
-
-        kaiserZoneDirection=1;
-
-    }
-
-
-    const zone=
-        document.getElementById(
-            "kaiserZone"
-        );
-
-
-    if(zone){
-
-        zone.style.left=
-            kaiserZonePosition+
-            "%";
-
-    }
-
-}
-
-
-function playKaiserGame(){
-
-    const now=
-        Date.now();
-
-
-    if(
-        now-game.kaiserLastPlay<
-        5000
-    ){
-
-        const remaining=
-            Math.ceil(
-                (
-                    5000-
-                    (
-                        now-
-                        game.kaiserLastPlay
-                    )
-                )/1000
-            );
-
-
-        toast(
-            "⏳ Aguarde "+
-            remaining+
-            "s."
-        );
-
-
-        return;
-
-    }
-
-
-    game.kaiserLastPlay=
-        now;
-
-
-    const marker=
-        kaiserPosition;
-
-
-    const start=
-        kaiserZonePosition;
-
-
-    const end=
-        kaiserZonePosition+
-        18;
-
-
-    if(
-        marker>=start &&
-        marker<=end
-    ){
-
-        game.coins+=100;
-
-        addXP(15);
-
-
-        document.getElementById(
-            "kaiserStatus"
-        ).textContent=
-            "🔥 ACERTO PERFEITO!";
-
-
-        toast(
-            "👑 KAISER IMPACT! +100 moedas."
-        );
-
-    }else{
-
-        document.getElementById(
-            "kaiserStatus"
-        ).textContent=
-            "❌ Errou o alvo.";
-
-    }
-
-
-    saveGame();
-
-    updateUI();
-
-}
-
-
-/* =========================================
-   REFLEXO
-========================================= */
-
-function startReflexGame(){
-
-    const now=
-        Date.now();
-
-
-    if(
-        now-game.reflexLastPlay<
-        3000
-    ){
-
-        const remaining=
-            Math.ceil(
-                (
-                    3000-
-                    (
-                        now-
-                        game.reflexLastPlay
-                    )
-                )/1000
-            );
-
-
-        toast(
-            "⏳ Aguarde "+
-            remaining+
-            "s."
-        );
-
-
-        return;
-
-    }
-
-
-    game.reflexLastPlay=
-        now;
-
-
-    reflexActive=true;
-
-
-    const target=
-        document.getElementById(
-            "reflexTarget"
-        );
-
-
-    const area=
-        document.getElementById(
-            "reflexArea"
-        );
-
-
-    const maxX=
-        Math.max(
-            0,
-            area.clientWidth-50
-        );
-
-
-    const maxY=
-        Math.max(
-            0,
-            area.clientHeight-50
-        );
-
-
-    target.style.left=
-        Math.floor(
-            Math.random()*maxX
-        )+
-        "px";
-
-
-    target.style.top=
-        Math.floor(
-            Math.random()*maxY
-        )+
-        "px";
-
-
-    target.style.display=
-        "block";
-
-
-    document.getElementById(
-        "reflexStatus"
-    ).textContent=
-        "⚡ AGORA!";
-
-
-    reflexTimeout=
-        setTimeout(
-            ()=>{
-
-                if(
-                    reflexActive
-                ){
-
-                    reflexActive=false;
-
-                    target.style.display=
-                        "none";
-
-
-                    document.getElementById(
-                        "reflexStatus"
-                    ).textContent=
-                        "❌ Você demorou demais.";
-
-                }
-
-            },
-            2500
-        );
-
-}
-
-
-function hitReflexTarget(){
-
-    if(
-        !reflexActive
-    ){
-        return;
-    }
-
-
-    reflexActive=false;
-
-
-    clearTimeout(
-        reflexTimeout
-    );
-
-
-    document.getElementById(
-        "reflexTarget"
-    ).style.display=
-        "none";
-
-
-    game.coins+=75;
-
-
-    addXP(12);
-
-
-    saveGame();
-
-    updateUI();
-
-
-    document.getElementById(
-        "reflexStatus"
-    ).textContent=
-        "🎯 ACERTOU! +75 moedas";
-
-
-    toast(
-        "⚡ Reflexo perfeito! +75 moedas."
-    );
-
-}
-
-
-/* =========================================
-   EGO RUSH
-========================================= */
-
-function startEgoRush(){
-
-    const now=
-        Date.now();
-
-
-    if(
-        now-game.egoRushLastPlay<
-        5000
-    ){
-
-        const remaining=
-            Math.ceil(
-                (
-                    5000-
-                    (
-                        now-
-                        game.egoRushLastPlay
-                    )
-                )/1000
-            );
-
-
-        toast(
-            "⏳ Aguarde "+
-            remaining+
-            "s."
-        );
-
-
-        return;
-
-    }
-
-
-    game.egoRushLastPlay=
-        now;
-
-
-    egoRushActive=true;
-
-
-    const target=
-        document.getElementById(
-            "egoRushTarget"
-        );
-
-
-    const area=
-        document.getElementById(
-            "egoRushArea"
-        );
-
-
-    const maxX=
-        Math.max(
-            0,
-            area.clientWidth-60
-        );
-
-
-    const maxY=
-        Math.max(
-            0,
-            area.clientHeight-60
-        );
-
-
-    target.style.left=
-        Math.floor(
-            Math.random()*maxX
-        )+
-        "px";
-
-
-    target.style.top=
-        Math.floor(
-            Math.random()*maxY
-        )+
-        "px";
-
-
-    target.style.display=
-        "block";
-
-
-    document.getElementById(
-        "egoRushStatus"
-    ).textContent=
-        "🔥 CLIQUE NO ALVO!";
-
-
-    egoRushTimeout=
-        setTimeout(
-            ()=>{
-
-                if(
-                    egoRushActive
-                ){
-
-                    egoRushActive=false;
-
-                    target.style.display=
-                        "none";
-
-
-                    document.getElementById(
-                        "egoRushStatus"
-                    ).textContent=
-                        "❌ Ego Rush perdido. Tente novamente.";
-
-                }
-
-            },
-            1800
-        );
-
-}
-
-
-function hitEgoRushTarget(){
-
-    if(
-        !egoRushActive
-    ){
-        return;
-    }
-
-
-    egoRushActive=false;
-
-
-    clearTimeout(
-        egoRushTimeout
-    );
-
-
-    document.getElementById(
-        "egoRushTarget"
-    ).style.display=
-        "none";
-
-
-    addXP(30);
-
-
-    saveGame();
-
-    updateUI();
-
-
-    document.getElementById(
-        "egoRushStatus"
-    ).textContent=
-        "💎 EGO DESPERTADO! +1 PACK";
-
-
-    toast(
-        "🎯 Você ganhou um EGO RUSH PACK!"
-    );
-
-
-    setTimeout(
-        ()=>{
-
-            openEgoRushPack();
-
-        },
-        450
-    );
-
-}
-
-
-/* =========================================
-   SORTE DO KAISER
-========================================= */
-
-const slotSymbols=[
-
-    "⚽",
-    "🔥",
-    "👑",
-    "💙",
-    "⚡",
-    "🥅"
-
-];
-
-
-function spinKaiserSlots(){
-
-    if(
-        slotPlaying
-    ){
-        return;
-    }
-
-
-    slotPlaying=true;
-
-
-    const slots=[
-
-        document.getElementById(
-            "slot1"
-        ),
-
-        document.getElementById(
-            "slot2"
-        ),
-
-        document.getElementById(
-            "slot3"
-        )
-
-    ];
-
-
-    let count=0;
-
-
-    const interval=
-        setInterval(
-            ()=>{
-
-                slots.forEach(
-                    slot=>{
-
-                        slot.textContent=
-                            slotSymbols[
-                                Math.floor(
-                                    Math.random()*
-                                    slotSymbols.length
-                                )
-                            ];
-
-                    }
-                );
-
-
-                count++;
-
-
-                if(
-                    count>=12
-                ){
-
-                    clearInterval(
-                        interval
-                    );
-
-
-                    finishKaiserSlots(
-                        slots.map(
-                            slot=>
-                                slot.textContent
-                        )
-                    );
-
-                }
-
-            },
-            80
-        );
-
-}
-
-
-function finishKaiserSlots(
-    symbols
-){
-
-    slotPlaying=false;
-
-
-    let reward=0;
-
-
-    if(
-
-        symbols[0]===
-        symbols[1] &&
-
-        symbols[1]===
-        symbols[2]
-
-    ){
-
-        reward=250;
-
-        addXP(25);
-
-
-        document.getElementById(
-            "slotStatus"
-        ).textContent=
-            "👑 TRIPLO! +250 moedas";
-
-
-    }else if(
-
-        symbols[0]===
-        symbols[1] ||
-
-        symbols[1]===
-        symbols[2] ||
-
-        symbols[0]===
-        symbols[2]
-
-    ){
-
-        reward=100;
-
-        addXP(12);
-
-
-        document.getElementById(
-            "slotStatus"
-        ).textContent=
-            "🔥 DUPLO! +100 moedas";
-
-
-    }else{
-
-        document.getElementById(
-            "slotStatus"
-        ).textContent=
-            "❌ Nenhuma combinação.";
-
-    }
-
-
-    if(
-        reward>0
-    ){
-
-        game.coins+=
-            reward;
-
-
-        toast(
-            "🎰 +"+
-            reward+
-            " moedas!"
-        );
-
-    }
-
-
-    saveGame();
-
-    updateUI();
-
-}
-
-
-/* =========================================
-   MISSÕES UI
-========================================= */
-
-function updateMissions(){
-
-    [1,2,3].forEach(
-        id=>{
-
-            const element=
-                document.getElementById(
-                    "mission"+
-                    id
-                );
-
-
-            element.classList.toggle(
-                "completed",
-                game.missions[id]
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================
-   DAILY UI
-========================================= */
-
-function updateDaily(){
-
-    const today=
-        new Date()
-        .toDateString();
-
-
-    const text=
-        document.getElementById(
-            "dailyText"
-        );
-
-
-    if(
-        game.dailyClaimed===
-        today
-    ){
-
-        text.textContent=
-            "✅ Bônus já coletado hoje.";
-
-    }else{
-
-        text.textContent=
-            "+250 moedas +20 XP";
-
-    }
-
-}
-
-
-/* =========================================
-   UI
-========================================= */
-
-function updateUI(){
-
-    document.getElementById(
-        "coins"
-    ).textContent=
-        game.coins.toLocaleString(
-            "pt-BR"
-        );
-
-
-    document.getElementById(
-        "level"
-    ).textContent=
-        game.level;
-
-
-    document.getElementById(
-        "xp"
-    ).textContent=
-        game.xp;
-
-
-    document.getElementById(
-        "packsOpened"
-    ).textContent=
-        game.packsOpened;
-
-
-    document.getElementById(
-        "playerCount"
-    ).textContent=
-        game.inventory.length;
-
-
-    renderInventory();
-
-    renderLegendarySelector();
-
-    updateNewGenUI();
-
-    renderCollection();
-
-    updateMissions();
-
-    updateDaily();
-
-}
-
-
-/* =========================================
-   TOAST
-========================================= */
-
-function toast(message){
-
-    const element=
-        document.getElementById(
-            "toast"
-        );
-
-
-    element.textContent=
-        message;
-
-
-    element.classList.add(
-        "show"
-    );
-
-
-    setTimeout(
-        ()=>{
-
-            element.classList.remove(
-                "show"
-            );
-
-        },
-        3000
-    );
-
-}
-
-
-/* =========================================
-   MODAL CLICK
-========================================= */
-
-document
-    .getElementById(
-        "modal"
-    )
-    .addEventListener(
-        "click",
-        function(event){
-
-            if(
-                event.target===
-                this
-            ){
-
-                this.classList.remove(
-                    "show"
-                );
-
-            }
-
-        }
-    );
-
-
-/* =========================================
-   RESET
-========================================= */
-
-function resetGame(){
-
-    const confirmation=
-        confirm(
-            "Tem certeza que deseja apagar TODO o progresso?"
-        );
-
-
-    if(
-        !confirmation
-    ){
-        return;
-    }
-
-
-    localStorage.removeItem(
-        "blueLockGame"
-    );
-
-
-    location.reload();
-
-}
-
-
-/* =========================================
-   INTERVALOS
-========================================= */
-
-setInterval(
-    moveKaiserBar,
-    30
+toast(
+"⬆️ Você subiu para o nível "+
+game.level+"!"
 );
 
+required=game.level*100;
 
-setInterval(
-    moveKaiserZone,
-    35
-);
+}
 
-
-/* =========================================
-   INICIALIZAÇÃO
-========================================= */
+saveGame();
 
 updateUI();
 
+checkMissions();
+
+}
+
+/* =========================
+   RANDOM
+========================= */
+
+function randomRarity(chances){
+
+const roll=Math.random()*100;
+
+let cumulative=0;
+
+for(const rarity in chances){
+
+cumulative+=chances[rarity];
+
+if(roll<=cumulative){
+
+return rarity;
+
+}
+
+}
+
+return Object.keys(chances)[0];
+
+}
+
+function choosePlayer(rarity){
+
+const pool=
+players.filter(
+p=>p.rarity===rarity
+);
+
+return pool.length
+?
+pool[
+Math.floor(
+Math.random()*pool.length
+)
+]
+:
+players[0];
+
+}
+
+function chooseNeo(){
+
+return neoPlayers[
+Math.floor(
+Math.random()*neoPlayers.length
+)
+];
+
+}
+
+function chooseTeamWorld5(){
+
+return teamWorld5Players[
+Math.floor(
+Math.random()*teamWorld5Players.length
+)
+];
+
+}
+
+/* =========================
+   CONFIG PACK
+========================= */
+
+function getPackConfig(type){
+
+const packs={
+
+normal:{
+cost:100,
+chances:{
+common:45,
+rare:38,
+epic:13,
+legendary:3,
+mestres:1
+}
+},
+
+elite:{
+cost:500,
+chances:{
+common:15,
+rare:38,
+epic:30,
+legendary:15,
+mestres:2
+}
+},
+
+ego:{
+cost:1500,
+chances:{
+common:0,
+rare:35,
+epic:22,
+legendary:2,
+mestres:1
+}
+}
+
+};
+
+return packs[type];
+
+}
+
+/* =========================
+   GERAR PLAYER
+========================= */
+
+function generatePackPlayer(type){
+
+const pack=
+getPackConfig(type);
+
+if(Math.random()<0.0015){
+
+return chooseNeo();
+
+}
+
+return choosePlayer(
+randomRarity(pack.chances)
+);
+
+}
+
+/* =========================
+   ABRIR PACK
+========================= */
+
+function openPack(type){
+
+if(autoPackActive){
+
+toast(
+"⚠️ Pare a abertura automática primeiro."
+);
+
+return;
+
+}
+
+const pack=
+getPackConfig(type);
+
+if(!pack)return;
+
+if(game.coins<pack.cost){
+
+toast(
+"❌ Moedas insuficientes."
+);
+
+return;
+
+}
+
+game.coins-=pack.cost;
+
+const player=
+generatePackPlayer(type);
+
+if(player.rarity==="neo"){
+
+toast(
+"🌌 NEO DESPERTADO!"
+);
+
+}
+
+game.packsOpened++;
+
+pendingPlayer=player;
+
+registerCollection(player);
+
+saveGame();
+
+updateUI();
+
+checkMissions();
+
+showPlayerModal(
+player,
+"JOGADOR OBTIDO"
+);
+
+}
+
+/* =========================
+   ABERTURA AUTOMÁTICA
+========================= */
+
+function startAutoPack(){
+
+if(autoPackActive){
+
+toast(
+"⚠️ A abertura automática já está ativa."
+);
+
+return;
+
+}
+
+const type=
+document.getElementById(
+"autoPackType"
+).value;
+
+const amount=
+Math.max(
+1,
+Math.min(
+100,
+parseInt(
+document.getElementById(
+"autoPackAmount"
+).value
+)||1
+)
+);
+
+const pack=
+getPackConfig(type);
+
+if(!pack)return;
+
+if(game.coins<pack.cost){
+
+toast(
+"❌ Você não possui moedas suficientes para começar."
+);
+
+return;
+
+}
+
+autoPackActive=true;
+
+autoPackCurrent=0;
+autoPackTotal=amount;
+
+document.getElementById(
+"autoPackAmount"
+).value=amount;
+
+document.getElementById(
+"autoProgress"
+).style.width="0%";
+
+document.getElementById(
+"autoResult"
+).textContent="";
+
+document.getElementById(
+"modal"
+).classList.remove("show");
+
+updateAutoStatus(
+"⚡ Preparando abertura automática..."
+);
+
+autoPackTimer=
+setTimeout(
+()=>autoOpenSinglePack(type),
+600
+);
+
+}
+
+function autoOpenSinglePack(type){
+
+if(!autoPackActive)return;
+
+const pack=
+getPackConfig(type);
+
+if(!pack){
+
+stopAutoPack();
+
+return;
+
+}
+
+if(game.coins<pack.cost){
+
+updateAutoStatus(
+"🛑 Abertura parada: moedas insuficientes."
+);
+
+toast(
+"🛑 Moedas insuficientes para continuar."
+);
+
+stopAutoPack(true);
+
+return;
+
+}
+
+game.coins-=pack.cost;
+
+const player=
+generatePackPlayer(type);
+
+game.packsOpened++;
+
+game.inventory.push({
+
+...player,
+
+uniqueId:
+player.id+
+"-"+
+Date.now()+
+"-"+
+Math.random()
+
+});
+
+registerCollection(player);
+
+autoPackCurrent++;
+
+const progress=
+(autoPackCurrent/
+autoPackTotal)*100;
+
+document.getElementById(
+"autoProgress"
+).style.width=
+progress+"%";
+
+document.getElementById(
+"autoResult"
+).textContent=
+"Último: "+
+player.name+
+" — "+
+player.rarity.toUpperCase();
+
+if(player.rarity==="neo"){
+
+toast(
+"🌌 NEO DESPERTADO: "+
+player.name
+);
+
+}
+
+saveGame();
+
+updateUI();
+
+checkMissions();
+
+showAutoReveal(
+player,
+type
+);
+
+updateAutoStatus(
+"⚡ Abrindo "+
+autoPackCurrent+
+" / "+
+autoPackTotal+
+" — "+
+player.name
+);
+
+if(autoPackCurrent>=autoPackTotal){
+
+autoPackTimer=
+setTimeout(
+()=>{
+stopAutoPack(true);
+},
+1300
+);
+
+return;
+
+}
+
+autoPackTimer=
+setTimeout(
+()=>autoOpenSinglePack(type),
+1300
+);
+
+}
+
+function showAutoReveal(player,type){
+
+const reveal=
+document.getElementById(
+"packReveal"
+);
+
+document.getElementById(
+"revealTitle"
+).textContent=
+type==="ego"
+?
+"🔥 EGO PACK"
+:
+"🎴 PACK ABERTO";
+
+document.getElementById(
+"revealImage"
+).src=
+player.image;
+
+document.getElementById(
+"revealName"
+).textContent=
+player.name;
+
+const rarity=
+document.getElementById(
+"revealRarity"
+);
+
+rarity.textContent=
+player.rarity.toUpperCase();
+
+rarity.className=
+"rarity reveal-rarity "+
+player.rarity;
+
+document.getElementById(
+"revealPower"
+).textContent=
+"⚡ PODER "+
+getPlayerPower(player);
+
+reveal.classList.remove("show");
+
+void reveal.offsetWidth;
+
+reveal.classList.add("show");
+
+if(player.rarity==="neo"){
+
+document.getElementById(
+"revealTitle"
+).textContent=
+"🌌 NEO DESPERTADO";
+
+}
+
+}
+
+function stopAutoPack(completed=false){
+
+if(autoPackTimer){
+
+clearTimeout(autoPackTimer);
+
+autoPackTimer=null;
+
+}
+
+const wasActive=
+autoPackActive;
+
+autoPackActive=false;
+
+document.getElementById(
+"packReveal"
+).classList.remove("show");
+
+if(completed){
+
+updateAutoStatus(
+"✅ Abertura concluída: "+
+autoPackCurrent+
+" / "+
+autoPackTotal+
+" packs."
+);
+
+document.getElementById(
+"autoProgress"
+).style.width="100%";
+
+if(wasActive){
+
+toast(
+"✅ Abertura automática concluída!"
+);
+
+}
+
+}else{
+
+updateAutoStatus(
+
+autoPackCurrent>0
+?
+"⏹️ Abertura parada em "+
+autoPackCurrent+
+" / "+
+autoPackTotal+
+"."
+:
+"⏹️ Abertura automática parada."
+
+);
+
+}
+
+saveGame();
+
+updateUI();
+
+}
+
+function updateAutoStatus(text){
+
+document.getElementById(
+"autoStatus"
+).textContent=text;
+
+}
+
+/* =========================
+   MODAL
+========================= */
+
+function showPlayerModal(player,title){
+
+document.getElementById(
+"modalTitle"
+).textContent=title;
+
+document.getElementById(
+"modalImage"
+).src=player.image;
+
+document.getElementById(
+"modalPlayerName"
+).textContent=
+player.name;
+
+const rarity=
+document.getElementById(
+"modalRarity"
+);
+
+rarity.textContent=
+player.rarity.toUpperCase();
+
+rarity.className=
+"rarity "+
+player.rarity;
+
+document.getElementById(
+"modalPower"
+).textContent=
+"⚡ PODER "+
+getPlayerPower(player);
+
+document.getElementById(
+"modal"
+).classList.add("show");
+
+}
+
+function savePlayer(){
+
+if(!pendingPlayer)return;
+
+game.inventory.push({
+
+...pendingPlayer,
+
+uniqueId:
+pendingPlayer.id+
+"-"+
+Date.now()+
+"-"+
+Math.random()
+
+});
+
+const name=
+pendingPlayer.name;
+
+registerCollection(
+pendingPlayer
+);
+
+pendingPlayer=null;
+
+document.getElementById(
+"modal"
+).classList.remove("show");
+
+saveGame();
+
+updateUI();
+
+checkMissions();
+
+toast(
+"✅ "+
+name+
+" adicionado ao inventário."
+);
+
+}
+
+function getSellValue(player){
+
+return({
+
+common:25,
+rare:75,
+epic:200,
+legendary:600,
+mestres:1500,
+world5:5000,
+newgen:5000,
+neo:15000,
+deus:100000
+
+})[
+player.rarity
+]||25;
+
+}
+
+function sellPendingPlayer(){
+
+if(!pendingPlayer)return;
+
+const value=
+getSellValue(
+pendingPlayer
+);
+
+const name=
+pendingPlayer.name;
+
+game.coins+=value;
+
+pendingPlayer=null;
+
+document.getElementById(
+"modal"
+).classList.remove("show");
+
+saveGame();
+
+updateUI();
+
+toast(
+"🪙 "+
+name+
+" vendido por "+
+value+
+" moedas."
+);
+
+}
+
+function sellPlayer(index){
+
+const player=
+game.inventory[index];
+
+if(!player)return;
+
+const value=
+getSellValue(player);
+
+game.coins+=value;
+
+game.inventory.splice(
+index,
+1
+);
+
+selectedLegendary=
+selectedLegendary
+.filter(i=>i!==index)
+.map(
+i=>i>index?i-1:i
+);
+
+saveGame();
+
+updateUI();
+
+toast(
+"🪙 "+
+player.name+
+" vendido por "+
+value+
+" moedas."
+);
+
+}
+
+/* =========================
+   INVENTÁRIO
+========================= */
+
+function setInventoryFilter(filter){
+
+inventoryFilter=filter;
+
+document.querySelectorAll(
+".filter-btn"
+).forEach(button=>{
+
+button.classList.toggle(
+"active",
+button.dataset.filter===filter
+);
+
+});
+
+renderInventory();
+
+}
+
+function renderInventory(){
+
+const container=
+document.getElementById(
+"inventory"
+);
+
+container.innerHTML="";
+
+const filtered=
+game.inventory.filter(
+p=>
+inventoryFilter==="all"
+||
+p.rarity===inventoryFilter
+);
+
+document.getElementById(
+"inventoryInfo"
+).textContent=
+`Mostrando ${filtered.length} de ${game.inventory.length} jogadores.`;
+
+if(!filtered.length){
+
+container.innerHTML=
+`<div class="empty">
+Nenhum jogador encontrado nessa raridade.
+</div>`;
+
+return;
+
+}
+
+filtered.forEach(player=>{
+
+const index=
+game.inventory.indexOf(player);
+
+const card=
+document.createElement("div");
+
+card.className=
+"player-card";
+
+if(player.rarity==="deus"){
+
+card.classList.add(
+"deus-card"
+);
+
+}
+
+if(player.rarity==="world5"){
+
+card.classList.add(
+"world5-card"
+);
+
+}
+
+const power=
+getPlayerPower(player);
+
+const percent=
+Math.min(
+100,
+(power/1000)*100
+);
+
+card.innerHTML=`
+
+<img
+src="${player.image}"
+alt="${player.name}"
+onerror="this.style.opacity='.25'">
+
+<div class="player-info">
+
+<div class="player-name">
+${player.name}
+</div>
+
+<span class="rarity ${player.rarity}">
+${player.rarity.toUpperCase()}
+</span>
+
+<div class="power-box">
+
+<div class="power-label">
+
+<span>
+PODER
+</span>
+
+<span class="power-value">
+${power}
+</span>
+
+</div>
+
+<div class="power-bar">
+
+<div
+class="power-fill"
+style="width:${percent}%">
+</div>
+
+</div>
+
+</div>
+
+<button
+class="sell-button"
+onclick="sellPlayer(${index})">
+
+🪙 VENDER
+
+</button>
+
+</div>
+`;
+
+container.appendChild(card);
+
+});
+
+}
+
+/* =========================
+   COLEÇÃO
+========================= */
+
+function renderCollection(){
+
+const container=
+document.getElementById(
+"collection"
+);
+
+container.innerHTML="";
+
+const all=
+getAllCharacters();
+
+document.getElementById(
+"collectionProgress"
+).textContent=
+`${game.collection.length}/${all.length} personagens descobertos.`;
+
+document.getElementById(
+"collectionCount"
+).textContent=
+game.collection.length;
+
+all.forEach(player=>{
+
+const unlocked=
+game.collection.includes(
+player.id
+);
+
+const card=
+document.createElement("div");
+
+card.className=
+"collection-card"+
+(unlocked?"":" locked");
+
+if(player.rarity==="deus"){
+
+card.classList.add(
+"deus-card"
+);
+
+}
+
+if(player.rarity==="world5"){
+
+card.classList.add(
+"world5-card"
+);
+
+}
+
+const power=
+getPlayerPower(player);
+
+card.innerHTML=`
+
+<img
+src="${player.image}"
+alt="${player.name}"
+onerror="this.style.opacity='.25'">
+
+<div class="collection-info">
+
+<div class="collection-name">
+
+${unlocked
+?
+player.name
+:
+"???"}
+
+</div>
+
+<span class="rarity ${player.rarity}">
+${player.rarity.toUpperCase()}
+</span>
+
+${
+unlocked
+?
+`
+
+<div class="collection-power">
+⚡ Poder ${power}
+</div>
+
+<div class="collection-status">
+✅ DESCOBERTO
+</div>
+
+`
+:
+`
+
+<div class="collection-status">
+🔒 Ainda não obtido
+</div>
+
+`
+}
+
+</div>
+`;
+
+container.appendChild(card);
+
+});
+
+}
+
+/* =========================
+   TREINO / DAILY
+========================= */
+
+function train(){
+
+const now=
+Date.now();
+
+if(now-game.lastTrain<15000){
+
+const remaining=
+Math.ceil(
+(15000-(now-game.lastTrain))/1000
+);
+
+toast(
+"⏳ Aguarde "+
+remaining+
+" segundos."
+);
+
+return;
+
+}
+
+game.lastTrain=now;
+
+game.coins+=25;
+
+addXP(5);
+
+saveGame();
+
+updateUI();
+
+toast(
+"🧠 Ego treinado! +25 moedas."
+);
+
+}
+
+function dailyBonus(){
+
+const today=
+new Date().toDateString();
+
+if(game.dailyClaimed===today){
+
+toast(
+"🎁 Bônus diário já coletado."
+);
+
+return;
+
+}
+
+game.dailyClaimed=today;
+
+game.coins+=250;
+
+addXP(20);
+
+saveGame();
+
+updateUI();
+
+toast(
+"🎁 +250 moedas e +20 XP!"
+);
+
+}
+
+/* =========================
+   MISSÕES
+========================= */
+
+function checkMissions(){
+
+if(
+!game.missions[1]&&
+game.packsOpened>=1
+){
+
+game.missions[1]=true;
+
+game.coins+=100;
+
+toast(
+"🎯 Primeiro Passo concluído! +100 moedas."
+);
+
+}
+
+if(
+!game.missions[2]&&
+game.inventory.length>=5
+){
+
+game.missions[2]=true;
+
+game.coins+=300;
+
+toast(
+"🎯 Collector concluído! +300 moedas."
+);
+
+}
+
+if(
+!game.missions[3]&&
+game.level>=5
+){
+
+game.missions[3]=true;
+
+game.coins+=500;
+
+toast(
+"🎯 Ego Supreme concluído! +500 moedas."
+);
+
+}
+
+saveGame();
+
+updateMissions();
+
+}
+
+/* =========================
+   NEW GEN
+========================= */
+
+function renderLegendarySelector(){
+
+const container=
+document.getElementById(
+"legendarySelector"
+);
+
+container.innerHTML="";
+
+game.inventory.forEach(
+(player,index)=>{
+
+if(
+player.rarity!=="legendary"
+)return;
+
+const div=
+document.createElement("div");
+
+div.className=
+"select-player";
+
+if(
+selectedLegendary.includes(index)
+){
+
+div.classList.add(
+"selected"
+);
+
+}
+
+div.innerHTML=`
+
+<strong>
+${player.name}
+</strong>
+
+<small>
+⚡ Poder ${getPlayerPower(player)}
+</small>
+
+<small>
+Legendary
+</small>
+
+`;
+
+div.onclick=
+()=>toggleLegendary(index);
+
+container.appendChild(div);
+
+});
+
+if(!container.innerHTML){
+
+container.innerHTML=
+`<div class="empty">
+Você ainda não possui jogadores Legendary.
+</div>`;
+
+}
+
+}
+
+function toggleLegendary(index){
+
+const position=
+selectedLegendary.indexOf(index);
+
+if(position>=0){
+
+selectedLegendary.splice(
+position,
+1
+);
+
+}else{
+
+if(
+selectedLegendary.length>=3
+){
+
+toast(
+"⚠️ Você pode selecionar somente 3."
+);
+
+return;
+
+}
+
+selectedLegendary.push(index);
+
+}
+
+updateNewGenUI();
+
+}
+
+function updateNewGenUI(){
+
+renderLegendarySelector();
+
+document.getElementById(
+"newGenStatus"
+).textContent=
+`${selectedLegendary.length}/3 selecionados.`;
+
+}
+
+function createNewGen(){
+
+if(
+selectedLegendary.length!==3
+){
+
+toast(
+"⚠️ Selecione exatamente 3 Legendary."
+);
+
+return;
+
+}
+
+const selected=
+selectedLegendary.map(
+index=>
+game.inventory[index]
+);
+
+if(
+selected.some(
+p=>
+!p||
+p.rarity!=="legendary"
+)
+){
+
+selectedLegendary=[];
+
+updateNewGenUI();
+
+toast(
+"❌ Seleção inválida."
+);
+
+return;
+
+}
+
+const chosen=
+newGenPlayers[
+Math.floor(
+Math.random()*
+newGenPlayers.length
+)
+];
+
+const indexes=
+[...selectedLegendary]
+.sort(
+(a,b)=>b-a
+);
+
+indexes.forEach(
+index=>
+game.inventory.splice(
+index,
+1
+)
+);
+
+game.inventory.push({
+
+...chosen,
+
+uniqueId:
+chosen.id+
+"-"+
+Date.now()+
+"-"+
+Math.random()
+
+});
+
+registerCollection(
+chosen
+);
+
+selectedLegendary=[];
+
+addXP(50);
+
+saveGame();
+
+updateUI();
+
+toast(
+"💎 NEW GEN OBTIDO: "+
+chosen.name+
+" — Poder "+
+getPlayerPower(chosen)
+);
+
+}
+
+/* =========================
+   KAISER
+========================= */
+
+function moveKaiserBar(){
+
+if(
+!document.getElementById(
+"kaiserMarker"
+)
+)return;
+
+kaiserPosition+=
+kaiserDirection*1.4;
+
+if(
+kaiserPosition>=96
+){
+
+kaiserPosition=96;
+kaiserDirection=-1;
+
+}
+
+if(
+kaiserPosition<=0
+){
+
+kaiserPosition=0;
+kaiserDirection=1;
+
+}
+
+document.getElementById(
+"kaiserMarker"
+).style.left=
+kaiserPosition+"%";
+
+}
+
+function moveKaiserZone(){
+
+kaiserZonePosition+=
+kaiserZoneDirection*.45;
+
+if(
+kaiserZonePosition>=78
+){
+
+kaiserZonePosition=78;
+kaiserZoneDirection=-1;
+
+}
+
+if(
+kaiserZonePosition<=0
+){
+
+kaiserZonePosition=0;
+kaiserZoneDirection=1;
+
+}
+
+document.getElementById(
+"kaiserZone"
+).style.left=
+kaiserZonePosition+"%";
+
+}
+
+function playKaiserGame(){
+
+const now=
+Date.now();
+
+if(
+now-game.kaiserLastPlay<5000
+){
+
+const remaining=
+Math.ceil(
+(5000-(now-game.kaiserLastPlay))/1000
+);
+
+toast(
+"⏳ Aguarde "+
+remaining+
+"s."
+);
+
+return;
+
+}
+
+game.kaiserLastPlay=now;
+
+const marker=
+kaiserPosition;
+
+const start=
+kaiserZonePosition;
+
+const end=
+kaiserZonePosition+18;
+
+if(
+marker>=start&&
+marker<=end
+){
+
+game.coins+=100;
+
+addXP(15);
+
+document.getElementById(
+"kaiserStatus"
+).textContent=
+"🔥 ACERTO PERFEITO!";
+
+toast(
+"👑 KAISER IMPACT! +100 moedas."
+);
+
+}else{
+
+document.getElementById(
+"kaiserStatus"
+).textContent=
+"❌ Errou o alvo.";
+
+}
+
+saveGame();
+
+updateUI();
+
+}
+
+/* =========================
+   REFLEXO
+========================= */
+
+function startReflexGame(){
+
+const now=
+Date.now();
+
+if(
+now-game.reflexLastPlay<3000
+){
+
+const remaining=
+Math.ceil(
+(3000-(now-game.reflexLastPlay))/1000
+);
+
+toast(
+"⏳ Aguarde "+
+remaining+
+"s."
+);
+
+return;
+
+}
+
+game.reflexLastPlay=now;
+
+reflexActive=true;
+
+const target=
+document.getElementById(
+"reflexTarget"
+);
+
+const area=
+document.getElementById(
+"reflexArea"
+);
+
+const maxX=
+Math.max(
+0,
+area.clientWidth-50
+);
+
+const maxY=
+Math.max(
+0,
+area.clientHeight-50
+);
+
+target.style.left=
+Math.floor(
+Math.random()*maxX
+)+"px";
+
+target.style.top=
+Math.floor(
+Math.random()*maxY
+)+"px";
+
+target.style.display=
+"block";
+
+document.getElementById(
+"reflexStatus"
+).textContent=
+"⚡ AGORA!";
+
+reflexTimeout=
+setTimeout(
+()=>{
+
+if(reflexActive){
+
+reflexActive=false;
+
+target.style.display=
+"none";
+
+document.getElementById(
+"reflexStatus"
+).textContent=
+"❌ Você demorou demais.";
+
+}
+
+},
+2500
+);
+
+}
+
+function hitReflexTarget(){
+
+if(!reflexActive)return;
+
+reflexActive=false;
+
+clearTimeout(
+reflexTimeout
+);
+
+document.getElementById(
+"reflexTarget"
+).style.display=
+"none";
+
+game.coins+=75;
+
+addXP(12);
+
+saveGame();
+
+updateUI();
+
+document.getElementById(
+"reflexStatus"
+).textContent=
+"🎯 ACERTOU! +75 moedas";
+
+toast(
+"⚡ Reflexo perfeito! +75 moedas."
+);
+
+}
+
+/* =========================
+   EGO RUSH
+========================= */
+
+function startEgoRush(){
+
+const now=
+Date.now();
+
+if(
+now-game.egoRushLastPlay<5000
+){
+
+const remaining=
+Math.ceil(
+(5000-(now-game.egoRushLastPlay))/1000
+);
+
+toast(
+"⏳ Aguarde "+
+remaining+
+"s."
+);
+
+return;
+
+}
+
+game.egoRushLastPlay=now;
+
+egoRushActive=true;
+
+const target=
+document.getElementById(
+"egoRushTarget"
+);
+
+const area=
+document.getElementById(
+"egoRushArea"
+);
+
+const maxX=
+Math.max(
+0,
+area.clientWidth-60
+);
+
+const maxY=
+Math.max(
+0,
+area.clientHeight-60
+);
+
+target.style.left=
+Math.floor(
+Math.random()*maxX
+)+"px";
+
+target.style.top=
+Math.floor(
+Math.random()*maxY
+)+"px";
+
+target.style.display=
+"block";
+
+document.getElementById(
+"egoRushStatus"
+).textContent=
+"🔥 CLIQUE NO ALVO!";
+
+egoRushTimeout=
+setTimeout(
+()=>{
+
+if(egoRushActive){
+
+egoRushActive=false;
+
+target.style.display=
+"none";
+
+document.getElementById(
+"egoRushStatus"
+).textContent=
+"❌ Ego Rush perdido. Tente novamente.";
+
+}
+
+},
+1800
+);
+
+}
+
+function hitEgoRushTarget(){
+
+if(!egoRushActive)return;
+
+egoRushActive=false;
+
+clearTimeout(
+egoRushTimeout
+);
+
+document.getElementById(
+"egoRushTarget"
+).style.display=
+"none";
+
+addXP(30);
+
+saveGame();
+
+updateUI();
+
+document.getElementById(
+"egoRushStatus"
+).textContent=
+"💎 EGO DESPERTADO! +1 PACK";
+
+toast(
+"🎯 Você ganhou um EGO RUSH PACK!"
+);
+
+setTimeout(
+()=>openEgoRushPack(),
+450
+);
+
+}
+
+/* =========================
+   EGO RUSH PACK
+========================= */
+
+function openEgoRushPack(){
+
+if(autoPackActive){
+
+toast(
+"⚠️ Pare a abertura automática primeiro."
+);
+
+return;
+
+}
+
+let player;
+
+const roll=
+Math.random();
+
+if(roll<0.005){
+
+player=deusPlayer;
+
+toast(
+"👑 DEUS DO FUTEBOL DESPERTADO!"
+);
+
+}else if(roll<0.010){
+
+player=chooseNeo();
+
+toast(
+"🌌 NEO ENCONTRADO NO EGO RUSH!"
+);
+
+}else if(roll<0.040){
+
+player=chooseTeamWorld5();
+
+toast(
+"🌍 TEAM WORLD 5 ENCONTRADO!"
+);
+
+}else{
+
+player=
+choosePlayer(
+randomRarity({
+epic:55,
+legendary:35,
+mestres:10
+})
+);
+
+}
+
+game.packsOpened++;
+
+pendingPlayer=player;
+
+registerCollection(
+player
+);
+
+saveGame();
+
+updateUI();
+
+checkMissions();
+
+showPlayerModal(
+player,
+player.rarity==="deus"
+?
+"👑 DEUS DO FUTEBOL"
+:
+player.rarity==="world5"
+?
+"🌍 TEAM WORLD 5"
+:
+"🎯 EGO RUSH PACK"
+);
+
+}
+
+/* =========================
+   SORTE KAISER
+========================= */
+
+const slotSymbols=[
+"⚽",
+"🔥",
+"👑",
+"💙",
+"⚡",
+"🥅"
+];
+
+function spinKaiserSlots(){
+
+if(slotPlaying)return;
+
+slotPlaying=true;
+
+const slots=[
+
+document.getElementById(
+"slot1"
+),
+
+document.getElementById(
+"slot2"
+),
+
+document.getElementById(
+"slot3"
+)
+
+];
+
+let count=0;
+
+const interval=
+setInterval(
+()=>{
+
+slots.forEach(
+slot=>{
+
+slot.textContent=
+slotSymbols[
+Math.floor(
+Math.random()*
+slotSymbols.length
+)
+];
+
+});
+
+count++;
+
+if(count>=12){
+
+clearInterval(interval);
+
+finishKaiserSlots(
+slots.map(
+slot=>
+slot.textContent
+)
+);
+
+}
+
+},
+80
+);
+
+}
+
+function finishKaiserSlots(symbols){
+
+slotPlaying=false;
+
+let reward=0;
+
+if(
+symbols[0]===symbols[1]&&
+symbols[1]===symbols[2]
+){
+
+reward=250;
+
+addXP(25);
+
+document.getElementById(
+"slotStatus"
+).textContent=
+"👑 TRIPLO! +250 moedas";
+
+}else if(
+
+symbols[0]===symbols[1]||
+symbols[1]===symbols[2]||
+symbols[0]===symbols[2]
+
+){
+
+reward=100;
+
+addXP(12);
+
+document.getElementById(
+"slotStatus"
+).textContent=
+"🔥 DUPLO! +100 moedas";
+
+}else{
+
+document.getElementById(
+"slotStatus"
+).textContent=
+"❌ Nenhuma combinação.";
+
+}
+
+if(reward>0){
+
+game.coins+=reward;
+
+toast(
+"🎰 +"+
+reward+
+" moedas!"
+);
+
+}
+
+saveGame();
+
+updateUI();
+
+}
+
+/* =========================
+   LOG DE ATUALIZAÇÕES
+========================= */
+
+const gameLogs=[
+
+{
+version:"v1.3.0",
+date:"05/09/2026",
+title:"🌍 TEAM WORLD 5",
+description:
+"Uma nova classe de jogadores chegou ao BLUE LOCK — Ego Rush.",
+updates:[
+
+"Adicionados Pablo Cavazos, Leonardo Luna, Adam Blake e Dada Silva.",
+
+"Team World 5 possui poder superior aos Mestres.",
+
+"Os jogadores Team World 5 só podem ser obtidos através do Ego Rush.",
+
+"Novo visual exclusivo para a raridade Team World 5.",
+
+"Team World 5 integrado ao sistema de Duelos."
+
+],
+tag:"NOVO CONTEÚDO",
+important:true
+},
+
+{
+version:"v1.2.0",
+date:"04/09/2026",
+title:"⚔️ CENTRAL DE EGO",
+description:
+"A Central de Ego recebeu novos sistemas para expandir a experiência do jogo.",
+updates:[
+
+"Sistema de Duelos adicionado.",
+
+"Sistema de Auto Duelo adicionado.",
+
+"Sequência de vitórias adicionada.",
+
+"Recompensas aumentam conforme sua sequência.",
+
+"Novo sistema de seleção de trio."
+
+],
+tag:"SISTEMA",
+important:false
+},
+
+{
+version:"v1.1.0",
+date:"03/09/2026",
+title:"🌌 SISTEMA NEO",
+description:
+"Jogadores NEO agora podem aparecer durante sua jornada.",
+updates:[
+
+"Adicionados NEO Isagi, NEO Rin, NEO Kaiser e NEO Nanase.",
+
+"Nova raridade NEO.",
+
+"Chance extremamente baixa de encontrar jogadores NEO.",
+
+"Novo visual especial para a raridade NEO."
+
+],
+tag:"RARIDADE",
+important:false
+},
+
+{
+version:"v1.0.0",
+date:"01/09/2026",
+title:"🚀 BLUE LOCK — EGO RUSH",
+description:
+"Lançamento inicial do sistema de gacha e coleção.",
+updates:[
+
+"Sistema de Packs criado.",
+
+"Sistema de inventário criado.",
+
+"Sistema de coleção criado.",
+
+"Sistema de treinamento criado.",
+
+"Sistema de XP e níveis criado.",
+
+"Sistema de missões criado.",
+
+"Bônus diário adicionado.",
+
+"Mini-games adicionados."
+
+],
+tag:"LANÇAMENTO",
+important:false
+}
+
+];
+
+function renderGameLogs(){
+
+const container=
+document.getElementById(
+"logContainer"
+);
+
+if(!container)return;
+
+container.innerHTML="";
+
+gameLogs.forEach(
+log=>{
+
+const card=
+document.createElement("div");
+
+card.className=
+"log-card"+
+(
+log.important
+?
+" important"
+:
+""
+);
+
+card.innerHTML=`
+
+<div class="log-top">
+
+<div class="log-version">
+${log.version}
+</div>
+
+<div class="log-date">
+${log.date}
+</div>
+
+</div>
+
+<div class="log-title">
+${log.title}
+</div>
+
+<div class="log-description">
+${log.description}
+</div>
+
+<ul class="log-list">
+
+${log.updates
+.map(
+update=>
+`<li>${update}</li>`
+)
+.join("")}
+
+</ul>
+
+<div class="log-tag">
+${log.tag}
+</div>
+
+`;
+
+container.appendChild(card);
+
+});
+
+}
+
+/* =========================
+   UI
+========================= */
+
+function updateMissions(){
+
+[1,2,3].forEach(
+id=>{
+
+const element=
+document.getElementById(
+"mission"+id
+);
+
+element.classList.toggle(
+"completed",
+game.missions[id]
+);
+
+});
+
+}
+
+function updateDaily(){
+
+const today=
+new Date().toDateString();
+
+const text=
+document.getElementById(
+"dailyText"
+);
+
+text.textContent=
+game.dailyClaimed===today
+?
+"✅ Bônus já coletado hoje."
+:
+"+250 moedas +20 XP";
+
+}
+
+function updateUI(){
+
+document.getElementById(
+"coins"
+).textContent=
+game.coins.toLocaleString(
+"pt-BR"
+);
+
+document.getElementById(
+"level"
+).textContent=
+game.level;
+
+document.getElementById(
+"xp"
+).textContent=
+game.xp;
+
+document.getElementById(
+"packsOpened"
+).textContent=
+game.packsOpened;
+
+document.getElementById(
+"playerCount"
+).textContent=
+game.inventory.length;
+
+renderInventory();
+
+renderLegendarySelector();
+
+renderCollection();
+
+updateMissions();
+
+updateDaily();
+
+document.getElementById(
+"newGenStatus"
+).textContent=
+`${selectedLegendary.length}/3 selecionados.`;
+
+}
+
+/* =========================
+   TOAST
+========================= */
+
+function toast(message){
+
+const element=
+document.getElementById(
+"toast"
+);
+
+element.textContent=
+message;
+
+element.classList.add(
+"show"
+);
+
+setTimeout(
+()=>{
+element.classList.remove(
+"show"
+);
+},
+3000
+);
+
+}
+
+/* =========================
+   MODAL
+========================= */
+
+document.getElementById(
+"modal"
+).addEventListener(
+"click",
+function(event){
+
+if(event.target===this){
+
+this.classList.remove(
+"show"
+);
+
+pendingPlayer=null;
+
+}
+
+}
+);
+
+/* =========================
+   RESET
+========================= */
+
+function resetGame(){
+
+if(!confirm(
+"Tem certeza que deseja apagar TODO o progresso?"
+))return;
+
+if(autoPackActive){
+
+stopAutoPack();
+
+}
+
+localStorage.removeItem(
+"blueLockGame"
+);
+
+location.reload();
+
+}
+
+/* =========================
+   INTERVALOS
+========================= */
+
+setInterval(
+moveKaiserBar,
+30
+);
+
+setInterval(
+moveKaiserZone,
+35
+);
+
+/* =========================
+   INICIALIZAÇÃO
+========================= */
+
+renderGameLogs();
+
+updateUI();
 
 </script>
 
 </body>
-
 </html>
