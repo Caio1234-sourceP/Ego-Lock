@@ -958,6 +958,40 @@ button:active,.link-button:active{
     100%{background-position:300% 50%}
 }
 
+/* OS ENTROSA — RARIDADE SECRETA */
+.entrosa{
+    background:linear-gradient(90deg,#111,#ff1744,#fff,#ff1744,#111);
+    background-size:400% 100%;
+    animation:entrosaGradient 1.8s linear infinite;
+    color:#fff;
+    box-shadow:0 0 12px #ff1744,0 0 30px rgba(255,23,68,.7),0 0 55px rgba(255,255,255,.25);
+    border:1px solid #fff;
+}
+
+.entrosa-card{
+    border-color:#ff1744!important;
+    box-shadow:0 0 22px rgba(255,23,68,.35);
+}
+
+.entrosa-card:hover{
+    box-shadow:0 0 35px rgba(255,23,68,.75),0 0 65px rgba(255,255,255,.18);
+}
+
+.entrosa-title{
+    color:#ff1744!important;
+    text-shadow:0 0 10px #fff,0 0 25px #ff1744,0 0 45px #ff1744;
+}
+
+.entrosa .power-fill{
+    background:linear-gradient(90deg,#ff1744,#fff,#ff1744);
+    box-shadow:0 0 12px #ff1744;
+}
+
+@keyframes entrosaGradient{
+    0%{background-position:0% 50%}
+    100%{background-position:400% 50%}
+}
+
 /* COLEÇÃO */
 
 .collection-box{
@@ -1524,6 +1558,237 @@ button:active,.link-button:active{
     }
 }
 
+/* =========================================================
+   🏆 OS ENTROSA — CARTA MUITO RARA DOURADA
+   COLE ESTE BLOCO ANTES DE </head>
+========================================================= */
+
+.entrosa{
+    background:
+        linear-gradient(
+            135deg,
+            #3d2600 0%,
+            #8a5a00 15%,
+            #d4af37 30%,
+            #fff1a3 45%,
+            #d4af37 60%,
+            #8a5a00 80%,
+            #3d2600 100%
+        ) !important;
+
+    background-size:400% 400% !important;
+    animation:entrosaGold 3s ease infinite !important;
+
+    color:#fff !important;
+
+    border:2px solid #ffd700 !important;
+
+    box-shadow:
+        0 0 10px #ffd700,
+        0 0 25px rgba(255,215,0,.9),
+        0 0 50px rgba(255,180,0,.6),
+        inset 0 0 20px rgba(255,235,130,.25) !important;
+}
+
+
+/* FUNDO PRINCIPAL DA CARTA */
+
+.entrosa-card{
+    position:relative !important;
+    overflow:hidden !important;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255,240,150,.45),
+            transparent 35%
+        ),
+        linear-gradient(
+            145deg,
+            #241600 0%,
+            #5c3b00 18%,
+            #b8860b 35%,
+            #f0cf5a 50%,
+            #9b6800 68%,
+            #4a3000 85%,
+            #1c1100 100%
+        ) !important;
+
+    border:2px solid #ffd700 !important;
+
+    box-shadow:
+        0 0 15px #ffd700,
+        0 0 35px rgba(255,215,0,.8),
+        0 0 70px rgba(255,180,0,.45),
+        inset 0 0 35px rgba(255,230,120,.18) !important;
+}
+
+
+/* BRILHO PASSANDO PELA CARTA */
+
+.entrosa-card::before{
+    content:"";
+    position:absolute;
+
+    top:-60%;
+    left:-120%;
+
+    width:65%;
+    height:220%;
+
+    background:linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255,255,255,.05) 35%,
+        rgba(255,255,255,.75) 50%,
+        rgba(255,255,255,.05) 65%,
+        transparent 100%
+    );
+
+    transform:rotate(20deg);
+
+    animation:entrosaShine 3s ease-in-out infinite;
+
+    pointer-events:none;
+
+    z-index:10;
+}
+
+
+/* BRILHO DOURADO EXTRA */
+
+.entrosa-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,255,255,.2),
+            transparent 15%
+        ),
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(255,220,80,.18),
+            transparent 20%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(255,200,0,.2),
+            transparent 30%
+        );
+
+    pointer-events:none;
+
+    z-index:1;
+}
+
+
+/* NOME OS ENTROSA */
+
+.entrosa-title{
+    position:relative;
+    z-index:20;
+
+    color:#fff4a3 !important;
+
+    text-shadow:
+        0 0 5px #fff,
+        0 0 12px #ffd700,
+        0 0 25px #ffd700,
+        0 0 45px #ffae00 !important;
+}
+
+
+/* PODER */
+
+.entrosa .power-fill{
+    background:
+        linear-gradient(
+            90deg,
+            #6b4300,
+            #c99a16,
+            #fff0a0,
+            #ffd700,
+            #fff0a0,
+            #c99a16,
+            #6b4300
+        ) !important;
+
+    background-size:300% 100% !important;
+
+    animation:entrosaPower 1.5s linear infinite !important;
+
+    box-shadow:
+        0 0 10px #ffd700,
+        0 0 25px rgba(255,215,0,.8) !important;
+}
+
+
+/* HOVER */
+
+.entrosa-card:hover{
+    transform:translateY(-8px) scale(1.025) !important;
+
+    border-color:#fff5b0 !important;
+
+    box-shadow:
+        0 0 20px #ffd700,
+        0 0 45px rgba(255,215,0,1),
+        0 0 85px rgba(255,180,0,.65),
+        inset 0 0 35px rgba(255,240,150,.3) !important;
+}
+
+
+/* ANIMAÇÃO DO OURO */
+
+@keyframes entrosaGold{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+}
+
+
+/* ANIMAÇÃO DO BRILHO */
+
+@keyframes entrosaShine{
+
+    0%{
+        left:-120%;
+    }
+
+    55%{
+        left:140%;
+    }
+
+    100%{
+        left:140%;
+    }
+}
+
+
+/* ANIMAÇÃO DO PODER */
+
+@keyframes entrosaPower{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    100%{
+        background-position:300% 50%;
+    }
+}
 </style>
 </head>
 
@@ -1613,7 +1878,7 @@ Mestres: 5%
 </p>
 
 <div class="price">
-🪙500
+🪙 500
 </div>
 
 <button onclick="openPack('ego')">
@@ -1961,6 +2226,10 @@ NEO
 
 <button class="filter-btn" data-filter="deus" onclick="setInventoryFilter('deus')">
 DEUS
+</button>
+
+<button class="filter-btn" data-filter="entrosa" onclick="setInventoryFilter('entrosa')">
+OS ENTROSA
 </button>
 
 </div>
@@ -2356,6 +2625,14 @@ rarity:"deus",
 image:"images/deus-futebol.png"
 };
 
+/* RARIDADE SECRETA — NÃO APARECE NA INDEX */
+const entrosaPlayer={
+id:"os-entrosa",
+name:"Os Entrosa",
+rarity:"entrosa",
+image:"images/os-entrosa.jpg"
+};
+
 /* =========================================================
    SAVE
 ========================================================= */
@@ -2492,7 +2769,8 @@ hugo:315,
 "neo-isagi":475,
 "neo-nanase":420,
 
-"deus-futebol":1000
+"deus-futebol":1000,
+"os-entrosa":2000
 
 };
 
@@ -2506,7 +2784,8 @@ mestres:250,
 world5:325,
 newgen:340,
 neo:450,
-deus:1000
+deus:1000,
+entrosa:2000
 
 };
 
@@ -2621,6 +2900,9 @@ function registerCollection(player){
 
 if(!player)return;
 
+/* OS ENTROSA É SECRETO: NUNCA É REGISTRADO NA INDEX */
+if(player.rarity==="entrosa")return;
+
 if(!game.collection.includes(player.id)){
 
 game.collection.push(player.id);
@@ -2717,6 +2999,10 @@ players[0];
 
 }
 
+function chooseEntrosa(){
+ return entrosaPlayer;
+}
+
 function chooseNeo(){
 
 return neoPlayers[
@@ -2755,7 +3041,7 @@ mestres:1
 },
 
 elite:{
-cost:200,
+cost:500,
 chances:{
 common:15,
 rare:38,
@@ -2766,7 +3052,7 @@ mestres:2
 },
 
 ego:{
-cost:500,
+cost:1500,
 chances:{
 common:5,
 rare:20,
@@ -2788,6 +3074,12 @@ function generatePackPlayer(type){
 
 const pack=getPackConfig(type);
 
+/* OS ENTROSA: 0,001% = aproximadamente 1 em 100.000 */
+if(Math.random()<100){
+return chooseEntrosa();
+}
+
+/* NEO: 0,15% */
 if(Math.random()<0.0015){
 
 return chooseNeo();
@@ -2841,6 +3133,12 @@ if(player.rarity==="neo"){
 
 toast(
 "🌌 NEO DESPERTADO!"
+);
+
+}else if(player.rarity==="entrosa"){
+
+toast(
+"🔥 OS ENTROSA DESPERTADO!"
 );
 
 }
