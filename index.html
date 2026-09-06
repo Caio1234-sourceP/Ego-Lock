@@ -6,1163 +6,1524 @@
 <title>BLUE LOCK — Ego Rush</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
 
-body{
-font-family:Arial,Helvetica,sans-serif;
-background:radial-gradient(circle at top,#102d50 0%,#06101c 40%,#020408 100%);
-color:#fff;
-min-height:100vh
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800;900&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Rajdhani',Arial,sans-serif;
+    background:
+        radial-gradient(circle at 50% -10%,rgba(0,140,255,.28),transparent 35%),
+        radial-gradient(circle at 0% 50%,rgba(0,75,150,.16),transparent 35%),
+        linear-gradient(135deg,#02050a 0%,#06101c 45%,#02050a 100%);
+    color:#fff;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.035;
+    background-image:
+        linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);
+    background-size:45px 45px;
+    z-index:-1;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    border:1px solid rgba(22,131,255,.08);
+    box-shadow:0 0 80px rgba(22,131,255,.05),inset 0 0 80px rgba(22,131,255,.03);
+    top:20%;
+    left:50%;
+    transform:translateX(-50%);
+    pointer-events:none;
+    z-index:-1;
+}
+
+/* HEADER */
+
 header{
-background:rgba(3,9,17,.96);
-border-bottom:2px solid #1683ff;
-padding:17px 6%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-position:sticky;
-top:0;
-z-index:100;
-box-shadow:0 0 25px rgba(0,119,255,.25)
+    position:sticky;
+    top:0;
+    z-index:1000;
+    height:76px;
+    padding:0 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(2,7,13,.82);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(45,153,255,.35);
+    box-shadow:0 5px 30px rgba(0,0,0,.45),0 0 30px rgba(0,119,255,.08);
+}
+
+header::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-1px;
+    width:100%;
+    height:1px;
+    background:linear-gradient(90deg,transparent,#1683ff,#72c5ff,#1683ff,transparent);
+    opacity:.8;
 }
 
 .logo{
-font-size:28px;
-font-weight:1000;
-letter-spacing:4px;
-color:#1683ff
+    font-family:'Orbitron',sans-serif;
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:5px;
+    color:#1683ff;
+    text-shadow:0 0 8px rgba(22,131,255,.8),0 0 25px rgba(22,131,255,.4);
 }
 
-.logo span{color:white}
+.logo span{
+    color:#fff;
+    text-shadow:0 0 8px rgba(255,255,255,.5);
+}
 
 .coins{
-background:#101b2b;
-border:1px solid #f5ca3d;
-color:#ffd84c;
-padding:10px 18px;
-border-radius:30px;
-font-weight:900
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 18px;
+    background:linear-gradient(135deg,rgba(255,216,76,.1),rgba(255,180,0,.03));
+    border:1px solid rgba(255,211,61,.45);
+    border-radius:999px;
+    color:#ffd84c;
+    font-family:'Orbitron',sans-serif;
+    font-size:13px;
+    font-weight:800;
+    box-shadow:inset 0 0 20px rgba(255,210,50,.04),0 0 20px rgba(255,210,50,.08);
 }
 
 .container{
-width:90%;
-max-width:1400px;
-margin:auto
+    width:90%;
+    max-width:1450px;
+    margin:auto;
 }
 
+/* HERO */
+
 .hero{
-text-align:center;
-padding:70px 20px 50px
+    position:relative;
+    text-align:center;
+    padding:105px 20px 75px;
+}
+
+.hero::before{
+    content:"EGO";
+    position:absolute;
+    left:50%;
+    top:35px;
+    transform:translateX(-50%);
+    font-family:'Orbitron',sans-serif;
+    font-size:clamp(100px,20vw,260px);
+    font-weight:900;
+    color:transparent;
+    -webkit-text-stroke:1px rgba(22,131,255,.08);
+    pointer-events:none;
+    z-index:-1;
 }
 
 .hero h1{
-font-size:clamp(42px,7vw,82px);
-font-weight:1000;
-letter-spacing:5px;
-text-shadow:0 0 15px #1683ff,0 0 40px rgba(22,131,255,.5)
+    font-family:'Orbitron',sans-serif;
+    font-size:clamp(38px,7vw,82px);
+    font-weight:900;
+    letter-spacing:8px;
+    background:linear-gradient(90deg,#fff,#55b5ff,#1683ff,#fff);
+    background-size:300% auto;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:titleGradient 5s linear infinite;
+    filter:drop-shadow(0 0 12px rgba(22,131,255,.7)) drop-shadow(0 0 35px rgba(22,131,255,.25));
+}
+
+@keyframes titleGradient{
+    0%{background-position:0% center}
+    100%{background-position:300% center}
 }
 
 .hero p{
-color:#9eafc3;
-margin-top:15px;
-font-size:18px
+    max-width:650px;
+    margin:20px auto 0;
+    color:#8fa7c0;
+    font-size:18px;
+    font-weight:500;
+    letter-spacing:.5px;
 }
 
+/* SEÇÕES */
+
 .section{
-margin:45px 0
+    margin:65px 0;
+    animation:sectionAppear .6s ease both;
+}
+
+@keyframes sectionAppear{
+    from{opacity:0;transform:translateY(15px)}
+    to{opacity:1;transform:translateY(0)}
 }
 
 .section-title{
-font-size:30px;
-margin-bottom:22px;
-border-left:5px solid #1683ff;
-padding-left:14px
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:25px;
+    padding-left:18px;
+    font-family:'Orbitron',sans-serif;
+    font-size:26px;
+    font-weight:800;
+    letter-spacing:1px;
+    color:#fff;
 }
 
-.section-subtitle{
-color:#8fa3ba;
-margin-top:-10px;
-margin-bottom:25px;
-line-height:1.6
+.section-title::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:3px;
+    width:5px;
+    height:80%;
+    border-radius:10px;
+    background:linear-gradient(180deg,#72c5ff,#1683ff,#0054aa);
+    box-shadow:0 0 10px #1683ff,0 0 25px rgba(22,131,255,.45);
+}
+
+.section-title::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:linear-gradient(90deg,rgba(22,131,255,.35),transparent);
 }
 
 .grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:22px;
 }
+
+/* PACKS */
 
 .pack{
-background:linear-gradient(145deg,#101d2f,#070b12);
-border:1px solid #263d58;
-border-radius:18px;
-padding:24px;
-text-align:center;
-transition:.25s
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(145deg,rgba(16,34,55,.9),rgba(4,10,18,.95));
+    border:1px solid rgba(53,91,125,.55);
+    border-radius:20px;
+    padding:27px;
+    text-align:center;
+    transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease;
 }
 
+.pack::before{
+    content:"";
+    position:absolute;
+    width:160px;
+    height:160px;
+    top:-90px;
+    right:-70px;
+    background:#1683ff;
+    opacity:.08;
+    filter:blur(35px);
+    border-radius:50%;
+}
+
+.pack::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:60%;
+    height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.06),transparent);
+    transform:skewX(-20deg);
+    transition:.6s;
+}
+
+.pack:hover::after{left:130%}
+
 .pack:hover{
-transform:translateY(-6px);
-border-color:#1683ff;
-box-shadow:0 10px 30px rgba(22,131,255,.22)
+    transform:translateY(-8px);
+    border-color:#1683ff;
+    box-shadow:0 15px 40px rgba(0,0,0,.4),0 0 25px rgba(22,131,255,.15),inset 0 0 25px rgba(22,131,255,.04);
 }
 
 .pack h3{
-font-size:23px;
-margin-bottom:12px
+    position:relative;
+    font-family:'Orbitron',sans-serif;
+    font-size:20px;
+    font-weight:800;
+    margin-bottom:15px;
 }
 
 .pack p{
-color:#93a5ba;
-line-height:1.6;
-font-size:14px
+    color:#8fa5ba;
+    line-height:1.8;
+    font-size:14px;
 }
 
 .price{
-color:#ffd84d;
-font-weight:900;
-margin-top:12px
+    margin-top:15px;
+    color:#ffd84d;
+    font-family:'Orbitron',sans-serif;
+    font-weight:800;
+    text-shadow:0 0 10px rgba(255,216,77,.2);
 }
+
+/* BOTÕES */
 
 button,.link-button{
-border:none;
-cursor:pointer;
-color:white;
-font-weight:900;
-background:#126fe8;
-padding:12px 18px;
-border-radius:10px;
-transition:.2s;
-text-decoration:none;
-display:inline-block
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(100,190,255,.25);
+    cursor:pointer;
+    color:#fff;
+    font-family:'Rajdhani',sans-serif;
+    font-size:14px;
+    font-weight:800;
+    letter-spacing:.7px;
+    background:linear-gradient(135deg,#167cff,#0755b7);
+    padding:12px 20px;
+    border-radius:11px;
+    transition:transform .2s,box-shadow .2s,background .2s;
+    text-decoration:none;
+    display:inline-block;
+    box-shadow:0 5px 15px rgba(0,90,200,.18);
 }
 
+button::before,.link-button::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:70%;
+    height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.16),transparent);
+    transform:skewX(-20deg);
+    transition:.45s;
+}
+
+button:hover::before,.link-button:hover::before{left:130%}
+
 button:hover,.link-button:hover{
-transform:translateY(-2px);
-background:#2388ff;
-box-shadow:0 0 20px rgba(22,131,255,.35)
+    transform:translateY(-3px);
+    background:linear-gradient(135deg,#2c91ff,#1267d5);
+    box-shadow:0 8px 25px rgba(22,131,255,.3),0 0 20px rgba(22,131,255,.12);
+}
+
+button:active,.link-button:active{
+    transform:translateY(0) scale(.98);
 }
 
 .pack button{
-width:100%;
-margin-top:18px
+    width:100%;
+    margin-top:20px;
 }
 
 .actions{
-display:flex;
-flex-wrap:wrap;
-gap:12px
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
 }
 
+/* JOGOS */
+
 .games-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:22px
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:22px;
 }
 
 .game{
-background:#08111d;
-border:1px solid #203a56;
-border-radius:18px;
-padding:22px;
-overflow:hidden
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(145deg,rgba(9,22,36,.95),rgba(3,8,14,.98));
+    border:1px solid rgba(45,75,105,.65);
+    border-radius:20px;
+    padding:24px;
+    box-shadow:inset 0 0 30px rgba(22,131,255,.015);
+    transition:.3s;
+}
+
+.game:hover{
+    transform:translateY(-5px);
+    border-color:rgba(22,131,255,.65);
+    box-shadow:0 15px 35px rgba(0,0,0,.3),0 0 25px rgba(22,131,255,.1);
 }
 
 .game h3{
-color:#4da3ff;
-margin-bottom:9px
+    font-family:'Orbitron',sans-serif;
+    color:#55b5ff;
+    font-size:18px;
+    margin-bottom:10px;
 }
 
 .game p{
-color:#9eafc3;
-font-size:14px;
-line-height:1.5;
-margin-bottom:15px
+    color:#91a5b9;
+    font-size:14px;
+    line-height:1.6;
+    margin-bottom:16px;
 }
 
+/* KAISER */
+
 .kaiser-track{
-height:34px;
-background:#111b29;
-border-radius:20px;
-position:relative;
-overflow:hidden;
-border:1px solid #30455f
+    height:36px;
+    background:#07101a;
+    border-radius:30px;
+    position:relative;
+    overflow:hidden;
+    border:1px solid #29425e;
+    box-shadow:inset 0 0 15px rgba(0,0,0,.5);
 }
 
 .kaiser-zone{
-position:absolute;
-height:100%;
-width:18%;
-left:40%;
-background:#19c66b;
-box-shadow:0 0 18px #19c66b;
-border-radius:20px
+    position:absolute;
+    height:100%;
+    width:18%;
+    left:40%;
+    background:linear-gradient(90deg,#0ee67a,#8affc0,#0ee67a);
+    box-shadow:0 0 15px #19c66b,inset 0 0 10px rgba(255,255,255,.35);
+    border-radius:30px;
 }
 
 .kaiser-marker{
-position:absolute;
-width:5px;
-height:100%;
-left:0;
-background:#ffd83d;
-box-shadow:0 0 12px #ffd83d;
-z-index:2
+    position:absolute;
+    width:5px;
+    height:100%;
+    left:0;
+    background:#ffe15a;
+    box-shadow:0 0 8px #ffd83d,0 0 20px #ffd83d;
+    z-index:2;
 }
 
+/* REFLEXO */
+
 .reflex-area,.ego-rush-area{
-height:180px;
-background:#050a11;
-border:1px solid #263a51;
-border-radius:15px;
-position:relative;
-overflow:hidden;
-margin-bottom:12px
+    height:190px;
+    background:radial-gradient(circle at center,rgba(22,131,255,.14),transparent 60%),#030810;
+    border:1px solid #29415a;
+    border-radius:16px;
+    position:relative;
+    overflow:hidden;
+    margin-bottom:13px;
+    box-shadow:inset 0 0 30px rgba(0,0,0,.7);
 }
 
 .reflex-target{
-width:45px;
-height:45px;
-border-radius:50%;
-background:#1683ff;
-border:4px solid white;
-position:absolute;
-display:none;
-cursor:pointer;
-box-shadow:0 0 25px #1683ff
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:radial-gradient(circle,#8bd0ff,#1683ff 55%,#0754ae);
+    border:3px solid #fff;
+    position:absolute;
+    display:none;
+    cursor:pointer;
+    box-shadow:0 0 15px #1683ff,0 0 35px rgba(22,131,255,.8);
 }
 
 .ego-rush-area{
-background:radial-gradient(circle,#102c4b 0%,#050a11 70%);
-border-color:#238bff
+    background:radial-gradient(circle at center,rgba(22,131,255,.3),rgba(5,10,17,.95) 70%);
+    border-color:#238bff;
+    box-shadow:inset 0 0 40px rgba(22,131,255,.12),0 0 20px rgba(22,131,255,.06);
 }
 
 .ego-rush-target{
-width:54px;
-height:54px;
-border-radius:50%;
-background:#1683ff;
-border:4px solid white;
-position:absolute;
-display:none;
-cursor:pointer;
-box-shadow:0 0 12px #1683ff,0 0 30px rgba(22,131,255,.8);
-animation:egoPulse .7s infinite alternate
+    width:54px;
+    height:54px;
+    border-radius:50%;
+    background:radial-gradient(circle,#d9f3ff,#1683ff 45%,#0053b0);
+    border:4px solid white;
+    position:absolute;
+    display:none;
+    cursor:pointer;
+    box-shadow:0 0 15px #1683ff,0 0 35px rgba(22,131,255,.9);
+    animation:egoPulse .65s infinite alternate;
 }
 
 @keyframes egoPulse{
-from{transform:scale(.88)}
-to{transform:scale(1.08)}
+    from{transform:scale(.85);box-shadow:0 0 12px #1683ff,0 0 25px rgba(22,131,255,.7)}
+    to{transform:scale(1.12);box-shadow:0 0 25px #1683ff,0 0 55px rgba(22,131,255,1)}
 }
 
 .ego-rush-title{
-color:#ffdf45!important
+    color:#ffdf45!important;
+    text-shadow:0 0 10px rgba(255,223,69,.4);
 }
 
+/* SLOT */
+
 .slot-machine{
-display:flex;
-justify-content:center;
-gap:10px;
-margin:20px 0
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin:22px 0;
 }
 
 .slot{
-width:65px;
-height:65px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:#111c2c;
-border:2px solid #35516e;
-border-radius:12px;
-font-size:32px
+    width:68px;
+    height:68px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(145deg,#111f31,#07101b);
+    border:2px solid #31516f;
+    border-radius:14px;
+    font-size:30px;
+    box-shadow:inset 0 0 15px rgba(0,0,0,.5),0 0 15px rgba(22,131,255,.05);
 }
 
 .slot-button{
-background:#7c25e8
+    background:linear-gradient(135deg,#8e38ff,#5d18b9);
 }
 
 .slot-button:hover{
-background:#923cff
+    background:linear-gradient(135deg,#a95cff,#7022d5);
 }
 
-.newgen-box{
-background:linear-gradient(145deg,#160c25,#080b13);
-border:1px solid #9b44ff;
-box-shadow:0 0 30px rgba(155,68,255,.12);
-border-radius:18px;
-padding:25px
-}
-
-.legendary-selector{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-gap:12px;
-margin:20px 0
-}
-
-.select-player{
-border:1px solid #374b61;
-background:#0d1622;
-padding:12px;
-border-radius:10px;
-cursor:pointer;
-transition:.2s
-}
-
-.select-player.selected{
-border-color:#ffcc38;
-background:#29200a;
-box-shadow:0 0 15px rgba(255,204,56,.2)
-}
-
-.select-player small{
-display:block;
-color:#91a3b7;
-margin-top:5px
-}
-
-.inventory-controls{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-margin-bottom:18px
-}
-
-.filter-btn{
-background:#0b1420;
-border:1px solid #2b4058;
-color:#aab8c8;
-padding:10px 15px;
-border-radius:9px
-}
-
-.filter-btn.active{
-background:#1677ff;
-border-color:#1683ff;
-color:white;
-box-shadow:0 0 15px rgba(22,131,255,.25)
-}
-
-.inventory-info{
-color:#8fa3ba;
-margin-bottom:18px;
-font-size:14px
-}
-
-.inventory-grid,.collection-grid{
-display:grid;
-grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
-gap:16px
-}
-
-.player-card,.collection-card{
-background:#0b131e;
-border:1px solid #24384e;
-border-radius:15px;
-overflow:hidden;
-transition:.2s
-}
-
-.player-card:hover,.collection-card:hover{
-transform:translateY(-4px)
-}
-
-.player-card img,.collection-card img{
-width:100%;
-height:210px;
-object-fit:cover;
-display:block;
-background:#101a27
-}
-
-.player-info,.collection-info{
-padding:13px
-}
-
-.player-name,.collection-name{
-font-weight:900;
-font-size:15px;
-margin-bottom:8px
-}
-
-.rarity{
-display:inline-block;
-padding:5px 9px;
-border-radius:6px;
-font-size:11px;
-font-weight:900;
-margin-bottom:10px
-}
-
-.common{background:#34404c}
-.rare{background:#176bd1}
-.epic{background:#7935c7}
-.legendary{background:#b0830b}
-.mestres{background:#c33b38}
-
-.newgen{
-background:linear-gradient(90deg,#8b2cff,#ff2cc3)
-}
-
-.neo{
-background:linear-gradient(90deg,#00c6ff,#0066ff,#8c2cff);
-box-shadow:0 0 12px rgba(0,174,255,.4)
-}
-
-/* =========================
-   TEAM WORLD 5
-========================= */
-
-.world5{
-background:
-linear-gradient(
-90deg,
-#00d9ff,
-#ffffff,
-#1683ff,
-#ffffff,
-#00d9ff
-);
-background-size:300% 100%;
-animation:world5Gradient 2s linear infinite;
-color:#06131c;
-box-shadow:
-0 0 8px #00d9ff,
-0 0 20px rgba(0,217,255,.7),
-0 0 35px rgba(22,131,255,.45);
-border:1px solid #b8f6ff
-}
-
-@keyframes world5Gradient{
-0%{background-position:0% 50%}
-100%{background-position:300% 50%}
-}
-
-.world5 .power-fill{
-background:
-linear-gradient(
-90deg,
-#ffffff,
-#00d9ff,
-#1683ff,
-#ffffff
-);
-background-size:250% 100%;
-animation:world5Power 1.5s linear infinite
-}
-
-@keyframes world5Power{
-0%{background-position:0%}
-100%{background-position:250%}
-}
-
-.world5-card{
-border-color:#00d9ff!important;
-box-shadow:
-0 0 15px rgba(0,217,255,.3),
-0 0 35px rgba(22,131,255,.12)
-}
-
-.world5-card:hover{
-box-shadow:
-0 0 25px rgba(0,217,255,.6),
-0 0 50px rgba(22,131,255,.2)
-}
-
-.world5-title{
-color:#00d9ff!important;
-text-shadow:
-0 0 10px #fff,
-0 0 25px #00d9ff
-}
-
-/* =========================
-   DEUS DO FUTEBOL
-========================= */
-
-.deus{
-background:
-linear-gradient(
-90deg,
-#fff6a0,
-#ffd21f,
-#ffffff,
-#ffb300,
-#fff6a0
-);
-background-size:300% 100%;
-animation:deusGradient 2s linear infinite;
-color:#111;
-box-shadow:
-0 0 8px #ffd21f,
-0 0 20px #fff,
-0 0 40px rgba(255,210,31,.8);
-border:1px solid #fff6a0
-}
-
-@keyframes deusGradient{
-0%{background-position:0% 50%}
-100%{background-position:300% 50%}
-}
-
-.deus .power-fill{
-background:
-linear-gradient(
-90deg,
-#fff,
-#ffd21f,
-#fff,
-#ffb300
-);
-background-size:250% 100%;
-animation:deusPower 1.5s linear infinite
-}
-
-@keyframes deusPower{
-0%{background-position:0%}
-100%{background-position:250%}
-}
-
-.deus-card{
-border-color:#ffd21f!important;
-box-shadow:
-0 0 15px rgba(255,210,31,.3),
-0 0 35px rgba(255,210,31,.12)
-}
-
-.deus-card:hover{
-box-shadow:
-0 0 25px rgba(255,210,31,.6),
-0 0 50px rgba(255,210,31,.2)
-}
-
-.deus-title{
-color:#ffd21f!important;
-text-shadow:
-0 0 10px #fff,
-0 0 25px #ffd21f
-}
-
-.power-box{
-margin-top:5px;
-margin-bottom:8px;
-padding:9px;
-border-radius:9px;
-background:#07101a;
-border:1px solid #263d54
-}
-
-.power-label{
-display:flex;
-justify-content:space-between;
-font-size:11px;
-color:#8ea2b8;
-margin-bottom:6px
-}
-
-.power-value{
-color:#fff;
-font-size:18px;
-font-weight:1000
-}
-
-.power-bar{
-width:100%;
-height:6px;
-background:#182533;
-border-radius:20px;
-overflow:hidden
-}
-
-.power-fill{
-height:100%;
-border-radius:20px;
-background:linear-gradient(90deg,#1683ff,#55b5ff)
-}
-
-.neo .power-fill{
-background:linear-gradient(90deg,#00d9ff,#426cff,#b044ff)
-}
-
-.newgen .power-fill{
-background:linear-gradient(90deg,#9c2cff,#ff37d1)
-}
-
-.sell-button{
-width:100%;
-margin-top:8px;
-background:#222d3a;
-color:#ff6b6b
-}
-
-.sell-button:hover{
-background:#702626
-}
-
-.collection-box{
-background:linear-gradient(145deg,#0b1828,#050910);
-border:1px solid #315273;
-border-radius:18px;
-padding:25px
-}
-
-.collection-progress{
-color:#8fa3ba;
-margin-bottom:20px;
-font-size:14px
-}
-
-.collection-card.locked{
-opacity:.45;
-filter:grayscale(1)
-}
-
-.collection-card img{
-background:#05090e
-}
-
-.collection-name{
-font-size:14px
-}
-
-.collection-status{
-font-size:11px;
-color:#8498ad;
-margin-top:5px
-}
-
-.collection-power{
-margin-top:8px;
-font-weight:900;
-color:#4da3ff
-}
-
-.stats-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:15px
-}
-
-.stat{
-background:#0a121d;
-border:1px solid #20364f;
-padding:22px;
-border-radius:15px;
-text-align:center
-}
-
-.stat strong{
-display:block;
-font-size:30px;
-color:#3d99ff;
-margin-bottom:7px
-}
-
-.stat span{
-color:#93a4b8
-}
-
-.missions{
-display:grid;
-gap:12px
-}
-
-.mission{
-background:#0a121d;
-border:1px solid #243a52;
-padding:18px;
-border-radius:13px;
-display:flex;
-justify-content:space-between;
-gap:15px;
-align-items:center
-}
-
-.mission.completed{
-border-color:#22c978;
-background:#0b1d17
-}
-
-.mission-info h4{
-margin-bottom:5px
-}
-
-.mission-info p{
-color:#8fa1b5;
-font-size:13px
-}
-
-.mission-reward{
-color:#ffd84d;
-font-weight:bold;
-white-space:nowrap
-}
-
-.daily{
-background:linear-gradient(135deg,#111d30,#0a0f18);
-border:1px solid #315273;
-padding:25px;
-border-radius:17px;
-text-align:center
-}
-
-/* =========================
-   ABERTURA AUTOMÁTICA
-========================= */
+/* AUTO */
 
 .auto-pack-box{
-background:linear-gradient(145deg,#091b2d,#050910);
-border:1px solid #1683ff;
-border-radius:20px;
-padding:25px;
-box-shadow:0 0 30px rgba(22,131,255,.12)
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(145deg,rgba(8,29,48,.95),rgba(3,8,14,.98));
+    border:1px solid rgba(22,131,255,.65);
+    border-radius:22px;
+    padding:28px;
+    box-shadow:0 0 40px rgba(22,131,255,.08),inset 0 0 35px rgba(22,131,255,.025);
+}
+
+.auto-pack-box::before{
+    content:"AUTO";
+    position:absolute;
+    right:-10px;
+    top:-25px;
+    font-family:'Orbitron',sans-serif;
+    font-size:100px;
+    font-weight:900;
+    color:rgba(22,131,255,.025);
+    pointer-events:none;
+}
+
+.auto-pack-box h3{
+    font-family:'Orbitron',sans-serif;
+    font-size:20px;
 }
 
 .auto-controls{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:15px;
-margin-top:20px
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin-top:22px;
 }
 
 .auto-control label{
-display:block;
-font-size:12px;
-font-weight:900;
-color:#8fa3ba;
-margin-bottom:7px
+    display:block;
+    font-family:'Orbitron',sans-serif;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1px;
+    color:#7f98b0;
+    margin-bottom:8px;
 }
 
-.auto-control select,
-.auto-control input{
-width:100%;
-padding:13px;
-border-radius:10px;
-border:1px solid #29435e;
-background:#0b1420;
-color:white;
-outline:none
+.auto-control select,.auto-control input{
+    width:100%;
+    padding:14px;
+    border-radius:11px;
+    border:1px solid #29455f;
+    background:linear-gradient(145deg,#0d1927,#07101a);
+    color:white;
+    font-family:'Rajdhani',sans-serif;
+    font-size:15px;
+    font-weight:600;
+    outline:none;
+}
+
+.auto-control select:focus,.auto-control input:focus{
+    border-color:#1683ff;
+    box-shadow:0 0 0 3px rgba(22,131,255,.08),0 0 15px rgba(22,131,255,.12);
 }
 
 .auto-buttons{
-display:flex;
-gap:10px;
-margin-top:15px
+    display:flex;
+    gap:12px;
+    margin-top:17px;
 }
 
-.auto-buttons button{
-flex:1
-}
+.auto-buttons button{flex:1}
 
 .auto-stop{
-background:#762b2b!important
+    background:linear-gradient(135deg,#7b3030,#4b1818)!important;
 }
 
 .auto-stop:hover{
-background:#983333!important
+    background:linear-gradient(135deg,#a73e3e,#681f1f)!important;
 }
 
 .auto-status{
-margin-top:18px;
-padding:13px;
-background:#07111d;
-border:1px solid #203b55;
-border-radius:10px;
-color:#9fb1c5
+    margin-top:18px;
+    padding:14px 16px;
+    background:#050d16;
+    border:1px solid #213d57;
+    border-radius:11px;
+    color:#9db2c6;
+    font-size:14px;
 }
 
 .progress-container{
-height:12px;
-background:#111c29;
-border-radius:20px;
-overflow:hidden;
-margin-top:12px;
-border:1px solid #263f59
+    height:10px;
+    background:#09131e;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:14px;
+    border:1px solid #263f59;
 }
 
 .progress-bar{
-height:100%;
-width:0%;
-background:linear-gradient(90deg,#1683ff,#9b44ff);
-transition:.3s
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,#1683ff,#55b5ff,#9b44ff);
+    background-size:200% 100%;
+    animation:progressFlow 2s linear infinite;
+    transition:.3s;
+}
+
+@keyframes progressFlow{
+    from{background-position:0%}
+    to{background-position:200%}
 }
 
 .auto-result{
-margin-top:15px;
-min-height:22px;
-color:#55b5ff;
-font-weight:900
+    margin-top:15px;
+    min-height:22px;
+    color:#55b5ff;
+    font-family:'Orbitron',sans-serif;
+    font-size:12px;
+    font-weight:800;
 }
 
-/* =========================
-   LOG DE ATUALIZAÇÕES
-========================= */
+/* NEW GEN */
 
-.log-container{
-display:grid;
-gap:18px;
-position:relative
+.newgen-box{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(145deg,rgba(32,10,50,.92),rgba(7,7,15,.98));
+    border:1px solid rgba(155,68,255,.7);
+    box-shadow:0 0 40px rgba(155,68,255,.08),inset 0 0 30px rgba(155,68,255,.03);
+    border-radius:22px;
+    padding:28px;
 }
 
-.log-card{
-position:relative;
-background:
-linear-gradient(
-145deg,
-rgba(12,27,45,.98),
-rgba(5,10,17,.98)
-);
-border:1px solid #243b54;
-border-radius:18px;
-padding:24px;
-overflow:hidden;
-transition:.25s
+.newgen-box::before{
+    content:"NEW GEN";
+    position:absolute;
+    right:-10px;
+    top:-35px;
+    font-family:'Orbitron',sans-serif;
+    font-size:75px;
+    font-weight:900;
+    color:rgba(255,45,195,.025);
+    pointer-events:none;
 }
 
-.log-card::before{
-content:"";
-position:absolute;
-left:0;
-top:0;
-bottom:0;
-width:4px;
-background:#1683ff;
-box-shadow:0 0 15px rgba(22,131,255,.6)
+.legendary-selector{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+    gap:12px;
+    margin:22px 0;
 }
 
-.log-card:hover{
-transform:translateY(-3px);
-border-color:#1683ff;
-box-shadow:0 10px 30px rgba(22,131,255,.15)
+.select-player{
+    background:linear-gradient(145deg,#15101f,#0a0810);
+    border:1px solid #3b3150;
+    padding:14px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:.25s;
 }
 
-.log-card.important{
-border-color:#00c6ff;
-box-shadow:
-0 0 20px rgba(0,198,255,.08),
-0 10px 35px rgba(22,131,255,.08)
+.select-player:hover{
+    border-color:#9b44ff;
+    transform:translateY(-3px);
 }
 
-.log-card.important::before{
-background:
-linear-gradient(
-180deg,
-#00d9ff,
-#1683ff,
-#8c2cff
-);
-box-shadow:
-0 0 15px #00d9ff,
-0 0 25px rgba(22,131,255,.7)
+.select-player.selected{
+    border-color:#ffcc38;
+    background:linear-gradient(145deg,#33270b,#171004);
+    box-shadow:0 0 20px rgba(255,204,56,.15),inset 0 0 15px rgba(255,204,56,.03);
 }
 
-.log-top{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:15px;
-margin-bottom:14px
+.select-player small{
+    display:block;
+    color:#91a3b7;
+    margin-top:5px;
 }
 
-.log-version{
-display:inline-block;
-background:#126fe8;
-border:1px solid #4da3ff;
-color:white;
-padding:6px 11px;
-border-radius:7px;
-font-size:12px;
-font-weight:1000;
-letter-spacing:1px
+/* INVENTÁRIO */
+
+.inventory-controls{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-bottom:20px;
 }
 
-.log-card.important .log-version{
-background:
-linear-gradient(
-90deg,
-#00a8e8,
-#1683ff,
-#7935c7
-);
-border-color:#6de7ff
+.filter-btn{
+    background:#07111c;
+    border:1px solid #263e57;
+    color:#8fa4b9;
+    padding:9px 14px;
+    border-radius:9px;
+    font-size:12px;
 }
 
-.log-date{
-font-size:12px;
-font-weight:900;
-color:#7189a2
+.filter-btn:hover{
+    background:#0d1d2f;
+    border-color:#1683ff;
 }
 
-.log-title{
-font-size:23px;
-font-weight:1000;
-margin-bottom:9px;
-color:#fff
+.filter-btn.active{
+    background:linear-gradient(135deg,#167dff,#0755b5);
+    border-color:#1683ff;
+    color:white;
+    box-shadow:0 0 15px rgba(22,131,255,.2);
 }
 
-.log-card.important .log-title{
-color:#4ddcff;
-text-shadow:0 0 15px rgba(0,198,255,.3)
+.inventory-info{
+    color:#8298ae;
+    margin-bottom:18px;
+    font-size:14px;
 }
 
-.log-description{
-color:#9eafc3;
-font-size:14px;
-line-height:1.6;
-margin-bottom:15px
+.inventory-grid,.collection-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(185px,1fr));
+    gap:17px;
 }
 
-.log-list{
-list-style:none;
-display:grid;
-gap:8px;
-margin-bottom:17px
+/* PLAYER CARDS */
+
+.player-card,.collection-card{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(145deg,#0c1724,#050a10);
+    border:1px solid #263d54;
+    border-radius:17px;
+    transition:.3s;
+    box-shadow:0 8px 25px rgba(0,0,0,.18);
 }
 
-.log-list li{
-position:relative;
-padding-left:23px;
-color:#c4d0dd;
-font-size:13px;
-line-height:1.5
+.player-card:hover,.collection-card:hover{
+    transform:translateY(-6px);
+    border-color:#1683ff;
+    box-shadow:0 15px 35px rgba(0,0,0,.35),0 0 20px rgba(22,131,255,.1);
 }
 
-.log-list li::before{
-content:"✓";
-position:absolute;
-left:0;
-top:0;
-color:#1683ff;
-font-weight:1000
+.player-card img,.collection-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    display:block;
+    background:#08111b;
+    transition:.4s;
 }
 
-.log-card.important .log-list li::before{
-color:#00d9ff
+.player-card:hover img,.collection-card:hover img{
+    transform:scale(1.035);
 }
 
-.log-tag{
-display:inline-block;
-padding:6px 10px;
-border-radius:7px;
-background:#101e2e;
-border:1px solid #2b4965;
-color:#6eb4ff;
-font-size:10px;
-font-weight:1000;
-letter-spacing:1px
+.player-info,.collection-info{
+    padding:14px;
 }
 
-.log-card.important .log-tag{
-color:#00d9ff;
-border-color:#006e91;
-background:#071d29
+.player-name,.collection-name{
+    font-family:'Rajdhani',sans-serif;
+    font-weight:800;
+    font-size:16px;
+    margin-bottom:5px;
 }
 
-/* =========================
-   REVELAÇÃO
-========================= */
+/* =========================================================
+   ⭐ ESTRELAS
+   SOMENTE EMOJIS PREENCHIDOS EMBAIXO DO NOME
+========================================================= */
 
-.pack-reveal{
-position:fixed;
-inset:0;
-z-index:400;
-display:none;
-align-items:center;
-justify-content:center;
-background:rgba(0,4,10,.94)
+.player-stars{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:2px;
+    min-height:20px;
+    margin:2px 0 8px;
+    padding:0;
+    background:none;
+    border:none;
+    box-shadow:none;
 }
 
-.pack-reveal.show{
-display:flex
+.player-stars .star{
+    font-size:16px;
+    line-height:1;
 }
 
-.reveal-box{
-width:min(90%,430px);
-text-align:center;
-padding:35px;
-border:2px solid #1683ff;
-border-radius:25px;
-background:radial-gradient(circle,#102c4b,#050910 75%);
-box-shadow:0 0 80px rgba(22,131,255,.45);
-animation:revealIn .45s ease
+/* RARIDADES */
+
+.rarity{
+    display:inline-block;
+    padding:5px 10px;
+    border-radius:6px;
+    font-family:'Orbitron',sans-serif;
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:.7px;
+    margin-bottom:10px;
+    border:1px solid rgba(255,255,255,.08);
 }
 
-@keyframes revealIn{
-from{
-transform:scale(.6) rotate(-4deg);
-opacity:0
-}
-to{
-transform:scale(1) rotate(0);
-opacity:1
-}
+.common{
+    background:linear-gradient(135deg,#394754,#222c35);
 }
 
-.reveal-title{
-font-size:30px;
-font-weight:1000;
-letter-spacing:3px;
-color:#4da3ff;
-margin-bottom:15px
+.rare{
+    background:linear-gradient(135deg,#1d78e0,#0b4388);
+    box-shadow:0 0 10px rgba(23,107,209,.15);
 }
 
-.reveal-box img{
-width:170px;
-height:220px;
-object-fit:cover;
-border-radius:15px;
-margin:15px 0;
-border:2px solid #1683ff
+.epic{
+    background:linear-gradient(135deg,#9145e5,#4d2083);
+    box-shadow:0 0 10px rgba(121,53,199,.15);
 }
 
-.reveal-name{
-font-size:23px;
-font-weight:1000
+.legendary{
+    background:linear-gradient(135deg,#d49f14,#765408);
+    color:#fff7ce;
+    box-shadow:0 0 12px rgba(208,160,30,.15);
 }
 
-.reveal-rarity{
-margin:12px 0
+.mestres{
+    background:linear-gradient(135deg,#e04b47,#741e1c);
+    box-shadow:0 0 12px rgba(195,59,56,.18);
 }
 
-.reveal-power{
-font-size:20px;
-font-weight:1000;
-color:#55b5ff
+.newgen{
+    background:linear-gradient(90deg,#8b2cff,#ff2cc3);
+    box-shadow:0 0 15px rgba(155,68,255,.25);
 }
 
-.modal{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.78);
-display:none;
-justify-content:center;
-align-items:center;
-z-index:300;
-padding:20px
+.neo{
+    background:linear-gradient(90deg,#00c6ff,#0066ff,#8c2cff);
+    box-shadow:0 0 15px rgba(0,174,255,.3);
 }
 
-.modal.show{
-display:flex
+/* PODER */
+
+.power-box{
+    margin-top:5px;
+    margin-bottom:8px;
+    padding:10px;
+    border-radius:9px;
+    background:linear-gradient(145deg,#07111b,#040910);
+    border:1px solid #20384f;
 }
 
-.modal-box{
-width:100%;
-max-width:430px;
-background:#0b1420;
-border:2px solid #1677ff;
-border-radius:20px;
-padding:25px;
-text-align:center;
-box-shadow:0 0 50px rgba(22,119,255,.25)
+.power-label{
+    display:flex;
+    justify-content:space-between;
+    font-size:10px;
+    color:#8298ad;
+    margin-bottom:6px;
 }
 
-.modal-box img{
-width:180px;
-height:230px;
-object-fit:cover;
-border-radius:12px;
-margin:15px 0
+.power-value{
+    color:#fff;
+    font-family:'Orbitron',sans-serif;
+    font-size:16px;
+    font-weight:900;
 }
 
-.modal-buttons{
-display:flex;
-gap:10px
+.power-bar{
+    width:100%;
+    height:6px;
+    background:#172432;
+    border-radius:20px;
+    overflow:hidden;
 }
 
-.modal-buttons button{
-flex:1
+.power-fill{
+    height:100%;
+    border-radius:20px;
+    background:linear-gradient(90deg,#1683ff,#68c1ff);
+    box-shadow:0 0 8px rgba(22,131,255,.4);
 }
 
-.sell-modal{
-background:#762b2b
+.neo .power-fill{
+    background:linear-gradient(90deg,#00d9ff,#426cff,#b044ff);
 }
 
-.sell-modal:hover{
-background:#983333
+.newgen .power-fill{
+    background:linear-gradient(90deg,#9c2cff,#ff37d1);
 }
 
-.toast{
-position:fixed;
-bottom:25px;
-right:25px;
-background:#111c2b;
-border:1px solid #257fff;
-padding:14px 20px;
-border-radius:10px;
-transform:translateY(100px);
-opacity:0;
-transition:.3s;
-z-index:600
+.sell-button{
+    width:100%;
+    margin-top:9px;
+    background:linear-gradient(135deg,#242f3c,#171e27);
+    color:#ff7777;
 }
 
-.toast.show{
-transform:translateY(0);
-opacity:1
+.sell-button:hover{
+    background:linear-gradient(135deg,#782a2a,#451717);
 }
 
-.empty{
-grid-column:1/-1;
-text-align:center;
-padding:40px;
-color:#75869a;
-border:1px dashed #2a4058;
-border-radius:15px
+/* WORLD 5 */
+
+.world5{
+    background:linear-gradient(90deg,#00d9ff,#ffffff,#1683ff,#ffffff,#00d9ff);
+    background-size:300% 100%;
+    animation:world5Gradient 3s linear infinite;
+    color:#06131c;
+    box-shadow:0 0 10px #00d9ff,0 0 25px rgba(0,217,255,.5);
+    border:1px solid #b8f6ff;
 }
 
-@media(max-width:700px){
-
-header{
-padding:15px 4%
+@keyframes world5Gradient{
+    0%{background-position:0% 50%}
+    100%{background-position:300% 50%}
 }
 
-.logo{
-font-size:20px
+.world5-card{
+    border-color:#00d9ff!important;
+    box-shadow:0 0 18px rgba(0,217,255,.2);
 }
 
-.coins{
-padding:8px 12px;
-font-size:13px
+.world5-card:hover{
+    box-shadow:0 0 30px rgba(0,217,255,.5),0 0 55px rgba(22,131,255,.15);
 }
 
-.hero{
-padding-top:45px
+.world5-title{
+    color:#00d9ff!important;
+    text-shadow:0 0 10px #fff,0 0 25px #00d9ff;
+}
+
+/* DEUS */
+
+.deus{
+    background:linear-gradient(90deg,#fff6a0,#ffd21f,#ffffff,#ffb300,#fff6a0);
+    background-size:300% 100%;
+    animation:deusGradient 3s linear infinite;
+    color:#111;
+    box-shadow:0 0 10px #ffd21f,0 0 25px #fff,0 0 45px rgba(255,210,31,.65);
+    border:1px solid #fff6a0;
+}
+
+.deus-card{
+    border-color:#ffd21f!important;
+    box-shadow:0 0 18px rgba(255,210,31,.25);
+}
+
+.deus-card:hover{
+    box-shadow:0 0 30px rgba(255,210,31,.55),0 0 55px rgba(255,210,31,.15);
+}
+
+.deus-title{
+    color:#ffd21f!important;
+    text-shadow:0 0 10px #fff,0 0 25px #ffd21f;
+}
+
+@keyframes deusGradient{
+    0%{background-position:0% 50%}
+    100%{background-position:300% 50%}
+}
+
+/* COLEÇÃO */
+
+.collection-box{
+    background:linear-gradient(145deg,rgba(11,27,44,.92),rgba(3,8,14,.98));
+    border:1px solid #294a67;
+    border-radius:20px;
+    padding:27px;
+    box-shadow:inset 0 0 35px rgba(22,131,255,.025);
+}
+
+.collection-progress{
+    color:#8298ae;
+    margin-bottom:20px;
+    font-size:14px;
+}
+
+.collection-card.locked{
+    opacity:.38;
+    filter:grayscale(1);
+}
+
+.collection-card.locked:hover{
+    opacity:.55;
+}
+
+.collection-name{
+    font-size:15px;
+}
+
+.collection-status{
+    font-size:11px;
+    color:#8297ab;
+    margin-top:6px;
+}
+
+.collection-power{
+    margin-top:9px;
+    font-family:'Orbitron',sans-serif;
+    font-size:12px;
+    font-weight:800;
+    color:#55b5ff;
+}
+
+/* ESTATÍSTICAS */
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+}
+
+.stat{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(145deg,#0b1725,#050a10);
+    border:1px solid #223b54;
+    padding:24px;
+    border-radius:16px;
+    text-align:center;
+    transition:.3s;
+}
+
+.stat:hover{
+    transform:translateY(-4px);
+    border-color:#1683ff;
+    box-shadow:0 10px 25px rgba(0,0,0,.3),0 0 20px rgba(22,131,255,.08);
+}
+
+.stat strong{
+    display:block;
+    font-family:'Orbitron',sans-serif;
+    font-size:28px;
+    color:#3d99ff;
+    margin-bottom:8px;
+    text-shadow:0 0 12px rgba(61,153,255,.25);
+}
+
+.stat span{
+    color:#8298ad;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.5px;
+}
+
+/* MISSÕES */
+
+.missions{
+    display:grid;
+    gap:12px;
 }
 
 .mission{
-flex-direction:column;
-align-items:flex-start
+    position:relative;
+    background:linear-gradient(145deg,#0a1521,#050a10);
+    border:1px solid #243b53;
+    padding:19px;
+    border-radius:14px;
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    align-items:center;
+    transition:.25s;
 }
 
-.player-card img,
-.collection-card img{
-height:240px
+.mission:hover{
+    border-color:#315b80;
+    transform:translateX(3px);
 }
 
-.auto-controls{
-grid-template-columns:1fr
+.mission.completed{
+    border-color:#22c978;
+    background:linear-gradient(145deg,#0b2119,#06120e);
+    box-shadow:0 0 20px rgba(34,201,120,.06);
 }
 
-.auto-buttons{
-flex-direction:column
+.mission-info h4{
+    font-family:'Orbitron',sans-serif;
+    font-size:14px;
+    margin-bottom:5px;
 }
+
+.mission-info p{
+    color:#8298ad;
+    font-size:13px;
+}
+
+.mission-reward{
+    color:#ffd84d;
+    font-family:'Orbitron',sans-serif;
+    font-size:12px;
+    font-weight:800;
+    white-space:nowrap;
+}
+
+/* DAILY */
+
+.daily{
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at center,rgba(22,131,255,.13),transparent 65%),
+        linear-gradient(145deg,#111f31,#070d15);
+    border:1px solid #315273;
+    padding:30px;
+    border-radius:19px;
+    text-align:center;
+    box-shadow:inset 0 0 30px rgba(22,131,255,.025);
+}
+
+.daily h3{
+    font-family:'Orbitron',sans-serif;
+    font-size:18px;
+}
+
+/* LOG */
 
 .log-card{
-padding:19px
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(145deg,rgba(9,23,38,.95),rgba(3,8,14,.98));
+    border:1px solid #263f59;
+    border-radius:18px;
+    padding:24px;
+    margin-bottom:16px;
+    transition:.3s;
+}
+
+.log-card:hover{
+    transform:translateY(-4px);
+    border-color:#1683ff;
+    box-shadow:0 12px 30px rgba(0,0,0,.3),0 0 20px rgba(22,131,255,.08);
+}
+
+.log-card.important{
+    border-color:#1683ff;
+    box-shadow:0 0 25px rgba(22,131,255,.1);
+}
+
+.log-card.important::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:4px;
+    height:100%;
+    background:linear-gradient(180deg,#55b5ff,#1683ff,#0054a8);
+    box-shadow:0 0 15px #1683ff;
 }
 
 .log-top{
-align-items:flex-start;
-flex-direction:column;
-gap:8px
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    margin-bottom:14px;
+}
+
+.log-version{
+    font-family:'Orbitron',sans-serif;
+    font-size:11px;
+    font-weight:900;
+    color:#55b5ff;
+    padding:6px 10px;
+    border-radius:6px;
+    background:rgba(22,131,255,.1);
+    border:1px solid rgba(22,131,255,.25);
+}
+
+.log-date{
+    color:#70879d;
+    font-size:12px;
+    font-weight:600;
 }
 
 .log-title{
-font-size:20px
+    font-family:'Orbitron',sans-serif;
+    font-size:22px;
+    font-weight:800;
+    margin-bottom:8px;
 }
 
+.log-description{
+    color:#8da3b8;
+    line-height:1.6;
+    font-size:14px;
+    margin-bottom:15px;
 }
+
+.log-list{
+    list-style:none;
+    display:grid;
+    gap:8px;
+}
+
+.log-list li{
+    position:relative;
+    padding-left:22px;
+    color:#b2c2d1;
+    font-size:14px;
+    line-height:1.5;
+}
+
+.log-list li::before{
+    content:"◆";
+    position:absolute;
+    left:0;
+    color:#1683ff;
+    font-size:8px;
+    top:5px;
+    text-shadow:0 0 8px #1683ff;
+}
+
+.log-tag{
+    display:inline-block;
+    margin-top:17px;
+    padding:5px 9px;
+    border-radius:6px;
+    background:#071525;
+    border:1px solid #24425e;
+    color:#5aaeff;
+    font-family:'Orbitron',sans-serif;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.7px;
+}
+
+/* REVELAÇÃO */
+
+.pack-reveal{
+    position:fixed;
+    inset:0;
+    z-index:400;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    background:radial-gradient(circle,rgba(15,60,105,.25),rgba(0,3,8,.96) 65%);
+    backdrop-filter:blur(10px);
+}
+
+.pack-reveal.show{
+    display:flex;
+}
+
+.reveal-box{
+    width:min(90%,430px);
+    text-align:center;
+    padding:36px;
+    border:1px solid #1683ff;
+    border-radius:25px;
+    background:radial-gradient(circle at top,#102d4c,#050910 75%);
+    box-shadow:0 0 50px rgba(22,131,255,.2),0 0 100px rgba(22,131,255,.1);
+    animation:revealIn .45s ease;
+}
+
+@keyframes revealIn{
+    from{transform:scale(.65) rotate(-3deg);opacity:0}
+    to{transform:scale(1) rotate(0);opacity:1}
+}
+
+.reveal-title{
+    font-family:'Orbitron',sans-serif;
+    font-size:26px;
+    font-weight:900;
+    letter-spacing:2px;
+    color:#55b5ff;
+    margin-bottom:15px;
+}
+
+.reveal-box img{
+    width:175px;
+    height:225px;
+    object-fit:cover;
+    border-radius:15px;
+    margin:15px 0;
+    border:1px solid #1683ff;
+    box-shadow:0 0 25px rgba(22,131,255,.2);
+}
+
+.reveal-name{
+    font-family:'Orbitron',sans-serif;
+    font-size:21px;
+    font-weight:900;
+}
+
+.reveal-rarity{
+    margin:12px 0;
+}
+
+.reveal-power{
+    font-family:'Orbitron',sans-serif;
+    font-size:17px;
+    font-weight:900;
+    color:#55b5ff;
+}
+
+/* MODAL */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,2,6,.82);
+    backdrop-filter:blur(8px);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:300;
+    padding:20px;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:100%;
+    max-width:430px;
+    background:linear-gradient(145deg,#0d1b2a,#050a10);
+    border:1px solid #1677ff;
+    border-radius:22px;
+    padding:27px;
+    text-align:center;
+    box-shadow:0 0 50px rgba(22,119,255,.2),0 20px 60px rgba(0,0,0,.5);
+    animation:modalIn .3s ease;
+}
+
+@keyframes modalIn{
+    from{transform:translateY(20px) scale(.95);opacity:0}
+    to{transform:translateY(0) scale(1);opacity:1}
+}
+
+.modal-box h2{
+    font-family:'Orbitron',sans-serif;
+    font-size:19px;
+}
+
+.modal-box img{
+    width:180px;
+    height:230px;
+    object-fit:cover;
+    border-radius:13px;
+    margin:15px 0;
+    border:1px solid #1683ff;
+}
+
+.modal-box h3{
+    font-family:'Orbitron',sans-serif;
+    font-size:18px;
+}
+
+.modal-buttons{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+.modal-buttons button{
+    flex:1;
+}
+
+.sell-modal{
+    background:linear-gradient(135deg,#7c3030,#4c1919);
+}
+
+.sell-modal:hover{
+    background:linear-gradient(135deg,#a53c3c,#661f1f);
+}
+
+/* TOAST */
+
+.toast{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    max-width:340px;
+    background:linear-gradient(145deg,#102237,#07101a);
+    border:1px solid #257fff;
+    padding:14px 20px;
+    border-radius:11px;
+    transform:translateY(100px);
+    opacity:0;
+    transition:.3s;
+    z-index:600;
+    box-shadow:0 10px 30px rgba(0,0,0,.35),0 0 20px rgba(22,131,255,.1);
+    color:#d9e7f5;
+    font-size:14px;
+    font-weight:700;
+}
+
+.toast.show{
+    transform:translateY(0);
+    opacity:1;
+}
+
+.empty{
+    grid-column:1/-1;
+    text-align:center;
+    padding:45px 20px;
+    color:#71869a;
+    border:1px dashed #294159;
+    border-radius:15px;
+    background:rgba(5,12,20,.35);
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+    width:9px;
+}
+
+::-webkit-scrollbar-track{
+    background:#02060b;
+}
+
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(180deg,#1683ff,#0750a0);
+    border-radius:10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#3da0ff;
+}
+
+::selection{
+    background:#1683ff;
+    color:white;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:700px){
+
+    header{
+        height:68px;
+        padding:0 4%;
+    }
+
+    .logo{
+        font-size:18px;
+        letter-spacing:3px;
+    }
+
+    .coins{
+        padding:8px 12px;
+        font-size:11px;
+    }
+
+    .hero{
+        padding-top:65px;
+        padding-bottom:50px;
+    }
+
+    .hero h1{
+        letter-spacing:4px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .section{
+        margin:48px 0;
+    }
+
+    .section-title{
+        font-size:21px;
+    }
+
+    .section-title::after{
+        display:none;
+    }
+
+    .mission{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .player-card img,.collection-card img{
+        height:245px;
+    }
+
+    .auto-controls{
+        grid-template-columns:1fr;
+    }
+
+    .auto-buttons{
+        flex-direction:column;
+    }
+
+    .modal-buttons{
+        flex-direction:column;
+    }
+
+    .log-card{
+        padding:19px;
+    }
+
+    .log-top{
+        align-items:flex-start;
+        flex-direction:column;
+        gap:8px;
+    }
+
+    .log-title{
+        font-size:19px;
+    }
+
+    .toast{
+        left:15px;
+        right:15px;
+        bottom:15px;
+        max-width:none;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+        transition-duration:.01ms!important;
+        scroll-behavior:auto!important;
+    }
+}
+
 </style>
 </head>
 
@@ -1201,10 +1562,7 @@ Monte seu inventário, evolua seus jogadores e domine o Blue Lock.
 <div class="grid">
 
 <div class="pack">
-
-<h3>
-PACK NORMAL
-</h3>
+<h3>PACK NORMAL</h3>
 
 <p>
 Common: 45%<br>
@@ -1221,14 +1579,10 @@ Mestres: 1%
 <button onclick="openPack('normal')">
 ABRIR PACK
 </button>
-
 </div>
 
 <div class="pack">
-
-<h3>
-PACK ELITE
-</h3>
+<h3>PACK ELITE</h3>
 
 <p>
 Common: 15%<br>
@@ -1245,14 +1599,10 @@ Mestres: 2%
 <button onclick="openPack('elite')">
 ABRIR PACK
 </button>
-
 </div>
 
 <div class="pack">
-
-<h3>
-PACK EGO
-</h3>
+<h3>PACK EGO</h3>
 
 <p>
 Common: 5%<br>
@@ -1269,22 +1619,15 @@ Mestres: 5%
 <button onclick="openPack('ego')">
 ABRIR PACK
 </button>
-
 </div>
 
 </div>
 
 <p style="color:#6e91b4;font-size:12px;text-align:center;margin-top:15px">
-
 🌌 NEO possui uma chance secreta de aparecer em qualquer Pack.
-
 </p>
 
 </section>
-
-<!-- =========================
-     ABERTURA AUTOMÁTICA
-========================= -->
 
 <section class="section">
 
@@ -1294,24 +1637,18 @@ ABRIR PACK
 
 <div class="auto-pack-box">
 
-<h3>
-🔥 EGO AUTO OPEN
-</h3>
+<h3>🔥 EGO AUTO OPEN</h3>
 
 <p style="color:#9eafc3;margin-top:8px;line-height:1.6">
-
 Escolha um pack e a quantidade de aberturas.
 Os jogadores serão automaticamente adicionados ao seu inventário.
-
 </p>
 
 <div class="auto-controls">
 
 <div class="auto-control">
 
-<label>
-TIPO DE PACK
-</label>
+<label>TIPO DE PACK</label>
 
 <select id="autoPackType">
 
@@ -1320,11 +1657,11 @@ TIPO DE PACK
 </option>
 
 <option value="elite">
-💎 Pack Elite — 500 🪙
+💎 [PROMO!] Pack Elite — 200 🪙
 </option>
 
 <option value="ego">
-🔥 Pack Ego — 1.500 🪙
+🔥 [PROMO!] Pack Ego — 500 🪙
 </option>
 
 </select>
@@ -1333,18 +1670,14 @@ TIPO DE PACK
 
 <div class="auto-control">
 
-<label>
-QUANTIDADE
-</label>
+<label>QUANTIDADE</label>
 
 <input
 id="autoPackAmount"
 type="number"
 min="1"
-max="100"
-value="5"
->
-
+max="1000000"
+value="5">
 </div>
 
 </div>
@@ -1381,10 +1714,6 @@ id="autoProgress">
 
 </section>
 
-<!-- =========================
-     CENTRAL DE EGO
-========================= -->
-
 <section class="section">
 
 <h2 class="section-title">
@@ -1413,10 +1742,6 @@ id="autoProgress">
 
 </section>
 
-<!-- =========================
-     JOGOS
-========================= -->
-
 <section class="section">
 
 <h2 class="section-title">
@@ -1427,9 +1752,7 @@ id="autoProgress">
 
 <div class="game">
 
-<h3>
-👑 Kaiser Impact
-</h3>
+<h3>👑 Kaiser Impact</h3>
 
 <p>
 Pare o marcador dentro da área verde.
@@ -1438,15 +1761,9 @@ Acerte para receber moedas e XP.
 
 <div class="kaiser-track">
 
-<div
-id="kaiserZone"
-class="kaiser-zone">
-</div>
+<div id="kaiserZone" class="kaiser-zone"></div>
 
-<div
-id="kaiserMarker"
-class="kaiser-marker">
-</div>
+<div id="kaiserMarker" class="kaiser-marker"></div>
 
 </div>
 
@@ -1464,18 +1781,14 @@ Preparado.
 
 <div class="game">
 
-<h3>
-⚡ Reflexo de Isagi
-</h3>
+<h3>⚡ Reflexo de Isagi</h3>
 
 <p>
 Clique no alvo assim que ele aparecer.
 Acerte para ganhar moedas e XP.
 </p>
 
-<div
-class="reflex-area"
-id="reflexArea">
+<div class="reflex-area" id="reflexArea">
 
 <div
 id="reflexTarget"
@@ -1507,9 +1820,7 @@ Clique no alvo antes que ele desapareça
 e conquiste um Ego Rush Pack.
 </p>
 
-<div
-class="ego-rush-area"
-id="egoRushArea">
+<div class="ego-rush-area" id="egoRushArea">
 
 <div
 id="egoRushTarget"
@@ -1531,9 +1842,7 @@ Recompensa: 1 Pack — Epic ou superior.
 
 <div class="game">
 
-<h3>
-🎰 Sorte do Kaiser
-</h3>
+<h3>🎰 Sorte do Kaiser</h3>
 
 <p>
 Jogo gratuito.
@@ -1542,17 +1851,9 @@ Gire os símbolos e receba uma recompensa virtual.
 
 <div class="slot-machine">
 
-<div class="slot" id="slot1">
-?
-</div>
-
-<div class="slot" id="slot2">
-?
-</div>
-
-<div class="slot" id="slot3">
-?
-</div>
+<div class="slot" id="slot1">?</div>
+<div class="slot" id="slot2">?</div>
+<div class="slot" id="slot3">?</div>
 
 </div>
 
@@ -1572,10 +1873,6 @@ Boa sorte.
 
 </section>
 
-<!-- =========================
-     NEW GEN
-========================= -->
-
 <section class="section">
 
 <h2 class="section-title">
@@ -1584,9 +1881,7 @@ Boa sorte.
 
 <div class="newgen-box">
 
-<h3>
-CRIAR JOGADOR NEW GEN
-</h3>
+<h3>CRIAR JOGADOR NEW GEN</h3>
 
 <p style="color:#9aaabd;margin-top:8px;line-height:1.6">
 
@@ -1620,10 +1915,6 @@ style="margin-top:15px;color:#a9b7c8">
 
 </section>
 
-<!-- =========================
-     INVENTÁRIO
-========================= -->
-
 <section class="section">
 
 <h2 class="section-title">
@@ -1632,73 +1923,43 @@ style="margin-top:15px;color:#a9b7c8">
 
 <div class="inventory-controls">
 
-<button
-class="filter-btn active"
-data-filter="all"
-onclick="setInventoryFilter('all')">
+<button class="filter-btn active" data-filter="all" onclick="setInventoryFilter('all')">
 TODOS
 </button>
 
-<button
-class="filter-btn"
-data-filter="common"
-onclick="setInventoryFilter('common')">
+<button class="filter-btn" data-filter="common" onclick="setInventoryFilter('common')">
 COMMON
 </button>
 
-<button
-class="filter-btn"
-data-filter="rare"
-onclick="setInventoryFilter('rare')">
+<button class="filter-btn" data-filter="rare" onclick="setInventoryFilter('rare')">
 RARE
 </button>
 
-<button
-class="filter-btn"
-data-filter="epic"
-onclick="setInventoryFilter('epic')">
+<button class="filter-btn" data-filter="epic" onclick="setInventoryFilter('epic')">
 EPIC
 </button>
 
-<button
-class="filter-btn"
-data-filter="legendary"
-onclick="setInventoryFilter('legendary')">
+<button class="filter-btn" data-filter="legendary" onclick="setInventoryFilter('legendary')">
 LEGENDARY
 </button>
 
-<button
-class="filter-btn"
-data-filter="mestres"
-onclick="setInventoryFilter('mestres')">
+<button class="filter-btn" data-filter="mestres" onclick="setInventoryFilter('mestres')">
 MESTRES
 </button>
 
-<button
-class="filter-btn"
-data-filter="world5"
-onclick="setInventoryFilter('world5')">
+<button class="filter-btn" data-filter="world5" onclick="setInventoryFilter('world5')">
 WORLD 5
 </button>
 
-<button
-class="filter-btn"
-data-filter="newgen"
-onclick="setInventoryFilter('newgen')">
+<button class="filter-btn" data-filter="newgen" onclick="setInventoryFilter('newgen')">
 NEW GEN
 </button>
 
-<button
-class="filter-btn"
-data-filter="neo"
-onclick="setInventoryFilter('neo')">
+<button class="filter-btn" data-filter="neo" onclick="setInventoryFilter('neo')">
 NEO
 </button>
 
-<button
-class="filter-btn"
-data-filter="deus"
-onclick="setInventoryFilter('deus')">
+<button class="filter-btn" data-filter="deus" onclick="setInventoryFilter('deus')">
 DEUS
 </button>
 
@@ -1716,10 +1977,6 @@ class="inventory-grid">
 </div>
 
 </section>
-
-<!-- =========================
-     COLEÇÃO
-========================= -->
 
 <section class="section">
 
@@ -1744,10 +2001,6 @@ class="collection-grid">
 
 </section>
 
-<!-- =========================
-     ESTATÍSTICAS
-========================= -->
-
 <section class="section">
 
 <h2 class="section-title">
@@ -1757,57 +2010,33 @@ class="collection-grid">
 <div class="stats-grid">
 
 <div class="stat">
-<strong id="level">
-1
-</strong>
-<span>
-Nível
-</span>
+<strong id="level">1</strong>
+<span>Nível</span>
 </div>
 
 <div class="stat">
-<strong id="xp">
-0
-</strong>
-<span>
-XP
-</span>
+<strong id="xp">0</strong>
+<span>XP</span>
 </div>
 
 <div class="stat">
-<strong id="packsOpened">
-0
-</strong>
-<span>
-Packs Abertos
-</span>
+<strong id="packsOpened">0</strong>
+<span>Packs Abertos</span>
 </div>
 
 <div class="stat">
-<strong id="playerCount">
-0
-</strong>
-<span>
-Jogadores
-</span>
+<strong id="playerCount">0</strong>
+<span>Jogadores</span>
 </div>
 
 <div class="stat">
-<strong id="collectionCount">
-0
-</strong>
-<span>
-Coleção
-</span>
+<strong id="collectionCount">0</strong>
+<span>Coleção</span>
 </div>
 
 </div>
 
 </section>
-
-<!-- =========================
-     MISSÕES
-========================= -->
 
 <section class="section">
 
@@ -1817,15 +2046,11 @@ Coleção
 
 <div class="missions">
 
-<div
-id="mission1"
-class="mission">
+<div id="mission1" class="mission">
 
 <div class="mission-info">
 
-<h4>
-Primeiro Passo
-</h4>
+<h4>Primeiro Passo</h4>
 
 <p>
 Abra 1 pack.
@@ -1839,15 +2064,11 @@ Abra 1 pack.
 
 </div>
 
-<div
-id="mission2"
-class="mission">
+<div id="mission2" class="mission">
 
 <div class="mission-info">
 
-<h4>
-Collector
-</h4>
+<h4>Collector</h4>
 
 <p>
 Tenha 5 jogadores.
@@ -1861,15 +2082,11 @@ Tenha 5 jogadores.
 
 </div>
 
-<div
-id="mission3"
-class="mission">
+<div id="mission3" class="mission">
 
 <div class="mission-info">
 
-<h4>
-Ego Supreme
-</h4>
+<h4>Ego Supreme</h4>
 
 <p>
 Chegue ao nível 5.
@@ -1887,10 +2104,6 @@ Chegue ao nível 5.
 
 </section>
 
-<!-- =========================
-     BÔNUS DIÁRIO
-========================= -->
-
 <section class="section">
 
 <h2 class="section-title">
@@ -1899,9 +2112,7 @@ Chegue ao nível 5.
 
 <div class="daily">
 
-<h3>
-RECOMPENSA DIÁRIA
-</h3>
+<h3>RECOMPENSA DIÁRIA</h3>
 
 <p
 id="dailyText"
@@ -1916,10 +2127,6 @@ RESGATAR
 </div>
 
 </section>
-
-<!-- =========================
-     LOG
-========================= -->
 
 <section class="section" id="log">
 
@@ -1938,10 +2145,6 @@ class="log-container">
 
 </section>
 
-<!-- =========================
-     RESET
-========================= -->
-
 <section
 class="section"
 style="text-align:center">
@@ -1957,10 +2160,6 @@ style="background:#762b2b">
 </section>
 
 </main>
-
-<!-- =========================
-     REVELAÇÃO AUTOMÁTICA
-========================= -->
 
 <div
 id="packReveal"
@@ -1990,6 +2189,11 @@ class="rarity reveal-rarity">
 </div>
 
 <div
+id="revealStars"
+class="player-stars">
+</div>
+
+<div
 id="revealPower"
 class="reveal-power">
 </div>
@@ -1997,10 +2201,6 @@ class="reveal-power">
 </div>
 
 </div>
-
-<!-- =========================
-     MODAL MANUAL
-========================= -->
 
 <div
 id="modal"
@@ -2017,8 +2217,7 @@ id="modalImage"
 src=""
 alt="Jogador">
 
-<h3 id="modalPlayerName">
-</h3>
+<h3 id="modalPlayerName"></h3>
 
 <div
 id="modalRarity"
@@ -2026,12 +2225,13 @@ class="rarity">
 </div>
 
 <div
+id="modalStars"
+class="player-stars">
+</div>
+
+<div
 id="modalPower"
-style="
-margin:10px 0;
-font-size:20px;
-font-weight:1000;
-color:#4da3ff">
+style="margin:10px 0;font-size:20px;font-weight:1000;color:#4da3ff">
 </div>
 
 <div class="modal-buttons">
@@ -2059,9 +2259,9 @@ class="toast">
 
 <script>
 
-/* =========================
+/* =========================================================
    JOGADORES
-========================= */
+========================================================= */
 
 const players=[
 
@@ -2096,10 +2296,6 @@ const players=[
 
 ];
 
-/* =========================
-   TEAM WORLD 5
-========================= */
-
 const teamWorld5Players=[
 
 {
@@ -2132,10 +2328,6 @@ image:"images/dada-silva.jpg"
 
 ];
 
-/* =========================
-   NEW GEN
-========================= */
-
 const newGenPlayers=[
 
 {id:"loki-newgen",name:"Julian Loki",rarity:"newgen",image:"images/loki.jpg"},
@@ -2148,10 +2340,6 @@ const newGenPlayers=[
 
 ];
 
-/* =========================
-   NEO
-========================= */
-
 const neoPlayers=[
 
 {id:"neo-isagi",name:"NEO Isagi",rarity:"neo",image:"images/neo-isagi.jpg"},
@@ -2161,10 +2349,6 @@ const neoPlayers=[
 
 ];
 
-/* =========================
-   DEUS DO FUTEBOL
-========================= */
-
 const deusPlayer={
 id:"deus-futebol",
 name:"DEUS DO FUTEBOL",
@@ -2172,9 +2356,9 @@ rarity:"deus",
 image:"images/deus-futebol.png"
 };
 
-/* =========================
+/* =========================================================
    SAVE
-========================= */
+========================================================= */
 
 let game=
 JSON.parse(
@@ -2203,7 +2387,7 @@ egoRushLastPlay:0
 };
 
 game.inventory??=[];
-game.collection??[];
+game.collection??=[];
 
 game.missions??={
 1:false,
@@ -2215,9 +2399,24 @@ game.kaiserLastPlay??=0;
 game.reflexLastPlay??=0;
 game.egoRushLastPlay??=0;
 
-/* =========================
+game.inventory.forEach(player=>{
+
+    if(typeof player.stars!=="number"){
+        player.stars=0;
+    }
+
+    player.stars=Math.max(
+        0,
+        Math.min(5,Math.floor(player.stars))
+    );
+
+});
+
+saveGame();
+
+/* =========================================================
    TODOS OS PERSONAGENS
-========================= */
+========================================================= */
 
 function getAllCharacters(){
 
@@ -2240,9 +2439,9 @@ return characters;
 
 }
 
-/* =========================
+/* =========================================================
    PODER
-========================= */
+========================================================= */
 
 const characterPower={
 
@@ -2327,9 +2526,56 @@ defaultPower[player.rarity]
 
 }
 
-/* =========================
+/* =========================================================
+   ⭐ SISTEMA VISUAL DE ESTRELAS
+========================================================= */
+
+function getPlayerStars(player){
+
+if(!player){
+    return 0;
+}
+
+let stars=Number(player.stars);
+
+if(!Number.isFinite(stars)){
+    stars=0;
+}
+
+return Math.max(
+    0,
+    Math.min(5,Math.floor(stars))
+);
+
+}
+
+/* SOMENTE ⭐ PREENCHIDAS */
+
+function renderStars(player){
+
+const stars=getPlayerStars(player);
+
+let html="";
+
+for(let i=1;i<=stars;i++){
+
+html+=`
+<span class="star">⭐</span>
+`;
+
+}
+
+return`
+<div class="player-stars">
+${html}
+</div>
+`;
+
+}
+
+/* =========================================================
    SAVE GAME
-========================= */
+========================================================= */
 
 function saveGame(){
 
@@ -2340,9 +2586,7 @@ JSON.stringify(game)
 
 }
 
-/* =========================
-   VARIÁVEIS
-========================= */
+/* VARIÁVEIS */
 
 let pendingPlayer=null;
 
@@ -2369,9 +2613,9 @@ let autoPackTimer=null;
 let autoPackCurrent=0;
 let autoPackTotal=0;
 
-/* =========================
+/* =========================================================
    COLEÇÃO / XP
-========================= */
+========================================================= */
 
 function registerCollection(player){
 
@@ -2383,23 +2627,15 @@ game.collection.push(player.id);
 
 if(player.rarity==="deus"){
 
-toast(
-"👑 DEUS DO FUTEBOL DESCOBERTO!"
-);
+toast("👑 DEUS DO FUTEBOL DESCOBERTO!");
 
 }else if(player.rarity==="world5"){
 
-toast(
-"🌍 TEAM WORLD 5 DESCOBERTO: "+
-player.name
-);
+toast("🌍 TEAM WORLD 5 DESCOBERTO: "+player.name);
 
 }else{
 
-toast(
-"📚 NOVO PERSONAGEM: "+
-player.name
-);
+toast("📚 NOVO PERSONAGEM: "+player.name);
 
 }
 
@@ -2438,9 +2674,7 @@ checkMissions();
 
 }
 
-/* =========================
-   RANDOM
-========================= */
+/* RANDOM */
 
 function randomRarity(chances){
 
@@ -2503,9 +2737,7 @@ Math.random()*teamWorld5Players.length
 
 }
 
-/* =========================
-   CONFIG PACK
-========================= */
+/* PACK CONFIG */
 
 function getPackConfig(type){
 
@@ -2523,7 +2755,7 @@ mestres:1
 },
 
 elite:{
-cost:500,
+cost:200,
 chances:{
 common:15,
 rare:38,
@@ -2534,13 +2766,13 @@ mestres:2
 },
 
 ego:{
-cost:1500,
+cost:500,
 chances:{
-common:0,
-rare:35,
-epic:22,
-legendary:2,
-mestres:1
+common:5,
+rare:20,
+epic:38,
+legendary:32,
+mestres:5
 }
 }
 
@@ -2550,14 +2782,11 @@ return packs[type];
 
 }
 
-/* =========================
-   GERAR PLAYER
-========================= */
+/* GERAR PLAYER */
 
 function generatePackPlayer(type){
 
-const pack=
-getPackConfig(type);
+const pack=getPackConfig(type);
 
 if(Math.random()<0.0015){
 
@@ -2571,9 +2800,9 @@ randomRarity(pack.chances)
 
 }
 
-/* =========================
+/* =========================================================
    ABRIR PACK
-========================= */
+========================================================= */
 
 function openPack(type){
 
@@ -2587,8 +2816,7 @@ return;
 
 }
 
-const pack=
-getPackConfig(type);
+const pack=getPackConfig(type);
 
 if(!pack)return;
 
@@ -2604,8 +2832,10 @@ return;
 
 game.coins-=pack.cost;
 
-const player=
-generatePackPlayer(type);
+const player={
+...generatePackPlayer(type),
+stars:0
+};
 
 if(player.rarity==="neo"){
 
@@ -2634,9 +2864,9 @@ player,
 
 }
 
-/* =========================
+/* =========================================================
    ABERTURA AUTOMÁTICA
-========================= */
+========================================================= */
 
 function startAutoPack(){
 
@@ -2749,8 +2979,10 @@ return;
 
 game.coins-=pack.cost;
 
-const player=
-generatePackPlayer(type);
+const player={
+...generatePackPlayer(type),
+stars:0
+};
 
 game.packsOpened++;
 
@@ -2878,6 +3110,22 @@ rarity.className=
 player.rarity;
 
 document.getElementById(
+"revealStars"
+).outerHTML=
+renderStars(player);
+
+const newStars=
+document.querySelector(
+"#packReveal .player-stars"
+);
+
+if(newStars){
+
+newStars.id="revealStars";
+
+}
+
+document.getElementById(
 "revealPower"
 ).textContent=
 "⚡ PODER "+
@@ -2973,9 +3221,9 @@ document.getElementById(
 
 }
 
-/* =========================
+/* =========================================================
    MODAL
-========================= */
+========================================================= */
 
 function showPlayerModal(player,title){
 
@@ -3005,6 +3253,22 @@ rarity.className=
 player.rarity;
 
 document.getElementById(
+"modalStars"
+).outerHTML=
+renderStars(player);
+
+const newStars=
+document.querySelector(
+"#modal .player-stars"
+);
+
+if(newStars){
+
+newStars.id="modalStars";
+
+}
+
+document.getElementById(
 "modalPower"
 ).textContent=
 "⚡ PODER "+
@@ -3023,6 +3287,9 @@ if(!pendingPlayer)return;
 game.inventory.push({
 
 ...pendingPlayer,
+
+stars:
+getPlayerStars(pendingPlayer),
 
 uniqueId:
 pendingPlayer.id+
@@ -3092,9 +3359,9 @@ pendingPlayer
 const name=
 pendingPlayer.name;
 
-game.coins+=value;
-
 pendingPlayer=null;
+
+game.coins+=value;
 
 document.getElementById(
 "modal"
@@ -3152,9 +3419,9 @@ value+
 
 }
 
-/* =========================
+/* =========================================================
    INVENTÁRIO
-========================= */
+========================================================= */
 
 function setInventoryFilter(filter){
 
@@ -3257,6 +3524,8 @@ onerror="this.style.opacity='.25'">
 ${player.name}
 </div>
 
+${renderStars(player)}
+
 <span class="rarity ${player.rarity}">
 ${player.rarity.toUpperCase()}
 </span>
@@ -3303,9 +3572,9 @@ container.appendChild(card);
 
 }
 
-/* =========================
+/* =========================================================
    COLEÇÃO
-========================= */
+========================================================= */
 
 function renderCollection(){
 
@@ -3334,6 +3603,11 @@ all.forEach(player=>{
 const unlocked=
 game.collection.includes(
 player.id
+);
+
+const ownedPlayer=
+game.inventory.find(
+p=>p.id===player.id
 );
 
 const card=
@@ -3381,14 +3655,16 @@ player.name
 
 </div>
 
-<span class="rarity ${player.rarity}">
-${player.rarity.toUpperCase()}
-</span>
-
 ${
 unlocked
 ?
 `
+
+${renderStars(ownedPlayer||player)}
+
+<span class="rarity ${player.rarity}">
+${player.rarity.toUpperCase()}
+</span>
 
 <div class="collection-power">
 ⚡ Poder ${power}
@@ -3401,6 +3677,10 @@ unlocked
 `
 :
 `
+
+<span class="rarity ${player.rarity}">
+${player.rarity.toUpperCase()}
+</span>
 
 <div class="collection-status">
 🔒 Ainda não obtido
@@ -3418,9 +3698,9 @@ container.appendChild(card);
 
 }
 
-/* =========================
+/* =========================================================
    TREINO / DAILY
-========================= */
+========================================================= */
 
 function train(){
 
@@ -3491,9 +3771,7 @@ toast(
 
 }
 
-/* =========================
-   MISSÕES
-========================= */
+/* MISSÕES */
 
 function checkMissions(){
 
@@ -3548,9 +3826,9 @@ updateMissions();
 
 }
 
-/* =========================
+/* =========================================================
    NEW GEN
-========================= */
+========================================================= */
 
 function renderLegendarySelector(){
 
@@ -3589,6 +3867,10 @@ div.innerHTML=`
 <strong>
 ${player.name}
 </strong>
+
+<small>
+⭐ ${getPlayerStars(player)}/5
+</small>
 
 <small>
 ⚡ Poder ${getPlayerPower(player)}
@@ -3704,12 +3986,15 @@ return;
 }
 
 const chosen=
-newGenPlayers[
+{
+...newGenPlayers[
 Math.floor(
 Math.random()*
 newGenPlayers.length
 )
-];
+],
+stars:0
+};
 
 const indexes=
 [...selectedLegendary]
@@ -3759,9 +4044,9 @@ getPlayerPower(chosen)
 
 }
 
-/* =========================
+/* =========================================================
    KAISER
-========================= */
+========================================================= */
 
 function moveKaiserBar(){
 
@@ -3897,9 +4182,7 @@ updateUI();
 
 }
 
-/* =========================
-   REFLEXO
-========================= */
+/* REFLEXO */
 
 function startReflexGame(){
 
@@ -4027,9 +4310,7 @@ toast(
 
 }
 
-/* =========================
-   EGO RUSH
-========================= */
+/* EGO RUSH */
 
 function startEgoRush(){
 
@@ -4160,9 +4441,7 @@ setTimeout(
 
 }
 
-/* =========================
-   EGO RUSH PACK
-========================= */
+/* EGO RUSH PACK */
 
 function openEgoRushPack(){
 
@@ -4183,7 +4462,10 @@ Math.random();
 
 if(roll<0.005){
 
-player=deusPlayer;
+player={
+...deusPlayer,
+stars:0
+};
 
 toast(
 "👑 DEUS DO FUTEBOL DESPERTADO!"
@@ -4191,7 +4473,10 @@ toast(
 
 }else if(roll<0.010){
 
-player=chooseNeo();
+player={
+...chooseNeo(),
+stars:0
+};
 
 toast(
 "🌌 NEO ENCONTRADO NO EGO RUSH!"
@@ -4199,7 +4484,10 @@ toast(
 
 }else if(roll<0.040){
 
-player=chooseTeamWorld5();
+player={
+...chooseTeamWorld5(),
+stars:0
+};
 
 toast(
 "🌍 TEAM WORLD 5 ENCONTRADO!"
@@ -4207,14 +4495,16 @@ toast(
 
 }else{
 
-player=
-choosePlayer(
+player={
+...choosePlayer(
 randomRarity({
 epic:55,
 legendary:35,
 mestres:10
 })
-);
+),
+stars:0
+};
 
 }
 
@@ -4247,9 +4537,7 @@ player.rarity==="world5"
 
 }
 
-/* =========================
-   SORTE KAISER
-========================= */
+/* SORTE KAISER */
 
 const slotSymbols=[
 "⚽",
@@ -4268,17 +4556,9 @@ slotPlaying=true;
 
 const slots=[
 
-document.getElementById(
-"slot1"
-),
-
-document.getElementById(
-"slot2"
-),
-
-document.getElementById(
-"slot3"
-)
+document.getElementById("slot1"),
+document.getElementById("slot2"),
+document.getElementById("slot3")
 
 ];
 
@@ -4386,11 +4666,32 @@ updateUI();
 
 }
 
-/* =========================
-   LOG DE ATUALIZAÇÕES
-========================= */
+/* =========================================================
+   LOG
+========================================================= */
 
 const gameLogs=[
+
+{
+version:"v1.4.0",
+date:"06/09/2026",
+title:"⚠️ REPARAÇÃO DE ERROS",
+description:
+"Erros no Código Resolvidos.",
+updates:[
+
+"Novo visual em todas as páginas.",
+
+"Promoção nos dois packs principais que dura até a próxima atualização.",
+
+"Sistema de Inventário na página de Evolução ajeitado.",
+
+
+],
+tag:"NOVO CONTEÚDO",
+important:true
+},
+
 
 {
 version:"v1.3.0",
@@ -4562,9 +4863,9 @@ container.appendChild(card);
 
 }
 
-/* =========================
+/* =========================================================
    UI
-========================= */
+========================================================= */
 
 function updateMissions(){
 
@@ -4650,9 +4951,7 @@ document.getElementById(
 
 }
 
-/* =========================
-   TOAST
-========================= */
+/* TOAST */
 
 function toast(message){
 
@@ -4679,9 +4978,7 @@ element.classList.remove(
 
 }
 
-/* =========================
-   MODAL
-========================= */
+/* MODAL */
 
 document.getElementById(
 "modal"
@@ -4702,9 +4999,7 @@ pendingPlayer=null;
 }
 );
 
-/* =========================
-   RESET
-========================= */
+/* RESET */
 
 function resetGame(){
 
@@ -4726,9 +5021,7 @@ location.reload();
 
 }
 
-/* =========================
-   INTERVALOS
-========================= */
+/* INTERVALOS */
 
 setInterval(
 moveKaiserBar,
@@ -4740,9 +5033,7 @@ moveKaiserZone,
 35
 );
 
-/* =========================
-   INICIALIZAÇÃO
-========================= */
+/* INICIALIZAÇÃO */
 
 renderGameLogs();
 

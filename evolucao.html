@@ -1,44 +1,203 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Blue Lock - Evolution</title>
+<title>BLUE LOCK — Evolution</title>
 
 <style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
+}
+
+:root{
+    --blue:#38bdf8;
+    --blue2:#2563eb;
+    --cyan:#22d3ee;
+    --purple:#8b5cf6;
+    --green:#22c55e;
+    --yellow:#facc15;
+    --red:#ef4444;
+
+    --bg:#02070c;
+    --panel:#07131f;
+    --panel2:#091a29;
+    --border:#173b55;
+    --text:#ffffff;
+    --muted:#7893a7;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     background:
-        radial-gradient(circle at top,#123b5c 0%,#07131f 45%,#02070c 100%);
+
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(37,99,235,.35),
+            transparent 32%
+        ),
+
+        radial-gradient(
+            circle at 0% 40%,
+            rgba(14,165,233,.08),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 100% 70%,
+            rgba(139,92,246,.08),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            180deg,
+            #02070c,
+            #04101a 45%,
+            #02060a
+        );
+
     color:white;
+
     min-height:100vh;
+
+    overflow-x:hidden;
 }
 
+
+/* =========================================================
+   BACKGROUND EFFECT
+========================================================= */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+
+        linear-gradient(
+            rgba(56,189,248,.025) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(56,189,248,.025) 1px,
+            transparent 1px
+        );
+
+    background-size:45px 45px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 90%
+        );
+
+    z-index:-1;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
 header{
-    padding:22px 7%;
+
+    height:76px;
+
+    padding:0 6%;
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
-    border-bottom:1px solid #18344c;
-    background:rgba(3,10,17,.92);
+
     position:sticky;
+
     top:0;
-    z-index:20;
-    backdrop-filter:blur(12px);
+
+    z-index:50;
+
+    background:
+        rgba(2,8,14,.82);
+
+    border-bottom:
+        1px solid
+        rgba(56,189,248,.18);
+
+    backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+        0 10px 40px
+        rgba(0,0,0,.35);
 }
 
 .logo{
-    font-size:28px;
+
+    position:relative;
+
+    font-size:27px;
+
     font-weight:1000;
-    letter-spacing:2px;
-    color:#38bdf8;
+
+    letter-spacing:3px;
+
+    color:var(--blue);
+
+    text-shadow:
+        0 0 18px
+        rgba(56,189,248,.4);
+}
+
+.logo::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-7px;
+
+    width:42px;
+
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--blue),
+            transparent
+        );
 }
 
 .logo span{
@@ -46,378 +205,1485 @@ header{
 }
 
 .header-right{
+
     display:flex;
-    gap:10px;
+
     align-items:center;
+
+    gap:12px;
 }
 
 .coins{
-    background:#0d2234;
-    border:1px solid #24516f;
-    padding:10px 18px;
+
+    padding:10px 17px;
+
     border-radius:30px;
-    color:#facc15;
-    font-weight:bold;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(250,204,21,.12),
+            rgba(250,204,21,.03)
+        );
+
+    border:
+        1px solid
+        rgba(250,204,21,.35);
+
+    color:var(--yellow);
+
+    font-weight:1000;
+
+    box-shadow:
+        0 0 20px
+        rgba(250,204,21,.05);
 }
 
 .back-button{
+
     text-decoration:none;
-    background:#124e70;
+
     color:white;
-    padding:10px 16px;
+
+    padding:10px 17px;
+
     border-radius:9px;
-    font-weight:bold;
-}
 
-.back-button:hover{
-    background:#38bdf8;
-    color:#03111c;
-}
+    font-size:12px;
 
-.container{
-    width:86%;
-    max-width:1400px;
-    margin:auto;
-    padding:35px 0 80px;
-}
-
-.hero{
-    text-align:center;
-    padding:25px 10px 35px;
-}
-
-.hero h1{
-    font-size:clamp(42px,7vw,75px);
     font-weight:1000;
-    letter-spacing:5px;
-}
 
-.hero h1 span{
-    color:#38bdf8;
-}
+    background:
+        linear-gradient(
+            135deg,
+            #0c3148,
+            #092033
+        );
 
-.hero p{
-    margin-top:12px;
-    color:#8fa7ba;
-}
+    border:
+        1px solid
+        #24516f;
 
-.info{
-    background:#091724;
-    border:1px solid #24516f;
-    padding:18px;
-    border-radius:14px;
-    color:#8fa7ba;
-    font-size:13px;
-    line-height:1.7;
-    margin-bottom:25px;
-}
-
-.filters{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin-bottom:20px;
-}
-
-.filter{
-    padding:8px 12px;
-    border-radius:8px;
-    background:#091724;
-    border:1px solid #23465e;
-    color:#8fa7ba;
-    cursor:pointer;
-    font-weight:bold;
-    font-size:10px;
-}
-
-.filter.active{
-    background:#1d4ed8;
-    color:white;
-    border-color:#38bdf8;
-}
-
-.inventory{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(165px,1fr));
-    gap:15px;
-}
-
-.player-card{
-    background:#091724;
-    border:2px solid #1c3b51;
-    border-radius:14px;
-    overflow:hidden;
-    cursor:pointer;
     transition:.2s;
 }
 
+.back-button:hover{
+
+    color:#02101a;
+
+    background:var(--blue);
+
+    border-color:var(--blue);
+
+    box-shadow:
+        0 0 20px
+        rgba(56,189,248,.3);
+
+    transform:translateY(-2px);
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container{
+
+    width:88%;
+
+    max-width:1500px;
+
+    margin:auto;
+
+    padding:
+        45px
+        0
+        120px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    text-align:center;
+
+    padding:
+        20px
+        10px
+        45px;
+
+    position:relative;
+}
+
+.hero::before{
+
+    content:"EVOLUTION";
+
+    position:absolute;
+
+    left:50%;
+
+    top:0;
+
+    transform:
+        translateX(-50%);
+
+    font-size:
+        clamp(70px,15vw,180px);
+
+    font-weight:1000;
+
+    color:
+        rgba(56,189,248,.025);
+
+    letter-spacing:10px;
+
+    white-space:nowrap;
+
+    pointer-events:none;
+}
+
+.hero h1{
+
+    position:relative;
+
+    font-size:
+        clamp(48px,8vw,90px);
+
+    font-weight:1000;
+
+    letter-spacing:7px;
+
+    line-height:1;
+
+    text-transform:uppercase;
+
+    text-shadow:
+        0 0 30px
+        rgba(56,189,248,.15);
+}
+
+.hero h1 span{
+
+    color:transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #22d3ee,
+            #38bdf8,
+            #2563eb,
+            #8b5cf6
+        );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    text-shadow:none;
+}
+
+.hero p{
+
+    position:relative;
+
+    margin-top:17px;
+
+    color:#7f9caf;
+
+    font-size:13px;
+
+    letter-spacing:.5px;
+}
+
+
+/* =========================================================
+   INFO
+========================================================= */
+
+.info{
+
+    position:relative;
+
+    padding:20px 22px;
+
+    margin-bottom:25px;
+
+    border-radius:14px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(10,31,48,.95),
+            rgba(5,17,27,.95)
+        );
+
+    border:
+        1px solid
+        #1c4b68;
+
+    color:#8ba5b7;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,.2);
+
+    overflow:hidden;
+}
+
+.info::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:4px;
+
+    height:100%;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--cyan),
+            var(--blue2),
+            var(--purple)
+        );
+}
+
+.info strong{
+    color:var(--blue);
+}
+
+
+/* =========================================================
+   FILTERS
+========================================================= */
+
+.filters{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:9px;
+
+    margin-bottom:25px;
+
+    padding:5px;
+}
+
+.filter{
+
+    position:relative;
+
+    padding:10px 15px;
+
+    border-radius:8px;
+
+    background:
+        rgba(7,22,34,.9);
+
+    border:
+        1px solid
+        #1b4058;
+
+    color:#7691a4;
+
+    cursor:pointer;
+
+    font-size:10px;
+
+    font-weight:1000;
+
+    letter-spacing:.5px;
+
+    transition:.2s;
+
+    overflow:hidden;
+}
+
+.filter::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,.06),
+            transparent
+        );
+
+    transform:
+        translateX(-100%);
+
+    transition:.4s;
+}
+
+.filter:hover::before{
+    transform:translateX(100%);
+}
+
+.filter:hover{
+
+    color:white;
+
+    border-color:var(--blue);
+
+    transform:translateY(-2px);
+}
+
+.filter.active{
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1555c9,
+            #2563eb,
+            #4f46e5
+        );
+
+    border-color:
+        #60a5fa;
+
+    box-shadow:
+        0 0 22px
+        rgba(37,99,235,.3);
+}
+
+
+/* =========================================================
+   INVENTORY
+========================================================= */
+
+.inventory{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(185px,1fr)
+        );
+
+    gap:18px;
+}
+
+
+/* =========================================================
+   PLAYER CARD
+========================================================= */
+
+.player-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:16px;
+
+    background:
+
+        linear-gradient(
+            160deg,
+            #0a1d2d,
+            #06111b
+        );
+
+    border:
+        1px solid
+        #193c54;
+
+    cursor:pointer;
+
+    transition:
+        transform .25s,
+        border-color .25s,
+        box-shadow .25s;
+
+    box-shadow:
+        0 10px 25px
+        rgba(0,0,0,.25);
+}
+
+.player-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            125deg,
+            transparent 30%,
+            rgba(56,189,248,.08),
+            transparent 70%
+        );
+
+    transform:
+        translateX(-100%);
+
+    transition:.5s;
+
+    pointer-events:none;
+
+    z-index:2;
+}
+
+.player-card:hover::before{
+    transform:translateX(100%);
+}
+
 .player-card:hover{
-    transform:translateY(-4px);
-    border-color:#38bdf8;
+
+    transform:
+        translateY(-7px)
+        scale(1.015);
+
+    border-color:var(--blue);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.4),
+
+        0 0 25px
+        rgba(56,189,248,.12);
 }
 
 .player-card.selected{
-    border-color:#22c55e;
-    box-shadow:0 0 20px rgba(34,197,94,.2);
+
+    border-color:var(--green);
+
+    transform:
+        translateY(-7px);
+
+    box-shadow:
+
+        0 0 0 1px
+        rgba(34,197,94,.25),
+
+        0 0 35px
+        rgba(34,197,94,.22);
+}
+
+.player-card.selected::after{
+
+    content:"✓";
+
+    position:absolute;
+
+    top:11px;
+
+    right:11px;
+
+    width:31px;
+
+    height:31px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #16a34a,
+            #22c55e
+        );
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:1000;
+
+    box-shadow:
+        0 0 20px
+        rgba(34,197,94,.55);
+
+    z-index:10;
+
+    animation:
+        selectedPop .25s ease;
+}
+
+@keyframes selectedPop{
+
+    0%{
+        transform:scale(.4);
+        opacity:0;
+    }
+
+    100%{
+        transform:scale(1);
+        opacity:1;
+    }
+
 }
 
 .player-card img{
+
     width:100%;
-    height:210px;
+
+    height:235px;
+
     object-fit:cover;
+
     display:block;
+
+    background:#06111b;
+
+    transition:.3s;
 }
 
+.player-card:hover img{
+
+    transform:scale(1.035);
+
+    filter:
+        brightness(1.08)
+        saturate(1.08);
+}
+
+
+/* =========================================================
+   PLAYER INFO
+========================================================= */
+
 .player-info{
-    padding:11px;
+
+    padding:14px;
+
+    position:relative;
+
+    z-index:3;
 }
 
 .player-name{
-    font-weight:900;
-    font-size:13px;
-    margin-bottom:6px;
+
+    font-size:14px;
+
+    font-weight:1000;
+
+    margin-bottom:8px;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
 }
 
 .rarity{
+
     display:inline-block;
-    padding:4px 7px;
+
+    padding:5px 8px;
+
     border-radius:5px;
-    font-size:9px;
-    font-weight:bold;
+
+    font-size:8px;
+
+    font-weight:1000;
+
     text-transform:uppercase;
+
+    letter-spacing:.5px;
 }
 
-.common{background:#334155;}
-.rare{background:#0369a1;}
-.epic{background:#7e22ce;}
-.legendary{background:#b45309;}
+.common{
+    background:#334155;
+}
+
+.rare{
+    background:
+        linear-gradient(
+            90deg,
+            #075985,
+            #0284c7
+        );
+}
+
+.epic{
+    background:
+        linear-gradient(
+            90deg,
+            #6b21a8,
+            #9333ea
+        );
+}
+
+.legendary{
+    background:
+        linear-gradient(
+            90deg,
+            #92400e,
+            #d97706
+        );
+}
 
 .mestres{
-    background:linear-gradient(90deg,#f59e0b,#fde68a,#f59e0b);
-    color:#261500;
+
+    background:
+        linear-gradient(
+            90deg,
+            #d97706,
+            #fde68a,
+            #f59e0b
+        );
+
+    color:#241300;
+
+    box-shadow:
+        0 0 10px
+        rgba(250,204,21,.15);
+}
+
+.teamworld5{
+
+    background:
+        linear-gradient(
+            90deg,
+            #ea580c,
+            #facc15,
+            #ea580c
+        );
+
+    color:#1f1200;
 }
 
 .newgen{
-    background:linear-gradient(90deg,#06b6d4,#2563eb,#9333ea);
+
+    background:
+        linear-gradient(
+            90deg,
+            #06b6d4,
+            #2563eb,
+            #9333ea
+        );
+
+    box-shadow:
+        0 0 12px
+        rgba(6,182,212,.18);
 }
 
 .neo{
-    background:linear-gradient(90deg,#00e5ff,#2563eb,#9333ea,#ec4899);
+
+    background:
+        linear-gradient(
+            90deg,
+            #00e5ff,
+            #2563eb,
+            #9333ea,
+            #ec4899
+        );
+
+    box-shadow:
+        0 0 15px
+        rgba(236,72,153,.2);
 }
 
 .deus{
-    background:linear-gradient(90deg,#facc15,#fff7a8,#f59e0b);
+
+    background:
+        linear-gradient(
+            90deg,
+            #facc15,
+            #fff7a8,
+            #f59e0b
+        );
+
     color:#261500;
+
+    box-shadow:
+        0 0 18px
+        rgba(250,204,21,.3);
 }
 
+
+/* =========================================================
+   CARD STATS
+========================================================= */
+
 .stars{
+
     color:#facc15;
-    margin-top:6px;
-    font-size:12px;
+
+    margin-top:8px;
+
+    font-size:13px;
+
+    letter-spacing:2px;
+
+    text-shadow:
+        0 0 8px
+        rgba(250,204,21,.25);
 }
 
 .power{
+
     color:#38bdf8;
+
     font-size:11px;
-    font-weight:bold;
-    margin-top:4px;
+
+    font-weight:1000;
+
+    margin-top:7px;
 }
 
 .value{
+
     color:#facc15;
+
     font-size:11px;
+
+    font-weight:bold;
+
     margin-top:4px;
 }
 
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
 .empty{
+
     grid-column:1/-1;
-    padding:40px;
+
+    padding:70px 30px;
+
     text-align:center;
+
     color:#60798c;
-    border:1px dashed #234257;
-    border-radius:15px;
+
+    background:
+        rgba(5,17,27,.6);
+
+    border:
+        1px dashed
+        #21445b;
+
+    border-radius:16px;
 }
 
+
+/* =========================================================
+   EVOLUTION PANEL
+========================================================= */
+
 .evolution-panel{
+
     position:sticky;
+
     bottom:15px;
-    margin-top:30px;
-    background:rgba(7,19,30,.96);
-    border:1px solid #38bdf8;
-    border-radius:17px;
-    padding:20px;
-    box-shadow:0 0 40px rgba(0,0,0,.45);
-    backdrop-filter:blur(10px);
+
+    margin-top:35px;
+
+    padding:23px;
+
+    border-radius:18px;
+
+    background:
+
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(37,99,235,.15),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            rgba(7,23,36,.97),
+            rgba(3,11,18,.98)
+        );
+
+    border:
+        1px solid
+        rgba(56,189,248,.55);
+
+    box-shadow:
+
+        0 20px 60px
+        rgba(0,0,0,.55),
+
+        0 0 40px
+        rgba(37,99,235,.08);
+
+    backdrop-filter:
+        blur(18px);
+
+    z-index:20;
+
+    overflow:hidden;
+}
+
+.evolution-panel::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--cyan),
+            var(--blue),
+            var(--purple),
+            transparent
+        );
+
+    animation:
+        energyLine 3s linear infinite;
+}
+
+@keyframes energyLine{
+
+    0%{
+        transform:translateX(-100%);
+    }
+
+    100%{
+        transform:translateX(100%);
+    }
+
 }
 
 .evolution-panel h2{
-    color:#38bdf8;
+
+    color:white;
+
+    font-size:22px;
+
+    font-weight:1000;
+
+    letter-spacing:1px;
+
     margin-bottom:8px;
 }
 
+.evolution-panel h2::first-letter{
+    color:var(--blue);
+}
+
 .evolution-info{
-    color:#8fa7ba;
+
+    color:#8199aa;
+
     font-size:12px;
 }
 
 .evolution-result{
-    margin-top:10px;
-    color:#facc15;
-    font-weight:bold;
+
+    margin-top:12px;
+
+    padding:11px 14px;
+
+    border-radius:9px;
+
+    background:
+        rgba(3,12,20,.7);
+
+    border:
+        1px solid
+        #17384e;
+
+    color:var(--yellow);
+
+    font-size:13px;
+
+    font-weight:1000;
 }
 
 .evolve-button{
+
     width:100%;
+
     margin-top:15px;
-    padding:14px;
+
+    padding:16px;
+
     border:none;
-    border-radius:10px;
-    background:linear-gradient(90deg,#1d4ed8,#7c3aed);
+
+    border-radius:11px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #1d4ed8,
+            #2563eb,
+            #7c3aed
+        );
+
     color:white;
+
+    font-size:14px;
+
     font-weight:1000;
+
+    letter-spacing:1px;
+
     cursor:pointer;
+
+    transition:.2s;
+
+    box-shadow:
+        0 8px 25px
+        rgba(37,99,235,.15);
+}
+
+.evolve-button:hover:not(:disabled){
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 0 30px
+        rgba(59,130,246,.4);
+}
+
+.evolve-button:active:not(:disabled){
+
+    transform:
+        translateY(0)
+        scale(.99);
 }
 
 .evolve-button:disabled{
-    opacity:.4;
+
+    opacity:.35;
+
     cursor:not-allowed;
+
+    filter:grayscale(.5);
 }
 
+
+/* =========================================================
+   TOAST
+========================================================= */
+
 .toast{
+
     position:fixed;
-    bottom:25px;
-    right:25px;
-    background:#0b1d2c;
-    border:1px solid #2d536c;
-    padding:14px 18px;
-    border-radius:10px;
-    transform:translateY(100px);
+
+    bottom:28px;
+
+    right:28px;
+
+    max-width:360px;
+
+    padding:15px 19px;
+
+    border-radius:11px;
+
+    background:
+        rgba(5,18,29,.96);
+
+    border:
+        1px solid
+        #2b5873;
+
+    color:white;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,.45);
+
+    transform:
+        translateY(100px);
+
     opacity:0;
+
     transition:.3s;
+
     z-index:100;
 }
 
 .toast.show{
-    transform:translateY(0);
+
+    transform:
+        translateY(0);
+
     opacity:1;
 }
 
-@media(max-width:600px){
-    .container{
-        width:92%;
-    }
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media(max-width:800px){
 
     header{
-        padding:16px 4%;
+
+        height:auto;
+
+        padding:
+            15px 4%;
+
+    }
+
+    .container{
+
+        width:92%;
+
+        padding-top:30px;
+    }
+
+    .inventory{
+
+        grid-template-columns:
+            repeat(
+                3,
+                minmax(0,1fr)
+            );
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    header{
+
+        align-items:flex-start;
+
     }
 
     .header-right{
-        flex-direction:column;
-        align-items:flex-end;
+
+        gap:7px;
+
     }
+
+    .coins{
+
+        padding:
+            8px 11px;
+
+        font-size:11px;
+
+    }
+
+    .back-button{
+
+        padding:
+            8px 10px;
+
+        font-size:10px;
+
+    }
+
+    .logo{
+
+        font-size:20px;
+
+    }
+
+    .hero{
+
+        padding-bottom:30px;
+
+    }
+
+    .hero h1{
+
+        font-size:45px;
+
+        letter-spacing:3px;
+
+    }
+
+    .hero p{
+
+        font-size:11px;
+
+    }
+
+    .filters{
+
+        gap:6px;
+
+    }
+
+    .filter{
+
+        padding:
+            8px 10px;
+
+        font-size:9px;
+
+    }
+
+    .inventory{
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0,1fr)
+            );
+
+        gap:10px;
+
+    }
+
+    .player-card img{
+
+        height:185px;
+
+    }
+
+    .player-info{
+
+        padding:10px;
+
+    }
+
+    .player-name{
+
+        font-size:11px;
+
+    }
+
+    .stars{
+
+        font-size:10px;
+
+    }
+
+    .power,
+    .value{
+
+        font-size:9px;
+
+    }
+
+    .evolution-panel{
+
+        bottom:7px;
+
+        padding:16px;
+
+        border-radius:14px;
+
+    }
+
+    .evolution-panel h2{
+
+        font-size:18px;
+
+    }
+
+    .toast{
+
+        left:15px;
+
+        right:15px;
+
+        bottom:18px;
+
+        max-width:none;
+
+    }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <header>
 
-<div class="logo">
-    BLUE <span>LOCK</span>
-</div>
-
-<div class="header-right">
-    <div class="coins">
-        🪙 <span id="coins">0</span>
+    <div class="logo">
+        BLUE <span>LOCK</span>
     </div>
 
-    <a href="index.html" class="back-button">
-        ← VOLTAR
-    </a>
-</div>
+
+    <div class="header-right">
+
+        <div class="coins">
+            🪙 <span id="coins">0</span>
+        </div>
+
+        <a
+            href="index.html"
+            class="back-button">
+
+            ← VOLTAR
+
+        </a>
+
+    </div>
 
 </header>
 
+
 <main class="container">
 
+
 <section class="hero">
-    <h1><span>EVOLU</span>TION</h1>
-    <p>Una cópias iguais e transforme seus jogadores em versões mais poderosas.</p>
+
+    <h1>
+        <span>EVOLU</span>TION
+    </h1>
+
+    <p>
+        Una cópias iguais e transforme seus jogadores em versões mais poderosas.
+    </p>
+
 </section>
 
+
 <div class="info">
-    <strong>⚡ Como funciona:</strong><br>
+
+    <strong>⚡ COMO FUNCIONA</strong>
+
+    <br>
+
     Você precisa de 3 cópias do mesmo jogador com o mesmo número de estrelas.
-    A evolução aumenta o nível da carta. O máximo é ★★★.
+    A evolução aumenta o nível da carta.
+    O máximo é ★★★.
+
 </div>
+
 
 <div class="filters">
-    <button class="filter active" onclick="setFilter('all',this)">TODAS</button>
-    <button class="filter" onclick="setFilter('common',this)">COMUM</button>
-    <button class="filter" onclick="setFilter('rare',this)">RARO</button>
-    <button class="filter" onclick="setFilter('epic',this)">ÉPICO</button>
-    <button class="filter" onclick="setFilter('legendary',this)">LENDÁRIO</button>
-    <button class="filter" onclick="setFilter('newgen',this)">NEW GEN</button>
-    <button class="filter" onclick="setFilter('mestres',this)">MESTRES</button>
-    <button class="filter" onclick="setFilter('neo',this)">NEO</button>
-    <button class="filter" onclick="setFilter('deus',this)">DEUS</button>
+
+    <button
+        class="filter active"
+        onclick="setFilter('all',this)">
+        TODAS
+    </button>
+
+    <button
+        class="filter"
+        onclick="setFilter('common',this)">
+        COMUM
+    </button>
+
+    <button
+        class="filter"
+        onclick="setFilter('rare',this)">
+        RARO
+    </button>
+
+    <button
+        class="filter"
+        onclick="setFilter('epic',this)">
+        ÉPICO
+    </button>
+
+    <button
+        class="filter"
+        onclick="setFilter('legendary',this)">
+        LENDÁRIO
+    </button>
+
+    <button
+        class="filter"
+        onclick="setFilter('newgen',this)">
+        NEW GEN
+    </button>
+
+    <button
+        class="filter"
+        onclick="setFilter('mestres',this)">
+        MESTRES
+    </button>
+
+    <button
+        class="filter"
+        onclick="setFilter('neo',this)">
+        NEO
+    </button>
+
+    <button
+        class="filter"
+        onclick="setFilter('deus',this)">
+        DEUS
+    </button>
+
 </div>
 
-<section class="inventory" id="inventory"></section>
+
+<section
+    class="inventory"
+    id="inventory">
+</section>
+
 
 <section class="evolution-panel">
 
-<h2>⚡ Evolução</h2>
+    <h2>
+        ⚡ EVOLUÇÃO
+    </h2>
 
-<p class="evolution-info" id="selectionInfo">
-    Selecione 3 cartas iguais.
-</p>
+    <p
+        class="evolution-info"
+        id="selectionInfo">
 
-<div class="evolution-result" id="evolutionResult">
-    Nenhuma carta selecionada.
-</div>
+        Selecione 3 cartas iguais.
 
-<button class="evolve-button" id="evolveButton" onclick="evolveSelected()" disabled>
-    EVOLUIR CARTAS
-</button>
+    </p>
+
+
+    <div
+        class="evolution-result"
+        id="evolutionResult">
+
+        Nenhuma carta selecionada.
+
+    </div>
+
+
+    <button
+        class="evolve-button"
+        id="evolveButton"
+        onclick="evolveSelected()"
+        disabled>
+
+        ⚡ EVOLUIR CARTAS
+
+    </button>
 
 </section>
 
+
 </main>
 
-<div class="toast" id="toast"></div>
+
+<div
+    class="toast"
+    id="toast">
+</div>
+
 
 <script>
-let game=
-JSON.parse(localStorage.getItem("blueLockGame"))||{
-    coins:1000,
-    xp:0,
-    level:1,
-    inventory:[]
-};
+
+/* =========================================================
+   CARREGAR JOGO
+========================================================= */
+
+let game =
+    JSON.parse(
+        localStorage.getItem(
+            "blueLockGame"
+        )
+    ) ||
+    {
+        coins:1000,
+        xp:0,
+        level:1,
+        inventory:[]
+    };
+
 
 if(!Array.isArray(game.inventory)){
+
     game.inventory=[];
+
 }
 
+
+/* =========================================================
+   PREPARAR CARTAS
+========================================================= */
+
 game.inventory.forEach(card=>{
-    if(!card.stars) card.stars=1;
+
+    if(
+        typeof card.stars !== "number" ||
+        card.stars < 1
+    ){
+
+        card.stars=1;
+
+    }
+
+    if(card.stars>3){
+
+        card.stars=3;
+
+    }
 
     if(!card.uniqueId){
+
         card.uniqueId=
-            card.id+"-"+Date.now()+"-"+Math.random().toString(36).slice(2);
+            card.id+
+            "-" +
+            Date.now()+
+            "-" +
+            Math.random()
+                .toString(36)
+                .slice(2);
+
     }
+
 });
 
+
+/* =========================================================
+   SALVAR
+========================================================= */
+
 function saveGame(){
+
     localStorage.setItem(
         "blueLockGame",
         JSON.stringify(game)
     );
+
 }
 
+
+/* =========================================================
+   VALORES
+========================================================= */
+
 const baseValues={
+
     common:25,
     rare:75,
     epic:200,
@@ -426,9 +1692,12 @@ const baseValues={
     mestres:8000,
     neo:15000,
     deus:50000
+
 };
 
+
 const basePower={
+
     common:40,
     rare:70,
     epic:110,
@@ -437,277 +1706,720 @@ const basePower={
     mestres:420,
     neo:550,
     deus:800
+
 };
 
+
 const valueMultiplier={
+
     1:1,
     2:2,
     3:3.5
+
 };
 
+
 const powerMultiplier={
+
     1:1,
     2:1.45,
     3:2.05
+
 };
+
+
+/* =========================================================
+   SELEÇÃO
+========================================================= */
 
 let selected=[];
 
+
+/*
+    GUARDA A ABA ATUAL.
+
+    Isso impede que a página volte
+    automaticamente para TODAS quando
+    uma carta for selecionada.
+*/
+
+let currentFilter="all";
+
+
+/* =========================================================
+   PODER
+========================================================= */
+
 function getPower(card){
+
     return Math.round(
-        (basePower[card.rarity]||0)*
-        (powerMultiplier[card.stars||1]||1)
+
+        (basePower[card.rarity] || 0) *
+
+        (
+            powerMultiplier[
+                card.stars || 1
+            ] || 1
+        )
+
     );
+
 }
+
+
+/* =========================================================
+   VALOR
+========================================================= */
 
 function getValue(card){
+
     return Math.round(
-        (baseValues[card.rarity]||0)*
-        (valueMultiplier[card.stars||1]||1)
+
+        (baseValues[card.rarity] || 0) *
+
+        (
+            valueMultiplier[
+                card.stars || 1
+            ] || 1
+        )
+
     );
+
 }
 
-function setFilter(filter,button){
-    document.querySelectorAll(".filter")
-        .forEach(btn=>btn.classList.remove("active"));
 
-    button.classList.add("active");
+/* =========================================================
+   FILTRO
+========================================================= */
 
-    renderInventory(filter);
+function setFilter(
+    filter,
+    button
+){
+
+    currentFilter=filter;
+
+    document
+        .querySelectorAll(".filter")
+        .forEach(btn=>{
+
+            btn.classList.remove(
+                "active"
+            );
+
+        });
+
+
+    button.classList.add(
+        "active"
+    );
+
+
+    renderInventory(
+        currentFilter
+    );
+
 }
+
+
+/* =========================================================
+   SELECIONAR CARTA
+========================================================= */
 
 function selectCard(card){
-    const existing=selected.findIndex(
-        item=>item.uniqueId===card.uniqueId
-    );
+
+    const existing=
+        selected.findIndex(
+            item=>
+                item.uniqueId===
+                card.uniqueId
+        );
+
 
     if(existing!==-1){
-        selected.splice(existing,1);
+
+        selected.splice(
+            existing,
+            1
+        );
+
         updateSelection();
-        renderInventory();
+
+        renderInventory(
+            currentFilter
+        );
+
         return;
+
     }
 
+
     if(selected.length>=3){
-        toast("⚠️ Você já selecionou 3 cartas.");
+
+        toast(
+            "⚠️ Você já selecionou 3 cartas."
+        );
+
         return;
+
     }
+
 
     selected.push(card);
 
     updateSelection();
-    renderInventory();
+
+    /*
+        AQUI ESTÁ A CORREÇÃO:
+
+        A página continua exatamente
+        na categoria que estava aberta.
+    */
+
+    renderInventory(
+        currentFilter
+    );
+
 }
 
-function renderInventory(filter="all"){
-    const container=document.getElementById("inventory");
+
+/* =========================================================
+   INVENTÁRIO
+========================================================= */
+
+function renderInventory(
+    filter=currentFilter
+){
+
+    currentFilter=filter;
+
+    const container=
+        document.getElementById(
+            "inventory"
+        );
 
     container.innerHTML="";
 
-    let list=game.inventory;
+
+    let list=
+        game.inventory;
+
 
     if(filter!=="all"){
-        list=list.filter(
-            card=>card.rarity===filter
-        );
+
+        list=
+            list.filter(
+                card=>
+                    card.rarity===
+                    filter
+            );
+
     }
+
 
     if(list.length===0){
+
         container.innerHTML=`
+
             <div class="empty">
-                Nenhuma carta encontrada.
+
+                <div style="
+                    font-size:35px;
+                    margin-bottom:10px;
+                ">
+                    📦
+                </div>
+
+                Nenhuma carta encontrada
+                nesta categoria.
+
             </div>
+
         `;
+
         return;
+
     }
 
-    list.forEach(card=>{
-        const element=document.createElement("div");
 
-        element.className="player-card";
+    list.forEach(card=>{
+
+        const element=
+            document.createElement(
+                "div"
+            );
+
+
+        element.className=
+            "player-card";
+
 
         if(
             selected.some(
-                item=>item.uniqueId===card.uniqueId
+                item=>
+                    item.uniqueId===
+                    card.uniqueId
             )
         ){
-            element.classList.add("selected");
+
+            element.classList.add(
+                "selected"
+            );
+
         }
 
+
         element.innerHTML=`
-            <img src="${card.image}" alt="${card.name}">
+
+            <img
+                src="${card.image}"
+                alt="${card.name}"
+                onerror="
+                    this.style.opacity='.2';
+                "
+            >
+
 
             <div class="player-info">
+
                 <div class="player-name">
                     ${card.name}
                 </div>
 
-                <span class="rarity ${card.rarity}">
-                    ${card.rarity}
+
+                <span
+                    class="rarity ${card.rarity}">
+
+                    ${formatRarity(
+                        card.rarity
+                    )}
+
                 </span>
 
+
                 <div class="stars">
-                    ${"★".repeat(card.stars||1)}
+
+                    ${"★".repeat(
+                        Math.max(
+                            1,
+                            Math.min(
+                                3,
+                                Number(
+                                    card.stars
+                                ) || 1
+                            )
+                        )
+                    )}
+
                 </div>
+
 
                 <div class="power">
-                    PODER: ${getPower(card)}
+
+                    ⚡ PODER:
+                    ${getPower(card)}
+
                 </div>
+
 
                 <div class="value">
-                    VALOR: ${getValue(card)}
+
+                    🪙 VALOR:
+                    ${getValue(card)}
+
                 </div>
+
             </div>
+
         `;
 
-        element.onclick=()=>selectCard(card);
 
-        container.appendChild(element);
+        element.onclick=()=>{
+
+            selectCard(card);
+
+        };
+
+
+        container.appendChild(
+            element
+        );
+
     });
+
 }
 
+
+/* =========================================================
+   RARIDADES
+========================================================= */
+
+function formatRarity(rarity){
+
+    const names={
+
+        common:"Comum",
+
+        rare:"Raro",
+
+        epic:"Épico",
+
+        legendary:"Lendário",
+
+        mestres:"Mestres",
+
+        teamworld5:"Team World 5",
+
+        newgen:"New Gen",
+
+        neo:"NEO",
+
+        deus:"Deus"
+
+    };
+
+
+    return names[rarity] || rarity;
+
+}
+
+
+/* =========================================================
+   SELEÇÃO
+========================================================= */
+
 function updateSelection(){
-    const info=document.getElementById("selectionInfo");
-    const result=document.getElementById("evolutionResult");
-    const button=document.getElementById("evolveButton");
+
+    const info=
+        document.getElementById(
+            "selectionInfo"
+        );
+
+
+    const result=
+        document.getElementById(
+            "evolutionResult"
+        );
+
+
+    const button=
+        document.getElementById(
+            "evolveButton"
+        );
+
 
     if(selected.length===0){
-        info.textContent="Selecione 3 cartas iguais.";
-        result.textContent="Nenhuma carta selecionada.";
+
+        info.textContent=
+            "Selecione 3 cartas iguais.";
+
+        result.textContent=
+            "Nenhuma carta selecionada.";
+
         button.disabled=true;
+
         return;
+
     }
 
-    const first=selected[0];
 
-    const compatible=selected.every(card=>
-        card.id===first.id &&
-        card.stars===first.stars
-    );
+    const first=
+        selected[0];
+
+
+    const compatible=
+        selected.every(
+            card=>
+                card.id===
+                first.id &&
+                card.stars===
+                first.stars
+        );
+
 
     info.textContent=
-        selected.length+" / 3 cartas selecionadas.";
+        selected.length+
+        " / 3 cartas selecionadas.";
+
 
     if(!compatible){
+
         result.textContent=
             "❌ As cartas precisam ser do mesmo jogador e ter as mesmas estrelas.";
 
         button.disabled=true;
+
         return;
+
     }
+
 
     if(selected.length<3){
+
         result.textContent=
-            "Selecione mais "+(3-selected.length)+" cópia(s).";
+            "Selecione mais "+
+            (
+                3-selected.length
+            )+
+            " cópia(s).";
 
         button.disabled=true;
+
         return;
+
     }
 
+
     if(first.stars>=3){
+
         result.textContent=
             "⭐ Esta carta já está no máximo ★★★.";
 
         button.disabled=true;
+
         return;
+
     }
+
 
     result.textContent=
-        "✓ "+first.name+
-        " ★"+first.stars+
-        " → ★"+(first.stars+1);
+        "✓ "+
+        first.name+
+        " ★"+
+        first.stars+
+        " → ★"+
+        (
+            first.stars+1
+        );
+
 
     button.disabled=false;
+
 }
 
+
+/* =========================================================
+   EVOLUIR
+========================================================= */
+
 function evolveSelected(){
+
     if(selected.length!==3){
-        toast("❌ Selecione exatamente 3 cartas.");
+
+        toast(
+            "❌ Selecione exatamente 3 cartas."
+        );
+
         return;
+
     }
 
-    const first=selected[0];
+
+    const first=
+        selected[0];
+
 
     if(first.stars>=3){
-        toast("⭐ Esta carta já está no máximo.");
+
+        toast(
+            "⭐ Esta carta já está no máximo."
+        );
+
         return;
+
     }
 
-    const compatible=selected.every(card=>
-        card.id===first.id &&
-        card.stars===first.stars
-    );
+
+    const compatible=
+        selected.every(
+            card=>
+                card.id===
+                first.id &&
+                card.stars===
+                first.stars
+        );
+
 
     if(!compatible){
-        toast("❌ As cartas precisam ser iguais.");
+
+        toast(
+            "❌ As cartas precisam ser iguais."
+        );
+
         return;
+
     }
 
-    const ids=selected.map(
-        card=>card.uniqueId
-    );
 
-    game.inventory=game.inventory.filter(
-        card=>!ids.includes(card.uniqueId)
-    );
+    const ids=
+        selected.map(
+            card=>
+                card.uniqueId
+        );
+
+
+    game.inventory=
+        game.inventory.filter(
+            card=>
+                !ids.includes(
+                    card.uniqueId
+                )
+        );
+
 
     const evolved={
+
         ...first,
-        stars:first.stars+1,
+
+        stars:
+            first.stars+1,
+
         uniqueId:
-            first.id+"-"+Date.now()+"-"+Math.random().toString(36).slice(2)
+            first.id+
+            "-" +
+            Date.now()+
+            "-" +
+            Math.random()
+                .toString(36)
+                .slice(2)
+
     };
 
-    game.inventory.push(evolved);
+
+    game.inventory.push(
+        evolved
+    );
+
 
     const xpReward=
-        first.stars===1 ? 50 : 100;
+        first.stars===1
+            ? 50
+            : 100;
+
 
     game.xp+=xpReward;
 
-    while(game.xp>=game.level*100){
-        game.xp-=game.level*100;
+
+    while(
+        game.xp>=
+        game.level*100
+    ){
+
+        game.xp-=
+            game.level*100;
+
         game.level++;
+
     }
+
 
     selected=[];
 
+
     saveGame();
+
 
     toast(
-        "⚡ "+first.name+
-        " evoluiu para ★"+evolved.stars+"!"
+        "⚡ "+
+        first.name+
+        " evoluiu para ★"+
+        evolved.stars+
+        "!"
     );
 
+
     updateUI();
-    renderInventory();
+
+
+    /*
+        Continua na categoria
+        que estava selecionada.
+    */
+
+    renderInventory(
+        currentFilter
+    );
+
+
     updateSelection();
+
 }
+
+
+/* =========================================================
+   UI
+========================================================= */
 
 function updateUI(){
-    document.getElementById("coins").textContent=
-        game.coins.toLocaleString("pt-BR");
+
+    document.getElementById(
+        "coins"
+    ).textContent=
+
+        Number(
+            game.coins || 0
+        ).toLocaleString(
+            "pt-BR"
+        );
 
     saveGame();
+
 }
+
+
+/* =========================================================
+   TOAST
+========================================================= */
 
 function toast(message){
-    const element=document.getElementById("toast");
 
-    element.textContent=message;
-    element.classList.add("show");
+    const element=
+        document.getElementById(
+            "toast"
+        );
 
-    clearTimeout(window.toastTimer);
 
-    window.toastTimer=setTimeout(()=>{
-        element.classList.remove("show");
-    },2500);
+    element.textContent=
+        message;
+
+
+    element.classList.add(
+        "show"
+    );
+
+
+    clearTimeout(
+        window.toastTimer
+    );
+
+
+    window.toastTimer=
+        setTimeout(()=>{
+
+            element.classList.remove(
+                "show"
+            );
+
+        },2500);
+
 }
 
+
+/* =========================================================
+   INICIALIZAÇÃO
+========================================================= */
+
 updateUI();
-renderInventory();
+
+renderInventory(
+    currentFilter
+);
+
 updateSelection();
+
 </script>
 
 </body>
+
 </html>
+

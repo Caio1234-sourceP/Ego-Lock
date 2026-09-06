@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -6,401 +7,1115 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Blue Lock - Duelos</title>
+<title>BLUE LOCK — DUELOS</title>
 
 <style>
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color:#fff;
+
+    min-height:100vh;
+
     background:
         radial-gradient(
-            circle at top,
-            #102d49 0%,
-            #07121e 45%,
-            #03080d 100%
+            circle at 50% -10%,
+            rgba(0,174,255,.22),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 100% 50%,
+            rgba(29,78,216,.12),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #02050a 0%,
+            #06101a 45%,
+            #020408 100%
         );
 
-    color:white;
-    min-height:100vh;
+    overflow-x:hidden;
 }
 
+
+/* =========================================================
+   FUNDO
+========================================================= */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.22;
+
+    background-image:
+        linear-gradient(
+            115deg,
+            transparent 0%,
+            rgba(56,189,248,.08) 50%,
+            transparent 100%
+        );
+
+    z-index:-2;
+}
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,.015) 0px,
+            rgba(255,255,255,.015) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+    z-index:-1;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
 header{
-    padding:22px 7%;
+
+    height:78px;
+
+    padding:0 6%;
+
     display:flex;
-    justify-content:space-between;
+
     align-items:center;
-    border-bottom:1px solid #18344c;
-    background:rgba(3,10,17,.92);
+
+    justify-content:space-between;
+
     position:sticky;
+
     top:0;
-    z-index:20;
-    backdrop-filter:blur(12px);
+
+    z-index:100;
+
+    background:
+        rgba(2,7,12,.88);
+
+    border-bottom:
+        1px solid
+        rgba(56,189,248,.22);
+
+    backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+        0 10px 40px
+        rgba(0,0,0,.35);
 }
 
 .logo{
-    font-size:28px;
+
+    font-size:26px;
+
     font-weight:1000;
-    letter-spacing:2px;
-    color:#38bdf8;
+
+    letter-spacing:4px;
+
+    color:#fff;
+
+    position:relative;
+}
+
+.logo::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:38px;
+    height:3px;
+
+    left:0;
+    bottom:-7px;
+
+    background:#00c8ff;
+
+    box-shadow:
+        0 0 12px
+        #00c8ff;
 }
 
 .logo span{
-    color:white;
+
+    color:#00c8ff;
+
+    text-shadow:
+        0 0 18px
+        rgba(0,200,255,.65);
 }
 
 .header-right{
+
     display:flex;
+
     align-items:center;
+
     gap:12px;
 }
 
 .coins{
-    background:#0d2234;
-    border:1px solid #24516f;
-    padding:10px 18px;
-    border-radius:30px;
-    font-weight:bold;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    padding:
+        10px 17px;
+
+    border:
+        1px solid
+        rgba(250,204,21,.35);
+
+    background:
+        rgba(250,204,21,.07);
+
     color:#facc15;
+
+    border-radius:7px;
+
+    font-size:14px;
+
+    font-weight:1000;
+
+    box-shadow:
+        inset 0 0 15px
+        rgba(250,204,21,.03);
 }
 
 .back-button{
+
     text-decoration:none;
-    background:#124e70;
-    color:white;
-    padding:10px 16px;
-    border-radius:9px;
-    font-weight:bold;
+
+    padding:
+        10px 16px;
+
+    border:
+        1px solid
+        rgba(56,189,248,.3);
+
+    background:
+        rgba(56,189,248,.08);
+
+    color:#8edfff;
+
+    border-radius:7px;
+
+    font-size:12px;
+
+    font-weight:1000;
+
+    letter-spacing:1px;
+
+    transition:.2s;
 }
 
 .back-button:hover{
+
+    color:#00131d;
+
     background:#38bdf8;
-    color:#03111c;
+
+    box-shadow:
+        0 0 25px
+        rgba(56,189,248,.4);
+
+    transform:translateY(-2px);
 }
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
 
 .container{
-    width:86%;
-    max-width:1400px;
+
+    width:88%;
+
+    max-width:1450px;
+
     margin:auto;
-    padding:35px 0 70px;
+
+    padding:
+        40px 0 80px;
 }
 
+
+/* =========================================================
+   HERO
+========================================================= */
+
 .hero{
+
     text-align:center;
-    padding:25px 10px 35px;
+
+    padding:
+        25px 10px 42px;
+
+    position:relative;
+}
+
+.hero::before{
+
+    content:"DUEL SYSTEM";
+
+    position:absolute;
+
+    left:50%;
+
+    top:2px;
+
+    transform:
+        translateX(-50%);
+
+    color:
+        rgba(56,189,248,.18);
+
+    font-size:
+        clamp(45px,9vw,110px);
+
+    font-weight:1000;
+
+    letter-spacing:8px;
+
+    white-space:nowrap;
+
+    pointer-events:none;
 }
 
 .hero h1{
-    font-size:clamp(40px,6vw,68px);
+
+    position:relative;
+
+    font-size:
+        clamp(42px,6vw,76px);
+
     font-weight:1000;
-    letter-spacing:4px;
+
+    letter-spacing:7px;
+
+    text-transform:uppercase;
+
+    text-shadow:
+        0 0 35px
+        rgba(0,200,255,.15);
 }
 
 .hero h1 span{
-    color:#38bdf8;
+
+    color:#00c8ff;
+
+    text-shadow:
+        0 0 25px
+        rgba(0,200,255,.55);
 }
 
 .hero p{
-    margin-top:12px;
-    color:#8fa7ba;
+
+    margin-top:14px;
+
+    color:#7892a6;
+
+    font-size:13px;
+
+    letter-spacing:.7px;
 }
+
+
+/* =========================================================
+   PAINEL PRINCIPAL
+========================================================= */
 
 .duel-panel{
+
+    position:relative;
+
+    padding:28px;
+
+    border:
+        1px solid
+        rgba(56,189,248,.25);
+
     background:
-        radial-gradient(
-            circle at top right,
-            rgba(37,99,235,.16),
-            transparent 35%
-        ),
         linear-gradient(
             145deg,
-            #0c1f2e,
-            #07131e
+            rgba(9,27,42,.95),
+            rgba(2,10,17,.98)
         );
 
-    border:1px solid #24516f;
-    border-radius:20px;
-    padding:25px;
+    clip-path:
+        polygon(
+            0 0,
+            calc(100% - 18px) 0,
+            100% 18px,
+            100% 100%,
+            18px 100%,
+            0 calc(100% - 18px)
+        );
 
     box-shadow:
-        0 15px 50px
-        rgba(0,0,0,.35);
+        0 25px 80px
+        rgba(0,0,0,.45),
+
+        inset 0 0 50px
+        rgba(0,174,255,.025);
 }
 
+.duel-panel::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:170px;
+    height:3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #00c8ff,
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px
+        #00c8ff;
+}
+
+.duel-panel::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+    right:0;
+
+    width:120px;
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #1d4ed8
+        );
+}
+
+
+/* =========================================================
+   TOPO DO DUELO
+========================================================= */
+
 .duel-top{
+
     display:grid;
-    grid-template-columns:1fr auto 1fr;
-    gap:20px;
+
+    grid-template-columns:
+        1fr
+        100px
+        1fr;
+
+    gap:22px;
+
     align-items:center;
 }
 
 .team{
-    background:#091724;
-    border:1px solid #1d4059;
-    border-radius:15px;
-    padding:20px;
+
+    min-height:250px;
+
+    padding:22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(7,24,38,.95),
+            rgba(3,13,22,.95)
+        );
+
+    border:
+        1px solid
+        #173b54;
+
+    border-radius:10px;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.team::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:2px;
+
+    background:#164e70;
 }
 
 .team-title{
+
     text-align:center;
-    font-size:22px;
+
+    font-size:16px;
+
     font-weight:1000;
-    margin-bottom:15px;
+
+    letter-spacing:3px;
+
+    margin-bottom:18px;
 }
 
 .team-title.player{
+
     color:#38bdf8;
+
+    text-shadow:
+        0 0 15px
+        rgba(56,189,248,.35);
 }
 
 .team-title.enemy{
-    color:#ef4444;
-}
 
-.vs{
-    font-size:38px;
-    font-weight:1000;
-    color:#facc15;
+    color:#ff4d5e;
 
     text-shadow:
-        0 0 20px
-        rgba(250,204,21,.4);
+        0 0 15px
+        rgba(239,68,68,.35);
 }
 
-.enemy-card{
-    text-align:center;
-}
 
-.enemy-icon{
-    font-size:60px;
-    margin-bottom:10px;
-}
+/* =========================================================
+   VS
+========================================================= */
 
-.enemy-name{
-    font-size:24px;
+.vs{
+
+    width:82px;
+    height:82px;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border:
+        2px solid
+        #facc15;
+
+    border-radius:50%;
+
+    color:#facc15;
+
+    font-size:25px;
+
     font-weight:1000;
+
+    font-style:italic;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(250,204,21,.12),
+            rgba(250,204,21,.02)
+        );
+
+    box-shadow:
+        0 0 30px
+        rgba(250,204,21,.15),
+
+        inset 0 0 20px
+        rgba(250,204,21,.08);
 }
 
-.enemy-power{
-    margin-top:8px;
-    color:#ef4444;
-    font-weight:bold;
-}
+
+/* =========================================================
+   JOGADORES SELECIONADOS
+========================================================= */
 
 .selected-players{
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:10px;
 }
 
 .selected-slot{
-    min-height:180px;
 
-    border:2px dashed #29495f;
-    border-radius:12px;
+    min-height:170px;
 
     display:flex;
+
     flex-direction:column;
-    justify-content:center;
+
     align-items:center;
 
+    justify-content:center;
+
     text-align:center;
+
     padding:8px;
 
-    color:#60798c;
-}
+    border:
+        1px dashed
+        #25465d;
 
-.selected-slot.filled{
-    border-style:solid;
-    border-color:#38bdf8;
-    background:#071827;
-    color:white;
-}
-
-.selected-slot img{
-    width:100%;
-    height:120px;
-    object-fit:cover;
     border-radius:8px;
+
+    color:#49677b;
+
+    background:
+        rgba(0,0,0,.15);
+
+    transition:.2s;
+}
+
+.selected-slot:hover{
+
+    border-color:
+        rgba(56,189,248,.5);
+
+    background:
+        rgba(56,189,248,.03);
+}
+
+.selected-slot strong{
+
+    font-size:24px;
+
+    color:#31546b;
+
     margin-bottom:7px;
 }
 
-.selected-name{
-    font-size:12px;
-    font-weight:bold;
-}
+.selected-slot span{
 
-.selected-rarity{
-    font-size:9px;
-    margin-top:4px;
+    font-size:10px;
+
     text-transform:uppercase;
-    color:#facc15;
+
+    letter-spacing:1px;
 }
 
-.duel-stats{
-    margin-top:25px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-}
+.selected-slot.filled{
 
-.duel-stat{
-    background:#081522;
-    border:1px solid #193b53;
-    border-radius:12px;
-    padding:17px;
-    text-align:center;
-}
-
-.duel-stat-number{
-    font-size:25px;
-    font-weight:1000;
-    color:#38bdf8;
-}
-
-.duel-stat-label{
-    color:#7893a7;
-    font-size:11px;
-    margin-top:5px;
-}
-
-.reward-box{
-    margin-top:20px;
-    padding:18px;
-    border-radius:12px;
+    border:
+        1px solid
+        #00c8ff;
 
     background:
         linear-gradient(
-            90deg,
-            #271b05,
-            #17130a
-        );
-
-    border:1px solid #8b5e18;
-    text-align:center;
-}
-
-.reward-box strong{
-    color:#facc15;
-    font-size:24px;
-}
-
-.reward-box p{
-    color:#9caaba;
-    font-size:12px;
-    margin-top:5px;
-}
-
-.battle-button{
-    width:100%;
-    margin-top:20px;
-    padding:17px;
-
-    border:none;
-    border-radius:12px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #1d4ed8,
-            #2563eb,
-            #7c3aed
+            180deg,
+            rgba(0,200,255,.09),
+            rgba(0,0,0,.15)
         );
 
     color:white;
-    font-size:17px;
+
+    box-shadow:
+        inset 0 0 20px
+        rgba(0,200,255,.03);
+}
+
+.selected-slot img{
+
+    width:100%;
+
+    height:110px;
+
+    object-fit:cover;
+
+    border-radius:6px;
+
+    margin-bottom:8px;
+}
+
+.selected-name{
+
+    font-size:11px;
+
     font-weight:1000;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    max-width:100%;
+}
+
+.selected-rarity{
+
+    margin-top:4px;
+
+    font-size:8px;
+
+    color:#facc15;
+
+    text-transform:uppercase;
+}
+
+
+/* =========================================================
+   INIMIGO
+========================================================= */
+
+.enemy-card{
+
+    text-align:center;
+
+    padding:
+        15px 0;
+}
+
+.enemy-icon{
+
+    width:90px;
+    height:90px;
+
+    margin:
+        0 auto 15px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border:
+        1px solid
+        rgba(239,68,68,.35);
+
+    border-radius:50%;
+
+    font-size:42px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(239,68,68,.12),
+            transparent 65%
+        );
+
+    box-shadow:
+        0 0 35px
+        rgba(239,68,68,.1);
+}
+
+.enemy-name{
+
+    font-size:18px;
+
+    font-weight:1000;
+
+    text-transform:uppercase;
+
     letter-spacing:1px;
+}
+
+.enemy-power{
+
+    margin-top:10px;
+
+    color:#ff5363;
+
+    font-size:12px;
+
+    font-weight:1000;
+
+    letter-spacing:1px;
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.duel-stats{
+
+    margin-top:25px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:12px;
+}
+
+.duel-stat{
+
+    padding:19px;
+
+    text-align:center;
+
+    background:
+        rgba(3,14,23,.8);
+
+    border:
+        1px solid
+        #17394f;
+
+    border-radius:8px;
+
+    position:relative;
+}
+
+.duel-stat::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+    left:20%;
+
+    width:60%;
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #168dc0,
+            transparent
+        );
+}
+
+.duel-stat-number{
+
+    font-size:28px;
+
+    font-weight:1000;
+
+    color:#38bdf8;
+
+    text-shadow:
+        0 0 15px
+        rgba(56,189,248,.25);
+}
+
+.duel-stat-label{
+
+    margin-top:6px;
+
+    color:#607c90;
+
+    font-size:9px;
+
+    font-weight:bold;
+
+    letter-spacing:1.5px;
+}
+
+
+/* =========================================================
+   RECOMPENSA
+========================================================= */
+
+.reward-box{
+
+    margin-top:18px;
+
+    padding:18px;
+
+    text-align:center;
+
+    border:
+        1px solid
+        rgba(250,204,21,.28);
+
+    border-radius:8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(120,80,0,.08),
+            rgba(250,204,21,.04),
+            rgba(120,80,0,.08)
+        );
+}
+
+.reward-box strong{
+
+    color:#facc15;
+
+    font-size:26px;
+
+    font-weight:1000;
+
+    text-shadow:
+        0 0 15px
+        rgba(250,204,21,.25);
+}
+
+.reward-box p{
+
+    margin-top:5px;
+
+    color:#667d8e;
+
+    font-size:10px;
+
+    text-transform:uppercase;
+
+    letter-spacing:.5px;
+}
+
+
+/* =========================================================
+   BOTÃO DE BATALHA
+========================================================= */
+
+.battle-button{
+
+    width:100%;
+
+    margin-top:18px;
+
+    padding:19px;
+
+    border:none;
+
+    border-radius:7px;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            100deg,
+            #075985,
+            #0284c7,
+            #2563eb
+        );
+
+    font-size:16px;
+
+    font-weight:1000;
+
+    letter-spacing:3px;
 
     cursor:pointer;
 
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.2s;
+
     box-shadow:
-        0 0 20px
-        rgba(37,99,235,.2);
+        0 8px 30px
+        rgba(14,165,233,.15);
+}
+
+.battle-button::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-100%;
+
+    width:100%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.2),
+            transparent
+        );
+
+    transition:.5s;
+}
+
+.battle-button:hover::before{
+
+    left:100%;
 }
 
 .battle-button:hover{
-    transform:translateY(-2px);
+
+    transform:
+        translateY(-3px);
 
     box-shadow:
-        0 0 30px
-        rgba(59,130,246,.45);
+        0 12px 40px
+        rgba(14,165,233,.35);
 }
 
 .battle-button:disabled{
-    opacity:.45;
+
+    opacity:.35;
+
     cursor:not-allowed;
+
     transform:none;
+
+    box-shadow:none;
 }
 
 
-/* ==================================================
+/* =========================================================
    AUTO DUELO
-================================================== */
+========================================================= */
 
 .auto-duel-box{
-    margin-top:20px;
+
+    margin-top:12px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
     gap:15px;
 
-    padding:15px 18px;
+    padding:14px 17px;
 
-    border-radius:12px;
+    border:
+        1px solid
+        #17394f;
+
+    border-radius:7px;
 
     background:
-        linear-gradient(
-            90deg,
-            #081c2b,
-            #0a1724
-        );
-
-    border:1px solid #24516f;
+        rgba(2,11,18,.7);
 }
 
 .auto-info{
+
     display:flex;
+
     align-items:center;
+
     gap:12px;
 }
 
 .auto-icon{
-    font-size:28px;
+
+    width:40px;
+    height:40px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border:
+        1px solid
+        rgba(250,204,21,.3);
+
+    border-radius:7px;
+
+    color:#facc15;
+
+    background:
+        rgba(250,204,21,.05);
+
+    font-size:20px;
 }
 
 .auto-title{
-    font-size:15px;
+
+    font-size:12px;
+
     font-weight:1000;
+
+    letter-spacing:1px;
 }
 
 .auto-description{
-    color:#7893a7;
-    font-size:10px;
+
     margin-top:4px;
+
+    color:#5e7689;
+
+    font-size:9px;
 }
 
 .auto-button{
-    min-width:150px;
 
-    padding:12px 18px;
+    min-width:155px;
 
-    border:none;
-    border-radius:9px;
+    padding:11px 16px;
 
-    background:#17364c;
+    border:
+        1px solid
+        #294c63;
 
-    border:1px solid #2b5873;
+    border-radius:6px;
 
-    color:#9db5c6;
+    background:#0a1c2a;
+
+    color:#7893a7;
 
     font-weight:1000;
+
+    font-size:10px;
+
+    letter-spacing:1px;
 
     cursor:pointer;
 
@@ -408,264 +1123,373 @@ header{
 }
 
 .auto-button:hover{
-    transform:translateY(-2px);
+
+    transform:
+        translateY(-2px);
+
+    border-color:#38bdf8;
+
+    color:#38bdf8;
 }
 
 .auto-button.active{
+
     background:
         linear-gradient(
             90deg,
-            #15803d,
+            #047857,
             #16a34a
         );
 
-    border-color:#4ade80;
+    border-color:
+        #4ade80;
 
     color:white;
 
     box-shadow:
-        0 0 20px
-        rgba(34,197,94,.25);
+        0 0 25px
+        rgba(34,197,94,.2);
 }
 
 .auto-status{
+
+    min-height:18px;
+
     margin-top:10px;
 
     text-align:center;
 
-    min-height:18px;
+    color:#526a7c;
 
-    color:#7893a7;
-
-    font-size:11px;
+    font-size:9px;
 
     font-weight:bold;
+
+    letter-spacing:.5px;
 }
 
 .auto-status.active{
+
     color:#4ade80;
 }
 
+
+/* =========================================================
+   RESULTADO
+========================================================= */
+
 .result{
-    text-align:center;
+
     min-height:28px;
-    margin-top:16px;
-    font-size:17px;
+
+    margin-top:10px;
+
+    text-align:center;
+
+    font-size:16px;
+
     font-weight:1000;
-}
 
-.result.win{
-    color:#22c55e;
-}
-
-.result.lose{
-    color:#ef4444;
-}
-
-
-/* ==================================================
-   ÁREA DE JOGADORES
-================================================== */
-
-.selection-header{
-    margin-top:45px;
-    margin-bottom:25px;
-}
-
-.selection-header h2{
-    font-size:30px;
-    font-weight:1000;
     letter-spacing:1px;
 }
 
+.result.win{
+
+    color:#22c55e;
+
+    text-shadow:
+        0 0 15px
+        rgba(34,197,94,.35);
+}
+
+.result.lose{
+
+    color:#ef4444;
+
+    text-shadow:
+        0 0 15px
+        rgba(239,68,68,.35);
+}
+
+
+/* =========================================================
+   SELEÇÃO
+========================================================= */
+
+.selection-header{
+
+    margin:
+        55px 0 22px;
+
+    position:relative;
+}
+
+.selection-header h2{
+
+    font-size:29px;
+
+    font-weight:1000;
+
+    letter-spacing:2px;
+}
+
 .selection-header h2 span{
-    color:#38bdf8;
+
+    color:#00c8ff;
+
+    text-shadow:
+        0 0 15px
+        rgba(0,200,255,.3);
 }
 
 .selection-info{
-    color:#8299aa;
-    font-size:13px;
+
     margin-top:7px;
+
+    color:#60798c;
+
+    font-size:11px;
 }
 
 
-/* ==================================================
+/* =========================================================
    CATEGORIAS
-================================================== */
+========================================================= */
 
 .category{
-    margin-bottom:40px;
+
+    margin-bottom:32px;
 }
 
 .category-header{
+
+    min-height:76px;
+
     display:flex;
+
     align-items:center;
+
     gap:15px;
 
-    padding:17px 20px;
+    padding:15px 19px;
 
-    border-radius:14px 14px 0 0;
+    border:
+        1px solid
+        #183a51;
+
+    border-radius:
+        8px 8px 0 0;
 
     background:
         linear-gradient(
             90deg,
-            #0b1f30,
-            #08131e
+            rgba(8,29,45,.95),
+            rgba(3,13,21,.95)
         );
 
-    border:1px solid #1d4059;
-
     position:relative;
+
     overflow:hidden;
 }
 
 .category-header::after{
+
     content:"";
 
     position:absolute;
 
-    left:0;
     bottom:0;
+    left:0;
 
     width:100%;
     height:2px;
 
-    background:#38bdf8;
+    background:#00a9e8;
+
+    box-shadow:
+        0 0 10px
+        rgba(0,200,255,.4);
 }
 
 .category-icon{
-    font-size:30px;
+
+    width:45px;
+    height:45px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border:
+        1px solid
+        #214b65;
+
+    border-radius:7px;
+
+    font-size:22px;
+
+    background:
+        rgba(0,0,0,.15);
 }
 
 .category-title{
-    font-size:22px;
+
+    font-size:17px;
+
     font-weight:1000;
+
+    letter-spacing:1px;
 }
 
 .category-description{
-    color:#7893a7;
-    font-size:11px;
+
     margin-top:4px;
+
+    color:#5d7485;
+
+    font-size:9px;
 }
 
 .category-count{
+
     margin-left:auto;
 
     padding:7px 12px;
 
+    border:
+        1px solid
+        #214b65;
+
     border-radius:20px;
 
-    background:#0d2639;
+    background:#071b2a;
 
-    border:1px solid #214b65;
+    color:#7294aa;
 
-    color:#7da6bf;
-
-    font-size:11px;
+    font-size:9px;
 
     font-weight:bold;
 }
 
 
-/* ==================================================
+/* =========================================================
    MAIS FORTES
-================================================== */
+========================================================= */
 
 .category.strongest .category-header{
+
+    border-color:
+        rgba(250,204,21,.3);
+
     background:
-        radial-gradient(
-            circle at right,
-            rgba(250,204,21,.12),
-            transparent 40%
-        ),
         linear-gradient(
             90deg,
-            #251d08,
-            #0b1823
+            rgba(83,61,5,.2),
+            rgba(5,16,24,.95)
         );
-
-    border-color:#80651b;
 }
 
 .category.strongest .category-header::after{
+
     background:
         linear-gradient(
             90deg,
             #f59e0b,
             #facc15,
-            #f59e0b
+            transparent
         );
 }
 
 .category.strongest .category-title{
+
     color:#facc15;
 }
 
 .category.strongest .player-card{
-    border-color:#66531b;
+
+    border-color:
+        rgba(250,204,21,.22);
 }
 
 .category.strongest .player-card:hover{
+
     border-color:#facc15;
 
     box-shadow:
-        0 0 25px
-        rgba(250,204,21,.18);
+        0 10px 35px
+        rgba(250,204,21,.12);
 }
 
 
-/* ==================================================
+/* =========================================================
    ALTO PODER
-================================================== */
-
-.category.high .category-header{
-    border-color:#24516f;
-}
+========================================================= */
 
 .category.high .category-title{
+
     color:#38bdf8;
 }
 
 
-/* ==================================================
+/* =========================================================
    EQUILIBRADOS
-================================================== */
+========================================================= */
 
 .category.balanced .category-header{
-    border-color:#24533e;
+
+    border-color:
+        rgba(34,197,94,.25);
 }
 
 .category.balanced .category-header::after{
-    background:#22c55e;
+
+    background:
+        linear-gradient(
+            90deg,
+            #22c55e,
+            transparent
+        );
 }
 
 .category.balanced .category-title{
+
     color:#4ade80;
 }
 
 
-/* ==================================================
+/* =========================================================
    DESENVOLVIMENTO
-================================================== */
+========================================================= */
 
 .category.development .category-header{
-    border-color:#3b3d55;
+
+    border-color:
+        rgba(139,92,246,.25);
 }
 
 .category.development .category-header::after{
-    background:#8b5cf6;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8b5cf6,
+            transparent
+        );
 }
 
 .category.development .category-title{
+
     color:#a78bfa;
 }
 
 
-/* ==================================================
+/* =========================================================
    GRID
-================================================== */
+========================================================= */
 
 .category-grid{
+
     display:grid;
 
     grid-template-columns:
@@ -674,171 +1498,265 @@ header{
             minmax(175px,1fr)
         );
 
-    gap:15px;
+    gap:13px;
 
-    padding:18px;
+    padding:15px;
 
     background:
-        rgba(4,13,21,.45);
+        rgba(2,9,15,.65);
 
     border:
-        1px solid #19364b;
+        1px solid
+        #122e42;
 
     border-top:none;
 
     border-radius:
-        0 0 14px 14px;
+        0 0 8px 8px;
 }
 
 
-/* ==================================================
-   CARD
-================================================== */
+/* =========================================================
+   PLAYER CARD
+========================================================= */
 
 .player-card{
-    background:#091724;
 
-    border:2px solid #1c3b51;
-
-    border-radius:14px;
+    position:relative;
 
     overflow:hidden;
 
     cursor:pointer;
 
+    border:
+        1px solid
+        #1b3a4e;
+
+    border-radius:8px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #0a1d2c,
+            #040d15
+        );
+
     transition:
         transform .2s,
         border-color .2s,
         box-shadow .2s;
+}
 
-    position:relative;
+.player-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            130deg,
+            transparent 55%,
+            rgba(56,189,248,.07)
+        );
+
+    pointer-events:none;
 }
 
 .player-card:hover{
-    transform:translateY(-5px);
 
-    border-color:#38bdf8;
+    transform:
+        translateY(-6px);
+
+    border-color:#00c8ff;
 
     box-shadow:
-        0 8px 25px
-        rgba(0,0,0,.3);
+        0 15px 35px
+        rgba(0,0,0,.4),
+
+        0 0 20px
+        rgba(0,200,255,.08);
 }
 
 .player-card.selected{
-    border-color:#22c55e;
+
+    transform:
+        translateY(-5px);
+
+    border:
+        2px solid
+        #22c55e;
 
     box-shadow:
-        0 0 25px
-        rgba(34,197,94,.25);
-
-    transform:translateY(-5px);
+        0 0 30px
+        rgba(34,197,94,.2);
 }
 
 .player-card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
+
     display:block;
+
+    width:100%;
+
+    height:215px;
+
+    object-fit:cover;
+
+    transition:.3s;
+}
+
+.player-card:hover img{
+
+    transform:scale(1.035);
 }
 
 
-/* ==================================================
+/* =========================================================
    RANK
-================================================== */
+========================================================= */
 
 .rank-badge{
+
     position:absolute;
+
+    z-index:5;
 
     top:8px;
     left:8px;
 
-    min-width:34px;
-    height:34px;
+    min-width:32px;
+    height:30px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
-    padding:0 8px;
+    padding:0 7px;
 
     background:
-        rgba(3,10,17,.88);
+        rgba(2,8,13,.9);
 
     border:
-        1px solid #38566c;
+        1px solid
+        #365469;
 
-    border-radius:9px;
+    border-radius:5px;
 
     color:#b9d0df;
+
+    font-size:10px;
+
+    font-weight:1000;
+}
+
+.strongest .player-card:nth-child(1)
+.rank-badge{
+
+    color:#facc15;
+
+    border-color:#facc15;
+
+    box-shadow:
+        0 0 10px
+        rgba(250,204,21,.2);
+}
+
+.strongest .player-card:nth-child(2)
+.rank-badge{
+
+    color:#e5e7eb;
+
+    border-color:#9ca3af;
+}
+
+.strongest .player-card:nth-child(3)
+.rank-badge{
+
+    color:#d97706;
+
+    border-color:#d97706;
+}
+
+
+/* =========================================================
+   PLAYER INFO
+========================================================= */
+
+.player-info{
+
+    padding:12px;
+}
+
+.player-name{
 
     font-size:12px;
 
     font-weight:1000;
 
-    z-index:2;
-}
-
-.strongest .player-card:nth-child(1) .rank-badge{
-    color:#facc15;
-    border-color:#facc15;
-}
-
-.strongest .player-card:nth-child(2) .rank-badge{
-    color:#e5e7eb;
-    border-color:#9ca3af;
-}
-
-.strongest .player-card:nth-child(3) .rank-badge{
-    color:#d97706;
-    border-color:#d97706;
-}
-
-
-/* ==================================================
-   INFORMAÇÕES
-================================================== */
-
-.player-info{
-    padding:12px;
-}
-
-.player-name{
-    font-weight:900;
-    font-size:13px;
     margin-bottom:7px;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
 }
 
 .rarity{
+
     display:inline-block;
 
-    padding:4px 7px;
+    padding:
+        4px 7px;
 
-    border-radius:5px;
+    border-radius:4px;
 
-    font-size:9px;
+    font-size:8px;
 
-    font-weight:bold;
+    font-weight:1000;
 
     text-transform:uppercase;
+
+    letter-spacing:.5px;
 }
 
 .common{
+
     background:#334155;
 }
 
 .rare{
+
     background:#0369a1;
+
+    box-shadow:
+        0 0 10px
+        rgba(3,105,161,.2);
 }
 
 .epic{
+
     background:#7e22ce;
+
+    box-shadow:
+        0 0 10px
+        rgba(126,34,206,.2);
 }
 
 .legendary{
+
     background:#b45309;
+
+    box-shadow:
+        0 0 10px
+        rgba(180,83,9,.2);
 }
 
 .mestres{
+
     background:
         linear-gradient(
             90deg,
@@ -848,49 +1766,31 @@ header{
         );
 
     color:#261500;
+
+    box-shadow:
+        0 0 12px
+        rgba(245,158,11,.25);
 }
 
-
-/* ==================================================
-   TEAM WORLD 5
-================================================== */
-
 .teamworld5{
+
     background:
         linear-gradient(
             90deg,
             #ea580c,
-            #f97316,
             #facc15,
-            #f97316,
             #ea580c
         );
 
-    color:#1f1200;
+    color:#211200;
 
     box-shadow:
-        0 0 16px
-        rgba(249,115,22,.45);
+        0 0 15px
+        rgba(249,115,22,.3);
 }
-
-.player-card:has(.teamworld5){
-    border-color:#c2410c;
-}
-
-.player-card:has(.teamworld5):hover{
-    border-color:#facc15;
-
-    box-shadow:
-        0 0 28px
-        rgba(249,115,22,.35);
-}
-
-
-/* ==================================================
-   NEW GEN
-================================================== */
 
 .newgen{
+
     background:
         linear-gradient(
             90deg,
@@ -898,14 +1798,14 @@ header{
             #2563eb,
             #9333ea
         );
+
+    box-shadow:
+        0 0 15px
+        rgba(37,99,235,.25);
 }
 
-
-/* ==================================================
-   NEO
-================================================== */
-
 .neo{
+
     background:
         linear-gradient(
             90deg,
@@ -914,19 +1814,13 @@ header{
             #22d3ee
         );
 
-    color:white;
-
     box-shadow:
         0 0 15px
-        rgba(236,72,153,.35);
+        rgba(236,72,153,.25);
 }
 
-
-/* ==================================================
-   DEUS DO FUTEBOL
-================================================== */
-
 .deus{
+
     background:
         linear-gradient(
             90deg,
@@ -940,185 +1834,343 @@ header{
     color:#171100;
 
     box-shadow:
-        0 0 18px
-        rgba(255,215,0,.7);
-}
-
-.category.strongest .player-card:has(.deus){
-    border-color:#ffd700;
-
-    box-shadow:
-        0 0 30px
-        rgba(255,215,0,.25);
-}
-
-.category.strongest .player-card:has(.deus):hover{
-    border-color:#fff4a3;
-
-    box-shadow:
-        0 0 40px
+        0 0 20px
         rgba(255,215,0,.5);
 }
 
+
+/* =========================================================
+   PODER
+========================================================= */
+
 .player-power{
-    margin-top:8px;
+
+    margin-top:9px;
 
     color:#38bdf8;
 
-    font-size:12px;
+    font-size:10px;
 
     font-weight:1000;
 }
 
 .player-stars{
+
     margin-top:5px;
 
     color:#facc15;
 
-    font-size:12px;
+    font-size:11px;
 
     letter-spacing:1px;
 }
 
 
-/* ==================================================
+/* =========================================================
    VAZIO
-================================================== */
+========================================================= */
 
 .empty{
-    padding:40px;
+
+    padding:55px 20px;
 
     text-align:center;
 
-    color:#60798c;
+    color:#526a7b;
 
-    border:1px dashed #234257;
-
-    border-radius:15px;
-
-    grid-column:1/-1;
-}
-
-
-/* ==================================================
-   TOAST
-================================================== */
-
-.toast{
-    position:fixed;
-
-    bottom:25px;
-    right:25px;
-
-    background:#0b1d2c;
-
-    border:1px solid #2d536c;
-
-    padding:14px 18px;
+    border:
+        1px dashed
+        #24465b;
 
     border-radius:10px;
 
-    transform:translateY(100px);
+    background:
+        rgba(3,12,20,.5);
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast{
+
+    position:fixed;
+
+    right:25px;
+    bottom:25px;
+
+    z-index:200;
+
+    max-width:350px;
+
+    padding:
+        14px 18px;
+
+    border:
+        1px solid
+        rgba(56,189,248,.4);
+
+    border-radius:7px;
+
+    background:
+        rgba(4,16,27,.96);
+
+    color:#c9eaff;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,.45),
+
+        0 0 20px
+        rgba(0,174,255,.08);
+
+    transform:
+        translateY(100px);
 
     opacity:0;
 
     transition:.3s;
-
-    z-index:100;
-
-    max-width:350px;
 }
 
 .toast.show{
-    transform:translateY(0);
+
+    transform:
+        translateY(0);
+
     opacity:1;
 }
 
 
-/* ==================================================
-   RESPONSIVO
-================================================== */
+/* =========================================================
+   ANIMAÇÃO
+========================================================= */
 
-@media(max-width:850px){
+@keyframes pulseBlue{
+
+    0%,100%{
+        box-shadow:
+            0 0 10px
+            rgba(0,200,255,.15);
+    }
+
+    50%{
+        box-shadow:
+            0 0 30px
+            rgba(0,200,255,.3);
+    }
+}
+
+.hero h1{
+
+    animation:
+        pulseBlue 4s
+        infinite;
+}
+
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media(max-width:900px){
 
     .duel-top{
+
         grid-template-columns:1fr;
+
     }
 
     .vs{
-        text-align:center;
+
+        margin:
+            -5px auto;
+
     }
 
 }
 
-@media(max-width:600px){
 
-    .container{
-        width:92%;
+@media(max-width:650px){
+
+    header{
+
+        height:auto;
+
+        padding:
+            16px 5%;
+
+        gap:12px;
+
+    }
+
+    .logo{
+
+        font-size:19px;
+
     }
 
     .header-right{
-        flex-direction:column;
-        align-items:flex-end;
+
+        gap:7px;
+
+    }
+
+    .coins{
+
+        padding:
+            8px 10px;
+
+        font-size:11px;
+
+    }
+
+    .back-button{
+
+        padding:
+            8px 10px;
+
+        font-size:9px;
+
+    }
+
+    .container{
+
+        width:94%;
+
+        padding-top:25px;
+
+    }
+
+    .hero{
+
+        padding-bottom:28px;
+
+    }
+
+    .hero h1{
+
+        font-size:40px;
+
+        letter-spacing:3px;
+
+    }
+
+    .hero p{
+
+        font-size:10px;
+
+    }
+
+    .duel-panel{
+
+        padding:14px;
+
     }
 
     .selected-players{
-        grid-template-columns:1fr;
+
+        grid-template-columns:
+            repeat(3,1fr);
+
+    }
+
+    .selected-slot{
+
+        min-height:135px;
+
+    }
+
+    .selected-slot img{
+
+        height:80px;
+
     }
 
     .duel-stats{
+
         grid-template-columns:1fr;
+
     }
 
     .auto-duel-box{
+
         flex-direction:column;
+
         align-items:stretch;
-        text-align:center;
+
     }
 
     .auto-info{
+
         justify-content:center;
+
     }
 
     .auto-button{
+
         width:100%;
-    }
 
-    .category-header{
-        padding:13px;
-    }
-
-    .category-title{
-        font-size:17px;
-    }
-
-    .category-icon{
-        font-size:23px;
-    }
-
-    .category-description{
-        font-size:9px;
-    }
-
-    .category-count{
-        font-size:9px;
-        padding:5px 8px;
     }
 
     .category-grid{
+
         grid-template-columns:
-            repeat(
-                2,
-                minmax(0,1fr)
-            );
+            repeat(2,1fr);
 
-        gap:10px;
+        padding:9px;
 
-        padding:10px;
+        gap:9px;
+
     }
 
     .player-card img{
-        height:170px;
+
+        height:160px;
+
+    }
+
+    .category-header{
+
+        padding:12px;
+
+    }
+
+    .category-title{
+
+        font-size:14px;
+
+    }
+
+    .category-description{
+
+        font-size:8px;
+
+    }
+
+    .category-icon{
+
+        width:38px;
+        height:38px;
+
+        font-size:18px;
+
+    }
+
+    .category-count{
+
+        display:none;
+
+    }
+
+    .selection-header h2{
+
+        font-size:21px;
+
     }
 
 }
@@ -1127,299 +2179,406 @@ header{
 
 </head>
 
+
 <body>
+
 
 <header>
 
-<div class="logo">
-    BLUE <span>LOCK</span>
-</div>
+    <div class="logo">
 
-<div class="header-right">
+        BLUE <span>LOCK</span>
 
-<div class="coins">
-    🪙 <span id="coins">0</span>
-</div>
+    </div>
 
-<a
-    href="index.html"
-    class="back-button">
 
-    ← VOLTAR
+    <div class="header-right">
 
-</a>
+        <div class="coins">
 
-</div>
+            🪙
+
+            <span id="coins">
+                0
+            </span>
+
+        </div>
+
+
+        <a
+            href="index.html"
+            class="back-button">
+
+            ← VOLTAR
+
+        </a>
+
+    </div>
 
 </header>
 
 
 <main class="container">
 
+
 <section class="hero">
 
-<h1>
-    ⚔️ <span>DUELOS</span>
-</h1>
+    <h1>
 
-<p>
-    Monte seu trio e enfrente adversários cada vez mais poderosos.
-</p>
+        ⚔️
+
+        <span>DUELOS</span>
+
+    </h1>
+
+
+    <p>
+
+        Monte seu trio. Enfrente seus rivais.
+        Prove que você possui o maior ego.
+
+    </p>
 
 </section>
+
 
 
 <section class="duel-panel">
 
-<div class="duel-top">
 
+    <div class="duel-top">
 
-<div class="team">
 
-<div class="team-title player">
-    SEU TRIO
-</div>
+        <!-- SEU TRIO -->
 
-<div class="selected-players">
+        <div class="team">
 
-<div
-    class="selected-slot"
-    id="slot0">
+            <div class="team-title player">
 
-    <strong>1</strong>
+                SEU TRIO
 
-    <span>
-        Escolha um jogador
-    </span>
-
-</div>
-
-
-<div
-    class="selected-slot"
-    id="slot1">
-
-    <strong>2</strong>
-
-    <span>
-        Escolha um jogador
-    </span>
-
-</div>
-
-
-<div
-    class="selected-slot"
-    id="slot2">
-
-    <strong>3</strong>
-
-    <span>
-        Escolha um jogador
-    </span>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="vs">
-    VS
-</div>
-
-
-<div class="team">
-
-<div class="team-title enemy">
-    INIMIGO
-</div>
-
-<div class="enemy-card">
-
-<div class="enemy-icon">
-    👤
-</div>
-
-<div
-    class="enemy-name"
-    id="enemyName">
-
-    ?
-
-</div>
-
-<div class="enemy-power">
-
-    PODER:
-    <span id="enemyPower">
-        ?
-    </span>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="duel-stats">
-
-<div class="duel-stat">
-
-<div
-    class="duel-stat-number"
-    id="teamPower">
-
-    0
-
-</div>
-
-<div class="duel-stat-label">
-    PODER DO SEU TRIO
-</div>
-
-</div>
-
-
-<div class="duel-stat">
-
-<div
-    class="duel-stat-number"
-    id="winStreak">
-
-    0
-
-</div>
-
-<div class="duel-stat-label">
-    VITÓRIAS CONSECUTIVAS
-</div>
-
-</div>
-
-
-<div class="duel-stat">
-
-<div
-    class="duel-stat-number"
-    id="nextReward">
-
-    100
-
-</div>
-
-<div class="duel-stat-label">
-    RECOMPENSA DA PRÓXIMA VITÓRIA
-</div>
-
-</div>
-
-</div>
-
-
-<div class="reward-box">
-
-<strong>
-    🪙 +<span id="reward">100</span>
-</strong>
-
-<p>
-    A recompensa aumenta a cada vitória consecutiva.
-</p>
-
-</div>
-
-
-<button
-    class="battle-button"
-    id="battleButton"
-    onclick="startDuel()"
-    disabled>
-
-    ⚔️ INICIAR DUELO
-
-</button>
-
-
-<!-- ==================================================
-     AUTO DUELO
-================================================== -->
-
-<div class="auto-duel-box">
-
-    <div class="auto-info">
-
-        <div class="auto-icon">
-            ⚡
-        </div>
-
-        <div>
-
-            <div class="auto-title">
-                AUTO DUELO
             </div>
 
-            <div class="auto-description">
-                Batalhe automaticamente enquanto estiver vencendo.
+
+            <div class="selected-players">
+
+
+                <div
+                    class="selected-slot"
+                    id="slot0">
+
+                    <strong>
+                        1
+                    </strong>
+
+                    <span>
+                        Escolha um jogador
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="selected-slot"
+                    id="slot1">
+
+                    <strong>
+                        2
+                    </strong>
+
+                    <span>
+                        Escolha um jogador
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="selected-slot"
+                    id="slot2">
+
+                    <strong>
+                        3
+                    </strong>
+
+                    <span>
+                        Escolha um jogador
+                    </span>
+
+                </div>
+
+
             </div>
 
         </div>
+
+
+
+        <!-- VS -->
+
+        <div class="vs">
+
+            VS
+
+        </div>
+
+
+
+        <!-- INIMIGO -->
+
+        <div class="team">
+
+            <div class="team-title enemy">
+
+                INIMIGO
+
+            </div>
+
+
+            <div class="enemy-card">
+
+
+                <div class="enemy-icon">
+
+                    👤
+
+                </div>
+
+
+                <div
+                    class="enemy-name"
+                    id="enemyName">
+
+                    ?
+
+                </div>
+
+
+                <div class="enemy-power">
+
+                    PODER:
+
+                    <span id="enemyPower">
+
+                        ?
+
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
 
     </div>
 
 
-    <button
-        class="auto-button"
-        id="autoButton"
-        onclick="toggleAutoDuel()">
 
-        ⚡ ATIVAR AUTO
+    <!-- ESTATÍSTICAS -->
+
+    <div class="duel-stats">
+
+
+        <div class="duel-stat">
+
+            <div
+                class="duel-stat-number"
+                id="teamPower">
+
+                0
+
+            </div>
+
+            <div class="duel-stat-label">
+
+                PODER DO SEU TRIO
+
+            </div>
+
+        </div>
+
+
+        <div class="duel-stat">
+
+            <div
+                class="duel-stat-number"
+                id="winStreak">
+
+                0
+
+            </div>
+
+            <div class="duel-stat-label">
+
+                VITÓRIAS CONSECUTIVAS
+
+            </div>
+
+        </div>
+
+
+        <div class="duel-stat">
+
+            <div
+                class="duel-stat-number"
+                id="nextReward">
+
+                100
+
+            </div>
+
+            <div class="duel-stat-label">
+
+                RECOMPENSA DA PRÓXIMA VITÓRIA
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- RECOMPENSA -->
+
+    <div class="reward-box">
+
+        <strong>
+
+            🪙 +
+
+            <span id="reward">
+                100
+            </span>
+
+        </strong>
+
+
+        <p>
+
+            A recompensa aumenta a cada vitória consecutiva.
+
+        </p>
+
+    </div>
+
+
+
+    <!-- BATALHA -->
+
+    <button
+        class="battle-button"
+        id="battleButton"
+        onclick="startDuel()"
+        disabled>
+
+        ⚔️ INICIAR DUELO
 
     </button>
 
-</div>
 
 
-<div
-    class="auto-status"
-    id="autoStatus">
+    <!-- AUTO -->
 
-    Auto Duelo desligado.
-
-</div>
+    <div class="auto-duel-box">
 
 
-<div
-    class="result"
-    id="result">
-</div>
+        <div class="auto-info">
+
+
+            <div class="auto-icon">
+
+                ⚡
+
+            </div>
+
+
+            <div>
+
+                <div class="auto-title">
+
+                    AUTO DUELO
+
+                </div>
+
+
+                <div class="auto-description">
+
+                    Batalhe automaticamente enquanto estiver vencendo.
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <button
+            class="auto-button"
+            id="autoButton"
+            onclick="toggleAutoDuel()">
+
+            ⚡ ATIVAR AUTO
+
+        </button>
+
+
+    </div>
+
+
+    <div
+        class="auto-status"
+        id="autoStatus">
+
+        Auto Duelo desligado.
+
+    </div>
+
+
+    <div
+        class="result"
+        id="result">
+    </div>
+
 
 </section>
 
+
+
+<!-- SELEÇÃO -->
 
 <section class="selection-header">
 
-<h2>
-    👥 SELECIONE SEU <span>TRIO</span>
-</h2>
+    <h2>
 
-<p class="selection-info">
-    As categorias abaixo organizam seus jogadores de acordo com o poder de cada jogador.
-</p>
+        👥 SELECIONE SEU
+
+        <span>TRIO</span>
+
+    </h2>
+
+
+    <p class="selection-info">
+
+        Escolha três jogadores do seu inventário para entrar no campo de batalha.
+
+    </p>
 
 </section>
 
 
-<section
-    id="inventory">
+
+<section id="inventory">
+
 </section>
 
 
 </main>
+
 
 
 <div
@@ -1428,15 +2587,19 @@ header{
 </div>
 
 
+
 <script>
 
-/* =========================================
-   STORAGE
-========================================= */
 
-const STORAGE_KEY = "blueLockGame";
+/* =========================================================
+   STORAGE
+========================================================= */
+
+const STORAGE_KEY =
+    "blueLockGame";
 
 let game = null;
+
 
 try{
 
@@ -1447,7 +2610,8 @@ try{
             )
         );
 
-}catch(error){
+}
+catch(error){
 
     game = null;
 
@@ -1459,8 +2623,11 @@ if(!game){
     game = {
 
         coins:1000,
+
         xp:0,
+
         level:1,
+
         inventory:[]
 
     };
@@ -1487,11 +2654,13 @@ game.level =
     Number(game.level) || 1;
 
 
-/* =========================================
+
+/* =========================================================
    MIGRAÇÃO
-========================================= */
+========================================================= */
 
 game.inventory.forEach(player=>{
+
 
     if(
         typeof player.stars !== "number" ||
@@ -1502,11 +2671,13 @@ game.inventory.forEach(player=>{
 
     }
 
+
     if(player.stars > 3){
 
         player.stars=3;
 
     }
+
 
     if(!player.uniqueId){
 
@@ -1524,82 +2695,74 @@ game.inventory.forEach(player=>{
 });
 
 
+
 function saveGame(){
 
     localStorage.setItem(
+
         STORAGE_KEY,
+
         JSON.stringify(game)
+
     );
 
 }
 
 
-/* =========================================
+
+/* =========================================================
    PODER DOS PERSONAGENS
-=========================================
-
-   PROGRESSÃO:
-
-   Mestres
-      ↓
-   Team World 5
-      ↓
-   New Gen
-      ↓
-   NEO
-      ↓
-   Deus
-========================================= */
+========================================================= */
 
 const characterPower={
 
-    /* COMMON */
-
     kunigami:55,
+
     gagamaru:48,
+
     tokimitsu:42,
+
     aryu:45,
 
-
-    /* RARE */
-
     isagi:90,
+
     bachira:86,
+
     chigiri:84,
+
     aiku:82,
+
     karasu:78,
+
     otoya:74,
 
-
-    /* EPIC */
-
     nagi:140,
+
     barou:137,
+
     hiori:125,
+
     reo:120,
 
-
-    /* LEGENDARY */
-
     rin:205,
+
     kaiser:202,
+
     shidou:195,
+
     lorenzo:190,
 
-
-    /* MESTRES */
-
     noa:275,
+
     loki:268,
+
     snuffy:260,
+
     chris:250,
+
     lavinho:245,
+
     "jinpachi-ego":235,
-
-
-    /* =====================================
-       TEAM WORLD 5
-    ===================================== */
 
     "pablo-cavazos":300,
 
@@ -1609,36 +2772,33 @@ const characterPower={
 
     "dada-silva":305,
 
-
-    /* NEW GEN */
-
     "loki-newgen":375,
+
     sae:365,
+
     "kaiser-newgen":360,
+
     "lorenzo-newgen":350,
+
     bunny:335,
+
     teddy:325,
+
     hugo:315,
 
-
-    /* NEO */
-
     "neo-kaiser":500,
+
     "neo-rin":485,
+
     "neo-isagi":475,
+
     "neo-nanase":420,
-
-
-    /* DEUS */
 
     "deus-futebol":1000
 
 };
 
 
-/* =========================================
-   PODER PADRÃO
-========================================= */
 
 const rarityPower={
 
@@ -1663,9 +2823,6 @@ const rarityPower={
 };
 
 
-/* =========================================
-   ESTRELAS
-========================================= */
 
 const starMultiplier={
 
@@ -1678,9 +2835,6 @@ const starMultiplier={
 };
 
 
-/* =========================================
-   CALCULAR PODER
-========================================= */
 
 function getPlayerPower(player){
 
@@ -1712,16 +2866,18 @@ function getPlayerPower(player){
 }
 
 
-/* =========================================
+
+/* =========================================================
    TRIO
-========================================= */
+========================================================= */
 
 let selectedPlayers=[];
 
 
-/* =========================================
+
+/* =========================================================
    AUTO DUELO
-========================================= */
+========================================================= */
 
 let autoDuelActive=false;
 
@@ -1732,11 +2888,13 @@ let duelInProgress=false;
 const AUTO_DUEL_DELAY=2000;
 
 
-/* =========================================
+
+/* =========================================================
    SEQUÊNCIA
-========================================= */
+========================================================= */
 
 let duelStreak =
+
     Number(
         localStorage.getItem(
             "blueLockDuelStreak"
@@ -1744,9 +2902,10 @@ let duelStreak =
     ) || 0;
 
 
-/* =========================================
+
+/* =========================================================
    INIMIGOS
-========================================= */
+========================================================= */
 
 let currentEnemy=null;
 
@@ -1791,9 +2950,10 @@ const enemies=[
 ];
 
 
-/* =========================================
+
+/* =========================================================
    RECOMPENSA
-========================================= */
+========================================================= */
 
 function getReward(){
 
@@ -1803,23 +2963,29 @@ function getReward(){
 }
 
 
-/* =========================================
+
+/* =========================================================
    GERAR INIMIGO
-========================================= */
+========================================================= */
 
 function generateEnemy(){
 
     const maxIndex =
+
         Math.min(
+
             enemies.length,
+
             3 +
             Math.floor(
                 duelStreak / 2
             )
+
         );
 
 
     const available =
+
         enemies.slice(
             0,
             maxIndex
@@ -1827,6 +2993,7 @@ function generateEnemy(){
 
 
     currentEnemy =
+
         available[
             Math.floor(
                 Math.random() *
@@ -1838,12 +3005,14 @@ function generateEnemy(){
     document.getElementById(
         "enemyName"
     ).textContent =
+
         currentEnemy.name;
 
 
     document.getElementById(
         "enemyPower"
     ).textContent =
+
         currentEnemy.power;
 
 
@@ -1852,9 +3021,10 @@ function generateEnemy(){
 }
 
 
-/* =========================================
+
+/* =========================================================
    SELECIONAR JOGADOR
-========================================= */
+========================================================= */
 
 function selectPlayer(index){
 
@@ -1881,10 +3051,13 @@ function selectPlayer(index){
 
 
     const alreadySelected =
+
         selectedPlayers.findIndex(
+
             item =>
                 item.uniqueId ===
                 player.uniqueId
+
         );
 
 
@@ -1923,22 +3096,16 @@ function selectPlayer(index){
 }
 
 
-/* =========================================
+
+/* =========================================================
    CATEGORIA
-========================================= */
+========================================================= */
 
 function getCategory(player){
 
     const power =
         getPlayerPower(player);
 
-
-    /*
-       500+ = MAIS FORTES
-       300-499 = ALTO PODER
-       150-299 = EQUILIBRADOS
-       abaixo de 150 = DESENVOLVIMENTO
-    */
 
     if(power >= 500){
 
@@ -1966,9 +3133,10 @@ function getCategory(player){
 }
 
 
-/* =========================================
+
+/* =========================================================
    INVENTÁRIO
-========================================= */
+========================================================= */
 
 function renderInventory(){
 
@@ -2018,6 +3186,7 @@ function renderInventory(){
 
         },
 
+
         high:{
 
             icon:"⚡",
@@ -2031,6 +3200,7 @@ function renderInventory(){
 
         },
 
+
         balanced:{
 
             icon:"🧠",
@@ -2043,6 +3213,7 @@ function renderInventory(){
             className:"balanced"
 
         },
+
 
         development:{
 
@@ -2063,8 +3234,11 @@ function renderInventory(){
     const grouped={
 
         strongest:[],
+
         high:[],
+
         balanced:[],
+
         development:[]
 
     };
@@ -2131,24 +3305,34 @@ function renderInventory(){
                 <div class="category-header">
 
                     <div class="category-icon">
+
                         ${category.icon}
+
                     </div>
+
 
                     <div>
 
                         <div class="category-title">
+
                             ${category.title}
+
                         </div>
 
+
                         <div class="category-description">
+
                             ${category.description}
+
                         </div>
 
                     </div>
 
+
                     <div class="category-count">
 
                         ${players.length}
+
                         jogador${players.length !== 1 ? "es" : ""}
 
                     </div>
@@ -2180,28 +3364,14 @@ function renderInventory(){
                         "player-card";
 
 
-                    /*
-                       Destaque especial
-                       para Team World 5
-                    */
-
-                    if(
-                        player.rarity ===
-                        "teamworld5"
-                    ){
-
-                        card.classList.add(
-                            "teamworld5-card"
-                        );
-
-                    }
-
-
                     const selected =
+
                         selectedPlayers.some(
+
                             item =>
                                 item.uniqueId ===
                                 player.uniqueId
+
                         );
 
 
@@ -2215,16 +3385,25 @@ function renderInventory(){
 
 
                     const stars =
+
                         "★".repeat(
+
                             Math.max(
+
                                 1,
+
                                 Math.min(
+
                                     3,
+
                                     Number(
                                         player.stars
                                     ) || 1
+
                                 )
+
                             )
+
                         );
 
 
@@ -2238,13 +3417,18 @@ function renderInventory(){
 
 
                         <img
+
                             src="${player.image}"
+
                             alt="${player.name}"
+
                             onerror="this.style.opacity='.2';"
+
                         >
 
 
                         <div class="player-info">
+
 
                             <div class="player-name">
 
@@ -2277,6 +3461,7 @@ function renderInventory(){
 
                             </div>
 
+
                         </div>
 
                     `;
@@ -2307,9 +3492,10 @@ function renderInventory(){
 }
 
 
-/* =========================================
+
+/* =========================================================
    FORMATAR RARIDADE
-========================================= */
+========================================================= */
 
 function formatRarity(rarity){
 
@@ -2341,9 +3527,10 @@ function formatRarity(rarity){
 }
 
 
-/* =========================================
+
+/* =========================================================
    TRIO SELECIONADO
-========================================= */
+========================================================= */
 
 function renderSelectedPlayers(){
 
@@ -2372,11 +3559,16 @@ function renderSelectedPlayers(){
             slot.innerHTML=`
 
                 <strong>
+
                     ${i+1}
+
                 </strong>
 
+
                 <span>
+
                     Escolha um jogador
+
                 </span>
 
             `;
@@ -2412,15 +3604,23 @@ function renderSelectedPlayers(){
                 )}
 
                 ${"★".repeat(
+
                     Math.max(
+
                         1,
+
                         Math.min(
+
                             3,
+
                             Number(
                                 player.stars
                             ) || 1
+
                         )
+
                     )
+
                 )}
 
             </div>
@@ -2432,13 +3632,15 @@ function renderSelectedPlayers(){
 }
 
 
-/* =========================================
+
+/* =========================================================
    PODER DO TRIO
-========================================= */
+========================================================= */
 
 function calculateTeamPower(){
 
     return selectedPlayers.reduce(
+
         (
             total,
             player
@@ -2450,15 +3652,18 @@ function calculateTeamPower(){
                 );
 
         },
+
         0
+
     );
 
 }
 
 
-/* =========================================
-   ATUALIZAR AUTO DUELO
-========================================= */
+
+/* =========================================================
+   AUTO UI
+========================================================= */
 
 function updateAutoUI(){
 
@@ -2480,6 +3685,7 @@ function updateAutoUI(){
             "active"
         );
 
+
         button.textContent =
             "⏹️ DESATIVAR AUTO";
 
@@ -2487,6 +3693,7 @@ function updateAutoUI(){
         status.classList.add(
             "active"
         );
+
 
         status.textContent =
             "⚡ Auto Duelo ativo — batalhas acontecendo automaticamente.";
@@ -2499,6 +3706,7 @@ function updateAutoUI(){
             "active"
         );
 
+
         button.textContent =
             "⚡ ATIVAR AUTO";
 
@@ -2506,6 +3714,7 @@ function updateAutoUI(){
         status.classList.remove(
             "active"
         );
+
 
         status.textContent =
             "Auto Duelo desligado.";
@@ -2515,9 +3724,10 @@ function updateAutoUI(){
 }
 
 
-/* =========================================
-   ATIVAR / DESATIVAR AUTO
-========================================= */
+
+/* =========================================================
+   ATIVAR AUTO
+========================================================= */
 
 function toggleAutoDuel(){
 
@@ -2545,7 +3755,9 @@ function toggleAutoDuel(){
 
     autoDuelActive=true;
 
+
     updateAutoUI();
+
 
     toast(
         "⚡ Auto Duelo ativado!"
@@ -2557,9 +3769,10 @@ function toggleAutoDuel(){
 }
 
 
-/* =========================================
-   PARAR AUTO DUELO
-========================================= */
+
+/* =========================================================
+   PARAR AUTO
+========================================================= */
 
 function stopAutoDuel(message){
 
@@ -2592,9 +3805,10 @@ function stopAutoDuel(message){
 }
 
 
-/* =========================================
-   EXECUTAR AUTO DUELO
-========================================= */
+
+/* =========================================================
+   EXECUTAR AUTO
+========================================================= */
 
 function runAutoDuel(){
 
@@ -2628,9 +3842,10 @@ function runAutoDuel(){
 }
 
 
-/* =========================================
+
+/* =========================================================
    REALIZAR DUELO
-========================================= */
+========================================================= */
 
 function performDuel(isAuto=false){
 
@@ -2706,14 +3921,19 @@ function performDuel(isAuto=false){
 
 
     result.textContent =
+
         isAuto
+
             ? "⚡ AUTO DUELO: batalha em andamento..."
+
             : "⚔️ O duelo está acontecendo...";
 
 
     setTimeout(()=>{
 
+
         const teamRoll =
+
             teamPower *
             (
                 .85 +
@@ -2723,6 +3943,7 @@ function performDuel(isAuto=false){
 
 
         const enemyRoll =
+
             enemyPower *
             (
                 .85 +
@@ -2758,35 +3979,33 @@ function performDuel(isAuto=false){
 
 
             result.textContent =
+
                 "🏆 VITÓRIA! +" +
                 reward +
                 " 🪙";
 
 
-            if(isAuto){
+            toast(
 
-                toast(
-                    "⚡ AUTO: VITÓRIA! +" +
-                    reward +
-                    " moedas!"
-                );
+                isAuto
 
-            }
+                    ? "⚡ AUTO: VITÓRIA! +" +
+                      reward +
+                      " moedas!"
 
-            else{
+                    : "🏆 Você venceu o duelo! +" +
+                      reward +
+                      " moedas!"
 
-                toast(
-                    "🏆 Você venceu o duelo! +" +
-                    reward +
-                    " moedas!"
-                );
-
-            }
+            );
 
 
             localStorage.setItem(
+
                 "blueLockDuelStreak",
+
                 duelStreak
+
             );
 
 
@@ -2805,11 +4024,17 @@ function performDuel(isAuto=false){
             if(isAuto){
 
                 autoDuelTimer =
+
                     setTimeout(
+
                         ()=>{
+
                             runAutoDuel();
+
                         },
+
                         AUTO_DUEL_DELAY
+
                     );
 
             }
@@ -2822,8 +4047,11 @@ function performDuel(isAuto=false){
 
 
             localStorage.setItem(
+
                 "blueLockDuelStreak",
+
                 duelStreak
+
             );
 
 
@@ -2836,9 +4064,13 @@ function performDuel(isAuto=false){
 
 
             toast(
+
                 isAuto
+
                     ? "💀 AUTO: você perdeu. Auto Duelo encerrado."
+
                     : "💀 Você perdeu o duelo."
+
             );
 
 
@@ -2846,6 +4078,7 @@ function performDuel(isAuto=false){
 
 
             saveGame();
+
 
             updateUI();
 
@@ -2867,9 +4100,10 @@ function performDuel(isAuto=false){
 }
 
 
-/* =========================================
-   INICIAR DUELO MANUAL
-========================================= */
+
+/* =========================================================
+   DUELO MANUAL
+========================================================= */
 
 function startDuel(){
 
@@ -2889,15 +4123,17 @@ function startDuel(){
 }
 
 
-/* =========================================
+
+/* =========================================================
    UI
-========================================= */
+========================================================= */
 
 function updateUI(){
 
     document.getElementById(
         "coins"
     ).textContent =
+
         Number(
             game.coins || 0
         ).toLocaleString(
@@ -2908,30 +4144,35 @@ function updateUI(){
     document.getElementById(
         "teamPower"
     ).textContent =
+
         calculateTeamPower();
 
 
     document.getElementById(
         "winStreak"
     ).textContent =
+
         duelStreak;
 
 
     document.getElementById(
         "reward"
     ).textContent =
+
         getReward();
 
 
     document.getElementById(
         "nextReward"
     ).textContent =
+
         getReward();
 
 
     document.getElementById(
         "battleButton"
     ).disabled =
+
         selectedPlayers.length !== 3 ||
         autoDuelActive ||
         duelInProgress;
@@ -2939,18 +4180,22 @@ function updateUI(){
 
     renderSelectedPlayers();
 
+
     renderInventory();
 
+
     updateAutoUI();
+
 
     saveGame();
 
 }
 
 
-/* =========================================
+
+/* =========================================================
    TOAST
-========================================= */
+========================================================= */
 
 function toast(message){
 
@@ -2980,9 +4225,10 @@ function toast(message){
 }
 
 
-/* =========================================
+
+/* =========================================================
    INICIALIZAÇÃO
-========================================= */
+========================================================= */
 
 generateEnemy();
 
