@@ -1,0 +1,6494 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>BLUE LOCK — Tower Defense</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    color:#fff;
+
+    background:
+    radial-gradient(
+        circle at top,
+        #18386d 0%,
+        #091426 45%,
+        #03070e 100%
+    );
+
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+    padding:15px 20px;
+
+    background:
+    rgba(4,10,22,.96);
+
+    border-bottom:
+    2px solid #167cff;
+
+    backdrop-filter:blur(12px);
+
+}
+
+.header{
+
+    max-width:1600px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.logo{
+
+    font-size:23px;
+
+    font-weight:1000;
+
+    letter-spacing:2px;
+
+}
+
+.logo span{
+
+    color:#1685ff;
+
+}
+
+.header-stats{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+}
+
+.header-stat{
+
+    padding:9px 14px;
+
+    border-radius:10px;
+
+    background:#101e38;
+
+    border:1px solid #25466f;
+
+    font-weight:bold;
+
+    white-space:nowrap;
+
+}
+
+.header-stat.blue{
+
+    border-color:#247fff;
+
+}
+
+.header-stat.green{
+
+    border-color:#27d47d;
+
+}
+
+.header-stat.red{
+
+    border-color:#ff4960;
+
+}
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.main{
+
+    max-width:1600px;
+
+    margin:auto;
+
+    padding:20px;
+
+}
+
+/* =========================================================
+   GAME TOP
+========================================================= */
+
+.game-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.game-title{
+
+    font-size:25px;
+
+    font-weight:1000;
+
+}
+
+.game-title span{
+
+    color:#2488ff;
+
+}
+
+.status{
+
+    color:#9fb1cb;
+
+    font-size:14px;
+
+}
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+.game-layout{
+
+    display:grid;
+
+    grid-template-columns:310px 1fr;
+
+    gap:18px;
+
+}
+
+/* =========================================================
+   INVENTORY
+========================================================= */
+
+.inventory{
+
+    background:
+    rgba(9,20,38,.97);
+
+    border:
+    1px solid #214064;
+
+    border-radius:16px;
+
+    padding:15px;
+
+    height:fit-content;
+
+    position:sticky;
+
+    top:100px;
+
+}
+
+.inventory-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:12px;
+
+}
+
+.inventory-header h2{
+
+    font-size:19px;
+
+}
+
+.inventory-count{
+
+    font-size:12px;
+
+    color:#8ea4c1;
+
+}
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search{
+
+    width:100%;
+
+    padding:11px;
+
+    border-radius:9px;
+
+    border:1px solid #294c76;
+
+    background:#0b172b;
+
+    color:white;
+
+    outline:none;
+
+    margin-bottom:10px;
+
+}
+
+.search:focus{
+
+    border-color:#2687ff;
+
+}
+
+/* =========================================================
+   FILTERS
+========================================================= */
+
+.filters{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:6px;
+
+    margin-bottom:12px;
+
+}
+
+.filter{
+
+    border:
+    1px solid #274669;
+
+    background:#10213b;
+
+    color:#b9c9dd;
+
+    border-radius:8px;
+
+    padding:8px 5px;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    text-align:center;
+
+}
+
+.filter:hover{
+
+    border-color:#348fff;
+
+}
+
+.filter.active{
+
+    background:#1266c5;
+
+    color:white;
+
+    border-color:#5ca7ff;
+
+}
+
+/* =========================================================
+   PLAYER LIST
+========================================================= */
+
+.player-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:7px;
+
+    max-height:570px;
+
+    overflow-y:auto;
+
+    padding-right:4px;
+
+}
+
+.player-list::-webkit-scrollbar{
+
+    width:5px;
+
+}
+
+.player-list::-webkit-scrollbar-thumb{
+
+    background:#2469ae;
+
+    border-radius:10px;
+
+}
+
+/* =========================================================
+   PLAYER CARD
+========================================================= */
+
+.player-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:8px;
+
+    border-radius:10px;
+
+    background:#132641;
+
+    border:2px solid transparent;
+
+    cursor:pointer;
+
+    transition:.18s;
+
+}
+
+.player-card:hover{
+
+    transform:translateX(2px);
+
+    border-color:#277fff;
+
+}
+
+.player-card.selected{
+
+    border-color:#ffd84a;
+
+    background:#1a3155;
+
+}
+
+.player-image{
+
+    width:47px;
+
+    height:47px;
+
+    border-radius:8px;
+
+    object-fit:cover;
+
+    background:#07101c;
+
+    border:1px solid #355b86;
+
+}
+
+.player-info{
+
+    min-width:0;
+
+    flex:1;
+
+}
+
+.player-name{
+
+    font-size:13px;
+
+    font-weight:900;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+.player-class{
+
+    margin-top:3px;
+
+    font-size:10px;
+
+    color:#72b5ff;
+
+}
+
+.player-power{
+
+    font-size:10px;
+
+    color:#9fb3cc;
+
+    margin-top:2px;
+
+}
+
+.empty{
+
+    padding:25px 10px;
+
+    color:#7187a3;
+
+    font-size:13px;
+
+    line-height:1.5;
+
+    text-align:center;
+
+}
+
+/* =========================================================
+   FIELD
+========================================================= */
+
+.field-area{
+
+    min-width:0;
+
+}
+
+.canvas-box{
+
+    position:relative;
+
+    width:100%;
+
+    overflow:auto;
+
+    background:#050c17;
+
+    border:2px solid #24538b;
+
+    border-radius:16px;
+
+    box-shadow:
+    0 15px 50px rgba(0,0,0,.35);
+
+}
+
+canvas{
+
+    display:block;
+
+    width:1400px;
+
+    height:760px;
+
+    cursor:crosshair;
+
+}
+
+/* =========================================================
+   BOTTOM PANEL
+========================================================= */
+
+.bottom-panel{
+
+    margin-top:12px;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr 1fr;
+
+    gap:10px;
+
+}
+
+.placed-towers-box{
+    grid-column:1/-1;
+    background:#09182b;
+    border:1px solid #24538b;
+    border-radius:14px;
+    padding:12px;
+}
+
+.placed-towers-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:10px;
+}
+
+.placed-towers-header h3{
+    margin:0;
+    font-size:13px;
+    color:#79b9ff;
+}
+
+.placed-towers-count{
+    font-size:10px;
+    color:#9fb3cc;
+}
+
+.placed-towers-list{
+    display:flex;
+    gap:9px;
+    overflow-x:auto;
+    padding-bottom:3px;
+}
+
+.placed-tower-card{
+    min-width:185px;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:8px;
+    border-radius:10px;
+    background:#10233d;
+    border:2px solid #214064;
+    cursor:pointer;
+    transition:.18s;
+}
+
+.placed-tower-card:hover{
+    border-color:#3d91ff;
+    transform:translateY(-1px);
+}
+
+.placed-tower-card.selected{
+    border-color:#ffd84a;
+    background:#1a3155;
+    box-shadow:0 0 14px rgba(255,216,74,.14);
+}
+
+.placed-tower-card img{
+    width:48px;
+    height:48px;
+    border-radius:8px;
+    object-fit:cover;
+    background:#07101c;
+    border:1px solid #355b86;
+    flex:none;
+}
+
+.placed-tower-info{
+    min-width:0;
+    flex:1;
+}
+
+.placed-tower-name{
+    font-size:11px;
+    font-weight:900;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.placed-tower-meta{
+    margin-top:3px;
+    font-size:9px;
+    color:#9fb3cc;
+}
+
+.placed-tower-upgrade{
+    margin-top:3px;
+    font-size:9px;
+    color:#ffd84a;
+    font-weight:800;
+}
+
+.placed-towers-empty{
+    width:100%;
+    padding:13px;
+    text-align:center;
+    color:#7187a3;
+    font-size:11px;
+}
+
+.info-box{
+
+    background:#0d1b31;
+
+    border:1px solid #214064;
+
+    border-radius:12px;
+
+    padding:12px;
+
+}
+
+.info-box h3{
+
+    font-size:12px;
+
+    color:#79b9ff;
+
+    margin-bottom:7px;
+
+}
+
+.info-box p{
+
+    font-size:12px;
+
+    color:#a9bad0;
+
+    line-height:1.5;
+
+}
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+button{
+
+    border:none;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-weight:900;
+
+    border-radius:9px;
+
+    padding:11px;
+
+    transition:.15s;
+
+}
+
+button:hover{
+
+    transform:translateY(-1px);
+
+    filter:brightness(1.12);
+
+}
+
+button:disabled{
+
+    opacity:.4;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+}
+
+.start{
+
+    width:100%;
+
+    margin-top:10px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #1683ff,
+        #06459d
+    );
+
+}
+
+.back{
+
+    width:100%;
+
+    margin-top:8px;
+
+    background:#18263c;
+
+}
+
+.remove{
+
+    width:100%;
+
+    margin-top:8px;
+
+    background:#9e2739;
+
+}
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:25px;
+
+    z-index:500;
+
+    transform:
+    translate(-50%,120px);
+
+    background:#101f36;
+
+    border:
+    1px solid #328bff;
+
+    padding:13px 20px;
+
+    border-radius:11px;
+
+    font-weight:bold;
+
+    opacity:0;
+
+    transition:.25s;
+
+    pointer-events:none;
+
+}
+
+.toast.show{
+
+    opacity:1;
+
+    transform:
+    translate(-50%,0);
+
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1100px){
+
+    .game-layout{
+
+        grid-template-columns:260px 1fr;
+
+    }
+
+}
+
+@media(max-width:850px){
+
+    .game-layout{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .inventory{
+
+        position:relative;
+
+        top:auto;
+
+    }
+
+    .player-list{
+
+        max-height:320px;
+
+    }
+
+    .bottom-panel{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+}
+
+
+/* VISUAIS DE HABILIDADES */
+.ability-hud{position:absolute;pointer-events:none;z-index:20;transform:translateX(-50%);width:76px;text-align:center;font-family:Arial,sans-serif}
+.ability-hud .ability-label{font-size:9px;font-weight:900;color:#fff;text-shadow:0 1px 3px #000}
+.ability-hud .ability-bar{height:6px;margin-top:2px;background:#101722;border:1px solid rgba(255,255,255,.35);border-radius:8px;overflow:hidden}
+.ability-hud .ability-fill{height:100%;width:100%;transition:width .08s linear}
+
+
+/* =========================================================
+   GUIA DE SUPORTES
+========================================================= */
+.support-guide-button{
+    width:100%;
+    margin-top:10px;
+    padding:12px 14px;
+    border:1px solid rgba(94,231,255,.45);
+    border-radius:10px;
+    background:linear-gradient(135deg,rgba(15,50,86,.95),rgba(7,22,40,.95));
+    color:#fff;
+    font-weight:900;
+    cursor:pointer;
+    transition:.2s;
+}
+.support-guide-button:hover{
+    transform:translateY(-2px);
+    border-color:#5ee7ff;
+    box-shadow:0 0 18px rgba(94,231,255,.18);
+}
+.support-guide-overlay{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:rgba(0,0,0,.72);
+    backdrop-filter:blur(8px);
+}
+.support-guide-overlay.open{display:flex}
+.support-guide-modal{
+    width:min(900px,100%);
+    max-height:90vh;
+    overflow:auto;
+    padding:24px;
+    border:1px solid rgba(94,231,255,.4);
+    border-radius:18px;
+    background:linear-gradient(145deg,#0a1729,#050b14);
+    box-shadow:0 20px 70px rgba(0,0,0,.55),0 0 30px rgba(22,124,255,.12);
+}
+.support-guide-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    margin-bottom:18px;
+}
+.support-guide-head h2{font-size:24px}
+.support-guide-close{
+    width:38px;
+    height:38px;
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:9px;
+    background:#111d2d;
+    color:#fff;
+    font-size:20px;
+    cursor:pointer;
+}
+.support-guide-subtitle{color:#9fb1c7;margin-bottom:18px;line-height:1.5}
+.support-guide-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:12px;
+}
+.support-guide-card{
+    padding:16px;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:14px;
+    background:rgba(255,255,255,.035);
+}
+.support-guide-card h3{margin-bottom:8px;color:#5ee7ff}
+.support-guide-card .support-effect{font-weight:900;margin-bottom:7px}
+.support-guide-card p{color:#b8c5d6;line-height:1.5;font-size:14px}
+.support-guide-tip{
+    margin-top:16px;
+    padding:13px 15px;
+    border-radius:12px;
+    background:rgba(94,231,255,.06);
+    border:1px solid rgba(94,231,255,.16);
+    color:#d8f7ff;
+    line-height:1.5;
+    font-size:14px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header>
+
+<div class="header">
+
+    <div class="logo">
+
+        BLUE LOCK
+        <span>— TOWER DEFENSE</span>
+
+    </div>
+
+
+    <div class="header-stats">
+
+        <div class="header-stat blue">
+
+            💰 <span id="coins">0</span>
+
+        </div>
+
+
+        <div class="header-stat green">
+
+            🟢 <span id="battleMoney">500</span>
+
+        </div>
+
+
+        <div class="header-stat red">
+
+            ❤️ <span id="lives">20</span>
+
+        </div>
+
+
+        <div class="header-stat">
+
+            🌊 <span id="wave">0</span>
+
+        </div>
+
+    </div>
+
+</div>
+
+</header>
+
+
+
+<main class="main">
+
+
+<div class="game-top">
+
+    <div>
+
+        <div class="game-title">
+
+            🗼 <span>TOWER DEFENSE</span>
+
+        </div>
+
+        <div class="status" id="status">
+
+            Selecione um personagem para começar.
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="game-layout">
+
+
+<!-- =====================================================
+     INVENTORY
+====================================================== -->
+
+<aside class="inventory">
+
+
+<div class="inventory-header">
+
+    <h2>🎒 MOCHILA</h2>
+
+    <div
+        class="inventory-count"
+        id="inventoryCount"
+    >
+        0 jogadores
+    </div>
+
+</div>
+
+
+<input
+    class="search"
+    id="search"
+    placeholder="🔎 Procurar personagem..."
+    oninput="renderInventory()"
+/>
+
+
+<div class="filters">
+
+    <div
+        class="filter active"
+        data-class="all"
+        onclick="setClassFilter('all',this)"
+    >
+        TODOS
+    </div>
+
+    <div
+        class="filter"
+        data-class="long"
+        onclick="setClassFilter('long',this)"
+    >
+        🎯 LONGO
+    </div>
+
+    <div
+        class="filter"
+        data-class="short"
+        onclick="setClassFilter('short',this)"
+    >
+        🗡️ CURTO
+    </div>
+
+    <div
+        class="filter"
+        data-class="speed"
+        onclick="setClassFilter('speed',this)"
+    >
+        ⚡ VELOCIDADE
+    </div>
+
+    <div
+        class="filter"
+        data-class="area"
+        onclick="setClassFilter('area',this)"
+    >
+        💥 ÁREA
+    </div>
+
+    <div
+        class="filter"
+        data-class="support"
+        onclick="setClassFilter('support',this)"
+    >
+        🛡️ SUPORTE
+    </div>
+
+</div>
+
+<button class="support-guide-button" onclick="openSupportGuide()">
+    📖 GUIA DE SUPORTES
+</button>
+
+
+<div
+    id="playerList"
+    class="player-list"
+></div>
+
+
+<button
+    id="startButton"
+    class="start"
+    onclick="startWave()"
+>
+    ▶ INICIAR WAVE
+</button>
+
+<button id="autoSkipButton" class="start" onclick="toggleAutoSkip()">⏩ AUTO-SKIP: DESLIGADO</button>
+
+<button id="speedButton" class="start" onclick="toggleGameSpeed()">⏩ 1X VELOCIDADE</button>
+
+
+<button
+    class="remove"
+    onclick="removeSelectedTower()"
+>
+    🗑️ REMOVER TORRE
+</button>
+
+<button
+    class="start"
+    onclick="upgradeSelectedTower()"
+>
+    ⬆️ EVOLUIR TORRE
+</button>
+
+<button class="start" onclick="useSelectedSupportAbility()">🟢 HABILIDADE DA TORRE</button>
+
+
+<button
+    class="back"
+    onclick="location.href='index.html'"
+>
+    ← VOLTAR AO MENU
+</button>
+
+
+</aside>
+
+
+
+<!-- =====================================================
+     FIELD
+====================================================== -->
+
+<section class="field-area">
+
+
+<div class="canvas-box">
+
+<canvas
+    id="gameCanvas"
+    width="1400"
+    height="760"
+></canvas>
+
+</div>
+
+
+<div class="bottom-panel">
+
+<div class="placed-towers-box">
+    <div class="placed-towers-header">
+        <h3>🗼 TORRES COLOCADAS</h3>
+        <span id="placedTowersCount" class="placed-towers-count">0 torres</span>
+    </div>
+    <div id="placedTowersList" class="placed-towers-list"></div>
+</div>
+
+<div class="info-box">
+
+<h3>💰 ECONOMIA</h3>
+
+<p>
+
+O dinheiro verde é exclusivo da partida.
+
+Derrote inimigos para ganhar mais.
+
+Completar waves também gera recompensa.
+
+</p>
+
+</div>
+
+
+<div class="info-box">
+
+<h3>🧩 CLASSES</h3>
+
+<p>
+
+Cada classe possui uma função diferente.
+
+Longo alcance cobre grandes áreas.
+
+Velocidade ataca rapidamente.
+
+Área causa dano em vários inimigos.
+
+</p>
+
+</div>
+
+
+<div class="info-box">
+
+<h3>🏆 RECOMPENSAS</h3>
+
+<p>
+
+Waves concluídas concedem moedas e XP
+ao seu progresso principal.
+
+Bosses dão recompensas maiores.
+
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+</div>
+
+</main>
+
+
+<div
+    id="toast"
+    class="toast"
+></div>
+
+
+
+
+
+<!-- =========================================================
+     GUIA DE SUPORTES
+========================================================= -->
+<div class="support-guide-overlay" id="supportGuide" onclick="closeSupportGuide(event)">
+    <div class="support-guide-modal">
+        <div class="support-guide-head">
+            <h2>🛡️ GUIA DE SUPORTES</h2>
+            <button class="support-guide-close" onclick="closeSupportGuide()">✕</button>
+        </div>
+        <div class="support-guide-subtitle">
+            Cada suporte possui uma habilidade ativa. Selecione a torre no mapa e use o botão de habilidade para ativá-la. Todas as habilidades entram em recarga por 12 segundos.
+        </div>
+        <div class="support-guide-grid">
+            <div class="support-guide-card">
+                <h3>🟢 Reo Mikage</h3>
+                <div class="support-effect">BUFF DE EGO</div>
+                <p>Concede <strong>+75% de dano</strong> às torres dentro da área de efeito durante 6 segundos.</p>
+            </div>
+            <div class="support-guide-card">
+                <h3>🔵 Yo Hiori</h3>
+                <div class="support-effect">VISÃO META</div>
+                <p>Concede <strong>+45% de velocidade de ataque</strong> às torres dentro da área durante 6 segundos.</p>
+            </div>
+            <div class="support-guide-card">
+                <h3>🟣 Tabito Karasu</h3>
+                <div class="support-effect">CAMPO DE EGO</div>
+                <p>Concede <strong>+45% de alcance</strong> às torres dentro da área durante 6 segundos.</p>
+            </div>
+            <div class="support-guide-card">
+                <h3>🟠 Gin Gagamaru</h3>
+                <div class="support-effect">MOTIVAÇÃO</div>
+                <p>Recupera <strong>+3 vidas</strong> instantaneamente, respeitando o limite máximo de 20 vidas.</p>
+            </div>
+            <div class="support-guide-card">
+                <h3>⚪ Noel Noa</h3>
+                <div class="support-effect">MASTER EGO</div>
+                <p>Concede <strong>+35% de dano e +35% de alcance</strong> às torres dentro da área durante 7 segundos.</p>
+            </div>
+        </div>
+        <div class="support-guide-tip">
+            💡 <strong>Dica:</strong> posicione o suporte perto das torres que você quer fortalecer. O efeito em área considera o alcance da própria torre de suporte.
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+/* =========================================================
+   SAVE PRINCIPAL
+========================================================= */
+
+let game =
+    JSON.parse(
+        localStorage.getItem("blueLockGame")
+    ) || {
+
+        coins:1000,
+
+        xp:0,
+
+        level:1,
+
+        inventory:[],
+
+        collection:[],
+
+        packsOpened:0
+
+    };
+
+
+if(!Array.isArray(game.inventory)){
+
+    game.inventory=[];
+
+}
+
+
+if(typeof game.coins!=="number"){
+
+    game.coins=1000;
+
+}
+
+
+if(typeof game.xp!=="number"){
+
+    game.xp=0;
+
+}
+
+
+if(typeof game.level!=="number"){
+
+    game.level=1;
+
+}
+
+/* =========================================================
+   PERSONAGENS DE SUPORTE
+========================================================= */
+
+const supportCharacters=[
+    {id:"reo",name:"Reo Mikage",rarity:"epic",image:"images/reo.jpg"},
+    {id:"hiori",name:"Yo Hiori",rarity:"epic",image:"images/hiori.jpg"},
+    {id:"karasu",name:"Tabito Karasu",rarity:"rare",image:"images/karasu.jpg"},
+    {id:"gagamaru",name:"Gin Gagamaru",rarity:"common",image:"images/gagamaru.jpg"},
+    {id:"noa",name:"Noel Noa",rarity:"mestres",image:"images/noah.jpg"}
+];
+
+supportCharacters.forEach(support=>{
+    if(!game.inventory.some(player=>player && player.id===support.id)){
+        game.inventory.push({...support});
+    }
+});
+
+if(!Array.isArray(game.collection)) game.collection=[];
+
+supportCharacters.forEach(support=>{
+    if(!game.collection.some(player=>player && player.id===support.id)){
+        game.collection.push({...support});
+    }
+});
+
+
+/* =========================================================
+   ENTROSA
+   PERSONAGEM MAIS FORTE DO JOGO
+========================================================= */
+
+const entrosaCharacter={
+    id:"entrosa",
+    name:"Entrosa",
+    rarity:"deus",
+    image:"images/os-entrosa.jpg"
+};
+
+
+/*
+   Adiciona automaticamente o Entrosa
+   à mochila e à coleção.
+*/
+
+/*
+   CORREÇÃO DEFINITIVA DO ENTROSA
+
+   Remove qualquer versão antiga do Entrosa,
+   inclusive versões salvas anteriormente com
+   poder/raridade incorretos.
+
+   Depois cria somente a versão oficial:
+   1500 de poder + imagem os-entrosa.jpg.
+*/
+
+game.inventory = game.inventory.filter(player => {
+
+    if(!player) return false;
+
+    const id =
+        String(player.id || "").toLowerCase();
+
+    const name =
+        String(player.name || "").toLowerCase();
+
+    // Remove Entrosa, Os Entrosa, os-entrosa, etc.
+    return !id.includes("entrosa") &&
+           !name.includes("entrosa");
+
+});
+
+game.collection = game.collection.filter(player => {
+
+    if(!player) return false;
+
+    const id =
+        String(player.id || "").toLowerCase();
+
+    const name =
+        String(player.name || "").toLowerCase();
+
+    // Remove Entrosa, Os Entrosa, os-entrosa, etc.
+    return !id.includes("entrosa") &&
+           !name.includes("entrosa");
+
+});
+
+game.inventory.push({
+    ...entrosaCharacter
+});
+
+game.collection.push({
+    ...entrosaCharacter
+});
+
+
+saveGame();
+
+
+
+/* =========================================================
+   SAVE
+========================================================= */
+
+function saveGame(){
+
+    localStorage.setItem(
+        "blueLockGame",
+        JSON.stringify(game)
+    );
+
+}
+
+
+/* =========================================================
+   ELEMENTOS
+========================================================= */
+
+const canvas =
+    document.getElementById(
+        "gameCanvas"
+    );
+
+const ctx =
+    canvas.getContext("2d");
+
+
+const coinsEl =
+    document.getElementById("coins");
+
+const battleMoneyEl =
+    document.getElementById("battleMoney");
+
+const livesEl =
+    document.getElementById("lives");
+
+const waveEl =
+    document.getElementById("wave");
+
+const statusEl =
+    document.getElementById("status");
+
+const playerListEl =
+    document.getElementById("playerList");
+
+const inventoryCountEl =
+    document.getElementById(
+        "inventoryCount"
+    );
+
+const startButton =
+    document.getElementById(
+        "startButton"
+    );
+
+
+/* =========================================================
+   DINHEIRO DA PARTIDA
+========================================================= */
+
+let battleMoney=500;
+
+
+/* =========================================================
+   VIDA
+========================================================= */
+
+let lives=20;
+
+
+let autoSkip=false;
+let autoSkipTimer=null;
+let gameSpeed=1;
+let activeBuffs=[];
+
+function toggleGameSpeed(){
+
+    gameSpeed=gameSpeed===1?2:1;
+
+    const b=
+        document.getElementById(
+            "speedButton"
+        );
+
+    if(b){
+
+        b.textContent=
+            gameSpeed===2
+            ?"⏩ 2X VELOCIDADE"
+            :"⏩ 1X VELOCIDADE";
+
+    }
+
+    showToast(
+        gameSpeed===2
+        ?"⚡ Velocidade 2X ativada! A partida está acelerada."
+        :"▶️ Velocidade normal restaurada."
+    );
+
+}
+
+
+function toggleAutoSkip(){
+
+    autoSkip=!autoSkip;
+
+    const b=
+        document.getElementById(
+            "autoSkipButton"
+        );
+
+    if(b){
+
+        b.textContent=
+            autoSkip
+            ?"⏩ AUTO-SKIP: LIGADO"
+            :"⏩ AUTO-SKIP: DESLIGADO";
+
+    }
+
+    showToast(
+        autoSkip
+        ?"⏩ Auto-skip ativado."
+        :"⏸️ Auto-skip desativado."
+    );
+
+    if(
+        autoSkip &&
+        !waveRunning &&
+        lives>0
+    ){
+
+        startWave();
+
+    }
+
+}
+
+
+function useSelectedSupportAbility(){
+
+    if(!selectedTower){
+
+        showToast(
+            "⚠️ Selecione uma torre primeiro."
+        );
+
+        return;
+
+    }
+
+    if(
+        selectedTower.classType!=="support"
+    ){
+
+        showToast(
+            "⚠️ Apenas torres de SUPORTE possuem habilidade ativa."
+        );
+
+        return;
+
+    }
+
+    if(
+        selectedTower.abilityCooldown &&
+        performance.now()<
+        selectedTower.abilityCooldown
+    ){
+
+        showToast(
+            "⏳ Habilidade em recarga."
+        );
+
+        return;
+
+    }
+
+    activateSupportAbility(
+        selectedTower
+    );
+
+}
+
+
+function getSupportAbility(player){
+
+    const id=
+        player?.id||"";
+
+    if(
+        id.includes("reo")
+    ){
+
+        return {
+            name:"BUFF DE EGO",
+            type:"damage",
+            duration:6000,
+            multiplier:1.75,
+            message:"+75% dano"
+        };
+
+    }
+
+    if(
+        id.includes("hiori")
+    ){
+
+        return {
+            name:"VISÃO META",
+            type:"speed",
+            duration:6000,
+            multiplier:.55,
+            message:"+45% velocidade de ataque"
+        };
+
+    }
+
+    if(
+        id.includes("karasu")
+    ){
+
+        return {
+            name:"CAMPO DE EGO",
+            type:"range",
+            duration:6000,
+            multiplier:1.45,
+            message:"+45% alcance"
+        };
+
+    }
+
+    if(
+        id.includes("gagamaru")
+    ){
+
+        return {
+            name:"MOTIVAÇÃO",
+            type:"heal",
+            duration:0,
+            multiplier:1,
+            message:"+3 vidas"
+        };
+
+    }
+
+    if(
+        id.includes("noa")
+    ){
+
+        return {
+            name:"MASTER EGO",
+            type:"master",
+            duration:7000,
+            multiplier:1.35,
+            message:"+35% dano e +35% alcance"
+        };
+
+    }
+
+    return {
+        name:"BUFF DE EGO",
+        type:"damage",
+        duration:6000,
+        multiplier:1.5,
+        message:"+50% dano"
+    };
+
+}
+
+
+function activateSupportAbility(tower){
+
+    if(
+        !tower ||
+        tower.classType!=="support"
+    ){
+
+        return;
+
+    }
+
+    const now=
+        performance.now();
+
+    if(
+        tower.abilityCooldown &&
+        now<
+        tower.abilityCooldown
+    ){
+
+        return;
+
+    }
+
+    const ability=
+        getSupportAbility(
+            tower.player
+        );
+
+    tower.abilityCooldown=
+        now+
+        12000/gameSpeed;
+
+    tower.abilityMaxCooldown=
+        12000/gameSpeed;
+
+    tower.abilityName=
+        ability.name;
+
+    tower.activeEffect=
+        ability.type;
+
+    tower.effectUntil=
+        now+
+        Math.max(
+            ability.duration,
+            1800
+        )/
+        gameSpeed;
+
+    if(
+        ability.type==="heal"
+    ){
+
+        lives=
+            Math.min(
+                20,
+                lives+3
+            );
+
+    }else{
+
+        activeBuffs.push({
+
+            tower,
+            until:
+                now+
+                ability.duration/gameSpeed,
+            type:
+                ability.type,
+            multiplier:
+                ability.multiplier
+
+        });
+
+    }
+
+    updateUI();
+
+    showToast(
+        "🟢 "+
+        tower.player.name+
+        " • "+
+        ability.name+
+        "! "+
+        ability.message+
+        " em área."
+    );
+
+}
+
+
+function getTowerEffects(tower){
+
+    const now=
+        performance.now();
+
+    return activeBuffs.filter(
+        b=>
+            b.until>now &&
+            b.tower!==tower &&
+            Math.hypot(
+                b.tower.x-tower.x,
+                b.tower.y-tower.y
+            )<=
+            getTowerRange(
+                b.tower
+            )
+    );
+
+}
+
+
+function getTowerEffect(tower){
+
+    return getTowerEffects(tower)[0] || null;
+
+}
+
+
+function getTowerDamage(tower){
+
+    let damage=
+        tower.damage;
+
+    const effects=
+        getTowerEffects(
+            tower
+        );
+
+    effects.forEach(
+        buff=>{
+
+            if(
+                buff.type==="damage"
+            ){
+
+                damage*=
+                    buff.multiplier;
+
+            }
+
+            if(
+                buff.type==="master"
+            ){
+
+                damage*=
+                    buff.multiplier;
+
+            }
+
+        }
+    );
+
+    if(
+        tower.enemyWeakenUntil &&
+        performance.now()<
+        tower.enemyWeakenUntil
+    ){
+
+        damage*=.55;
+
+    }
+
+    return Math.round(
+        damage
+    );
+
+}
+
+
+function getTowerRange(tower){
+
+    let range=
+        tower.range;
+
+    const effects=
+        getTowerEffects(
+            tower
+        );
+
+    effects.forEach(
+        buff=>{
+
+            if(
+                buff.type==="range" ||
+                buff.type==="master"
+            ){
+
+                range*=
+                    buff.multiplier;
+
+            }
+
+        }
+    );
+
+    return range;
+
+}
+
+
+function getTowerCooldownMultiplier(tower){
+
+    let multiplier=1;
+
+    getTowerEffects(
+        tower
+    ).forEach(
+        buff=>{
+
+            if(
+                buff.type==="speed"
+            ){
+
+                multiplier*=
+                    buff.multiplier;
+
+            }
+
+            if(
+                buff.type==="master"
+            ){
+
+                multiplier*=.72;
+
+            }
+
+        }
+    );
+
+    if(
+        tower.slowUntil &&
+        performance.now()<
+        tower.slowUntil
+    ){
+
+        multiplier*=2.2;
+
+    }
+
+    return multiplier;
+
+}
+
+
+/* =========================================================
+   WAVE
+========================================================= */
+
+let currentWave=0;
+
+let waveRunning=false;
+
+let enemiesToSpawn=0;
+
+let spawnTimer=0;
+
+
+/* =========================================================
+   FILTRO
+========================================================= */
+
+let classFilter="all";
+
+let selectedPlayer=null;
+
+let selectedTower=null;
+
+
+/* =========================================================
+   PODER
+========================================================= */
+
+const characterPower={
+
+    kunigami:55,
+    gagamaru:48,
+    tokimitsu:42,
+    aryu:45,
+
+    isagi:90,
+    bachira:86,
+    chigiri:84,
+    aiku:82,
+    karasu:78,
+    otoya:74,
+
+    nagi:140,
+    barou:137,
+    hiori:125,
+    reo:120,
+
+    rin:205,
+    kaiser:202,
+    shidou:195,
+    lorenzo:190,
+
+    noa:275,
+    loki:268,
+    snuffy:260,
+    chris:250,
+    lavinho:245,
+
+    "jinpachi-ego":235,
+
+    "pablo-cavazos":315,
+    "leonardo-luna":325,
+    "adam-blake":340,
+    "dada-silva":310,
+
+    "loki-newgen":375,
+    sae:365,
+    "kaiser-newgen":360,
+    lorenzo:350,
+    bunny:335,
+    teddy:325,
+    hugo:315,
+
+    "neo-kaiser":500,
+    "neo-rin":485,
+    "neo-isagi":475,
+    "neo-nanase":420,
+
+    "deus-futebol":1000,
+
+    /* ENTROSA — MAIS FORTE */
+    "entrosa":1500
+
+};
+
+
+const defaultPower={
+
+    common:40,
+    rare:75,
+    epic:120,
+    legendary:180,
+    mestres:250,
+    world5:325,
+    newgen:340,
+    neo:450,
+    deus:1000
+
+};
+
+
+function getPower(player){
+
+    if(!player){
+
+        return 40;
+
+    }
+
+    const playerId =
+        String(player.id || "").toLowerCase();
+
+    const playerName =
+        String(player.name || "").toLowerCase();
+
+    // Qualquer variação de Entrosa usa 1500 de poder.
+    if(
+        playerId.includes("entrosa") ||
+        playerName.includes("entrosa")
+    ){
+
+        return 1500;
+
+    }
+
+    return characterPower[player.id]
+
+        ??
+
+        defaultPower[player.rarity]
+
+        ??
+
+        40;
+
+}
+
+
+/* =========================================================
+   CLASSES
+========================================================= */
+
+function getClass(player){
+
+    const id=
+        String(
+            player.id
+        ).toLowerCase();
+
+
+    /*
+        ENTROSA
+        Sempre será LONGO ALCANCE.
+    */
+
+    if(
+        id.includes("entrosa")
+    ){
+
+        return "long";
+
+    }
+
+
+    /*
+        LONGO ALCANCE
+    */
+
+    const longRange=[
+
+        "isagi",
+        "rin",
+        "sae",
+        "kaiser",
+        "neo-isagi",
+        "neo-rin",
+        "neo-kaiser",
+        "loki",
+        "loki-newgen",
+        "aiku"
+
+    ];
+
+
+    if(
+        longRange.some(
+            name=>id.includes(name)
+        )
+    ){
+
+        return "long";
+
+    }
+
+
+    /*
+        VELOCIDADE
+    */
+
+    const speed=[
+
+        "bachira",
+        "chigiri",
+        "otoya",
+        "loki",
+        "bunny"
+
+    ];
+
+
+    if(
+        speed.some(
+            name=>id.includes(name)
+        )
+    ){
+
+        return "speed";
+
+    }
+
+
+    /*
+        ÁREA
+    */
+
+    const area=[
+
+        "barou",
+        "shidou",
+        "nagi",
+        "dada",
+        "snuffy",
+        "chris"
+
+    ];
+
+
+    if(
+        area.some(
+            name=>id.includes(name)
+        )
+    ){
+
+        return "area";
+
+    }
+
+
+    /*
+        SUPORTE
+    */
+
+    const support=[
+
+        "reo",
+        "hiori",
+        "karasu",
+        "gagamaru",
+        "noa"
+
+    ];
+
+
+    if(
+        support.some(
+            name=>id.includes(name)
+        )
+    ){
+
+        return "support";
+
+    }
+
+
+    /*
+        RESTANTE
+    */
+
+    return "short";
+
+}
+
+
+/* =========================================================
+   NOME DA CLASSE
+========================================================= */
+
+function className(type){
+
+    const names={
+
+        long:"🎯 Longo Alcance",
+
+        short:"🗡️ Curto Alcance",
+
+        speed:"⚡ Velocidade",
+
+        area:"💥 Área",
+
+        support:"🛡️ Suporte"
+
+    };
+
+
+    return names[type] || type;
+
+}
+
+
+/* =========================================================
+   CONFIGURAÇÃO DA CLASSE
+========================================================= */
+
+const classConfig={
+
+    long:{
+
+        cost:225,
+
+        range:210,
+
+        damageMultiplier:1.35,
+
+        speedMultiplier:.95
+
+    },
+
+    short:{
+
+        cost:120,
+
+        range:100,
+
+        damageMultiplier:1.25,
+
+        speedMultiplier:1
+
+    },
+
+    speed:{
+
+        cost:180,
+
+        range:125,
+
+        damageMultiplier:.75,
+
+        speedMultiplier:.42
+
+    },
+
+    area:{
+
+        cost:270,
+
+        range:145,
+
+        damageMultiplier:1.05,
+
+        speedMultiplier:1.15,
+
+        splash:70
+
+    },
+
+    support:{
+
+        cost:195,
+
+        range:170,
+
+        damageMultiplier:.65,
+
+        speedMultiplier:1.2
+
+    }
+
+};
+
+
+/* =========================================================
+   FILTRO
+========================================================= */
+
+function setClassFilter(
+    filter,
+    element
+){
+
+    classFilter=filter;
+
+
+    document
+        .querySelectorAll(".filter")
+        .forEach(
+            el=>
+                el.classList.remove(
+                    "active"
+                )
+        );
+
+
+    element.classList.add(
+        "active"
+    );
+
+
+    renderInventory();
+
+}
+
+
+/* =========================================================
+   INVENTÁRIO
+========================================================= */
+
+function getUniqueInventory(){
+
+    const map=
+        new Map();
+
+
+    game.inventory.forEach(
+        player=>{
+
+            if(
+                player &&
+                player.id &&
+                !map.has(
+                    player.id
+                )
+            ){
+
+                map.set(
+                    player.id,
+                    player
+                );
+
+            }
+
+        }
+    );
+
+
+    return Array.from(
+        map.values()
+    );
+
+}
+
+
+/* =========================================================
+   RENDER INVENTÁRIO
+========================================================= */
+
+function renderInventory(){
+
+    const players=
+        getUniqueInventory();
+
+
+    const search=
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    const filtered=
+        players.filter(
+            player=>{
+
+                const type=
+                    getClass(
+                        player
+                    );
+
+
+                const matchesClass=
+                    classFilter==="all" ||
+                    type===classFilter;
+
+
+                const name=
+                    String(
+                        player.name ||
+                        player.id
+                    )
+                    .toLowerCase();
+
+
+                const matchesSearch=
+                    !search ||
+                    name.includes(
+                        search
+                    );
+
+
+                return(
+                    matchesClass &&
+                    matchesSearch
+                );
+
+            }
+        );
+
+
+    inventoryCountEl.textContent=
+        filtered.length+
+        " jogadores";
+
+
+    playerListEl.innerHTML="";
+
+
+    if(
+        filtered.length===0
+    ){
+
+        playerListEl.innerHTML=`
+
+            <div class="empty">
+
+                Nenhum personagem encontrado
+                com esse filtro.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    filtered.forEach(
+        player=>{
+
+            const type=
+                getClass(
+                    player
+                );
+
+
+            const power=
+                getPower(
+                    player
+                );
+
+
+            const card=
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className=
+                "player-card";
+
+
+            card.innerHTML=`
+
+                <img
+                    class="player-image"
+                    src="${player.image || ""}"
+                    onerror="this.style.visibility='hidden'"
+                >
+
+                <div class="player-info">
+
+                    <div class="player-name">
+
+                        ${player.name || player.id}
+
+                    </div>
+
+                    <div class="player-class">
+
+                        ${className(type)}
+
+                    </div>
+
+                    <div class="player-power">
+
+                        ⚡ Poder ${power}
+
+                    </div>
+
+                    <div
+                        class="player-power"
+                        style="color:#ffd84a;font-weight:800;"
+                    >
+
+                        💰 Custo ${classConfig[type].cost} créditos
+
+                    </div>
+
+                    ${
+                        type==="support"
+                        ?
+                        `<div
+                            class="player-power"
+                            style="color:#5ee7ff;font-weight:800;"
+                        >
+                            🟢 ${getSupportAbility(player).name}
+                        </div>`
+                        :
+                        ""
+                    }
+
+                    ${
+                        player.id==="entrosa"
+                        ?
+                        `<div
+                            class="player-power"
+                            style="color:#ffd84a;font-weight:900;"
+                        >
+                            
+                        </div>`
+                        :
+                        ""
+                    }
+
+                </div>
+
+            `;
+
+
+            card.onclick=()=>{
+
+                document
+                    .querySelectorAll(
+                        ".player-card"
+                    )
+                    .forEach(
+                        el=>
+                            el.classList.remove(
+                                "selected"
+                            )
+                    );
+
+
+                card.classList.add(
+                    "selected"
+                );
+
+
+                selectedPlayer=
+                    player;
+
+
+                statusEl.textContent=
+                    player.name+
+                    " selecionado — "+
+                    className(type)+
+                    ". Clique no campo para colocar.";
+
+            };
+
+
+            playerListEl.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   CAMINHO
+========================================================= */
+
+const path=[
+
+    {x:0,y:380},
+
+    {x:180,y:380},
+
+    {x:180,y:130},
+
+    {x:480,y:130},
+
+    {x:480,y:620},
+
+    {x:800,y:620},
+
+    {x:800,y:220},
+
+    {x:1100,y:220},
+
+    {x:1100,y:470},
+
+    {x:1400,y:470}
+
+];
+
+
+/* =========================================================
+   TORRES
+========================================================= */
+
+let towers=[];
+
+
+/* =========================================================
+   INIMIGOS
+========================================================= */
+
+let enemies=[];
+
+
+/* =========================================================
+   DISTÂNCIA DO CAMINHO
+========================================================= */
+
+function distanceToSegment(
+    px,
+    py,
+    x1,
+    y1,
+    x2,
+    y2
+){
+
+    const dx=
+        x2-x1;
+
+    const dy=
+        y2-y1;
+
+
+    if(
+        dx===0 &&
+        dy===0
+    ){
+
+        return Math.hypot(
+            px-x1,
+            py-y1
+        );
+
+    }
+
+
+    const t=
+        Math.max(
+            0,
+            Math.min(
+                1,
+                (
+                    (px-x1)*dx+
+                    (py-y1)*dy
+                )/
+                (
+                    dx*dx+
+                    dy*dy
+                )
+            )
+        );
+
+
+    const cx=
+        x1+t*dx;
+
+
+    const cy=
+        y1+t*dy;
+
+
+    return Math.hypot(
+        px-cx,
+        py-cy
+    );
+
+}
+
+
+function isOnPath(x,y){
+
+    for(
+        let i=0;
+        i<path.length-1;
+        i++
+    ){
+
+        if(
+            distanceToSegment(
+                x,
+                y,
+                path[i].x,
+                path[i].y,
+                path[i+1].x,
+                path[i+1].y
+            )<60
+        ){
+
+            return true;
+
+        }
+
+    }
+
+
+    return false;
+
+}
+
+
+/* =========================================================
+   CLICK NO MAPA
+========================================================= */
+
+canvas.addEventListener(
+    "click",
+    event=>{
+
+        const rect=
+            canvas.getBoundingClientRect();
+
+        const scaleX=
+            canvas.width/
+            rect.width;
+
+        const scaleY=
+            canvas.height/
+            rect.height;
+
+        const clickX=
+            (event.clientX-
+            rect.left)*
+            scaleX;
+
+        const clickY=
+            (event.clientY-
+            rect.top)*
+            scaleY;
+
+
+        const clickedTower=
+            towers.find(
+                tower=>
+                    Math.hypot(
+                        tower.x-clickX,
+                        tower.y-clickY
+                    )<38
+            );
+
+
+        if(clickedTower){
+
+            selectedTower=
+                clickedTower;
+
+            selectedPlayer=
+                null;
+
+
+            document
+                .querySelectorAll(
+                    ".player-card"
+                )
+                .forEach(
+                    el=>
+                        el.classList.remove(
+                            "selected"
+                        )
+                );
+
+
+            statusEl.textContent=
+                clickedTower.player.name+
+                " selecionado — LV."+
+                clickedTower.level+
+                ". Use EVOLUIR TORRE.";
+
+
+            renderPlacedTowers();
+
+            return;
+
+        }
+
+
+        if(!selectedPlayer){
+
+            showToast(
+                "⚠️ Selecione um jogador ou uma torre já colocada."
+            );
+
+            return;
+
+        }
+
+
+        const x=
+            clickX;
+
+        const y=
+            clickY;
+
+
+        if(
+            isOnPath(
+                x,
+                y
+            )
+        ){
+
+            showToast(
+                "❌ Não coloque torres no caminho."
+            );
+
+            return;
+
+        }
+
+
+        const type=
+            getClass(
+                selectedPlayer
+            );
+
+
+        const config=
+            classConfig[type];
+
+
+        if(
+            battleMoney<
+            config.cost
+        ){
+
+            showToast(
+                "❌ Dinheiro insuficiente. Custo: "+
+                config.cost
+            );
+
+            return;
+
+        }
+
+
+        for(
+            const tower of towers
+        ){
+
+            if(
+                Math.hypot(
+                    tower.x-x,
+                    tower.y-y
+                )<60
+            ){
+
+                showToast(
+                    "❌ Esse espaço está ocupado."
+                );
+
+                return;
+
+            }
+
+        }
+
+
+        battleMoney-=
+            config.cost;
+
+
+        const power=
+            getPower(
+                selectedPlayer
+            );
+
+
+        let damage=
+            Math.max(
+                8,
+                Math.round(
+                    power*
+                    .12*
+                    config.damageMultiplier
+                )
+            );
+
+
+        let range=
+            config.range+
+            power*.12;
+
+
+        let cooldown=
+            Math.max(
+                12,
+                55*
+                config.speedMultiplier
+            );
+
+
+        towers.push({
+
+            x:x,
+
+            y:y,
+
+            player:selectedPlayer,
+
+            classType:type,
+
+            damage:damage,
+
+            baseDamage:damage,
+
+            range:range,
+
+            baseRange:range,
+
+            cooldown:0,
+
+            maxCooldown:cooldown,
+
+            baseCooldown:cooldown,
+
+            invested:
+                classConfig[type].cost,
+
+            splash:
+                config.splash ||
+                0,
+
+            level:1,
+
+            lastTarget:null,
+
+            abilityCooldown:0,
+
+            abilityMaxCooldown:
+                12000,
+
+            abilityName:
+                getSupportAbility(
+                    selectedPlayer
+                ).name,
+
+            abilityType:
+                getSupportAbility(
+                    selectedPlayer
+                ).type,
+
+            activeEffect:null,
+
+            effectUntil:0
+
+        });
+
+
+        selectedPlayer=
+            null;
+
+        selectedTower=
+            towers[
+                towers.length-1
+            ];
+
+
+        document
+            .querySelectorAll(
+                ".player-card"
+            )
+            .forEach(
+                el=>
+                    el.classList.remove(
+                        "selected"
+                    )
+            );
+
+
+        statusEl.textContent=
+            "Torre colocada!";
+
+
+        updateUI();
+
+
+        showToast(
+            "⚽ Torre posicionada por "+
+            config.cost+
+            " créditos."
+        );
+
+    }
+);
+
+
+/* =========================================================
+   TORRES COLOCADAS
+========================================================= */
+
+function renderPlacedTowers(){
+
+    const list=
+        document.getElementById(
+            "placedTowersList"
+        );
+
+    const count=
+        document.getElementById(
+            "placedTowersCount"
+        );
+
+
+    if(
+        !list ||
+        !count
+    ){
+
+        return;
+
+    }
+
+
+    count.textContent=
+        towers.length+
+        " torre"+
+        (
+            towers.length===1
+            ?""
+            :"s"
+        );
+
+
+    if(
+        towers.length===0
+    ){
+
+        list.innerHTML=
+            '<div class="placed-towers-empty">Nenhuma torre colocada. Selecione um personagem acima e clique no mapa.</div>';
+
+        return;
+
+    }
+
+
+    list.innerHTML="";
+
+
+    towers.forEach(
+        (tower,index)=>{
+
+            const card=
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className=
+                "placed-tower-card"+
+                (
+                    selectedTower===tower
+                    ?" selected"
+                    :""
+                );
+
+
+            const nextLevel=
+                tower.level<3
+                ?
+                tower.level+1
+                :
+                null;
+
+
+            const baseCost=
+                classConfig[
+                    tower.classType
+                ].cost;
+
+
+            const upgradeCost=
+                nextLevel===2
+
+                ?
+
+                Math.round(
+                    baseCost*1.25
+                )
+
+                :
+
+                nextLevel===3
+
+                ?
+
+                Math.round(
+                    baseCost*2.25
+                )
+
+                :
+
+                0;
+
+
+            const effectiveDamage=
+                getTowerDamage(
+                    tower
+                );
+
+
+            const effectiveRange=
+                Math.round(
+                    getTowerRange(
+                        tower
+                    )
+                );
+
+
+            const cooldownMultiplier=
+                getTowerCooldownMultiplier(
+                    tower
+                );
+
+
+            const effectiveInterval=
+                Math.max(
+                    .01,
+                    (
+                        tower.baseCooldown*
+                        cooldownMultiplier
+                    )/
+                    gameSpeed
+                );
+
+
+            const damageChanged=
+                effectiveDamage !==
+                Math.round(
+                    tower.damage
+                );
+
+
+            const rangeChanged=
+                effectiveRange !==
+                Math.round(
+                    tower.range
+                );
+
+
+            const baseInterval=
+                Math.max(
+                    .01,
+                    tower.baseCooldown
+                );
+
+
+            const speedChanged=
+                Math.abs(
+                    effectiveInterval-
+                    baseInterval
+                )>.01;
+
+
+            const damageText=
+                damageChanged
+
+                ?
+
+                `⚔️ Dano <b>${effectiveDamage}</b> <span style="color:#39f5a1">(${effectiveDamage>tower.damage?"↑":"↓"})</span>`
+
+                :
+
+                `⚔️ Dano <b>${effectiveDamage}</b>`;
+
+
+            const rangeText=
+                rangeChanged
+
+                ?
+
+                `📡 Alcance <b>${effectiveRange}</b> <span style="color:#39f5a1">(${effectiveRange>tower.range?"↑":"↓"})</span>`
+
+                :
+
+                `📡 Alcance <b>${effectiveRange}</b>`;
+
+
+            const speedText=
+                `⚡ Intervalo <b>${effectiveInterval.toFixed(1)}f</b>`+
+                (
+                    gameSpeed===2
+                    ?
+                    ` <span style="color:#ffd84a">• 2X</span>`
+                    :
+                    ""
+                );
+
+
+            const activeEffects=
+                getTowerEffects(
+                    tower
+                );
+
+
+            const effectNames=
+                activeEffects.map(
+                    b=>{
+
+                        if(
+                            b.type==="damage"
+                        ){
+
+                            return "🟢 +DANO";
+
+                        }
+
+                        if(
+                            b.type==="speed"
+                        ){
+
+                            return "🔵 +VELOCIDADE";
+
+                        }
+
+                        if(
+                            b.type==="range"
+                        ){
+
+                            return "🟣 +ALCANCE";
+
+                        }
+
+                        if(
+                            b.type==="master"
+                        ){
+
+                            return "⭐ MASTER EGO";
+
+                        }
+
+                        return "BUFF";
+
+                    }
+                );
+
+
+            if(
+                tower.enemyWeakenUntil &&
+                performance.now()<
+                tower.enemyWeakenUntil
+            ){
+
+                effectNames.push(
+                    "💥 ENFRAQUECIDA"
+                );
+
+            }
+
+
+            if(
+                tower.frozenUntil &&
+                performance.now()<
+                tower.frozenUntil
+            ){
+
+                effectNames.push(
+                    "❄️ CONGELADA"
+                );
+
+            }
+
+
+            if(
+                tower.slowUntil &&
+                performance.now()<
+                tower.slowUntil
+            ){
+
+                effectNames.push(
+                    "🌀 LENTA"
+                );
+
+            }
+
+
+            card.innerHTML=`
+
+                <img
+                    src="${tower.player.image || ""}"
+                    onerror="this.style.visibility='hidden'"
+                >
+
+                <div class="placed-tower-info">
+
+                    <div class="placed-tower-name">
+
+                        ${tower.player.name || tower.player.id}
+
+                    </div>
+
+                    <div class="placed-tower-meta">
+
+                        LV.${tower.level}
+                        •
+                        ${className(tower.classType)}
+
+                    </div>
+
+                    <div class="placed-tower-meta">
+
+                        ${damageText}
+                        •
+                        ${rangeText}
+
+                    </div>
+
+                    <div class="placed-tower-meta">
+
+                        ${speedText}
+
+                    </div>
+
+                    ${
+                        effectNames.length
+
+                        ?
+
+                        `<div
+                            class="placed-tower-meta"
+                            style="color:#5ee7ff;font-weight:800;"
+                        >
+                            ${effectNames.join(" • ")}
+                        </div>`
+
+                        :
+
+                        ""
+                    }
+
+                    ${
+                        tower.classType==="support"
+
+                        ?
+
+                        `<div
+                            class="placed-tower-meta"
+                            style="color:#9cffc8;font-weight:800;"
+                        >
+                            🟢 ${tower.abilityName||getSupportAbility(tower.player).name}
+                        </div>`
+
+                        :
+
+                        ""
+                    }
+
+                    ${
+                        tower.player.id==="entrosa"
+
+                        ?
+
+                        `<div
+                            class="placed-tower-meta"
+                            style="color:#ffd84a;font-weight:900;"
+                        >
+                            👑 ENTROSA • 1500 PODER
+                        </div>`
+
+                        :
+
+                        ""
+                    }
+
+                    <div class="placed-tower-upgrade">
+
+                        ${
+                            nextLevel
+
+                            ?
+
+                            "⬆️ Evoluir para LV."+
+                            nextLevel+
+                            " • "+
+                            upgradeCost+
+                            " créditos"
+
+                            :
+
+                            "⭐ LEVEL MÁXIMO"
+                        }
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            card.onclick=()=>{
+
+                selectedTower=
+                    tower;
+
+                selectedPlayer=
+                    null;
+
+
+                document
+                    .querySelectorAll(
+                        ".player-card"
+                    )
+                    .forEach(
+                        el=>
+                            el.classList.remove(
+                                "selected"
+                            )
+                    );
+
+
+                statusEl.textContent=
+                    tower.player.name+
+                    " selecionado — LV."+
+                    tower.level+
+                    ". Pronto para evolução.";
+
+
+                renderPlacedTowers();
+
+            };
+
+
+            list.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   REMOVER TORRE
+========================================================= */
+
+function removeSelectedTower(){
+
+    if(
+        towers.length===0
+    ){
+
+        showToast(
+            "Nenhuma torre no mapa."
+        );
+
+        return;
+
+    }
+
+
+    const index=
+        selectedTower
+        ?
+        towers.indexOf(
+            selectedTower
+        )
+        :
+        towers.length-1;
+
+
+    if(
+        index<0
+    ){
+
+        selectedTower=
+            null;
+
+        showToast(
+            "Selecione uma torre para remover."
+        );
+
+        return;
+
+    }
+
+
+    const tower=
+        towers[index];
+
+
+    const refund=
+        Math.floor(
+            (
+                tower.invested ||
+                classConfig[
+                    tower.classType
+                ].cost
+            )*.5
+        );
+
+
+    towers.splice(
+        index,
+        1
+    );
+
+
+    battleMoney+=
+        refund;
+
+
+    selectedTower=
+        null;
+
+
+    updateUI();
+
+
+    showToast(
+        "🗑️ Torre removida. +"+
+        refund+
+        " créditos."
+    );
+
+}
+
+
+/* =========================================================
+   EVOLUIR TORRE
+========================================================= */
+
+function upgradeSelectedTower(){
+
+    if(!selectedTower){
+
+        showToast(
+            "⚠️ Clique em uma torre para selecioná-la."
+        );
+
+        return;
+
+    }
+
+
+    if(
+        selectedTower.level>=3
+    ){
+
+        showToast(
+            "⭐ Esta torre já está no LEVEL 3."
+        );
+
+        return;
+
+    }
+
+
+    const nextLevel=
+        selectedTower.level+1;
+
+
+    const baseCost=
+        classConfig[
+            selectedTower.classType
+        ].cost;
+
+
+    const upgradeCost=
+        nextLevel===2
+
+        ?
+
+        Math.round(
+            baseCost*1.25
+        )
+
+        :
+
+        Math.round(
+            baseCost*2.25
+        );
+
+
+    if(
+        battleMoney<
+        upgradeCost
+    ){
+
+        showToast(
+            "❌ Dinheiro insuficiente. Evolução custa "+
+            upgradeCost+
+            " créditos."
+        );
+
+        return;
+
+    }
+
+
+    battleMoney-=
+        upgradeCost;
+
+
+    selectedTower.invested=
+        (
+            selectedTower.invested ||
+            baseCost
+        )+
+        upgradeCost;
+
+
+    selectedTower.level=
+        nextLevel;
+
+
+    const multiplier=
+        nextLevel===2
+        ?
+        1.5
+        :
+        2.15;
+
+
+    const rangeMultiplier=
+        nextLevel===2
+        ?
+        1.15
+        :
+        1.32;
+
+
+    const speedMultiplier=
+        nextLevel===2
+        ?
+        .86
+        :
+        .70;
+
+
+    selectedTower.damage=
+        Math.max(
+            8,
+            Math.round(
+                selectedTower.baseDamage*
+                multiplier
+            )
+        );
+
+
+    selectedTower.range=
+        selectedTower.baseRange*
+        rangeMultiplier;
+
+
+    selectedTower.maxCooldown=
+        Math.max(
+            7,
+            selectedTower.baseCooldown*
+            speedMultiplier
+        );
+
+
+    selectedTower.cooldown=
+        0;
+
+
+    updateUI();
+
+
+    showToast(
+        "⬆️ Torre evoluída para LEVEL "+
+        nextLevel+
+        "!"
+    );
+
+}
+
+
+/* =========================================================
+   WAVE
+========================================================= */
+
+function startWave(){
+
+    if(
+        waveRunning
+    ){
+
+        showToast(
+            "⚠️ A wave ainda está acontecendo."
+        );
+
+        return;
+
+    }
+
+
+    if(
+        lives<=0
+    ){
+
+        showToast(
+            "💀 Você perdeu."
+        );
+
+        return;
+
+    }
+
+
+    currentWave++;
+
+
+    waveRunning=
+        true;
+
+
+    enemiesToSpawn=
+        8+
+        currentWave*3;
+
+
+    spawnTimer=
+        0;
+
+
+    startButton.disabled=
+        true;
+
+
+    statusEl.textContent=
+        "🌊 Wave "+
+        currentWave+
+        " começou!";
+
+
+    updateUI();
+
+}
+
+
+/* =========================================================
+   INIMIGOS
+========================================================= */
+
+const enemyTypes=[
+
+    {
+        id:"basic",
+        name:"Rival",
+        image:"images/kunigami.jpg",
+        hpMultiplier:1,
+        speedMultiplier:1
+    },
+
+    {
+        id:"gagamaru",
+        name:"Gagamaru",
+        image:"images/gagamaru.jpg",
+        hpMultiplier:1.25,
+        speedMultiplier:1.05
+    },
+
+    {
+        id:"tokimitsu",
+        name:"Tokimitsu",
+        image:"images/tokimitsu.jpg",
+        hpMultiplier:1.8,
+        speedMultiplier:.78
+    },
+
+    {
+        id:"aryu",
+        name:"Aryu",
+        image:"images/aryu.jpg",
+        hpMultiplier:2.1,
+        speedMultiplier:.72
+    },
+
+    {
+        id:"fast",
+        name:"Chigiri Veloz",
+        image:"images/chigiri.jpg",
+        hpMultiplier:.85,
+        speedMultiplier:1.9
+    },
+
+    {
+        id:"otoya",
+        name:"Otoya",
+        image:"images/otoya.jpg",
+        hpMultiplier:2.6,
+        speedMultiplier:1.45
+    },
+
+    {
+        id:"karasu",
+        name:"Karasu",
+        image:"images/karasu.jpg",
+        hpMultiplier:3.2,
+        speedMultiplier:1.0
+    },
+
+    {
+        id:"hiori",
+        name:"Hiori",
+        image:"images/hiori.jpg",
+        hpMultiplier:3.8,
+        speedMultiplier:1.12
+    },
+
+    {
+        id:"reo",
+        name:"Reo",
+        image:"images/reo.jpg",
+        hpMultiplier:4.4,
+        speedMultiplier:.9
+    },
+
+    {
+        id:"tank",
+        name:"Aiku Defensor",
+        image:"images/aiku.jpg",
+        hpMultiplier:5.2,
+        speedMultiplier:.62
+    },
+
+    {
+        id:"elite",
+        name:"Barou Elite",
+        image:"images/barou.jpg",
+        hpMultiplier:7,
+        speedMultiplier:.9
+    },
+
+    {
+        id:"rin",
+        name:"Rin",
+        image:"images/rin.jpg",
+        hpMultiplier:8.5,
+        speedMultiplier:1.0
+    },
+
+    {
+        id:"shidou",
+        name:"Shidou",
+        image:"images/shidou.jpg",
+        hpMultiplier:9,
+        speedMultiplier:1.12
+    },
+
+    {
+        id:"kaiser",
+        name:"Kaiser",
+        image:"images/kaiser.jpg",
+        hpMultiplier:10,
+        speedMultiplier:1.08
+    },
+
+    {
+        id:"lorenzo",
+        name:"Lorenzo",
+        image:"images/lorenzo.jpg",
+        hpMultiplier:11,
+        speedMultiplier:.82
+    },
+
+    {
+        id:"master",
+        name:"Noel Noa",
+        image:"images/noah.jpg",
+        hpMultiplier:13,
+        speedMultiplier:.82
+    },
+
+    {
+        id:"world5",
+        name:"Team World 5",
+        image:"images/pablo-cavazos.jpg",
+        hpMultiplier:16,
+        speedMultiplier:1.02
+    },
+
+    {
+        id:"newgen",
+        name:"New Gen",
+        image:"images/sae.jpg",
+        hpMultiplier:21,
+        speedMultiplier:1.08
+    },
+
+    {
+        id:"neo",
+        name:"NEO",
+        image:"images/neo-kaiser.jpg",
+        hpMultiplier:30,
+        speedMultiplier:1.18
+    }
+
+];
+
+
+function getEnemyType(wave){
+
+    const pool=
+        wave<5
+
+        ?
+
+        enemyTypes.slice(
+            0,
+            5
+        )
+
+        :
+
+        wave<10
+
+        ?
+
+        enemyTypes.slice(
+            0,
+            10
+        )
+
+        :
+
+        wave<20
+
+        ?
+
+        enemyTypes.slice(
+            3,
+            16
+        )
+
+        :
+
+        enemyTypes.slice(
+            5
+        );
+
+
+    return pool[
+        Math.floor(
+            Math.random()*
+            pool.length
+        )
+    ];
+
+}
+
+
+function spawnEnemy(){
+
+    const boss=
+        currentWave%5===0 &&
+        Math.random()<.45;
+
+
+    const bosses=
+        enemyTypes.slice(
+            10
+        );
+
+
+    const type=
+        boss
+
+        ?
+
+        bosses[
+            Math.floor(
+                Math.random()*
+                bosses.length
+            )
+        ]
+
+        :
+
+        getEnemyType(
+            currentWave
+        );
+
+
+    const baseHp=
+        Math.round(
+            (
+                110+
+                currentWave*48
+            )*
+            1.25
+        );
+
+
+    const bossMultiplier=
+        boss
+
+        ?
+
+        7.5+
+        currentWave*.12
+
+        :
+
+        1;
+
+
+    const maxHp=
+        Math.round(
+            baseHp*
+            type.hpMultiplier*
+            bossMultiplier
+        );
+
+
+    const speedBase=
+        .85+
+        currentWave*.018;
+
+
+    const speed=
+        Math.min(
+            3.2,
+            speedBase*
+            type.speedMultiplier*
+            (
+                boss
+                ?
+                .78
+                :
+                1
+            )
+        );
+
+
+    const abilityRoll=
+        Math.random();
+
+
+    let ability=
+        null;
+
+
+    if(
+        !boss &&
+        currentWave>=5 &&
+        abilityRoll<.18
+    ){
+
+        ability=
+            "freeze";
+
+    }
+
+
+    if(
+        !boss &&
+        currentWave>=10 &&
+        abilityRoll>=.18 &&
+        abilityRoll<.30
+    ){
+
+        ability=
+            "slow";
+
+    }
+
+
+    if(
+        !boss &&
+        currentWave>=15 &&
+        abilityRoll>=.30 &&
+        abilityRoll<.38
+    ){
+
+        ability=
+            "weaken";
+
+    }
+
+
+    if(
+        boss &&
+        Math.random()<.65
+    ){
+
+        ability=
+            "freeze";
+
+    }
+
+
+    if(
+        boss &&
+        !ability &&
+        Math.random()<.35
+    ){
+
+        ability=
+            "weaken";
+
+    }
+
+
+    enemies.push({
+
+        x:path[0].x,
+
+        y:path[0].y,
+
+        pathIndex:1,
+
+        hp:maxHp,
+
+        maxHp,
+
+        speed,
+
+        boss,
+
+        type:type.id,
+
+        typeName:type.name,
+
+        image:type.image,
+
+        dead:false,
+
+        rewarded:false,
+
+        progress:0,
+
+        ability,
+
+        abilityTimer:0,
+
+        abilityCooldown:
+            180+
+            Math.random()*180
+
+    });
+
+}
+
+
+/* =========================================================
+   MOVIMENTO
+========================================================= */
+
+function moveEnemy(enemy){
+
+    if(
+        enemy.pathIndex>=path.length
+    ){
+
+        enemy.dead=
+            true;
+
+
+        lives--;
+
+
+        updateUI();
+
+
+        if(
+            lives<=0
+        ){
+
+            waveRunning=
+                false;
+
+
+            startButton.disabled=
+                true;
+
+
+            statusEl.textContent=
+                "💀 TODAS AS VIDAS FORAM PERDIDAS.";
+
+
+            showToast(
+                "💀 FIM DE JOGO"
+            );
+
+        }
+
+
+        return;
+
+    }
+
+
+    const target=
+        path[
+            enemy.pathIndex
+        ];
+
+
+    const dx=
+        target.x-
+        enemy.x;
+
+
+    const dy=
+        target.y-
+        enemy.y;
+
+
+    const distance=
+        Math.hypot(
+            dx,
+            dy
+        );
+
+
+    if(
+        distance<=enemy.speed
+    ){
+
+        enemy.x=
+            target.x;
+
+        enemy.y=
+            target.y;
+
+        enemy.pathIndex++;
+
+    }else{
+
+        enemy.x+=
+            dx/distance*
+            enemy.speed;
+
+        enemy.y+=
+            dy/distance*
+            enemy.speed;
+
+    }
+
+
+    enemy.progress=
+        enemy.pathIndex+
+        (
+            1/
+            (
+                1+
+                distance
+            )
+        );
+
+}
+
+
+/* =========================================================
+   ATAQUE
+========================================================= */
+
+function towersAttack(){
+
+    towers.forEach(
+        tower=>{
+
+            if(
+                tower.frozenUntil &&
+                performance.now()<
+                tower.frozenUntil
+            ){
+
+                return;
+
+            }
+
+
+            if(
+                tower.cooldown>0
+            ){
+
+                tower.cooldown--;
+
+                return;
+
+            }
+
+
+            let target=
+                null;
+
+            let best=
+                -Infinity;
+
+
+            enemies.forEach(
+                enemy=>{
+
+                    if(
+                        enemy.dead
+                    ){
+
+                        return;
+
+                    }
+
+
+                    const distance=
+                        Math.hypot(
+                            tower.x-
+                            enemy.x,
+
+                            tower.y-
+                            enemy.y
+                        );
+
+
+                    if(
+                        distance<=
+                        getTowerRange(
+                            tower
+                        ) &&
+
+                        enemy.progress>
+                        best
+                    ){
+
+                        target=
+                            enemy;
+
+                        best=
+                            enemy.progress;
+
+                    }
+
+                }
+            );
+
+
+            if(
+                !target
+            ){
+
+                return;
+
+            }
+
+
+            target.hp-=
+                getTowerDamage(
+                    tower
+                );
+
+
+            /*
+                CLASSE DE ÁREA
+            */
+
+            if(
+                tower.classType==="area"
+            ){
+
+                const areaTargets=
+                    enemies
+                    .filter(
+                        enemy=>
+                            !enemy.dead &&
+                            enemy!==target
+                    )
+                    .filter(
+                        enemy=>
+                            Math.hypot(
+                                tower.x-
+                                enemy.x,
+
+                                tower.y-
+                                enemy.y
+                            )<=
+                            getTowerRange(
+                                tower
+                            )
+                    )
+                    .sort(
+                        (a,b)=>
+                            Math.hypot(
+                                target.x-a.x,
+                                target.y-a.y
+                            )-
+
+                            Math.hypot(
+                                target.x-b.x,
+                                target.y-b.y
+                            )
+                    )
+                    .slice(
+                        0,
+                        2
+                    );
+
+
+                areaTargets.forEach(
+                    enemy=>{
+
+                        enemy.hp-=
+                            Math.floor(
+                                getTowerDamage(
+                                    tower
+                                )*.70
+                            );
+
+                        enemy.hitFlashUntil=
+                            performance.now()+
+                            120;
+
+                    }
+                );
+
+
+                tower.areaTargets=
+                    areaTargets;
+
+            }else{
+
+                tower.areaTargets=[];
+
+            }
+
+
+            tower.lastTarget=
+                target;
+
+
+            tower.cooldown=
+                tower.maxCooldown*
+                getTowerCooldownMultiplier(
+                    tower
+                );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   RECOMPENSA
+========================================================= */
+
+function rewardEnemy(enemy){
+
+    if(
+        enemy.rewarded
+    ){
+
+        return;
+
+    }
+
+
+    enemy.rewarded=
+        true;
+
+
+    const reward=
+        enemy.boss
+
+        ?
+
+        300+
+        currentWave*50
+
+        :
+
+        20+
+        currentWave*4;
+
+
+    battleMoney+=
+        reward;
+
+
+    if(
+        enemy.boss
+    ){
+
+        game.coins+=
+            100+
+            currentWave*15;
+
+
+        addXP(
+            25+
+            currentWave*3
+        );
+
+
+        saveGame();
+
+    }
+
+
+    updateUI();
+
+}
+
+
+/* =========================================================
+   XP
+========================================================= */
+
+function addXP(amount){
+
+    game.xp+=
+        amount;
+
+
+    let required=
+        game.level*
+        100;
+
+
+    while(
+        game.xp>=
+        required
+    ){
+
+        game.xp-=
+            required;
+
+
+        game.level++;
+
+
+        required=
+            game.level*
+            100;
+
+    }
+
+
+    saveGame();
+
+}
+
+
+/* =========================================================
+   RECOMPENSA DA WAVE
+========================================================= */
+
+function finishWave(){
+
+    const battleReward=
+        150+
+        currentWave*40;
+
+
+    const mainCoinsReward=
+        75+
+        currentWave*20;
+
+
+    const xpReward=
+        20+
+        currentWave*5;
+
+
+    battleMoney+=
+        battleReward;
+
+
+    game.coins+=
+        mainCoinsReward;
+
+
+    addXP(
+        xpReward
+    );
+
+
+    saveGame();
+
+
+    updateUI();
+
+
+    statusEl.textContent=
+        "🏆 Wave "+
+        currentWave+
+        " concluída!";
+
+
+    if(
+        autoSkip &&
+        lives>0
+    ){
+
+        clearTimeout(
+            autoSkipTimer
+        );
+
+
+        autoSkipTimer=
+            setTimeout(
+                ()=>{
+                    if(
+                        autoSkip &&
+                        !waveRunning
+                    ){
+
+                        startWave();
+
+                    }
+                },
+                1200/gameSpeed
+            );
+
+    }
+
+
+    showToast(
+
+        "🏆 WAVE CONCLUÍDA! +"+
+        battleReward+
+        " créditos | +"+
+        mainCoinsReward+
+        " moedas | +"+
+        xpReward+
+        " XP"
+
+    );
+
+}
+
+
+/* =========================================================
+   UI
+========================================================= */
+
+function updateUI(){
+
+    coinsEl.textContent=
+        game.coins.toLocaleString(
+            "pt-BR"
+        );
+
+
+    battleMoneyEl.textContent=
+        Math.floor(
+            battleMoney
+        ).toLocaleString(
+            "pt-BR"
+        );
+
+
+    livesEl.textContent=
+        lives;
+
+
+    waveEl.textContent=
+        currentWave;
+
+
+    renderPlacedTowers();
+
+}
+
+
+/* =========================================================
+   DESENHAR FUNDO
+========================================================= */
+
+function drawBackground(){
+
+    ctx.fillStyle=
+        "#06101c";
+
+
+    ctx.fillRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    ctx.strokeStyle=
+        "rgba(60,130,220,.08)";
+
+
+    ctx.lineWidth=
+        1;
+
+
+    for(
+        let x=0;
+        x<=canvas.width;
+        x+=40
+    ){
+
+        ctx.beginPath();
+
+
+        ctx.moveTo(
+            x,
+            0
+        );
+
+
+        ctx.lineTo(
+            x,
+            canvas.height
+        );
+
+
+        ctx.stroke();
+
+    }
+
+
+    for(
+        let y=0;
+        y<=canvas.height;
+        y+=40
+    ){
+
+        ctx.beginPath();
+
+
+        ctx.moveTo(
+            0,
+            y
+        );
+
+
+        ctx.lineTo(
+            canvas.width,
+            y
+        );
+
+
+        ctx.stroke();
+
+    }
+
+}
+
+
+/* =========================================================
+   CAMINHO
+========================================================= */
+
+function drawPath(){
+
+    ctx.lineCap=
+        "round";
+
+
+    ctx.lineJoin=
+        "round";
+
+
+    ctx.strokeStyle=
+        "#08101c";
+
+
+    ctx.lineWidth=
+        78;
+
+
+    ctx.beginPath();
+
+
+    ctx.moveTo(
+        path[0].x,
+        path[0].y
+    );
+
+
+    for(
+        let i=1;
+        i<path.length;
+        i++
+    ){
+
+        ctx.lineTo(
+            path[i].x,
+            path[i].y
+        );
+
+    }
+
+
+    ctx.stroke();
+
+
+    ctx.strokeStyle=
+        "#263a54";
+
+
+    ctx.lineWidth=
+        64;
+
+
+    ctx.beginPath();
+
+
+    ctx.moveTo(
+        path[0].x,
+        path[0].y
+    );
+
+
+    for(
+        let i=1;
+        i<path.length;
+        i++
+    ){
+
+        ctx.lineTo(
+            path[i].x,
+            path[i].y
+        );
+
+    }
+
+
+    ctx.stroke();
+
+
+    ctx.strokeStyle=
+        "rgba(150,190,230,.25)";
+
+
+    ctx.lineWidth=
+        2;
+
+
+    ctx.setLineDash([
+        14,
+        14
+    ]);
+
+
+    ctx.beginPath();
+
+
+    ctx.moveTo(
+        path[0].x,
+        path[0].y
+    );
+
+
+    for(
+        let i=1;
+        i<path.length;
+        i++
+    ){
+
+        ctx.lineTo(
+            path[i].x,
+            path[i].y
+        );
+
+    }
+
+
+    ctx.stroke();
+
+
+    ctx.setLineDash([]);
+
+
+    ctx.font=
+        "bold 18px Arial";
+
+
+    ctx.textAlign=
+        "center";
+
+
+    ctx.fillStyle=
+        "#62aaff";
+
+
+    ctx.fillText(
+        "ENTRADA",
+        60,
+        330
+    );
+
+
+    ctx.fillStyle=
+        "#ff5064";
+
+
+    ctx.fillText(
+        "⚠ SAÍDA",
+        1330,
+        420
+    );
+
+}
+
+
+/* =========================================================
+   TORRES
+========================================================= */
+
+function drawTowers(){
+
+    towers.forEach(
+        tower=>{
+
+            ctx.beginPath();
+
+
+            ctx.arc(
+                tower.x,
+                tower.y,
+                getTowerRange(
+                    tower
+                ),
+                0,
+                Math.PI*2
+            );
+
+
+            ctx.fillStyle=
+                "rgba(40,130,255,.035)";
+
+
+            ctx.fill();
+
+
+            ctx.strokeStyle=
+                "rgba(50,145,255,.16)";
+
+
+            ctx.lineWidth=
+                1;
+
+
+            ctx.stroke();
+
+
+            ctx.beginPath();
+
+
+            ctx.arc(
+                tower.x,
+                tower.y,
+                30,
+                0,
+                Math.PI*2
+            );
+
+
+            ctx.fillStyle=
+                "#0b1c35";
+
+
+            ctx.fill();
+
+
+            ctx.strokeStyle=
+                tower.player.id==="entrosa"
+                ?
+                "#ffd84a"
+                :
+                "#3c8fff";
+
+
+            ctx.lineWidth=
+                tower.player.id==="entrosa"
+                ?
+                5
+                :
+                3;
+
+
+            ctx.stroke();
+
+
+            const img=
+                new Image();
+
+
+            img.src=
+                tower.player.image ||
+                "";
+
+
+            if(
+                tower.player.image
+            ){
+
+                ctx.save();
+
+
+                ctx.beginPath();
+
+
+                ctx.arc(
+                    tower.x,
+                    tower.y,
+                    23,
+                    0,
+                    Math.PI*2
+                );
+
+
+                ctx.clip();
+
+
+                ctx.drawImage(
+                    img,
+                    tower.x-23,
+                    tower.y-23,
+                    46,
+                    46
+                );
+
+
+                ctx.restore();
+
+            }else{
+
+                ctx.beginPath();
+
+
+                ctx.arc(
+                    tower.x,
+                    tower.y,
+                    20,
+                    0,
+                    Math.PI*2
+                );
+
+
+                ctx.fillStyle=
+                    "#177cff";
+
+
+                ctx.fill();
+
+            }
+
+
+            ctx.font=
+                "bold 11px Arial";
+
+
+            ctx.textAlign=
+                "center";
+
+
+            ctx.fillStyle=
+                "#fff";
+
+
+            ctx.fillText(
+                className(
+                    tower.classType
+                )
+                .split(" ")
+                .slice(1)
+                .join(" "),
+                tower.x,
+                tower.y+47
+            );
+
+
+            if(
+                tower.lastTarget &&
+                !tower.lastTarget.dead
+            ){
+
+                ctx.beginPath();
+
+
+                ctx.moveTo(
+                    tower.x,
+                    tower.y
+                );
+
+
+                ctx.lineTo(
+                    tower.lastTarget.x,
+                    tower.lastTarget.y
+                );
+
+
+                ctx.strokeStyle=
+                    "rgba(70,170,255,.55)";
+
+
+                ctx.lineWidth=
+                    3;
+
+
+                ctx.stroke();
+
+            }
+
+
+            const now=
+                performance.now();
+
+
+            const effects=
+                getTowerEffects(
+                    tower
+                );
+
+
+            if(
+                effects.length
+            ){
+
+                effects.forEach(
+                    (buff,i)=>{
+
+                        ctx.beginPath();
+
+
+                        ctx.arc(
+                            tower.x,
+                            tower.y,
+                            34+i*5,
+                            0,
+                            Math.PI*2
+                        );
+
+
+                        ctx.strokeStyle=
+                            buff.type==="damage"
+                            ?
+                            "#55ff88"
+                            :
+                            buff.type==="speed"
+                            ?
+                            "#52d9ff"
+                            :
+                            buff.type==="range"
+                            ?
+                            "#ffd84a"
+                            :
+                            "#ffffff";
+
+
+                        ctx.lineWidth=
+                            3;
+
+
+                        ctx.stroke();
+
+                    }
+                );
+
+            }
+
+
+            if(
+                tower.activeEffect &&
+                tower.effectUntil>now
+            ){
+
+                const effect=
+                    tower.activeEffect;
+
+
+                ctx.beginPath();
+
+
+                ctx.arc(
+                    tower.x,
+                    tower.y,
+                    42,
+                    0,
+                    Math.PI*2
+                );
+
+
+                ctx.strokeStyle=
+                    effect==="freeze"
+                    ?
+                    "#76d9ff"
+                    :
+                    effect==="slow"
+                    ?
+                    "#a36cff"
+                    :
+                    effect==="weaken"
+                    ?
+                    "#ff5570"
+                    :
+                    effect==="damage"
+                    ?
+                    "#55ff88"
+                    :
+                    effect==="speed"
+                    ?
+                    "#52d9ff"
+                    :
+                    effect==="range"
+                    ?
+                    "#ffd84a"
+                    :
+                    "#ffffff";
+
+
+                ctx.lineWidth=
+                    5;
+
+
+                ctx.setLineDash([
+                    6,
+                    4
+                ]);
+
+
+                ctx.stroke();
+
+
+                ctx.setLineDash([]);
+
+
+                ctx.font=
+                    "bold 15px Arial";
+
+
+                ctx.fillStyle=
+                    "#fff";
+
+
+                const icon=
+                    effect==="freeze"
+                    ?
+                    "❄️"
+                    :
+                    effect==="slow"
+                    ?
+                    "🌀"
+                    :
+                    effect==="weaken"
+                    ?
+                    "💥"
+                    :
+                    effect==="damage"
+                    ?
+                    "💚"
+                    :
+                    effect==="speed"
+                    ?
+                    "⚡"
+                    :
+                    effect==="range"
+                    ?
+                    "🎯"
+                    :
+                    "⭐";
+
+
+                ctx.fillText(
+                    icon,
+                    tower.x+31,
+                    tower.y-25
+                );
+
+            }else if(
+                tower.activeEffect
+            ){
+
+                tower.activeEffect=
+                    null;
+
+            }
+
+
+            if(
+                tower.frozenUntil &&
+                now<
+                tower.frozenUntil
+            ){
+
+                ctx.font=
+                    "bold 18px Arial";
+
+
+                ctx.fillText(
+                    "❄️",
+                    tower.x+28,
+                    tower.y+5
+                );
+
+            }
+
+
+            if(
+                tower.slowUntil &&
+                now<
+                tower.slowUntil
+            ){
+
+                ctx.font=
+                    "bold 18px Arial";
+
+
+                ctx.fillText(
+                    "🌀",
+                    tower.x-42,
+                    tower.y+5
+                );
+
+            }
+
+
+            if(
+                tower.enemyWeakenUntil &&
+                now<
+                tower.enemyWeakenUntil
+            ){
+
+                ctx.font=
+                    "bold 18px Arial";
+
+
+                ctx.fillText(
+                    "💥",
+                    tower.x-10,
+                    tower.y-28
+                );
+
+            }
+
+
+            if(
+                tower.classType==="area" &&
+                tower.areaTargets
+            ){
+
+                tower.areaTargets.forEach(
+                    enemy=>{
+
+                        if(
+                            !enemy.dead
+                        ){
+
+                            ctx.beginPath();
+
+
+                            ctx.moveTo(
+                                tower.x,
+                                tower.y
+                            );
+
+
+                            ctx.lineTo(
+                                enemy.x,
+                                enemy.y
+                            );
+
+
+                            ctx.strokeStyle=
+                                "rgba(255,170,60,.45)";
+
+
+                            ctx.lineWidth=
+                                2;
+
+
+                            ctx.stroke();
+
+                        }
+
+                    }
+                );
+
+            }
+
+
+            if(
+                tower.classType==="support"
+            ){
+
+                const total=
+                    tower.abilityMaxCooldown ||
+                    12000;
+
+
+                const remaining=
+                    Math.max(
+                        0,
+                        (
+                            tower.abilityCooldown ||
+                            0
+                        )-
+                        now
+                    );
+
+
+                const ready=
+                    remaining<=0;
+
+
+                const w=62;
+                const h=6;
+                const x=
+                    tower.x-
+                    w/2;
+                const y=
+                    tower.y-
+                    54;
+
+
+                ctx.fillStyle=
+                    "rgba(0,0,0,.75)";
+
+
+                ctx.fillRect(
+                    x,
+                    y,
+                    w,
+                    h
+                );
+
+
+                ctx.fillStyle=
+                    ready
+                    ?
+                    "#39f5a1"
+                    :
+                    "#ffd84a";
+
+
+                ctx.fillRect(
+                    x,
+                    y,
+                    w*
+                    (
+                        ready
+                        ?
+                        1
+                        :
+                        1-
+                        remaining/
+                        total
+                    ),
+                    h
+                );
+
+
+                ctx.strokeStyle=
+                    "rgba(255,255,255,.5)";
+
+
+                ctx.lineWidth=
+                    1;
+
+
+                ctx.strokeRect(
+                    x,
+                    y,
+                    w,
+                    h
+                );
+
+
+                ctx.font=
+                    "bold 8px Arial";
+
+
+                ctx.fillStyle=
+                    ready
+                    ?
+                    "#39f5a1"
+                    :
+                    "#fff";
+
+
+                ctx.fillText(
+                    ready
+                    ?
+                    "HABILIDADE PRONTA"
+                    :
+                    Math.ceil(
+                        remaining/1000
+                    )+
+                    "s",
+                    tower.x,
+                    y-3
+                );
+
+
+                ctx.font=
+                    "bold 7px Arial";
+
+
+                ctx.fillStyle=
+                    "#dceaff";
+
+
+                ctx.fillText(
+                    tower.abilityName ||
+                    "HABILIDADE",
+                    tower.x,
+                    y+12
+                );
+
+            }
+
+
+            ctx.font=
+                "bold 11px Arial";
+
+
+            ctx.textAlign=
+                "center";
+
+
+            ctx.fillStyle=
+                tower.player.id==="entrosa"
+                ?
+                "#ffd84a"
+                :
+                "#ffffff";
+
+
+            ctx.fillText(
+                "LV."+
+                tower.level,
+                tower.x,
+                tower.y-28
+            );
+
+
+            if(
+                tower.player.id==="entrosa"
+            ){
+
+                ctx.font=
+                    "bold 9px Arial";
+
+
+                ctx.fillStyle=
+                    "#ffd84a";
+
+
+                ctx.fillText(
+                    "👑 ENTROSA",
+                    tower.x,
+                    tower.y+61
+                );
+
+            }
+
+
+            if(
+                selectedTower===
+                tower
+            ){
+
+                ctx.beginPath();
+
+
+                ctx.arc(
+                    tower.x,
+                    tower.y,
+                    42,
+                    0,
+                    Math.PI*2
+                );
+
+
+                ctx.strokeStyle=
+                    "#ffd84a";
+
+
+                ctx.lineWidth=
+                    3;
+
+
+                ctx.stroke();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   INIMIGOS
+========================================================= */
+
+const enemyImageCache={};
+
+
+function getEnemyImage(src){
+
+    if(
+        !src
+    ){
+
+        return null;
+
+    }
+
+
+    if(
+        !enemyImageCache[src]
+    ){
+
+        const img=
+            new Image();
+
+
+        img.src=
+            src;
+
+
+        enemyImageCache[src]=
+            img;
+
+    }
+
+
+    return enemyImageCache[src];
+
+}
+
+
+function drawEnemies(){
+
+    enemies.forEach(
+        enemy=>{
+
+            if(
+                enemy.dead
+            ){
+
+                return;
+
+            }
+
+
+            const radius=
+                enemy.boss
+                ?
+                31
+                :
+                enemy.type==="neo"
+                ?
+                25
+                :
+                enemy.type==="newgen"
+                ?
+                23
+                :
+                enemy.type==="world5"
+                ?
+                22
+                :
+                19;
+
+
+            if(
+                enemy.boss ||
+                enemy.type==="neo" ||
+                enemy.type==="newgen"
+            ){
+
+                ctx.beginPath();
+
+
+                ctx.arc(
+                    enemy.x,
+                    enemy.y,
+                    radius+9,
+                    0,
+                    Math.PI*2
+                );
+
+
+                ctx.fillStyle=
+                    enemy.boss
+                    ?
+                    "rgba(255,70,90,.16)"
+                    :
+                    enemy.type==="neo"
+                    ?
+                    "rgba(180,80,255,.16)"
+                    :
+                    "rgba(255,190,70,.13)";
+
+
+                ctx.fill();
+
+            }
+
+
+            ctx.beginPath();
+
+
+            ctx.arc(
+                enemy.x,
+                enemy.y,
+                radius+3,
+                0,
+                Math.PI*2
+            );
+
+
+            ctx.fillStyle=
+                enemy.boss
+                ?
+                "#671d32"
+                :
+                enemy.type==="neo"
+                ?
+                "#35145d"
+                :
+                enemy.type==="newgen"
+                ?
+                "#624314"
+                :
+                enemy.type==="world5"
+                ?
+                "#173f68"
+                :
+                "#17283d";
+
+
+            ctx.fill();
+
+
+            ctx.strokeStyle=
+                enemy.boss
+                ?
+                "#ff4960"
+                :
+                enemy.type==="neo"
+                ?
+                "#b96cff"
+                :
+                enemy.type==="newgen"
+                ?
+                "#ffd65a"
+                :
+                enemy.type==="world5"
+                ?
+                "#5cb5ff"
+                :
+                "#7fa0c5";
+
+
+            ctx.lineWidth=
+                enemy.boss
+                ?
+                3
+                :
+                2;
+
+
+            ctx.stroke();
+
+
+            const img=
+                getEnemyImage(
+                    enemy.image
+                );
+
+
+            if(
+                img &&
+                img.complete &&
+                img.naturalWidth>0
+            ){
+
+                ctx.save();
+
+
+                ctx.beginPath();
+
+
+                ctx.arc(
+                    enemy.x,
+                    enemy.y,
+                    radius,
+                    0,
+                    Math.PI*2
+                );
+
+
+                ctx.clip();
+
+
+                ctx.drawImage(
+                    img,
+                    enemy.x-radius,
+                    enemy.y-radius,
+                    radius*2,
+                    radius*2
+                );
+
+
+                ctx.restore();
+
+            }
+
+
+            const width=
+                enemy.boss
+                ?
+                100
+                :
+                enemy.type==="neo"
+                ?
+                76
+                :
+                enemy.type==="newgen"
+                ?
+                70
+                :
+                enemy.type==="world5"
+                ?
+                66
+                :
+                54;
+
+
+            const barY=
+                enemy.y-
+                radius-
+                18;
+
+
+            ctx.fillStyle=
+                "#080b10";
+
+
+            ctx.fillRect(
+                enemy.x-width/2,
+                barY,
+                width,
+                8
+            );
+
+
+            ctx.fillStyle=
+                enemy.boss
+                ?
+                "#ff405c"
+                :
+                enemy.type==="neo"
+                ?
+                "#c45cff"
+                :
+                enemy.type==="newgen"
+                ?
+                "#ffd84a"
+                :
+                "#35e67a";
+
+
+            ctx.fillRect(
+                enemy.x-width/2,
+                barY,
+                width*
+                Math.max(
+                    0,
+                    enemy.hp/
+                    enemy.maxHp
+                ),
+                8
+            );
+
+
+            ctx.font=
+                enemy.boss
+                ?
+                "bold 13px Arial"
+                :
+                "bold 10px Arial";
+
+
+            ctx.textAlign=
+                "center";
+
+
+            ctx.fillStyle=
+                enemy.boss
+                ?
+                "#ff7180"
+                :
+                "#dce9fa";
+
+
+            ctx.fillText(
+                enemy.boss
+                ?
+                "👑 BOSS • "+
+                enemy.typeName
+                :
+                enemy.typeName,
+
+                enemy.x,
+                enemy.y+
+                radius+
+                16
+            );
+
+
+            if(
+                enemy.ability
+            ){
+
+                ctx.font=
+                    "bold 14px Arial";
+
+
+                ctx.fillStyle=
+                    enemy.ability==="freeze"
+                    ?
+                    "#7bdcff"
+                    :
+                    enemy.ability==="slow"
+                    ?
+                    "#b078ff"
+                    :
+                    "#ff6175";
+
+
+                ctx.fillText(
+                    enemy.ability==="freeze"
+                    ?
+                    "❄️"
+                    :
+                    enemy.ability==="slow"
+                    ?
+                    "🌀"
+                    :
+                    "💥",
+
+                    enemy.x+
+                    radius+
+                    8,
+
+                    enemy.y-
+                    radius-
+                    8
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   GAME LOOP
+========================================================= */
+
+let lastTime=0;
+
+let lastTowerInfoRefresh=0;
+
+
+function gameLoop(timestamp){
+
+    const delta=
+        Math.min(
+            50,
+            timestamp-lastTime
+        )*
+        gameSpeed;
+
+
+    lastTime=
+        timestamp;
+
+
+    activeBuffs=
+        activeBuffs.filter(
+            b=>
+                b.until>
+                performance.now()
+        );
+
+
+    towers.forEach(
+        t=>{
+
+            if(
+                t.effectUntil &&
+                t.effectUntil<=
+                performance.now()
+            ){
+
+                t.activeEffect=
+                    null;
+
+            }
+
+        }
+    );
+
+
+    if(
+        timestamp-
+        lastTowerInfoRefresh>=150
+    ){
+
+        renderPlacedTowers();
+
+        lastTowerInfoRefresh=
+            timestamp;
+
+    }
+
+
+    /*
+        SPAWN
+    */
+
+    if(
+        waveRunning
+    ){
+
+        spawnTimer+=
+            delta;
+
+
+        if(
+            enemiesToSpawn>0 &&
+            spawnTimer>=650
+        ){
+
+            spawnEnemy();
+
+            enemiesToSpawn--;
+
+            spawnTimer=
+                0;
+
+        }
+
+    }
+
+
+    /*
+        MOVIMENTO
+    */
+
+    enemies.forEach(
+        enemy=>{
+
+            if(
+                enemy.dead
+            ){
+
+                return;
+
+            }
+
+
+            if(
+                enemy.abilityCooldown>0
+            ){
+
+                enemy.abilityCooldown-=
+                    gameSpeed;
+
+            }
+
+
+            if(
+                enemy.abilityCooldown<=0 &&
+                enemy.ability
+            ){
+
+                const target=
+                    towers[
+                        Math.floor(
+                            Math.random()*
+                            towers.length
+                        )
+                    ];
+
+
+                if(
+                    target
+                ){
+
+                    if(
+                        enemy.ability==="freeze"
+                    ){
+
+                        target.frozenUntil=
+                            performance.now()+
+                            2500/gameSpeed;
+
+
+                        target.activeEffect=
+                            "freeze";
+
+
+                        target.effectUntil=
+                            performance.now()+
+                            2500/gameSpeed;
+
+
+                        showToast(
+                            "❄️ "+
+                            enemy.typeName+
+                            " congelou uma torre por 2,5s!"
+                        );
+
+                    }
+
+
+                    if(
+                        enemy.ability==="slow"
+                    ){
+
+                        target.slowUntil=
+                            performance.now()+
+                            4500/gameSpeed;
+
+
+                        target.activeEffect=
+                            "slow";
+
+
+                        target.effectUntil=
+                            performance.now()+
+                            4500/gameSpeed;
+
+
+                        showToast(
+                            "🌀 "+
+                            enemy.typeName+
+                            " reduziu a velocidade de uma torre!"
+                        );
+
+                    }
+
+
+                    if(
+                        enemy.ability==="weaken"
+                    ){
+
+                        target.enemyWeakenUntil=
+                            performance.now()+
+                            5000/gameSpeed;
+
+
+                        target.activeEffect=
+                            "weaken";
+
+
+                        target.effectUntil=
+                            performance.now()+
+                            5000/gameSpeed;
+
+
+                        showToast(
+                            "💥 "+
+                            enemy.typeName+
+                            " enfraqueceu uma torre por 5s!"
+                        );
+
+                    }
+
+                }
+
+
+                enemy.abilityCooldown=
+                    240+
+                    Math.random()*240;
+
+            }
+
+
+            moveEnemy(
+                enemy
+            );
+
+        }
+    );
+
+
+    /*
+        ATAQUE
+    */
+
+    towersAttack();
+
+
+    /*
+        MORTES
+    */
+
+    enemies.forEach(
+        enemy=>{
+
+            if(
+                enemy.hp<=0 &&
+                !enemy.dead
+            ){
+
+                enemy.dead=
+                    true;
+
+
+                rewardEnemy(
+                    enemy
+                );
+
+            }
+
+        }
+    );
+
+
+    enemies=
+        enemies.filter(
+            enemy=>
+                !enemy.dead
+        );
+
+
+    /*
+        WAVE CONCLUÍDA
+    */
+
+    if(
+        waveRunning &&
+        enemiesToSpawn===0 &&
+        enemies.length===0
+    ){
+
+        waveRunning=
+            false;
+
+
+        startButton.disabled=
+            false;
+
+
+        finishWave();
+
+    }
+
+
+    /*
+        DESENHO
+    */
+
+    drawBackground();
+
+    drawPath();
+
+    drawTowers();
+
+    drawEnemies();
+
+
+    requestAnimationFrame(
+        gameLoop
+    );
+
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function showToast(message){
+
+    const toast=
+        document.getElementById(
+            "toast"
+        );
+
+
+    toast.textContent=
+        message;
+
+
+    toast.classList.add(
+        "show"
+    );
+
+
+    setTimeout(
+        ()=>{
+
+            toast.classList.remove(
+                "show"
+            );
+
+        },
+        2600
+    );
+
+}
+
+
+/* =========================================================
+   INICIAR
+========================================================= */
+
+renderInventory();
+
+updateUI();
+
+requestAnimationFrame(
+    gameLoop
+);
+
+
+/* =========================================================
+   GUIA DE SUPORTES
+========================================================= */
+
+function openSupportGuide(){
+
+    const guide=
+        document.getElementById(
+            "supportGuide"
+        );
+
+
+    if(
+        guide
+    ){
+
+        guide.classList.add(
+            "open"
+        );
+
+    }
+
+}
+
+
+function closeSupportGuide(event){
+
+    const guide=
+        document.getElementById(
+            "supportGuide"
+        );
+
+
+    if(
+        !guide
+    ){
+
+        return;
+
+    }
+
+
+    if(
+        !event ||
+        event.target===guide ||
+        event.currentTarget===guide ||
+        event.target.closest(
+            ".support-guide-close"
+        )
+    ){
+
+        guide.classList.remove(
+            "open"
+        );
+
+    }
+
+}
+
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key==="Escape"
+        ){
+
+            closeSupportGuide();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+
+</html>

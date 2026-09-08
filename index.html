@@ -2003,6 +2003,10 @@ id="autoProgress">
 🎁 BÔNUS DIÁRIO
 </button>
 
+<a href="tower-defense.html" class="link-button">
+    🗼 TOWER DEFENSE
+</a>
+
 </div>
 
 </section>
@@ -2599,12 +2603,12 @@ image:"images/dada-silva.jpg"
 
 const newGenPlayers=[
 
-{id:"loki-newgen",name:"Julian Loki",rarity:"newgen",image:"images/loki-newgen.jpg"},
+{id:"loki-newgen",name:"Julian Loki",rarity:"newgen",image:"images/loki.jpg"},
 {id:"sae",name:"Sae Itoshi",rarity:"newgen",image:"images/sae.jpg"},
 {id:"bunny",name:"Bunny",rarity:"newgen",image:"images/bunny.jpg"},
-{id:"kaiser-newgen",name:"Michael Kaiser",rarity:"newgen",image:"images/kaiser-newgen.jpg"},
+{id:"kaiser-newgen",name:"Michael Kaiser",rarity:"newgen",image:"images/kaiser.jpg"},
 {id:"teddy",name:"Teddy",rarity:"newgen",image:"images/teddy.jpg"},
-{id:"lorenzo-newgen",name:"Don Lorenzo",rarity:"newgen",image:"images/lorenzo-newgen.jpg"},
+{id:"lorenzo-newgen",name:"Don Lorenzo",rarity:"newgen",image:"images/lorenzo.jpg"},
 {id:"hugo",name:"Hugo",rarity:"newgen",image:"images/hugo.jpg"}
 
 ];
@@ -3041,7 +3045,7 @@ mestres:1
 },
 
 elite:{
-cost:200,
+cost:500,
 chances:{
 common:15,
 rare:38,
@@ -3052,7 +3056,7 @@ mestres:2
 },
 
 ego:{
-cost:500,
+cost:1500,
 chances:{
 common:5,
 rare:20,
@@ -3187,7 +3191,7 @@ const amount=
 Math.max(
 1,
 Math.min(
-10000,
+100,
 parseInt(
 document.getElementById(
 "autoPackAmount"
@@ -3303,7 +3307,7 @@ autoPackCurrent++;
 
 const progress=
 (autoPackCurrent/
-autoPackTotal)*1000000000;
+autoPackTotal)*100;
 
 document.getElementById(
 "autoProgress"
